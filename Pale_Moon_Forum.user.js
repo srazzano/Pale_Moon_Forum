@@ -6,9 +6,7 @@
 // @description   Pale Moon Forum Tweaks
 // @include       https://forum.palemoon.org*
 // @author        Sonny Razzano
-// @license       MIT
-// @icon          https://dl.dropboxusercontent.com/u/77691265/pm.png
-// @dropbox       https://dl.dropboxusercontent.com/u/77691265/Pale_Moon_Forum.user.js
+// @icon          https://raw.githubusercontent.com/srazzano/Images/master/pmforum.png
 // @grant         none
 // @run-at        document-end
 // ==/UserScript==
@@ -116,18 +114,19 @@
     #page-header {background: linear-gradient(#61B0FC, #314984) !important; border: 1px solid #314984 !important; border-radius: 12px !important; height: 86px !important; left: 8px !important; position: fixed; top: 0; z-index: 2}\
     #page-body {margin-top: 81px !important}\
     .headerbar {border-radius: 12px 12px 0 0 !important; padding: 0 0 8px 0 !important}\
-    .headerbar, .forabg {background: linear-gradient(#61B0FC, #314984) !important}\
+    .headerbar {background: transparent !important}\
+    .forabg {background: linear-gradient(#61B0FC, #314984) !important}\
     .imageset.site_logo {padding: 70px 0 0 70px !important}\
     .logo {margin: 9px !important; padding: 0 !important}\
-    .headerbar h1 {margin: 0px 0 0 0 !important}\
+    .headerbar h1 {margin: 6px 0 0 0 !important}\
     .navbar {padding: 0 8px !important}\
     .navbar ul.linklist {padding: 0 !important}\
     ul.navlinks {border: none !important}\
-    .search-header {margin-top: 26px !important;}\
+    .search-header {margin-top: 30px !important;}\
     #nav-main {position: absolute !important; right: 12px !important; top: 0px !important}\
     #nav-main a, #nav-main span, #nav-breadcrumbs a {color: #FFF !important}\
     #nav-main .dropdown a, #notification_list li {color: #000 !important; text-shadow: none !important}\
-    #nav-breadcrumbs {height: 0px !important; margin: 18px 16px 0px 0 !important; padding: 0 !important}\
+    #nav-breadcrumbs {height: 0px !important; margin: 12px 16px 0px 0 !important; padding: 0 !important}\
     #nav-breadcrumbs span {font-size: 110% !important}\
     .icon-boardrules {margin-right: 50px !important}\
     #site-description {height: 0px !important; margin: 0 !important; padding: 0 !important; text-shadow: 1px 1px 2px #000 !important; width: 100% !important}\
