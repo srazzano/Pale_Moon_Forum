@@ -165,12 +165,11 @@
     #page-body > P:nth-child(3)  {left: 387px !important}\
   ');
  
-  var linksSeparator = '\u2022',
-      timeSeparator = '\u2022',
+  var bullet = '\u2022',
       linksSeparatorStyle = 'color: white; margin: 0 6px;',
       link1Text = 'Pale Moon add-ons site',
       linkUrl = 'https://addons.palemoon.org/extensions/',
-      label1Text = ' (or in a ',
+      label1Text = ' (in a ',
       link2Text = 'new tab',
       label2Text = ')',
       linkStyle = 'color: yellow;',
@@ -178,12 +177,12 @@
       openBtnText = 'Open All Boards',
       closeBtnText = 'Close All Boards',
       ActionBar = $('.action-bar', $('#page-body'), 1),
-      Separator = $c('span', {id: 'aSep', textContent: linksSeparator, style: linksSeparatorStyle}),
+      Separator = $c('span', {id: 'aSep', textContent: bullet, style: linksSeparatorStyle}),
       Link1 = $c('a', {id: 'aLink1', href: linkUrl, textContent: link1Text, style: linkStyle}),
       Label1 = $n('text', {textContent: label1Text, style: labelStyle}),
       Link2 = $c('a', {id: 'aLink2', textContent: link2Text, style: linkStyle}, [{type: 'click', fn: function() {window.open(linkUrl, '_blank')}}]);
       Label2 = $n('text', {textContent: label2Text, style: labelStyle}),
-      Bullet = $c('span', {id: 'aBull', textContent: timeSeparator}),
+      Bullet = $c('span', {id: 'aBull', textContent: bullet}),
       PageHeader = $q('#page-header'),
       SiteDescription = $q('#site-description'),
       SiteDescriptionP = $q('#site-description > p'),
@@ -205,7 +204,7 @@
   }, 20);
    
   SiteDescription.appendChild(NavMain);
-  SiteDescriptionP.innerHTML = SiteDescriptionP.innerHTML.replace('Discussion forum for the Pale Moon web browser', '');
+  SiteDescriptionP.innerHTML = SiteDescriptionP.innerHTML.replace('Discussion forum for the Pale Moon web browser', '').replace(/\(or\s+in/, '(in');
   SiteDescriptionP.appendChild(Link1);
   SiteDescriptionP.appendChild(Label1);
   SiteDescriptionP.appendChild(Link2);
