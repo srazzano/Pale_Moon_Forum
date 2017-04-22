@@ -124,7 +124,7 @@
     .navbar ul.linklist {padding: 0 !important}\
     ul.navlinks {border: none !important}\
     .search-header {margin-top: 30px !important;}\
-    .search-box a.button {padding: 3px 4px 1px 2px !important;}\
+    .search-box button.search-icon, .search-box a.button {padding: 3px 4px 1px 2px !important;}\
     #nav-main {position: absolute !important; right: 12px !important; top: 0px !important}\
     #nav-main a, #nav-main span, #nav-breadcrumbs a {color: #FFF !important}\
     #nav-main .dropdown a, #notification_list li {color: #000 !important; text-shadow: none !important}\
