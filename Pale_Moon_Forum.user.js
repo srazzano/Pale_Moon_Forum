@@ -111,8 +111,8 @@
   addStyle('\
     html {height: 100% !important}\
     #wrap {background: none !important; border: none !important; box-shadow: none !important; padding: 0 4px 4px 4px !important}\
-    a {border: 1px dotted transparent !important; outline: none !important;}\
     #page-header {background: linear-gradient(#61B0FC, #314984) !important; border: 1px solid #314984 !important; border-radius: 12px !important; height: 86px !important; left: 8px !important; position: fixed; top: 0; z-index: 2}\
+    a {border: 1px dotted transparent !important; outline: none !important;}\
     #page-body {margin-top: 81px !important}\
     .headerbar {border-radius: 12px 12px 0 0 !important; padding: 0 0 8px 0 !important}\
     .headerbar {background: transparent !important}\
@@ -205,7 +205,7 @@
   }, 20);
    
   SiteDescription.appendChild(NavMain);
-  SiteDescriptionP.innerHTML = SiteDescriptionP.innerHTML.replace('browser', 'browser.').replace('Go to the', '\u2003\Go to the:');
+  SiteDescriptionP.innerHTML = SiteDescriptionP.innerHTML.replace('Discussion forum for the Pale Moon web browser', '');
   SiteDescriptionP.appendChild(Link1);
   SiteDescriptionP.appendChild(Label1);
   SiteDescriptionP.appendChild(Link2);
