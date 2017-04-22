@@ -111,6 +111,7 @@
   addStyle('\
     html {height: 100% !important}\
     #wrap {background: none !important; border: none !important; box-shadow: none !important; padding: 0 4px 4px 4px !important}\
+    a {border: 1px dotted transparent !important; outline: none !important;}\
     #page-header {background: linear-gradient(#61B0FC, #314984) !important; border: 1px solid #314984 !important; border-radius: 12px !important; height: 86px !important; left: 8px !important; position: fixed; top: 0; z-index: 2}\
     #page-body {margin-top: 81px !important}\
     .headerbar {border-radius: 12px 12px 0 0 !important; padding: 0 0 8px 0 !important}\
@@ -179,7 +180,7 @@
       Separator = $c('span', {id: 'aSep', textContent: linksSeparator, style: linksSeparatorStyle}),
       Link1 = $c('a', {id: 'aLink1', href: linkUrl, textContent: link1Text, style: linkStyle}),
       Label1 = $n('text', {textContent: label1Text, style: labelStyle}),
-      Link2 = $c('a', {id: 'aLink2', href: linkUrl, target: '_blank', textContent: link2Text, style: linkStyle}),
+      Link2 = $c('a', {id: 'aLink2', textContent: link2Text, style: linkStyle}, [{type: 'click', fn: function() {window.open(linkUrl, '_blank')}}]);
       Label2 = $n('text', {textContent: label2Text, style: labelStyle}),
       Bullet = $c('span', {id: 'aBull', textContent: timeSeparator}),
       PageHeader = $q('#page-header'),
