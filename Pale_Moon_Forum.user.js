@@ -143,9 +143,9 @@
     body.section-index #page-body > .responsive-center.time {margin: 7px 0 0 0 !important; cursor: default !important}\
     body.section-index #page-body > p:nth-child(2) {float: right !important}\
     body.section-index #aBull {margin: 0 8px !important}\
-    body.section-index .closeOpenBtn {background: linear-gradient(#61B0FC, #314984); border: 1px solid #314984; border-radius: 4px; box-shadow: 0 0 3px #FFF inset; color: #FFF; cursor: pointer; margin-right: 6px; padding: 2px 6px; text-shadow: 1px 1px 2px #000}\
-    body.section-index .closeOpenBtn:hover {background: linear-gradient(#314984, #61B0FC)}\
-    body.section-index .mark-read.rightside {-moz-appearance: toolbarbutton !important; float: none !important; margin: 0 0 0 1px !important; padding: 5px 6px !important; text-decoration: none !important}\
+    body.section-index .closeOpenBtn, body.section-index a.mark-read.rightside {-moz-appearance: none !important; background: linear-gradient(#61B0FC, #314984); border: 1px solid #314984; border-radius: 4px; box-shadow: 0 0 3px #FFF inset; color: #FFF; cursor: pointer; margin-right: 6px; padding: 2px 6px; text-shadow: 1px 1px 2px #000}\
+    body.section-index .closeOpenBtn:hover, body.section-index .mark-read.rightside:hover  {background: linear-gradient(#314984, #61B0FC)}\
+    body.section-index a.mark-read.rightside {float: none !important; font-size: 110% !important; margin: 0 !important; padding: 3px 6px 2px 6px !important; text-decoration: none !important}\
     body.section-index .forabg {box-shadow: 2px 2px 2px #333 !important; margin: 0 0 5px 0 !important; padding: 0 2px 4px 20px !important}\
     body.section-index .forabg[opened="false"] {padding-bottom: 0 !important}\
     body.section-index .boardCB {box-shadow: 0 0 4px #000 !important; left: -18px !important; position: relative !important; top: 1px !important}\
@@ -202,7 +202,7 @@
     var doc = document.body.clientWidth;
     PageHeader.style.width = doc - 18 + "px";
   }, 20);
-   
+  
   SiteDescription.appendChild(NavMain);
   SiteDescriptionP.innerHTML = SiteDescriptionP.innerHTML.replace('Discussion forum for the Pale Moon web browser', '').replace(/\(or\s+in/, '(in');
   SiteDescriptionP.appendChild(Link1);
@@ -268,4 +268,5 @@
       background: linear-gradient(#00CC00, #006300) !important\
     }\
   ');
+
 })();
