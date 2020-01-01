@@ -6,9 +6,11 @@
 // @description   Pale Moon Forum Tweaks
 // @include       https://forum.palemoon.org*
 // @author        Sonny Razzano
-// @icon          https://raw.githubusercontent.com/srazzano/Images/master/pmforum.png
+// @icon          https://raw.githubusercontent.com/srazzano/Images/master/pmforum9.png
+// @homepageURL   https://github.com/srazzano/Pale_Moon_Forum
+// @downloadURL   https://raw.githubusercontent.com/srazzano/Pale_Moon_Forum/master/Pale_Moon_Forum.user.js
+// @updateURL     https://raw.githubusercontent.com/srazzano/Pale_Moon_Forum/master/Pale_Moon_Forum.user.js
 // @grant         none
-// @run-at        document-end
 // ==/UserScript==
  
 (function() {
@@ -92,7 +94,7 @@
       var blk = item[i],
           elm = blk.childNodes[2].lastElementChild, 
           val = 'Board' + (i+1),
-          sty = bool !== false ? 'block' : 'none';
+          sty = bool ? 'block' : 'none';
       item[i].setAttribute('opened', bool);
       elm.style.display = sty;
       $('#' + val).checked = bool;
@@ -101,88 +103,103 @@
  
   function CloseOpen(e) {
     var elm = e.parentNode,
-        bol = getValue(e.id) !== false ? false : true,
-        sty = bol !== false ? 'block' : 'none';
-    elm.setAttribute('opened', bol);
+        bool = getValue(e.id) !== false ? false : true,
+        sty = bool ? 'block' : 'none';
+    elm.setAttribute('opened', bool);
     elm.childNodes[2].lastElementChild.style.display = sty;
-    setValue(e.id, bol); 
+    setValue(e.id, bool); 
   }
- 
+  
+  var fontSize = "105%";
   addStyle('\
-    html {height: 100% !important}\
-    #wrap {background: none !important; border: none !important; box-shadow: none !important; padding: 0 4px 4px 4px !important}\
-    #page-header {background: linear-gradient(#61B0FC, #314984) !important; border: 1px solid #314984 !important; border-radius: 12px !important; height: 86px !important; left: 8px !important; position: fixed; top: 0; z-index: 2147483647;}\
+    html {height: 100% !important;}\
+    #wrap {background: none !important; border: none !important; box-shadow: none !important; min-width: 99.5% !important; margin: 0 0 0 8px !important; padding: 0 !important;}\
+    #page-header {background: linear-gradient(#5BA4ED, #314A85) !important; border: 1px solid #314A85 !important; border-radius: 12px !important; height: 86px !important; left: 8px !important; position: fixed !important; top: 0 !important; width: 99.5% !important; z-index: 2147483647 !important;}\
+    #page-body {margin-top: 79px !important}\
     a {border: 1px dotted transparent !important; outline: none !important;}\
-    #page-body {margin-top: 81px !important}\
-    .headerbar {border-radius: 12px 12px 0 0 !important; padding: 0 0 8px 0 !important}\
-    .headerbar {background: transparent !important}\
-    .forabg {background: linear-gradient(#61B0FC, #314984) !important}\
-    .imageset.site_logo {padding: 70px 0 0 70px !important}\
-    .logo {margin: 9px !important; padding: 0 !important}\
+    #aLink0, #aLink2 {cursor: pointer !important;}\
+    .headerbar {background: transparent !important; border-radius: 12px 12px 0 0 !important; padding: 0 0 8px 0 !important}\
+    .site_logo {background: url(https://raw.githubusercontent.com/srazzano/Images/master/pmforum9.png) !important; height: 64px !important; width: 64px !important;}\
     .headerbar h1 {margin: 6px 0 0 0 !important}\
     .navbar {padding: 0 8px !important}\
     .navbar ul.linklist {padding: 0 !important}\
     ul.navlinks {border: none !important}\
     .search-header {margin-top: 30px !important;}\
     .search-box button.search-icon, .search-box a.button {padding: 3px 4px 1px 2px !important;}\
-    #nav-main {position: absolute !important; right: 12px !important; top: 0px !important}\
-    #nav-main a, #nav-main span, #nav-breadcrumbs a {color: #FFF !important}\
-    #nav-main .dropdown a, #notification_list li {color: #000 !important; text-shadow: none !important}\
-    #nav-breadcrumbs {height: 0px !important; margin: 12px 16px 0px 0 !important; padding: 0 !important}\
-    #nav-breadcrumbs span {font-size: 110% !important}\
-    .icon-boardrules {margin-right: 50px !important}\
-    #site-description {height: 0px !important; margin: 0 !important; padding: 0 !important; text-shadow: 1px 1px 2px #000 !important; width: 100% !important}\
-    #site-description > p {margin: 0 !important; padding: 0 !important}\
-    #site-description > p:nth-child(3) {margin: 0 !important; padding: 0 !important}\
-    #page-header {height: 86px !important; margin: 0 !important; padding: 0 !important}\
-    #page-header, .topics, .posts, .views {cursor: default !important}\
-    #site-description br, #page-body h2, .rules, .stat-block, .copyright {display: none !important}\
-    #page-body p {position: relative; top: -3px}\
-    .action-bar.top {margin: -16px 0 4px 0 !important}\
-    body.section-index .action-bar {margin: -2px 0 2px 0 !important}\
-    body.section-index #page-body > .responsive-center.time {margin: 7px 0 0 0 !important; cursor: default !important}\
-    body.section-index #page-body > p:nth-child(2) {float: right !important}\
-    body.section-index #aBull {margin: 0 8px !important}\
-    body.section-index .closeOpenBtn, body.section-index a.mark-read.rightside {-moz-appearance: none !important; background: linear-gradient(#61B0FC, #314984); border: 1px solid #314984; border-radius: 4px; box-shadow: 0 0 3px #FFF inset; color: #FFF; cursor: pointer; margin-right: 6px; padding: 2px 6px; text-shadow: 1px 1px 2px #000}\
-    body.section-index .closeOpenBtn:hover, body.section-index .mark-read.rightside:hover  {background: linear-gradient(#314984, #61B0FC)}\
-    body.section-index a.mark-read.rightside {float: none !important; font-size: 110% !important; margin: 0 !important; padding: 3px 6px 2px 6px !important; text-decoration: none !important}\
-    body.section-index .forabg {box-shadow: 2px 2px 2px #333 !important; margin: 0 0 5px 0 !important; padding: 0 2px 4px 20px !important}\
-    body.section-index .forabg[opened="false"] {padding-bottom: 0 !important}\
-    body.section-index .boardCB {box-shadow: 0 0 4px #000 !important; left: -18px !important; position: relative !important; top: 1px !important}\
-    body.section-index #Board1 + div {cursor: default !important}\
-    .forabg .header *, .forumbg .header * {text-shadow: 1px 1px 2px #000}\
-    body.section-index .forabg[opened="true"] .header *:not(dd):not(span), .forumbg .header dt .list-inner {text-shadow: 1px 1px 2px #000, -1px 1px 2px #000, 1px -1px 2px #000, -1px -1px 2px #000 !important}\
-    body.section-index .forabg .header a:hover {color: #FF0 !important}\
-    body.section-index .forabg[opened="true"] .header a, .forumbg .header dt .list-inner {color: #FF0 !important; font-size: 110% !important; font-weight: bold !important}\
-    body.section-index #page-body > .forabg[opened="true"] > DIV > UL:first-child > LI > DL > DT > DIV {color: #FF0 !important; font-size: 110% !important; font-weight: bold !important}\
-    body.section-index .forabg .inner {margin: -18px 0 0 4px !important}\
-    body.section-index ul.topiclist.forums {margin: 0 4px 0 -18px !important; padding: 0 !important}\
-    body.section-index .header .list-inner > a {display: block !important}\
-    body.section-index .header dd {cursor: default !important}\
-    body.section-index #nav-footer > li:nth-child(3) {cursor: default !important}\
-    #page-body > P:nth-child(3), #page-body > DIV:nth-child(2) > P {margin: 0 !important; position: relative !important; top: 3px !important; width: 30% !important}\
-    #page-body > DIV:nth-child(2) > P {left: 325px !important}\
-    #page-body > P:nth-child(3)  {left: 387px !important}\
+    #nav-main {position: absolute !important; right: 12px !important; top: 0 !important;}\
+    #nav-main a, #nav-main span{color: #FFF !important; font-weight: bold !important; text-shadow: 1px 1px 2px #000 !important;}\
+    #nav-main .dropdown a, #notification_list li {color: #000 !important; text-shadow: none !important;}\
+    #nav-breadcrumbs a {color: #FFF !important;}\
+    #nav-breadcrumbs {height: 0 !important; margin: 6px 0 0 0 !important; padding: 0 !important;}\
+    #nav-breadcrumbs li {margin: 2px 8px 0 0 !important;}\
+    #nav-breadcrumbs span {font-size: ' + fontSize + ' !important;}\
+    .icon-boardrules {margin-right: 50px !important;}\
+    #site-description {height: 0 !important; margin: 0 !important; padding: 0 !important; text-shadow: 1px 1px 2px #000 !important; width: 100% !important;}\
+    #site-description > p {margin: 0 !important; padding: 0 !important;}\
+    #site-description > p:nth-child(3) {margin: 0 !important; padding: 0 !important;}\
+    #page-header, .topics, .posts, .views {cursor: default !important;}\
+    #site-description br, #page-body h2, .rules, .stat-block, .copyright {display: none !important;}\
+    .action-bar {height: 30px !important; margin: 0 0 5px 0 !important;}\
+    #page-body > DIV:nth-child(2) {display: none !important;}\
+    #page-body p {color: #000 !important; position: relative !important; top: -3px !important;}\
+    #page-body > .responsive-center.time {margin: 7px 0 0 0 !important; cursor: default !important;}\
+    #page-body > p:nth-child(2) {float: right !important;}\
+    body.section-viewtopic #page-body > P {display: none !important;}\
+    #aBull {margin: 0 8px !important;}\
+    .closeOpenBtn {-moz-appearance: none !important; background: linear-gradient(#5BA4ED, #314A85) !important; border: 1px solid #314A85 !important; border-radius: 4px !important; box-shadow: inset 0 0 1px #FFF !important; color: #FFF !important; cursor: pointer !important; font-size: ' + fontSize + ' !important; height: 30px !important; margin: 0 6px 0 0 !important; padding: 0 6px !important; text-shadow: 1px 1px 2px #000 !important;}\
+    .closeOpenBtn:hover {background: linear-gradient(#314A85, #365491) !important;}\
+    .mark-read.rightside {background: linear-gradient(#5BA4ED, #314A85) !important; border: 1px solid #314A85 !important; border-radius: 4px !important; box-shadow: inset 0 0 1px #FFF !important; color: #FFF !important; float: none !important; font-size: ' + fontSize + ' !important; height: 22px !important; margin: 0 !important; padding: 6px 6px 0px 6px !important; position: relative !important; text-decoration: none !important; text-shadow: 1px 1px 2px #000 !important; top: 0 !important; vertical-align: top !important;}\
+    .mark-read.rightside:hover {background: linear-gradient(#314A85, #365491) !important;}\
+    .forabg, .forumbg {background: linear-gradient(#314A85, #365491) !important; border: 1px solid #314A85 !important; border-radius: 12px !important; box-shadow: inset 0 0 1px #FFF !important; margin: 0 0 5px 0 !important; padding: 4px !important;}\
+    .forabg:hover .header a, .forumbg:hover .header a {color: #FF0 !important;}\
+    .forabg[opened="false"], .forumbg[opened="false"] {background: linear-gradient(#5BA4ED, #314A85) !important; border-radius: 4px !important; height: 16px !important; width: 355px !important;}\
+    .forabg[opened="false"] .row-item dd, .forumbg[opened="false"] .row-item dd {display: none !important;}\
+    .forabg[opened="false"]:hover, .forumbg[opened="false"]:hover {background: linear-gradient(#314A85, #365491) !important;}\
+    .boardCB {float: left !important; margin: 1px 2px 0 0 !important; position: relative !important; width: 16px !important; z-index: 2 !important;}\
+    .header, .header a {color: #FFF !important; display: block !important; font-size: ' + fontSize + ' !important; font-weight: bold !important; position: relative !important; text-shadow: 1px 1px 2px #000 !important; top: -1px !important;}\
+    body.section-index #page-body > DIV:nth-child(4):hover > DIV > UL:first-child > LI > DL > DT > DIV {color: #FF0 !important;}\
+    body.section-viewforum #page-body > DIV:nth-child(4):hover > DIV > UL:first-child > LI > DL > DT > DIV {color: #FF0 !important;}\
+    body.section-viewforum #page-body > DIV:nth-child(5):hover > DIV > UL:first-child > LI > DL > DT > DIV {color: #FF0 !important;}\
+    body.section-viewforum #page-body > DIV:nth-child(6):hover > DIV > UL:first-child > LI > DL > DT > DIV {color: #FF0 !important;}\
+    .list-inner {width: 100% !important;}\
+    #nav-footer {background: linear-gradient(#999, #222) !important; color: #FFF !important; border: 1px solid #000 !important; border-radius: 4px !important; margin-left: -8px !important; padding: 0 4px 2px 4px !important; width: 671px !important;}\
+    #nav-footer:hover {background: #222 !important;}\
+    #nav-footer a, #nav-footer span, #nav-footer i {color: #FFF !important;}\
+    body.section-index #nav-footer > LI:nth-child(3) {margin-top: 1px !important;}\
+    body.section-viewforum #nav-footer > LI:nth-child(4) {margin-top: 1px !important;}\
+    body.section-posting #nav-footer > LI:nth-child(3) {margin-top: 1px !important;}\
+    .navbar {background: transparent !important;}\
+    .row:hover {background-color: #F6F4D0 !important;}\
+    .rightside.responsive-search, .icon.fa-file-o.fa-fw.icon-red {color: #FFF !important;}\
+    .button.button-search icon.fa-search.fa-fw, .button.button-search icon.fa-cog.fa-fw {color: #606060 !important;}\
+    #username_logged_in .username {color: #FFF !important; text-shadow: 1px 1px 2px #000 !important;}\
+    #username_logged_in a span {color: #000 !important; text-shadow: none !important;}\
   ');
- 
+
   var bullet = '\u2022',
       linksSeparatorStyle = 'color: white; margin: 0 6px;',
-      link1Text = 'Pale Moon add-ons site',
-      linkUrl = 'https://addons.palemoon.org/extensions/',
-      label1Text = ' (in a ',
-      link2Text = 'new tab',
-      label2Text = ')',
+      textPaleMoon = 'Pale Moon ',
+      linkAddonsSite = 'add-ons site',
+      Url1  = 'https://www.palemoon.org/',
+      Url2 = 'https://addons.palemoon.org/extensions/',
+      textInA = ' (in a ',
+      linkNewTab = 'new tab',
+      textBracket = ')',
       linkStyle = 'color: yellow;',
       labelStyle = 'color: white;',
       openBtnText = 'Open All Boards',
       closeBtnText = 'Close All Boards',
       ActionBar = $('.action-bar', $('#page-body'), 1),
+      Link0 = $c('a', {id: 'aLink0', textContent: linkNewTab, style: linkStyle}, [{type: 'click', fn: function() {window.open(Url1, '_blank')}}]),
+      Label0 = $n('text', {textContent: textBracket, style: labelStyle}),
       Separator = $c('span', {id: 'aSep', textContent: bullet, style: linksSeparatorStyle}),
-      Link1 = $c('a', {id: 'aLink1', href: linkUrl, textContent: link1Text, style: linkStyle}),
-      Label1 = $n('text', {textContent: label1Text, style: labelStyle}),
-      Link2 = $c('a', {id: 'aLink2', textContent: link2Text, style: linkStyle}, [{type: 'click', fn: function() {window.open(linkUrl, '_blank')}}]);
-      Label2 = $n('text', {textContent: label2Text, style: labelStyle}),
+      Label1 = $n('text', {textContent: textPaleMoon}),
+      Link1 = $c('a', {id: 'aLink1', href: Url2, textContent: linkAddonsSite, style: linkStyle}),
+      Label2 = $n('text', {textContent: textInA, style: labelStyle}),
+      Link2 = $c('a', {id: 'aLink2', textContent: linkNewTab, style: linkStyle}, [{type: 'click', fn: function() {window.open(Url2, '_blank')}}]),
+      Label3 = $n('text', {textContent: textBracket, style: labelStyle}),
       Bullet = $c('span', {id: 'aBull', textContent: bullet}),
+      PageWrap = $q('#wrap'),
       PageHeader = $q('#page-header'),
       SiteDescription = $q('#site-description'),
       SiteDescriptionP = $q('#site-description > p'),
@@ -197,21 +214,30 @@
       pmtopic = url.match('https://forum.palemoon.org/viewtopic'),
       pmsearch = url.match('https://forum.palemoon.org/search'),
       pmucp = url.match('https://forum.palemoon.org/ucp');
- 
-  setTimeout(function() {
-    var doc = document.body.clientWidth;
-    PageHeader.style.width = doc - 18 + "px";
-  }, 20);
   
+  var yyy = $q('A[href="//www.palemoon.org/"][target="_blank"][style="color:#ffff80;"]');
+  yyy.style.display = 'none';
+  var zzz = $q('A[href="//www.palemoon.org/"][target="_blank"][style="color: rgb(255, 255, 128); display: none;"]');
+  zzz.nextSibling.nodeValue = '';
+  
+  setTimeout(function() {
+    //var doc = document.firstElementChild.clientWidth;
+    //PageWrap.style.minWidth = doc - 9 + "px";
+    //PageHeader.style.minWidth = doc - 9 + "px";
+  }, 200);
+
   SiteDescription.appendChild(NavMain);
   SiteDescriptionP.innerHTML = SiteDescriptionP.innerHTML.replace('Discussion forum for the Pale Moon web browser', '').replace(/\(or\s+in/, '(in');
-  SiteDescriptionP.appendChild(Link1);
+  SiteDescriptionP.appendChild(Link0);
+  SiteDescriptionP.appendChild(Label0);
   SiteDescriptionP.appendChild(Label1);
-  SiteDescriptionP.appendChild(Link2);
+  SiteDescriptionP.appendChild(Link1);
   SiteDescriptionP.appendChild(Label2);
-  SiteDescriptionP.insertBefore(Separator, Link1);
+  SiteDescriptionP.appendChild(Link2);
+  SiteDescriptionP.appendChild(Label3);
+  SiteDescriptionP.insertBefore(Separator, Label1);
   SiteDescriptionP.appendChild(NavBreadcrumbs);
-  DateTime.appendChild(Bullet);
+  try {DateTime.appendChild(Bullet)} catch(ex) {};
    
   if (!getValue('Board1')) setValue('Board1', false);
   if (!getValue('Board2')) setValue('Board2', false);
@@ -221,7 +247,9 @@
   if (!getValue('Board6')) setValue('Board6', false);
   if (!getValue('Board7')) setValue('Board7', false);
   if (!getValue('Board8')) setValue('Board8', false);
- 
+  if (!getValue('Board9')) setValue('Board9', false);
+  if (!getValue('Board10')) setValue('Board10', false);
+
   if (pmindex) {
     var bClose = $c('button', {id: 'close-btn', className: 'closeOpenBtn', textContent: closeBtnText}, [{type: 'click', fn: function() {CloseOpenAll(false)}}]),
         bOpen = $c('button', {id: 'open-btn', className: 'closeOpenBtn', textContent: openBtnText}, [{type: 'click', fn: function() {CloseOpenAll(true)}}]);
@@ -230,15 +258,27 @@
     for (var i = 0, item = $('.forabg'); i < item.length; i++) {
       var ckBox = $c('input', {id: 'Board'+(i+1), className: 'boardCB', type: 'checkbox'}, [{type: 'click', fn: function() {CloseOpen(this)}}]),
           board = getValue('Board' + (i+1)),
-          array = board !== false ? 'block' : 'none';
+          sty = board ? 'block' : 'none';
       item[i].insertBefore(ckBox, item[i].firstChild);
       $('#Board' + (i+1)).checked = board;
       item[i].setAttribute('opened', board);
-      item[i].childNodes[2].lastElementChild.style.display = array;
+      item[i].childNodes[2].lastElementChild.style.display = sty;
   } }
- 
-  if (IconNotification.textContent != "0") addStyle('\
-    #notification_list_button {\
+  
+  if (pmforum) {
+    var ann = $q(".forumbg.announcement"),
+        ckBox = $c('input', {id: 'Board10', className: 'boardCB', type: 'checkbox'}, [{type: 'click', fn: function() {CloseOpen(this)}}]),
+        board = getValue('Board10'),
+        sty = board ? 'block' : 'none';
+    ann.insertBefore(ckBox, ann.firstChild);
+    $('#Board10').checked = board;
+    ann.setAttribute('opened', board);
+    ann.childNodes[2].lastElementChild.style.display = sty;
+  }
+
+  try {
+    if (IconNotification.textContent != "0") addStyle('\
+      #notification_list_button {\
       -moz-appearance: none !important;\
       background: linear-gradient(#314984, #61B0FC) !important;\
       border: 1px solid #314984 !important;\
@@ -247,12 +287,14 @@
       padding: 0 8px !important;\
       text-decoration: none !important;\
       text-shadow: 1px 1px 2px #000 !important\
-    }\
-    #notification_list_button:hover {\
-      background: linear-gradient(#61B0FC, #314984) !important\
-    }\
-  ');
+      }\
+      #notification_list_button:hover {\
+        background: linear-gradient(#61B0FC, #314984) !important\
+      }\
+    ');
+  } catch(ex) {}
  
+  try {
   if (IconPM.textContent != "0") addStyle('\
     .icon-pm > a {\
       -moz-appearance: none !important;\
@@ -268,5 +310,6 @@
       background: linear-gradient(#00CC00, #006300) !important\
     }\
   ');
+  } catch(ex) {}
 
 })();
