@@ -1,50 +1,48 @@
-
 // ==UserScript==
 // @name          Pale Moon Forum
+// @id            srazzano/Pale Moon Forum@greasespot.net
 // @version       1.0.1
 // @namespace     srazzano
-// @id            srazzano/Pale Moon Forum@greasespot.net
 // @description   Pale Moon Forum Tweaks
 // @include       https://forum.palemoon.org*
 // @author        Sonny Razzano
 // @icon          https://raw.githubusercontent.com/srazzano/Images/master/pmforum9.png
 // @homepageURL   https://github.com/srazzano/Pale_Moon_Forum
 // @downloadURL   https://raw.githubusercontent.com/srazzano/Pale_Moon_Forum/master/Pale_Moon_Forum.user.js
-// @updateURL     https://raw.githubusercontent.com/srazzano/Pale_Moon_Forum/master/Pale_Moon_Forum.user.js
+// @support       srazzano@gmail.com
 // @grant         GM_addStyle
+// @grant         GM_getValue
+// @grant         GM_setValue
 // ==/UserScript==
- 
-(function() {
-  init();
-  function init() {
-    const STORAGE_PREFIX = 'Pale_Moon_Forum-';
-    addStyle = function(css) {
-      var head = $('head')[0]; 
-      if (!head) return; 
-      var style = $c('style', {type: 'text/css', innerHTML: css}); 
-      head.appendChild(style);
-    }
-    setValue = function(name, value) {
-      switch (typeof(value)) {
-        case 'string': localStorage.setItem(STORAGE_PREFIX + name, 'S]' + value); break; 
-        case 'number': if (value.toString().indexOf('.') < 0) localStorage.setItem(STORAGE_PREFIX + name, 'N]' + value); break; 
-        case 'boolean': localStorage.setItem(STORAGE_PREFIX + name, 'B]' + value); break;
-    } }
-    getValue = function(name, defValue) {
-      var value = localStorage.getItem(STORAGE_PREFIX + name); 
-      if (value == null) return defValue;
-      else {
-        switch (value.substr(0, 2)) {
-          case 'S]': return value.substr(2); 
-          case 'N]': return parseInt(value.substr(2)); 
-          case 'B]': return value.substr(2) == 'true';
-        }
-      } return value;
-    }
-    deleteValue = function(name) {
-      localStorage.removeItem(STORAGE_PREFIX + name);
-  } }
- 
+
+(function () {
+
+  'use strict';
+
+  const cssRule = '/* AGENT_SHEET */ @-moz-document domain("forum.palemoon.org")',
+        bodyBG = '#E0E0E0',
+        fontSize = '110%',
+        headerBG = 'linear-gradient(#5BA4ED, #314A85)',
+        headerText = '#FFF',
+        boardBG = 'linear-gradient(#5BA4ED, #314A85)',
+        boardHoverBG = '#314A85',
+        textColor = '#FFF',
+        textHoverColor = '#FFF',
+        scrollbarSlider = '#314A85',
+        scrollbarThumb = 'linear-gradient(to right, #5BA4ED, #314A85)',
+        scrollbarThumbHover = 'linear-gradient(to right, #B2D2F3, #6181C5)',
+        bullet = '\u2022',
+        textPaleMoon = 'Pale Moon ',
+        linkAddonsSite = 'add-ons site',
+        Url1  = 'https://www.palemoon.org/',
+        Url2 = 'https://addons.palemoon.org/extensions/',
+        textInA = ' (in a ',
+        linkHomePage = 'home page',
+        linkNewTab = 'new tab',
+        textBracket = ')',
+        openBtnText = 'Open All Boards',
+        closeBtnText = 'Close All Boards';
+
   function $(q, root, single, context) {
     root = root || document;
     context = context || root;
@@ -63,11 +61,11 @@
     if (single) return root.getElementsByTagName(q)[0];
     return root.getElementsByTagName(q);
   }
- 
+
   function $c(type, props, evls) {
     var node = document.createElement(type);
     if (props && typeof props == 'object') {
-      for (prop in props) {
+      for (var prop in props) {
         if (typeof node[prop] == 'undefined') node.setAttribute(prop, props[prop]);
         else node[prop] = props[prop];
     } }
@@ -79,60 +77,47 @@
     } }
     return node;
   }
-   
+
   function $n(type, props) {
     var node = document.createTextNode(type);
-    if (props && typeof props == 'object') for (prop in props) node[prop] = props[prop];
+    if (props && typeof props == 'object') for (var prop in props) node[prop] = props[prop];
     return node;
   }
- 
+
   function $q(el) {
     return document.querySelector(el);
   }
- 
+
+  function CloseOpen(e) {
+    var elm = e.parentNode,
+        bool = GM_getValue(e.id) !== false ? false : true,
+        sty = bool ? 'block' : 'none';
+    elm.setAttribute('opened', bool);
+    elm.childNodes[2].lastElementChild.style.display = sty;
+    GM_setValue(e.id, bool); 
+  }
+
   function CloseOpenAll(bool) {
     for (var i = 0, item = $('.forabg'); i < item.length; i++) {
       var blk = item[i],
           elm = blk.childNodes[2].lastElementChild, 
           val = 'Board' + (i+1),
           sty = bool ? 'block' : 'none';
-      item[i].setAttribute('opened', bool);
+      blk.setAttribute('opened', bool);
       elm.style.display = sty;
       $('#' + val).checked = bool;
-      setValue(val, bool);
+      GM_setValue(val, bool);
   } }
- 
-  function CloseOpen(e) {
-    var elm = e.parentNode,
-        bool = getValue(e.id) !== false ? false : true,
-        sty = bool ? 'block' : 'none';
-    elm.setAttribute('opened', bool);
-    elm.childNodes[2].lastElementChild.style.display = sty;
-    setValue(e.id, bool); 
-  }
-  
-  var bullet = '\u2022',
-      linksSeparatorStyle = 'color: white; margin: 0 6px;',
-      textPaleMoon = 'Pale Moon ',
-      linkAddonsSite = 'add-ons site',
-      Url1  = 'https://www.palemoon.org/',
-      Url2 = 'https://addons.palemoon.org/extensions/',
-      textInA = ' (in a ',
-      linkNewTab = 'new tab',
-      textBracket = ')',
-      linkStyle = 'color: yellow;',
-      labelStyle = 'color: white;',
-      openBtnText = 'Open All Boards',
-      closeBtnText = 'Close All Boards',
-      ActionBar = $('.action-bar', $('#page-body'), 1),
-      Link0 = $c('a', {id: 'aLink0', textContent: linkNewTab, style: linkStyle}, [{type: 'click', fn: function() {window.open(Url1, '_blank')}}]),
-      Label0 = $n('text', {textContent: textBracket, style: labelStyle}),
-      Separator = $c('span', {id: 'aSep', textContent: bullet, style: linksSeparatorStyle}),
+
+  var ActionBar = $('.action-bar', $('#page-body'), 1),
+      Link0 = $c('a', {id: 'aLink0', textContent: linkNewTab.toUpperCase()}, [{type: 'click', fn: function() {window.open(Url1, '_blank')}}]),
+      Label0 = $n('text', {textContent: textBracket}),
+      Separator = $c('span', {id: 'aSep', textContent: bullet}),
       Label1 = $n('text', {textContent: textPaleMoon}),
-      Link1 = $c('a', {id: 'aLink1', href: Url2, textContent: linkAddonsSite, style: linkStyle}),
-      Label2 = $n('text', {textContent: textInA, style: labelStyle}),
-      Link2 = $c('a', {id: 'aLink2', textContent: linkNewTab, style: linkStyle}, [{type: 'click', fn: function() {window.open(Url2, '_blank')}}]),
-      Label3 = $n('text', {textContent: textBracket, style: labelStyle}),
+      Link1 = $c('a', {id: 'aLink1', href: Url2, textContent: linkAddonsSite.toUpperCase()}),
+      Label2 = $n('text', {textContent: textInA}),
+      Link2 = $c('a', {id: 'aLink2', textContent: linkNewTab.toUpperCase()}, [{type: 'click', fn: function() {window.open(Url2, '_blank')}}]),
+      Label3 = $n('text', {textContent: textBracket}),
       Bullet = $c('span', {id: 'aBull', textContent: bullet}),
       SiteDescription = $q('#site-description'),
       SiteDescriptionP = $q('#site-description > p'),
@@ -147,14 +132,13 @@
       pmtopic = url.match('https://forum.palemoon.org/viewtopic'),
       pmsearch = url.match('https://forum.palemoon.org/search'),
       pmucp = url.match('https://forum.palemoon.org/ucp');
-  
-  var yyy = $q('A[href="//www.palemoon.org/"][target="_blank"][style="color:#ffff80;"]');
-  yyy.style.display = 'none';
-  var zzz = $q('A[href="//www.palemoon.org/"][target="_blank"][style="color: rgb(255, 255, 128); display: none;"]');
-  zzz.nextSibling.nodeValue = '';
+
+  $q('A[href="//www.palemoon.org/"][target="_blank"][style="color:#ffff80;"]').style.display = 'none';
+  $q('A[href="//www.palemoon.org/"][style="color:#ffff80;"]').innerHTML = linkHomePage.toUpperCase();
+  $q('A[href="//www.palemoon.org/"][target="_blank"][style="color: rgb(255, 255, 128); display: none;"]').nextSibling.nodeValue = '';
 
   SiteDescription.appendChild(NavMain);
-  SiteDescriptionP.innerHTML = SiteDescriptionP.innerHTML.replace('Discussion forum for the Pale Moon web browser', '').replace(/\(or\s+in/, '(in');
+  SiteDescriptionP.innerHTML = SiteDescriptionP.innerHTML.replace('Visit the', '').replace('Discussion forum for the Pale Moon web browser', '').replace(/\(or\s+in/, '(in');
   SiteDescriptionP.appendChild(Link0);
   SiteDescriptionP.appendChild(Label0);
   SiteDescriptionP.appendChild(Label1);
@@ -164,18 +148,18 @@
   SiteDescriptionP.appendChild(Label3);
   SiteDescriptionP.insertBefore(Separator, Label1);
   SiteDescriptionP.appendChild(NavBreadcrumbs);
-  try {DateTime.appendChild(Bullet)} catch(ex) {};
-   
-  if (!getValue('Board1')) setValue('Board1', false);
-  if (!getValue('Board2')) setValue('Board2', false);
-  if (!getValue('Board3')) setValue('Board3', false);
-  if (!getValue('Board4')) setValue('Board4', false);
-  if (!getValue('Board5')) setValue('Board5', false);
-  if (!getValue('Board6')) setValue('Board6', false);
-  if (!getValue('Board7')) setValue('Board7', false);
-  if (!getValue('Board8')) setValue('Board8', false);
-  if (!getValue('Board9')) setValue('Board9', false);
-  if (!getValue('Board10')) setValue('Board10', false);
+  try {DateTime.appendChild(Bullet)} catch(ex) {}
+
+  if (!GM_getValue('Board1')) GM_setValue('Board1', false);
+  if (!GM_getValue('Board2')) GM_setValue('Board2', false);
+  if (!GM_getValue('Board3')) GM_setValue('Board3', false);
+  if (!GM_getValue('Board4')) GM_setValue('Board4', false);
+  if (!GM_getValue('Board5')) GM_setValue('Board5', false);
+  if (!GM_getValue('Board6')) GM_setValue('Board6', false);
+  if (!GM_getValue('Board7')) GM_setValue('Board7', false);
+  if (!GM_getValue('Board8')) GM_setValue('Board8', false);
+  if (!GM_getValue('Board9')) GM_setValue('Board9', false);
+  if (!GM_getValue('Board10')) GM_setValue('Board10', false);
 
   if (pmindex) {
     var bClose = $c('button', {id: 'close-btn', className: 'closeOpenBtn', textContent: closeBtnText}, [{type: 'click', fn: function() {CloseOpenAll(false)}}]),
@@ -184,18 +168,18 @@
     ActionBar.insertBefore(bOpen, ActionBar.firstElementChild);
     for (var i = 0, item = $('.forabg'); i < item.length; i++) {
       var ckBox = $c('input', {id: 'Board'+(i+1), className: 'boardCB', type: 'checkbox'}, [{type: 'click', fn: function() {CloseOpen(this)}}]),
-          board = getValue('Board' + (i+1)),
+          board = GM_getValue('Board' + (i+1)),
           sty = board ? 'block' : 'none';
       item[i].insertBefore(ckBox, item[i].firstChild);
       $('#Board' + (i+1)).checked = board;
       item[i].setAttribute('opened', board);
       item[i].childNodes[2].lastElementChild.style.display = sty;
   } }
-  
+
   if (pmforum) {
-    var ann = $q(".forumbg.announcement"),
+    var ann = $q('.forumbg.announcement'),
         ckBox = $c('input', {id: 'Board10', className: 'boardCB', type: 'checkbox'}, [{type: 'click', fn: function() {CloseOpen(this)}}]),
-        board = getValue('Board10'),
+        board = GM_getValue('Board10'),
         sty = board ? 'block' : 'none';
     ann.insertBefore(ckBox, ann.firstChild);
     $('#Board10').checked = board;
@@ -204,8 +188,8 @@
   }
 
   try {
-    if (IconNotification.textContent != "0") GM_addStyle('/* AGENT_SHEET */\
-      @-moz-document domain("forum.palemoon.org") {\
+    if (IconNotification.textContent != '0') GM_addStyle('\
+      ' + cssRule + ' {\
         #notification_list_button {\
           -moz-appearance: none !important;\
           background: linear-gradient(#314984, #61B0FC) !important;\
@@ -214,18 +198,16 @@
           color: #FFF !important;\
           padding: 0 8px !important;\
           text-decoration: none !important;\
-          text-shadow: 1px 1px 2px #000 !important\
+          text-shadow: 1px 1px 2px #000 !important;\
         }\
         #notification_list_button:hover {\
-          background: linear-gradient(#61B0FC, #314984) !important\
+          background: linear-gradient(#61B0FC, #314984) !important;\
         }\
       }\
     ');
-  } catch(ex) {}
- 
-  try {
-    if (IconPM.textContent != "0") GM_addStyle('/* AGENT_SHEET */\
-      @-moz-document domain("forum.palemoon.org") {\
+
+    if (IconPM.textContent != '0') GM_addStyle('\
+      ' + cssRule + ' {\
         .icon-pm > a {\
           -moz-appearance: none !important;\
           background: linear-gradient(#006300, #00CC00) !important;\
@@ -234,79 +216,108 @@
           color: #FFF !important;\
           padding: 0 8px !important;\
           text-decoration: none !important;\
-          text-shadow: 1px 1px 2px #000 !important\
+          text-shadow: 1px 1px 2px #000 !important;\
         }\
         .icon-pm > a:hover {\
-          background: linear-gradient(#00CC00, #006300) !important\
+          background: linear-gradient(#00CC00, #006300) !important;\
         }\
       }\
     ');
   } catch(ex) {}
-  
-  var fontSize = "105%",
-      boardBG = "linear-gradient(#5BA4ED, #314A85)",
-      boardHoverBG = "#314A85",
-      headerText = "#FFF",
-      textColor = "#FFF",
-      textHoverColor = "#FFF",
-      footerBG = "linear-gradient(#999, #222)",
-      footerHoverBG = "#333";
-  GM_addStyle('/* AGENT_SHEET */\
-    @-moz-document domain("forum.palemoon.org") {\
+
+  GM_addStyle('\
+    ' + cssRule + ' {\
       html {height: 100% !important;}\
-      #wrap {background: none !important; border: none !important; box-shadow: none !important; min-width: 99.5% !important; margin: 0 0 0 8px !important; padding: 0 !important;}\
-      #page-header {background: ' + boardBG + ' !important; border: 1px solid #314A85 !important; border-radius: 12px !important; height: 86px !important; left: 8px !important; position: fixed !important; top: 0 !important; width: 99.5% !important; z-index: 2147483647 !important;}\
-      .headerbar {background: transparent !important; border-radius: 12px 12px 0 0 !important; padding: 0 0 8px 0 !important}\
-      .headerbar a {font-style: italic !important; font-weight: bold !important;}\
-      #page-body {margin-top: 79px !important}\
+      html, body {background: ' + bodyBG + ' !important;}\
+      #page-header {height: 86px !important; position: fixed !important; top: 0 !important; width: 100% !important; z-index: 2147483647 !important;}\
+      #page-header > .headerbar {background: ' + headerBG + ' !important; border: 1px solid #314A85 !important; border-radius: 0 0 8px 8px !important; height: 86px !important; margin: 0 2px !important; padding: 0 !important;}\
+      #page-header > .headerbar a {font-style: italic !important; font-weight: bold !important;}\
+      #wrap {background: none !important; border: none !important; box-shadow: none !important; min-width: 100% !important; padding: 0 !important;}\
+      #page-body {margin: 79px 2px 0 2px !important;}\
       a {border: 1px dotted transparent !important; outline: none !important;}\
+      a:hover {text-decoration: underline !important;}\
       #aLink0, #aLink2 {cursor: pointer !important;}\
-      .site_logo {background: url(https://raw.githubusercontent.com/srazzano/Images/master/pmforum9.png) !important; height: 64px !important; width: 64px !important;}\
-      .headerbar h1 {margin: 6px 0 0 0 !important}\
-      .navbar {padding: 0 8px !important}\
-      .navbar ul.linklist {padding: 0 !important}\
-      ul.navlinks {border: none !important}\
+      #logo {padding: 6px !important;}\
+      .site_logo {background: url(https://raw.githubusercontent.com/srazzano/Images/master/pmforum1.png) !important; height: 70px !important; width: 70px !important;}\
+      .headerbar h1 {margin: 6px 0 0 0 !important;}\
+      .navbar {padding: 0 8px !important;}\
+      .navbar ul.linklist {padding: 0 !important;}\
+      ul.navlinks {border: none !important;}\
+      #aSep {margin: 0 6px !important;}\
       .search-header {margin-top: 30px !important;}\
       .search-box button.search-icon, .search-box a.button {padding: 3px 4px 1px 2px !important;}\
+      .advanced-search-link { margin: 7px 0 0 0 !important;}\
+      .advanced-search-link span#aBull {display: none !important;}\
       #nav-main {position: absolute !important; right: 12px !important; top: 0 !important;}\
-      #nav-main a, #nav-main span{color: ' + textColor + ' !important; font-weight: bold !important; text-shadow: 1px 1px 2px #000 !important;}\
+      #nav-main a, #nav-main span, #viewfolder .mark {color: ' + textColor + ' !important; font-weight: bold !important; text-shadow: 1px 1px 2px #000 !important;}\
       #nav-main .dropdown *, #notification_list *, #nav-main #quick-links a, .header .list-inner.with-mark, .header .mark {color: #000 !important; text-shadow: none !important;}\
-      #nav-breadcrumbs a {color: ' + textColor + ' !important;}\
       #nav-breadcrumbs {height: 0 !important; margin: 6px 0 0 0 !important; padding: 0 !important;}\
+      #nav-breadcrumbs a {color: ' + textColor + ' !important;}\
       #nav-breadcrumbs li {margin: 2px 8px 0 0 !important;}\
       #nav-breadcrumbs span {font-size: ' + fontSize + ' !important;}\
+      .crumb span {margin-left: 4px !important;}\
       .icon-boardrules {margin-right: 50px !important;}\
       #site-description {height: 0 !important; margin: 0 !important; padding: 0 !important; text-shadow: 1px 1px 2px #000 !important; width: 100% !important;}\
       #site-description > p {margin: 0 !important; padding: 0 !important;}\
       #site-description > p:nth-child(3) {margin: 0 !important; padding: 0 !important;}\
       #page-header, .topics, .posts, .views {cursor: default !important;}\
       #site-description br, #page-body h2, .rules, .stat-block, .copyright {display: none !important;}\
-      .action-bar {height: 30px !important; margin: 0 0 5px 0 !important;}\
       #page-body > div:nth-child(2):not(.boardrules-container) {display: none !important;}\
       #page-body p {color: #000 !important; position: relative !important; top: -3px !important;}\
       #page-header #site-description * {color: ' + headerText + ' !important;}\
-      div#page-header #site-description .dropdown * {color: #000 !important; text-shadow: none !important;}\
-      #page-body > .responsive-center.time {margin: 7px 0 0 0 !important; cursor: default !important;}\
+      #page-header #site-description .dropdown * {color: #000 !important; text-shadow: none !important;}\
+      #page-body > p.responsive-center {cursor: default !important; font-weight: bold !important; height: 18px !important; margin: 3px 0 0 0 !important; padding-bottom: 2px !important; padding-top: 4px !important; text-shadow: 1px 1px 2px #000 !important;}\
+      #page-body > p.responsive-center.time {background: ' + boardHoverBG + ' !important; border: 1px solid #314A85 !important; color: ' + textColor + ' !important;}\
+      #page-body > p.responsive-center.time {border-radius: 4px 0 0 4px !important; border-right: none !important; padding-left: 4px !important; padding-right: 0 !important;}\
+      #page-body > p.responsive-center.time.rightside {border-radius: 0 4px 4px 0 !important; border-left: none !important; padding-left: 0 !important; padding-right: 4px !important;}\
       #page-body > p:nth-child(2) {float: right !important;}\
       body.section-viewtopic #page-body > P {display: none !important;}\
       #aBull {margin: 0 8px !important;}\
-      .closeOpenBtn, .action-bar.bar-top > a.button {-moz-appearance: none !important; background: ' + boardBG + ' !important; border: 1px solid #314A85 !important; border-radius: 4px !important; box-shadow: inset 0 0 1px #FFF !important; color: ' + textColor + ' !important; cursor: pointer !important; font-size: ' + fontSize + ' !important; height: 30px !important; margin: 0 6px 0 0 !important; padding: 0 6px !important; text-shadow: 1px 1px 2px #000 !important;}\
-      .action-bar.bar-top > a.button {height: 28px !important;}\
-      .action-bar.bar-top > a.button > span, .action-bar.bar-top > a.button > i {position: relative !important; top: 6px !important;}\
-      .action-bar.bar-top > a.button > i {color: #FFF !important;}\
-      .closeOpenBtn:hover, .action-bar.bar-top > a.button:hover {background: ' + boardHoverBG + ' !important; color: ' + textHoverColor + ' !important;}\
-      .mark-read.rightside {background: ' + boardBG + ' !important; border: 1px solid #314A85 !important; border-radius: 4px !important; box-shadow: inset 0 0 1px #FFF !important; color: ' + textColor + ' !important; float: none !important; font-size: ' + fontSize + ' !important; height: 22px !important; margin: 0 !important; padding: 6px 6px 0px 6px !important; position: relative !important; text-decoration: none !important; text-shadow: 1px 1px 2px #000 !important; top: 0 !important; vertical-align: top !important;}\
+      .rightside.responsive-search, .icon.fa-file-o.fa-fw.icon-red {color: ' + textColor + ' !important;}\
+      .button.button-search icon.fa-search.fa-fw, .button.button-search icon.fa-cog.fa-fw {color: #606060 !important;}\
+      #username_logged_in .username {color: ' + textColor + ' !important; text-shadow: 1px 1px 2px #000 !important;}\
+      #username_logged_in a span {color: #000 !important; text-shadow: none !important;}\
+      .action-bar {margin: 0 0 5px 0 !important;}\
+      .action-bar a {text-decoration: none !important;}\
+      .action-bar > a.button {height: 28px !important;}\
+      .action-bar > a.button > span, .action-bar > a.button > i {position: relative !important; top: 6px !important;}\
+      .action-bar > a.button > i {color: #FFF !important;}\
+      .action-bar.bar-top .search-box {padding: 0 !important;}\
+      .action-bar.bar-top input#search_keywords, #add_keywords.inputbox {color: #000 !important; height: 30px !important;}\
+      .action-bar.bar-top button.button.button-search {height: 30px !important;}\
+      .action-bar.bar-top a.button.button-search-end {padding: 5px 4px 5px 4px !important;}\
+      .action-bar .button-search-end {border: 1px solid #C7C3BF !important; margin-left: -1px !important;}\
+      a.button.button-search-end {padding: 2px 4px 2px 4px !important;}\
+      .closeOpenBtn, .action-bar > a.button, #ucp .panel a.mark {-moz-appearance: none !important; background: ' + boardBG + ' !important; border: 1px solid #314A85 !important; border-radius: 4px !important; box-shadow: inset 0 0 1px #FFF !important; color: ' + textColor + ' !important; cursor: pointer !important; font-size: ' + fontSize + ' !important; margin: 0 5px 0 0 !important; padding: 0 6px !important; text-shadow: 1px 1px 2px #000 !important;}\
+      .closeOpenBtn {height: 30px !important;}\
+      .closeOpenBtn:hover, .action-bar > a.button:hover, #ucp .panel a.mark:hover {background: ' + boardHoverBG + ' !important; color: ' + textHoverColor + ' !important;}\
+      .mark-read.rightside {background: ' + boardBG + ' !important; border: 1px solid #314A85 !important; border-radius: 4px !important; box-shadow: inset 0 0 1px #FFF !important; color: ' + textColor + ' !important; float: none !important; font-size: ' + fontSize + ' !important; height: 22px !important; margin: 0 !important; padding: 6px 6px 0 6px !important; position: relative !important; text-decoration: none !important; text-shadow: 1px 1px 2px #000 !important; top: 0 !important; vertical-align: top !important;}\
       .mark-read.rightside:hover {background: ' + boardHoverBG + ' !important; color: ' + textHoverColor + ' !important;}\
-      .action-bar.bar-top > .search-box {float: right !important; margin-left: 32px !important;}\
-      .forabg, .forumbg {background: ' + boardHoverBG + ' !important; border: 1px solid #314A85 !important; border-radius: 6px 6px 12px 12px !important; box-shadow: inset 0 0 1px #FFF !important; margin: 0 0 5px 0 !important; padding: 4px 4px 3px 4px !important;}\
+      .pagination > a.mark { height: 24px !important; padding: 4px 6px 0 6px !important;}\
+      .mark, .pagination > a, .jumpbox-return, .advanced-search-link {background: ' + boardBG + ' !important; border: 1px solid #314A85 !important; border-radius: 4px !important; box-shadow: inset 0 0 1px #FFF !important; color: ' + textColor + ' !important; font-size: ' + fontSize + ' !important; font-weight: bold !important; padding: 6px !important; text-shadow: 1px 1px 2px #000 !important;}\
+      #page-body p.advanced-search-link {float: left !important; margin: 3px 5px 0 0 !important;}\
+      p.advanced-search-link a, p.advanced-search-link a i {color: #FFF !important; text-decoration: none !important;}\
+      .mark[data-ajax]:after, .pagination > a:after {color: ' + textColor + ' !important; content: "\u2714" !important; margin-left: 6px !important;}\
+      .jumpbox-return {margin: 3px 0 0 0 !important; padding: 5px 6px !important;}\
+      .jumpbox-return * {color: ' + textColor + ' !important;}\
+      .mark:hover, .pagination > a:hover, .jumpbox-return:hover, .advanced-search-link:hover {background: ' + boardHoverBG + ' !important;}\
+      .button.button-secondary {-moz-appearance: none !important; background: ' + boardBG + ' !important; border: 1px solid #314A85 !important; border-radius: 4px !important; box-shadow: inset 0 0 1px #FFF !important; color: ' + textColor + ' !important; padding: 5px 6px !important; text-shadow: 1px 1px 2px #000 !important;}\
+      .button.button-secondary .fa-fw {color: ' + textColor + ' !important;}\
+      .button.button-secondary:hover {background: ' + boardHoverBG + ' !important;}\
+      .forabg, .forumbg {background: ' + boardHoverBG + ' !important; border: 1px solid #314A85 !important; border-radius: 6px 6px 12px 12px !important; box-shadow: inset 0 0 1px #FFF !important; margin: 0 0 5px 0 !important; padding: 4px 4px 3px 4px !important; position: relative !important;}\
       .forabg:hover .header a, .forumbg:hover .header a {color: ' + textHoverColor + ' !important;}\
-      .forabg[opened="false"], .forumbg[opened="false"] {background: ' + boardBG + ' !important; border-radius: 4px !important; height: 16px !important; width: 355px !important;}\
+      .forabg[opened="false"], .forumbg[opened="false"] {background: ' + boardBG + ' !important; border-radius: 4px !important; height: 17px !important; width: 353px !important;}\
       .forabg[opened="false"] .row-item dd, .forumbg[opened="false"] .row-item dd {display: none !important;}\
       .forabg[opened="false"]:hover, .forumbg[opened="false"]:hover {background: ' + boardHoverBG + ' !important;}\
       .forabg[opened="true"], .forumbg[opened="true"] {background: ' + boardHoverBG + ' !important;}\
+      .forabg[opened="false"] dt > .list-inner > a {height: 17px !important; top: -5px !important; padding: 3px 0 0 0 !important;}\
+      .forabg[opened="true"] dt > .list-inner > a {height: 11px !important; top: -2px !important;}\
       .forumbg > div:nth-child(1) .header dt > div {position: relative !important; left: 20px !important;}\
       .topiclist.forums {background: none !important;}\
-      .forabg li:last-child {border-radius: 0 0 9px 9px !important;}\
+      .forabg li:last-child, .forumbg.announcement ul > li:last-child {border-radius: 0 0 9px 9px !important;}\
+      li.header dt, li.header dd {color: ' + textColor + ' !important;}\
+      li.header dt:hover, li.header dd:hover {color: ' + textHoverColor + ' !important;}\
+      input.boardCB {-moz-appearance: none !important; border: 1px solid #FFF !important; border-radius: 3px !important; box-shadow: inset 0 0 2px #000 !important; float: left !important; height: 17px !important; margin: -1px 5px 0 0 !important; padding: 0 !important; position: relative !important; width: 17px !important; z-index: 2 !important;}\
       #page-body > div:nth-child(5) > div > ul:last-child > li:last-child {border-radius: 0 0 9px 9px !important;}\
       #page-body > div:nth-child(6) > div > ul:last-child > li:last-child {border-radius: 0 0 9px 9px !important;}\
       .header, .header a {color: ' + textColor + ' !important; display: block !important; font-size: ' + fontSize + ' !important; font-weight: bold !important; position: relative !important; text-shadow: 1px 1px 2px #000 !important; top: -1px !important;}\
@@ -315,29 +326,33 @@
       body.section-viewforum #page-body > div:nth-child(4):hover > div > UL:first-child > li > dl > dt > div {color: ' + textHoverColor + ' !important; cursor: default !important;}\
       body.section-viewforum #page-body > div:nth-child(5):hover > div > UL:first-child > li > dl > dt > div {color: ' + textHoverColor + ' !important; cursor: default !important;}\
       body.section-viewforum #page-body > div:nth-child(6):hover > div > UL:first-child > li > dl > dt > div {color: ' + textHoverColor + ' !important; cursor: default !important;}\
+      .row strong, .lastpost > span:last-child {cursor: default !important;}\
       .list-inner {width: 100% !important;}\
       .topiclist.forums {margin-top: -2px !important;}\
-      #nav-footer {background: ' + footerBG + ' !important; color: ' + textColor + ' !important; border: 1px solid #000 !important; border-radius: 4px !important; margin-left: -8px !important; padding: 0 4px 2px 4px !important; width: 671px !important;}\
-      #nav-footer:hover {background: ' + footerHoverBG + ' !important;}\
+      .row-item.forum_unread .list-inner {color: #000 !important;}\
+      .row:hover {background-color: #F6F4D0 !important;}\
+      #page-footer {margin: 0 0 0 2px !important; padding: 0 !important;}\
+      #page-footer .navbar {padding: 0 !important;}\
+      #nav-footer {background: ' + boardHoverBG + ' !important; border: 1px solid #000 !important; border-radius: 4px !important; box-shadow: inset 0 0 1px #FFF !important; color: ' + textColor + ' !important; margin: 0 !important; padding: 0 6px 0 3px !important; text-shadow: 1px 1px 2px #000 !important; width: 715px !important;}\
+      #nav-footer > li {height: 17px !important; padding: 0 0 6px 0 !important; position: relative !important; top: -1px !important;}\
+      #nav-footer > li i {position: relative !important; top: 1px !important;}\
       #nav-footer a, #nav-footer span, #nav-footer i {color: ' + textColor + ' !important;}\
-      body.section-index #nav-footer > LI:nth-child(3) {margin-top: 1px !important;}\
-      body.section-viewforum #nav-footer > LI:nth-child(4) {margin-top: 1px !important;}\
+      #jumpbox {margin: 0 !important;}\
+      .action-bar.actions-jump {margin-bottom: 2px !important;}\
+      body.section-index #nav-footer > LI:nth-child(3), body.section-viewforum #nav-footer > LI:nth-child(4) {cursor: default !important; margin-top: 1px !important;}\
       body.section-posting #nav-footer > LI:nth-child(3) {margin-top: 1px !important;}\
       .navbar {background: transparent !important;}\
-      .row:hover {background-color: #F6F4D0 !important;}\
-      .rightside.responsive-search, .icon.fa-file-o.fa-fw.icon-red {color: ' + textColor + ' !important;}\
-      .button.button-search icon.fa-search.fa-fw, .button.button-search icon.fa-cog.fa-fw {color: #606060 !important;}\
-      #username_logged_in .username {color: ' + textColor + ' !important; text-shadow: 1px 1px 2px #000 !important;}\
-      #username_logged_in a span {color: #000 !important; text-shadow: none !important;}\
-      li.header dt, li.header dd {color: ' + textColor + ' !important;}\
-      li.header dt:hover, li.header dd:hover {color: ' + textHoverColor + ' !important;}\
-      input.boardCB {-moz-appearance: none !important; border: 1px solid #FFF !important; border-radius: 3px !important; box-shadow: inset 0 0 2px #000 !important; float: left !important; height: 17px !important; margin: -1px 5px 0 0 !important; padding: 0 !important; position: relative !important; width: 17px !important; z-index: 2 !important;}\
+      .pagination a[data-ajax] {height: 20px !important; padding: 4px 6px !important;}\
+      .pagination li.active span, .pagination li a:hover, .pagination li a:hover .icon, .pagination .dropdown-visible a.dropdown-trigger, .nojs .pagination .dropdown-container:hover a.dropdown-trigger {background: ' + boardBG + ' !important; border-color: #314A85 !important; border-radius: 3px !important; box-shadow: inset 0 0 1px #FFF !important; color: ' + textColor + ' !important;}\
+      #viewfolder .header dd.mark {background: none !important; border: none !important; color: #000 !important; pointer-events: none !important; text-shadow: none !important; }\
+      #ucp .topiclist > .header > dl a, #ucp .row-item, #ucp .mark, #ucp span {background: none !important; border: none !important; color: #000 !important; cursor: default !important; text-decoration: none !important; text-shadow: none !important;}\
+      .row-item.pm_read .mark {background: none !important; border: none !important;}\
       scrollbar {-moz-appearance: none !important; border-radius: 8px !important;}\
-      scrollbar > slider {-moz-appearance: none !important; background: #314A85 !important; border-width: 0 !important; border-radius: 8px !important; box-shadow: none !important;}\
-      scrollbar > slider > thumb {-moz-appearance: none !important; background: linear-gradient(to right, #5BA4ED, #314A85) !important; border-width: 0 !important; border-radius: 10px !important; box-shadow: inset 0 0 2px #FFF !important;}\
+      scrollbar > slider {-moz-appearance: none !important; background: ' + scrollbarSlider + ' !important; border-width: 0 !important; border-radius: 8px !important; box-shadow: none !important;}\
+      scrollbar > slider > thumb {-moz-appearance: none !important; background: ' + scrollbarThumb + ' !important; border-width: 0 !important; border-radius: 10px !important; box-shadow: inset 0 0 2px #FFF !important;}\
       scrollbar[orient="vertical"] > slider > thumb {min-height: 35px !important;}\
       scrollbar[orient="horizontal"] > slider > thumb {min-width: 35px !important;}\
-      scrollbar > slider > thumb:hover, scrollbar > slider > thumb:active {background: linear-gradient(to right, #B2D2F3, #6181C5) ! important;}\
+      scrollbar > slider > thumb:hover, scrollbar > slider > thumb:active {background: ' + scrollbarThumbHover + ' ! important;}\
       scrollbar > scrollbarbutton {-moz-appearance: none !important; background: none !important; border: none !important;}\
       scrollbar[orient="vertical"] > scrollbarbutton {min-height: 0 !important;}\
       scrollbar[orient="horizontal"] > scrollbarbutton {min-width: 0 !important;}\
