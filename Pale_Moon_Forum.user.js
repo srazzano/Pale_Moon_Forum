@@ -32,6 +32,7 @@
         scrollbarThumb = 'linear-gradient(to right, #5BA4ED, #314A85)',
         scrollbarThumbHover = 'linear-gradient(to right, #B2D2F3, #6181C5)',
         bullet = '\u2022',
+        clock = '\u231A',
         textPaleMoon = 'Pale Moon ',
         linkAddonsSite = 'add-ons site',
         Url1  = 'https://www.palemoon.org/',
@@ -136,6 +137,9 @@
   $q('A[href="//www.palemoon.org/"][target="_blank"][style="color:#ffff80;"]').style.display = 'none';
   $q('A[href="//www.palemoon.org/"][style="color:#ffff80;"]').innerHTML = linkHomePage.toUpperCase();
   $q('A[href="//www.palemoon.org/"][target="_blank"][style="color: rgb(255, 255, 128); display: none;"]').nextSibling.nodeValue = '';
+
+  var utc = document.querySelectorAll('li.rightside');
+  for (var i = 0; i < utc.length; i++) if (utc[i].textContent.match("All times")) utc[i].setAttribute('id', 'clock');
 
   SiteDescription.appendChild(NavMain);
   SiteDescriptionP.innerHTML = SiteDescriptionP.innerHTML.replace('Visit the', '').replace('Discussion forum for the Pale Moon web browser', '').replace(/\(or\s+in/, '(in');
@@ -337,10 +341,10 @@
       #nav-footer > li {height: 17px !important; padding: 0 0 6px 0 !important; position: relative !important; top: -1px !important;}\
       #nav-footer > li i {position: relative !important; top: 1px !important;}\
       #nav-footer a, #nav-footer span, #nav-footer i {color: ' + textColor + ' !important;}\
-      body.section-index #nav-footer > LI:nth-child(3):before, body.section-viewforum #nav-footer > LI:nth-child(4):before, body.section-viewtopic #nav-footer > LI:nth-child(3):before, body.section-ucp #nav-footer > LI:nth-child(3):before, body.section-search #nav-footer > LI:nth-child(3):before, body.section-memberlist #nav-footer > LI:nth-child(3):before, body[class*="section-app"] #nav-footer > LI:nth-child(3):before {content: "\u231A" !important; font-family: monospace !important; font-size: 18px !important; position: relative !important; top: 3px !important;}\
       #jumpbox {margin: 0 !important;}\
       .action-bar.actions-jump {margin-bottom: 2px !important;}\
-      body.section-index #nav-footer > LI:nth-child(3), body.section-viewforum #nav-footer > LI:nth-child(4), body.section-viewtopic #nav-footer > LI:nth-child(3), body.section-ucp #nav-footer > LI:nth-child(3), body.section-search #nav-footer > LI:nth-child(3), body.section-memberlist #nav-footer > LI:nth-child(3), body[class*="section-app"] #nav-footer > LI:nth-child(3), body.section-viewforum #nav-footer > LI:nth-child(4) {cursor: default !important; margin-top: 1px !important;}\
+      #clock:before {content: "\u231A" !important; font-family: monospace !important; font-size: 18px !important; position: relative !important; top: 3px !important;}\
+      #clock {cursor: default !important; margin-top: 1px !important;}\
       body.section-posting #nav-footer > LI:nth-child(3) {margin-top: 1px !important;}\
       .navbar {background: transparent !important;}\
       .pagination a[data-ajax] {height: 20px !important; padding: 4px 6px !important;}\
