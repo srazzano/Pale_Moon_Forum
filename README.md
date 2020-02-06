@@ -4,4 +4,4 @@ Tweaks for the Pale Moon Forum: <a href="https://raw.githubusercontent.com/srazz
 
 To theme scrollbar and input elements, use this version of Greasemonkey: <a href="https://raw.githubusercontent.com/srazzano/Greasemonkey/master/greasemonkey-PM1.0.2.xpi">Download</a>
 
-<img src="https://github.com/srazzano/Images/blob/master/Pale Moon Forum.png"/>
+<img src="https://github.com/srazzano/Images/blob/master/pmforum.png"/>
