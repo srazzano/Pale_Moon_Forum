@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name          Pale Moon Forum
 // @id            srazzano/Pale Moon Forum@greasespot.net
-// @version       1.0.1
+// @version       1.0.2
 // @namespace     srazzano
 // @description   Pale Moon Forum Tweaks
 // @include       https://forum.palemoon.org*
@@ -32,7 +32,6 @@
         scrollbarThumb = 'linear-gradient(to right, #5BA4ED, #314A85)',
         scrollbarThumbHover = 'linear-gradient(to right, #B2D2F3, #6181C5)',
         bullet = '\u2022',
-        clock = '\u231A',
         textPaleMoon = 'Pale Moon ',
         linkAddonsSite = 'add-ons site',
         Url1  = 'https://www.palemoon.org/',
@@ -138,9 +137,9 @@
   $q('A[href="//www.palemoon.org/"][style="color:#ffff80;"]').innerHTML = linkHomePage.toUpperCase();
   $q('A[href="//www.palemoon.org/"][target="_blank"][style="color: rgb(255, 255, 128); display: none;"]').nextSibling.nodeValue = '';
 
-  var utc = document.querySelectorAll('li.rightside');
+  var utc = document.querySelectorAll('#nav-footer > li.rightside');
   for (var i = 0; i < utc.length; i++) if (utc[i].textContent.match("All times")) utc[i].setAttribute('id', 'clock');
-
+  
   SiteDescription.appendChild(NavMain);
   SiteDescriptionP.innerHTML = SiteDescriptionP.innerHTML.replace('Visit the', '').replace('Discussion forum for the Pale Moon web browser', '').replace(/\(or\s+in/, '(in');
   SiteDescriptionP.appendChild(Link0);
@@ -337,7 +336,7 @@
       .row:hover {background-color: #F6F4D0 !important;}\
       #page-footer {margin: 0 0 0 2px !important; padding: 0 !important;}\
       #page-footer .navbar {padding: 0 !important;}\
-      #nav-footer {background: ' + boardHoverBG + ' !important; border: 1px solid #000 !important; border-radius: 4px !important; box-shadow: inset 0 0 1px #FFF !important; color: ' + textColor + ' !important; margin: 0 !important; padding: 0 6px 0 3px !important; text-shadow: 1px 1px 2px #000 !important; width: 715px !important;}\
+      #nav-footer {background: ' + boardHoverBG + ' !important; border: 1px solid #000 !important; border-radius: 4px !important; box-shadow: inset 0 0 1px #FFF !important; color: ' + textColor + ' !important; margin: 0 !important; padding: 0 6px 0 2px !important; text-shadow: 1px 1px 2px #000 !important; width: 715px !important;}\
       #nav-footer > li {height: 17px !important; padding: 0 0 6px 0 !important; position: relative !important; top: -1px !important;}\
       #nav-footer > li i {position: relative !important; top: 1px !important;}\
       #nav-footer a, #nav-footer span, #nav-footer i {color: ' + textColor + ' !important;}\
