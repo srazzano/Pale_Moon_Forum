@@ -242,7 +242,7 @@
       a:hover {text-decoration: underline !important;}\
       #aLink0, #aLink2 {cursor: pointer !important;}\
       #logo {padding: 6px !important;}\
-      .site_logo {background: url(https://raw.githubusercontent.com/srazzano/Images/master/pmforum1.png) !important; height: 70px !important; width: 70px !important;}\
+      .site_logo {background: url(https://raw.githubusercontent.com/srazzano/Images/master/pmforum2.png) !important; height: 70px !important; width: 70px !important;}\
       .headerbar h1 {margin: 6px 0 0 0 !important;}\
       .navbar {padding: 0 8px !important;}\
       .navbar ul.linklist {padding: 0 !important;}\
