@@ -313,6 +313,7 @@
       .forabg[opened="false"] dt > .list-inner > a {height: 17px !important; top: -5px !important; padding: 3px 0 0 0 !important;}\
       .forabg[opened="true"] dt > .list-inner > a {height: 11px !important; top: -2px !important;}\
       .forumbg > div:nth-child(1) .header dt > div {position: relative !important; left: 20px !important;}\
+      .forabg[opened="false"] .list-inner, .forumbg[opened="false"] .list-inner {width: 100% !important;}\
       .topiclist.forums {background: none !important;}\
       .forabg li:last-child, .forumbg.announcement ul > li:last-child {border-radius: 0 0 9px 9px !important;}\
       li.header dt, li.header dd {color: ' + textColor + ' !important;}\
@@ -327,7 +328,6 @@
       body.section-viewforum #page-body > div:nth-child(5):hover > div > UL:first-child > li > dl > dt > div {color: ' + textHoverColor + ' !important; cursor: default !important;}\
       body.section-viewforum #page-body > div:nth-child(6):hover > div > UL:first-child > li > dl > dt > div {color: ' + textHoverColor + ' !important; cursor: default !important;}\
       .row strong, .lastpost > span:last-child {cursor: default !important;}\
-      .list-inner {width: 100% !important;}\
       .topiclist.forums {margin-top: -2px !important;}\
       .row-item.forum_unread .list-inner {color: #000 !important;}\
       .row:hover {background-color: #F6F4D0 !important;}\
@@ -337,9 +337,10 @@
       #nav-footer > li {height: 17px !important; padding: 0 0 6px 0 !important; position: relative !important; top: -1px !important;}\
       #nav-footer > li i {position: relative !important; top: 1px !important;}\
       #nav-footer a, #nav-footer span, #nav-footer i {color: ' + textColor + ' !important;}\
+      body.section-index #nav-footer > LI:nth-child(3):before, body.section-viewforum #nav-footer > LI:nth-child(4):before, body.section-viewtopic #nav-footer > LI:nth-child(3):before, body.section-ucp #nav-footer > LI:nth-child(3):before, body.section-search #nav-footer > LI:nth-child(3):before, body.section-memberlist #nav-footer > LI:nth-child(3):before, body[class*="section-app"] #nav-footer > LI:nth-child(3):before {content: "\u231A" !important; font-family: monospace !important; font-size: 18px !important; position: relative !important; top: 3px !important;}\
       #jumpbox {margin: 0 !important;}\
       .action-bar.actions-jump {margin-bottom: 2px !important;}\
-      body.section-index #nav-footer > LI:nth-child(3), body.section-viewforum #nav-footer > LI:nth-child(4) {cursor: default !important; margin-top: 1px !important;}\
+      body.section-index #nav-footer > LI:nth-child(3), body.section-viewforum #nav-footer > LI:nth-child(4), body.section-viewtopic #nav-footer > LI:nth-child(3), body.section-ucp #nav-footer > LI:nth-child(3), body.section-search #nav-footer > LI:nth-child(3), body.section-memberlist #nav-footer > LI:nth-child(3), body[class*="section-app"] #nav-footer > LI:nth-child(3), body.section-viewforum #nav-footer > LI:nth-child(4) {cursor: default !important; margin-top: 1px !important;}\
       body.section-posting #nav-footer > LI:nth-child(3) {margin-top: 1px !important;}\
       .navbar {background: transparent !important;}\
       .pagination a[data-ajax] {height: 20px !important; padding: 4px 6px !important;}\
