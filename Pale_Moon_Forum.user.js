@@ -26,6 +26,7 @@
         headerText = '#FFF',
         boardBG = 'linear-gradient(#5BA4ED, #314A85)',
         boardHoverBG = '#314A85',
+        stickyBG = '#FFEAEA',
         textColor = '#FFF',
         textHoverColor = '#FFF',
         scrollbarSlider = '#314A85',
@@ -296,7 +297,7 @@
       .closeOpenBtn:hover, .action-bar > a.button:hover, #ucp .panel a.mark:hover {background: ' + boardHoverBG + ' !important; color: ' + textHoverColor + ' !important;}\
       .mark-read.rightside {background: ' + boardBG + ' !important; border: 1px solid #314A85 !important; border-radius: 4px !important; box-shadow: inset 0 0 1px #FFF !important; color: ' + textColor + ' !important; float: none !important; font-size: ' + fontSize + ' !important; height: 20px !important; margin: 0 !important; padding: 4px 6px 0 6px !important; position: relative !important; text-decoration: none !important; text-shadow: 1px 1px 2px #000 !important; top: 0 !important; vertical-align: top !important;}\
       .mark-read.rightside:hover {background: ' + boardHoverBG + ' !important; color: ' + textHoverColor + ' !important;}\
-      .pagination > a.mark { height: 20px !important; padding: 4px 6px 0 6px !important;}\
+      .pagination > a.mark {height: 20px !important; padding: 4px 6px 0 6px !important;}\
       .mark, .pagination > a, .jumpbox-return, .advanced-search-link {background: ' + boardBG + ' !important; border: 1px solid #314A85 !important; border-radius: 4px !important; box-shadow: inset 0 0 1px #FFF !important; color: ' + textColor + ' !important; font-size: ' + fontSize + ' !important; font-weight: bold !important; padding: 4px 6px !important; text-shadow: 1px 1px 2px #000 !important;}\
       #page-body p.advanced-search-link {float: left !important; margin: 3px 5px 0 0 !important;}\
       p.advanced-search-link a, p.advanced-search-link a i {color: #FFF !important; text-decoration: none !important;}\
@@ -307,6 +308,7 @@
       .button.button-secondary {-moz-appearance: none !important; background: ' + boardBG + ' !important; border: 1px solid #314A85 !important; border-radius: 4px !important; box-shadow: inset 0 0 1px #FFF !important; color: ' + textColor + ' !important; padding: 3px 6px !important; text-shadow: 1px 1px 2px #000 !important;}\
       .button.button-secondary .fa-fw {color: ' + textColor + ' !important;}\
       .button.button-secondary:hover {background: ' + boardHoverBG + ' !important;}\
+      .sticky {background: ' + stickyBG + ' !important;}\
       .forabg, .forumbg {background: ' + boardHoverBG + ' !important; border: 1px solid #314A85 !important; border-radius: 6px 6px 12px 12px !important; box-shadow: inset 0 0 1px #FFF !important; margin: 0 0 5px 0 !important; padding: 4px 4px 3px 4px !important; position: relative !important;}\
       .forabg:hover .header a, .forumbg:hover .header a {color: ' + textHoverColor + ' !important;}\
       .forabg[opened="false"], .forumbg[opened="false"] {background: ' + boardBG + ' !important; border-radius: 4px !important; height: 17px !important; width: 353px !important;}\
