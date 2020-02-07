@@ -261,6 +261,7 @@
       #nav-breadcrumbs span {font-size: ' + fontSize + ' !important;}\
       .crumb span {margin-left: 4px !important;}\
       .icon-boardrules {margin-right: 50px !important;}\
+      .icon.fa-bars.fa-fw {text-shadow: 1px 1px 2px #000 !important;}\
       #site-description {height: 0 !important; margin: 0 !important; padding: 0 !important; text-shadow: 1px 1px 2px #000 !important; width: 100% !important;}\
       #site-description ul.linklist li {margin: 0 5px 0 0 !important;}\
       #site-description li span:hover {text-decoration: underline !important;}\
