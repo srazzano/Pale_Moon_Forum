@@ -262,8 +262,12 @@
       .crumb span {margin-left: 4px !important;}\
       .icon-boardrules {margin-right: 50px !important;}\
       #site-description {height: 0 !important; margin: 0 !important; padding: 0 !important; text-shadow: 1px 1px 2px #000 !important; width: 100% !important;}\
+      #site-description ul.linklist li {margin: 0 5px 0 0 !important;}\
+      #site-description li span:hover {text-decoration: underline !important;}\
       #site-description > p {margin: 0 !important; padding: 0 !important;}\
       #site-description > p:nth-child(3) {margin: 0 !important; padding: 0 !important;}\
+      .dropdown-trigger.dropdown-toggle {text-decoration: none !important;}\
+      .dropdown-trigger.dropdown-toggle:hover > span {text-decoration: underline !important;}\
       #page-header, .topics, .posts, .views {cursor: default !important;}\
       #site-description br, #page-body h2, .rules, .stat-block, .copyright {display: none !important;}\
       #page-body > div:nth-child(2):not(.boardrules-container) {display: none !important;}\
