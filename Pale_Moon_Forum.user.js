@@ -280,31 +280,31 @@
       .button.button-search icon.fa-search.fa-fw, .button.button-search icon.fa-cog.fa-fw {color: #606060 !important;}\
       #username_logged_in .username {color: ' + textColor + ' !important; text-shadow: 1px 1px 2px #000 !important;}\
       #username_logged_in a span {color: #000 !important; text-shadow: none !important;}\
+      .action-bar.compact {margin: 0 0 2px 0 !important;}\
       .action-bar {margin: 0 0 5px 0 !important;}\
       .action-bar a {text-decoration: none !important;}\
-      .action-bar > a.button {height: 28px !important;}\
-      .action-bar > a.button > span, .action-bar > a.button > i {position: relative !important; top: 6px !important;}\
+      .action-bar > a.button {height: 24px !important;}\
+      .action-bar > a.button > span, .action-bar > a.button > i {position: relative !important; top: 3px !important;}\
       .action-bar > a.button > i {color: #FFF !important;}\
       .action-bar.bar-top .search-box {padding: 0 !important;}\
-      .action-bar.bar-top input#search_keywords, #add_keywords.inputbox {color: #000 !important; height: 30px !important;}\
-      .action-bar.bar-top button.button.button-search {height: 30px !important;}\
-      .action-bar.bar-top a.button.button-search-end {padding: 5px 4px 5px 4px !important;}\
+      .action-bar.bar-top input#search_keywords, #add_keywords.inputbox {color: #000 !important; height: 26px !important;}\
+      .action-bar.bar-top button.button.button-search {height: 26px !important;}\
+      .action-bar.bar-top a.button.button-search-end {padding: 3px 4px 3px 4px !important;}\
       .action-bar .button-search-end {border: 1px solid #C7C3BF !important; margin-left: -1px !important;}\
-      a.button.button-search-end {padding: 2px 4px 2px 4px !important;}\
       .closeOpenBtn, .action-bar > a.button, #ucp .panel a.mark {-moz-appearance: none !important; background: ' + boardBG + ' !important; border: 1px solid #314A85 !important; border-radius: 4px !important; box-shadow: inset 0 0 1px #FFF !important; color: ' + textColor + ' !important; cursor: pointer !important; font-size: ' + fontSize + ' !important; margin: 0 5px 0 0 !important; padding: 0 6px !important; text-shadow: 1px 1px 2px #000 !important;}\
-      .closeOpenBtn {height: 30px !important;}\
+      .closeOpenBtn {height: 26px !important;}\
       .closeOpenBtn:hover, .action-bar > a.button:hover, #ucp .panel a.mark:hover {background: ' + boardHoverBG + ' !important; color: ' + textHoverColor + ' !important;}\
-      .mark-read.rightside {background: ' + boardBG + ' !important; border: 1px solid #314A85 !important; border-radius: 4px !important; box-shadow: inset 0 0 1px #FFF !important; color: ' + textColor + ' !important; float: none !important; font-size: ' + fontSize + ' !important; height: 22px !important; margin: 0 !important; padding: 6px 6px 0 6px !important; position: relative !important; text-decoration: none !important; text-shadow: 1px 1px 2px #000 !important; top: 0 !important; vertical-align: top !important;}\
+      .mark-read.rightside {background: ' + boardBG + ' !important; border: 1px solid #314A85 !important; border-radius: 4px !important; box-shadow: inset 0 0 1px #FFF !important; color: ' + textColor + ' !important; float: none !important; font-size: ' + fontSize + ' !important; height: 20px !important; margin: 0 !important; padding: 4px 6px 0 6px !important; position: relative !important; text-decoration: none !important; text-shadow: 1px 1px 2px #000 !important; top: 0 !important; vertical-align: top !important;}\
       .mark-read.rightside:hover {background: ' + boardHoverBG + ' !important; color: ' + textHoverColor + ' !important;}\
-      .pagination > a.mark { height: 24px !important; padding: 4px 6px 0 6px !important;}\
-      .mark, .pagination > a, .jumpbox-return, .advanced-search-link {background: ' + boardBG + ' !important; border: 1px solid #314A85 !important; border-radius: 4px !important; box-shadow: inset 0 0 1px #FFF !important; color: ' + textColor + ' !important; font-size: ' + fontSize + ' !important; font-weight: bold !important; padding: 6px !important; text-shadow: 1px 1px 2px #000 !important;}\
+      .pagination > a.mark { height: 20px !important; padding: 4px 6px 0 6px !important;}\
+      .mark, .pagination > a, .jumpbox-return, .advanced-search-link {background: ' + boardBG + ' !important; border: 1px solid #314A85 !important; border-radius: 4px !important; box-shadow: inset 0 0 1px #FFF !important; color: ' + textColor + ' !important; font-size: ' + fontSize + ' !important; font-weight: bold !important; padding: 4px 6px !important; text-shadow: 1px 1px 2px #000 !important;}\
       #page-body p.advanced-search-link {float: left !important; margin: 3px 5px 0 0 !important;}\
       p.advanced-search-link a, p.advanced-search-link a i {color: #FFF !important; text-decoration: none !important;}\
       .mark[data-ajax]:after, .pagination > a:after {color: ' + textColor + ' !important; content: "\u2714" !important; margin-left: 6px !important;}\
-      .jumpbox-return {margin: 3px 0 0 0 !important; padding: 5px 6px !important;}\
+      .jumpbox-return {margin: 3px 0 0 0 !important; padding: 3px 6px !important;}\
       .jumpbox-return * {color: ' + textColor + ' !important;}\
       .mark:hover, .pagination > a:hover, .jumpbox-return:hover, .advanced-search-link:hover {background: ' + boardHoverBG + ' !important;}\
-      .button.button-secondary {-moz-appearance: none !important; background: ' + boardBG + ' !important; border: 1px solid #314A85 !important; border-radius: 4px !important; box-shadow: inset 0 0 1px #FFF !important; color: ' + textColor + ' !important; padding: 5px 6px !important; text-shadow: 1px 1px 2px #000 !important;}\
+      .button.button-secondary {-moz-appearance: none !important; background: ' + boardBG + ' !important; border: 1px solid #314A85 !important; border-radius: 4px !important; box-shadow: inset 0 0 1px #FFF !important; color: ' + textColor + ' !important; padding: 3px 6px !important; text-shadow: 1px 1px 2px #000 !important;}\
       .button.button-secondary .fa-fw {color: ' + textColor + ' !important;}\
       .button.button-secondary:hover {background: ' + boardHoverBG + ' !important;}\
       .forabg, .forumbg {background: ' + boardHoverBG + ' !important; border: 1px solid #314A85 !important; border-radius: 6px 6px 12px 12px !important; box-shadow: inset 0 0 1px #FFF !important; margin: 0 0 5px 0 !important; padding: 4px 4px 3px 4px !important; position: relative !important;}\
@@ -318,7 +318,7 @@
       .forumbg > div:nth-child(1) .header dt > div {position: relative !important; left: 20px !important;}\
       .forabg[opened="false"] .list-inner, .forumbg[opened="false"] .list-inner {width: 100% !important;}\
       .topiclist.forums {background: none !important;}\
-      .forabg li:last-child, .forumbg.announcement ul > li:last-child {border-radius: 0 0 9px 9px !important;}\
+      .forabg li:last-child, .forumbg.announcement ul > li:last-child, .topiclist.topics li:last-of-type {border-radius: 0 0 9px 9px !important;}\
       li.header dt, li.header dd {color: ' + textColor + ' !important;}\
       li.header dt:hover, li.header dd:hover {color: ' + textHoverColor + ' !important;}\
       input.boardCB {-moz-appearance: none !important; border: 1px solid #FFF !important; border-radius: 3px !important; box-shadow: inset 0 0 2px #000 !important; float: left !important; height: 17px !important; margin: -1px 5px 0 0 !important; padding: 0 !important; position: relative !important; width: 17px !important; z-index: 2 !important;}\
@@ -346,7 +346,7 @@
       #clock {cursor: default !important; margin-top: 1px !important;}\
       body.section-posting #nav-footer > LI:nth-child(3) {margin-top: 1px !important;}\
       .navbar {background: transparent !important;}\
-      .pagination a[data-ajax] {height: 20px !important; padding: 4px 6px !important;}\
+      .pagination a[data-ajax] {height: 20px !important; padding: 2px 6px !important;}\
       .pagination li.active span, .pagination li a:hover, .pagination li a:hover .icon, .pagination .dropdown-visible a.dropdown-trigger, .nojs .pagination .dropdown-container:hover a.dropdown-trigger {background: ' + boardBG + ' !important; border-color: #314A85 !important; border-radius: 3px !important; box-shadow: inset 0 0 1px #FFF !important; color: ' + textColor + ' !important;}\
       #viewfolder .header dd.mark {background: none !important; border: none !important; color: #000 !important; pointer-events: none !important; text-shadow: none !important; }\
       #ucp .topiclist > .header > dl a, #ucp .row-item, #ucp .mark, #ucp span {background: none !important; border: none !important; color: #000 !important; cursor: default !important; text-decoration: none !important; text-shadow: none !important;}\
