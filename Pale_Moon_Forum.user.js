@@ -6,7 +6,7 @@
 // @description   Pale Moon Forum Tweaks
 // @include       https://forum.palemoon.org*
 // @author        Sonny Razzano
-// @icon          https://raw.githubusercontent.com/srazzano/Images/master/pmforum9.png
+// @icon          https://raw.githubusercontent.com/srazzano/Images/master/logo.png
 // @homepageURL   https://github.com/srazzano/Pale_Moon_Forum
 // @downloadURL   https://raw.githubusercontent.com/srazzano/Pale_Moon_Forum/master/Pale_Moon_Forum.user.js
 // @support       srazzano@gmail.com
@@ -99,18 +99,16 @@
     GM_setValue(e.id, bool); 
   }
 
-  function CloseOpenAll(bool) {
-    for (var i = 0, item = $('.forabg'); i < item.length; i++) {
-      var blk = item[i],
-          elm = blk.childNodes[2].lastElementChild, 
-          val = 'Board' + (i+1),
-          sty = bool ? 'block' : 'none';
-      blk.setAttribute('opened', bool);
-      elm.style.display = sty;
-      $('#' + val).checked = bool;
-      GM_setValue(val, bool);
-  } }
-
+  function CloseOpenBoards(bool) {
+    var elm = $('.boardCB');
+    for (var i = 0; i < elm.length; i++) {
+      if (bool) {
+        if (elm[i].checked === false) elm[i].parentNode.style.display = 'none';
+      } else {
+        if (elm[i].checked === false) elm[i].parentNode.style.display = 'block';
+        if (elm[i].checked === false) elm[i].parentNode.childNodes[2].lastElementChild.style.display = 'none';
+  } } } 
+  
   function ViewFooter(e) {
     var bool = GM_getValue(e.id) !== false ? false : true,
         sty = bool ? 'none' : '-moz-box';
@@ -186,20 +184,22 @@
   $('#page-footer').style.display = sty;
 
   if (pmindex) {
-    var bClose = $c('button', {id: 'close-btn', className: 'closeOpenBtn', textContent: closeBtnText}, [{type: 'click', fn: function() {CloseOpenAll(false)}}]),
-        bOpen = $c('button', {id: 'open-btn', className: 'closeOpenBtn', textContent: openBtnText}, [{type: 'click', fn: function() {CloseOpenAll(true)}}]);
-    ActionBar.insertBefore(bClose, ActionBar.firstElementChild);
-    ActionBar.insertBefore(bOpen, ActionBar.firstElementChild);
+    var hClosed = $c('button', {id: 'hideBoardsbtn', className: 'closeOpenBtn', textContent: 'Hide Closed Boards'}, [{type: 'click', fn: function() {CloseOpenBoards(true)}}]),
+        oClosed = $c('button', {id: 'openBoardsbtn', className: 'closeOpenBtn', textContent: 'Open Closed Boards'}, [{type: 'click', fn: function() {CloseOpenBoards(false)}}]);
+    ActionBar.insertBefore(oClosed, ActionBar.firstElementChild);
+    ActionBar.insertBefore(hClosed, ActionBar.firstElementChild);
     for (var i = 0, item = $('.forabg'); i < item.length; i++) {
       var ckBox = $c('input', {id: 'Board'+(i+1), className: 'boardCB', type: 'checkbox'}, [{type: 'click', fn: function() {CloseOpen(this)}}]),
-          board = GM_getValue('Board' + (i+1)),
-          sty = board ? 'block' : 'none';
+          bool = GM_getValue('Board' + (i+1)),
+          sty = bool ? 'block' : 'none';
       item[i].insertBefore(ckBox, item[i].firstChild);
-      $('#Board' + (i+1)).checked = board;
-      item[i].setAttribute('opened', board);
+      $('#Board' + (i+1)).checked = bool;
+      item[i].setAttribute('opened', bool);
+      item[i].style.display = 'block';
+      item[i].style.display = sty;
       item[i].childNodes[2].lastElementChild.style.display = sty;
   } }
-
+ 
   if (pmforum) {
     var ann = $q('.forumbg.announcement'),
         ckBox = $c('input', {id: 'Board10', className: 'boardCB', type: 'checkbox'}, [{type: 'click', fn: function() {CloseOpen(this)}}]),
@@ -262,7 +262,7 @@
       a:hover {text-decoration: underline !important;}\
       #aLink0, #aLink2 {cursor: pointer !important;}\
       #logo {padding: 6px !important;}\
-      .site_logo {background: url(https://raw.githubusercontent.com/srazzano/Images/master/pmforum2.png) !important; height: 70px !important; width: 70px !important;}\
+      .site_logo {background: url(https://raw.githubusercontent.com/srazzano/Images/master/logo.png) !important; height: 70px !important; width: 70px !important;}\
       .headerbar h1 {margin: 6px 0 0 0 !important;}\
       .navbar {padding: 0 8px !important;}\
       .navbar ul.linklist {padding: 0 !important;}\
