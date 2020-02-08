@@ -253,11 +253,11 @@
     ' + cssRule + ' {\
       html {height: 100% !important;}\
       html, body {background: ' + bodyBG + ' !important;}\
-      #page-header {height: 84px !important; position: fixed !important; top: 0 !important; width: 100% !important; z-index: 2147483647 !important;}\
-      #page-header > .headerbar {background: ' + headerBG + ' !important; border: 1px solid #314A85 !important; border-radius: 0 0 8px 8px !important; height: 84px !important; margin: 0 2px !important; padding: 0 !important;}\
+      #page-header {height: 83px !important; position: fixed !important; top: 0 !important; width: 100% !important; z-index: 2147483647 !important;}\
+      #page-header > .headerbar {background: ' + headerBG + ' !important; border: 1px solid #314A85 !important; border-radius: 0 0 8px 8px !important; height: 83px !important; margin: 0 2px !important; padding: 0 !important;}\
       #page-header > .headerbar a, #cbLabel {font-style: italic !important; font-weight: bold !important;}\
       #wrap {background: none !important; border: none !important; box-shadow: none !important; min-width: 100% !important; padding: 0 !important;}\
-      #page-body {margin: 77px 2px 0 2px !important;}\
+      #page-body {margin: 76px 2px 0 2px !important;}\
       a {border: 1px dotted transparent !important; outline: none !important;}\
       a:hover {text-decoration: underline !important;}\
       #aLink0, #aLink2 {cursor: pointer !important;}\
@@ -279,7 +279,7 @@
       #nav-breadcrumbs a {color: ' + textColor + ' !important;}\
       #nav-breadcrumbs li {margin: 2px 8px 0 0 !important;}\
       #nav-breadcrumbs span {font-size: ' + fontSize + ' !important;}\
-      #checkbox1 {margin-left: 4px !important;}\
+      #checkbox1 {margin: -2px 0 0 4px !important;}\
       #cbLabel {font-size: ' + fontSize + ' !important; margin: 0 !important; padding-left: 4px !important;}\
       #checkbox1:hover + #cbLabel, #cbLabel:hover {cursor: pointer !important; text-decoration: underline !important;}\
       .crumb span {margin-left: 4px !important;}\
