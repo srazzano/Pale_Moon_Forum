@@ -297,9 +297,7 @@
       #page-body > div:nth-child(2):not(.boardrules-container) {display: none !important;}\
       #page-body p {color: #000 !important; position: relative !important; top: -3px !important;}\
       #page-body > p.responsive-center {cursor: default !important; font-weight: bold !important; height: 18px !important; margin: 3px 0 0 0 !important; padding-bottom: 2px !important; padding-top: 4px !important; text-shadow: 1px 1px 2px #000 !important;}\
-      #page-body > p.responsive-center.time {background: ' + boardHoverBG + ' !important; border: 1px solid #314A85 !important; color: ' + textColor + ' !important;}\
-      #page-body > p.responsive-center.time {border-radius: 4px 0 0 4px !important; border-right: none !important; padding-left: 4px !important; padding-right: 0 !important;}\
-      #page-body > p.responsive-center.time.rightside {border-radius: 0 4px 4px 0 !important; border-left: none !important; padding-left: 0 !important; padding-right: 4px !important;}\
+      #page-body > p.responsive-center.time {color: ' + boardHoverBG + ' !important; text-shadow: none !important;}\
       #page-body > p:nth-child(2) {float: right !important;}\
       #site-description h1, #site-description p, #site-description span, #site-description a, #site-description i, #site-description span.username, #site-description #cbLabel {color: ' + headerText + ' !important;}\
       body.section-viewtopic #page-body > P {display: none !important;}\
