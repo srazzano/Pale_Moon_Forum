@@ -5,4 +5,4 @@ To theme scrollbar and checkboxes, use this version of Greasemonkey: <a href="ht
 
 Start by clicking on "Open Unchecked Boards" button to view all boards and select desired boards to open.<br>Then click on "Hide Unchecked Boards" button to hide the unchecked boards. Will retain selected boards on page reload.
 
-<img src="https://github.com/srazzano/Images/blob/master/forum.png"/>
+<img src="https://github.com/srazzano/Images/blob/master/forum1.png"/>
