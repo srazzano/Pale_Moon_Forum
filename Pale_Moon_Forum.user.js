@@ -280,7 +280,7 @@
       #nav-breadcrumbs li {margin: 2px 8px 0 0 !important;}\
       #nav-breadcrumbs span {font-size: ' + fontSize + ' !important;}\
       #checkbox1 {margin-left: 4px !important;}\
-      #cbLabel {font-size: ' + fontSize + ' !important; margin-left: 4px !important;}\
+      #cbLabel {font-size: ' + fontSize + ' !important; margin: 0 !important; padding-left: 4px !important;}\
       #cbLabel:hover {cursor: pointer !important; text-decoration: underline !important;}\
       .crumb span {margin-left: 4px !important;}\
       .icon-boardrules {margin-right: 50px !important;}\
