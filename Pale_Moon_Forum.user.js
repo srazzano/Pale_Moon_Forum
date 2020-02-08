@@ -42,8 +42,8 @@
         linkNewTab = 'new tab',
         textBracket = ')',
         hideFooter = 'Hide footer',
-        openBtnText = 'Open All Boards',
-        closeBtnText = 'Close All Boards';
+        openBoardsText = 'Open Closed Boards',
+        hideBoardsText = 'Hide Closed Boards';
 
   function $(q, root, single, context) {
     root = root || document;
@@ -184,8 +184,8 @@
   $('#page-footer').style.display = sty;
 
   if (pmindex) {
-    var hClosed = $c('button', {id: 'hideBoardsbtn', className: 'closeOpenBtn', textContent: 'Hide Closed Boards'}, [{type: 'click', fn: function() {CloseOpenBoards(true)}}]),
-        oClosed = $c('button', {id: 'openBoardsbtn', className: 'closeOpenBtn', textContent: 'Open Closed Boards'}, [{type: 'click', fn: function() {CloseOpenBoards(false)}}]);
+    var hClosed = $c('button', {id: 'hideBoardsbtn', className: 'closeOpenBtn', textContent: hideBoardsText}, [{type: 'click', fn: function() {CloseOpenBoards(true)}}]),
+        oClosed = $c('button', {id: 'openBoardsbtn', className: 'closeOpenBtn', textContent: openBoardsText}, [{type: 'click', fn: function() {CloseOpenBoards(false)}}]);
     ActionBar.insertBefore(oClosed, ActionBar.firstElementChild);
     ActionBar.insertBefore(hClosed, ActionBar.firstElementChild);
     for (var i = 0, item = $('.forabg'); i < item.length; i++) {
