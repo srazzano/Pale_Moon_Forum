@@ -41,7 +41,7 @@
         linkHomePage = 'home page',
         linkNewTab = 'new tab',
         textBracket = ')',
-        footer = 'View footer',
+        hideFooter = 'Hide footer',
         openBtnText = 'Open All Boards',
         closeBtnText = 'Close All Boards';
 
@@ -113,7 +113,7 @@
 
   function ViewFooter(e) {
     var bool = GM_getValue(e.id) !== false ? false : true,
-        sty = bool ? '-moz-box' : 'none';
+        sty = bool ? 'none' : '-moz-box';
     $('#page-footer').style.display = sty;
     GM_setValue(e.id, bool);
     $('#checkbox1').checked = bool;
@@ -177,9 +177,9 @@
 
   var nav = $q('#nav-breadcrumbs > LI:nth-child(2)'),
       cb = $c('input', {id: 'checkbox1', type: 'checkbox'}, [{type: 'click', fn: function() {ViewFooter(this)}}]),
-      cbLabel = $c('label', {id: 'cbLabel', textContent: footer}, [{type: 'click', fn: function() {ViewFooter(this.previousSibling)}}]),
+      cbLabel = $c('label', {id: 'cbLabel', textContent: hideFooter}, [{type: 'click', fn: function() {ViewFooter(this.previousSibling)}}]),
       ck = GM_getValue('checkbox1'),
-      sty = ck ? '-moz-box' : 'none';
+      sty = ck ? 'none' : '-moz-box';
   nav.appendChild(cb);
   nav.appendChild(cbLabel);
   $('#checkbox1').checked = ck;
@@ -281,7 +281,7 @@
       #nav-breadcrumbs span {font-size: ' + fontSize + ' !important;}\
       #checkbox1 {margin-left: 2px !important;}\
       #cbLabel {font-size: ' + fontSize + ' !important; margin-left: 4px !important;}\
-      #cbLabel:hover {text-decoration: underline !important;}\
+      #cbLabel:hover {cursor: pointer !important; text-decoration: underline !important;}\
       .crumb span {margin-left: 4px !important;}\
       .icon-boardrules {margin-right: 50px !important;}\
       .icon.fa-bars.fa-fw {text-shadow: 1px 1px 2px #000 !important;}\
