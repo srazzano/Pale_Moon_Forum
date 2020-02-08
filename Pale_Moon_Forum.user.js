@@ -114,8 +114,9 @@
   function ViewFooter(e) {
     var bool = GM_getValue(e.id) !== false ? false : true,
         sty = bool ? '-moz-box' : 'none';
-    document.getElementById('page-footer').style.display = sty;
+    $('#page-footer').style.display = sty;
     GM_setValue(e.id, bool);
+    $('#checkbox1').checked = bool;
   }
   
   var ActionBar = $('.action-bar', $('#page-body'), 1),
@@ -175,8 +176,8 @@
   if (!GM_getValue('Board10')) GM_setValue('Board10', false);
 
   var nav = $q('#nav-breadcrumbs > LI:nth-child(2)'),
-      cbLabel = $c('label', {id: 'cbLabel', textContent: footer}),
       cb = $c('input', {id: 'checkbox1', type: 'checkbox'}, [{type: 'click', fn: function() {ViewFooter(this)}}]),
+      cbLabel = $c('label', {id: 'cbLabel', textContent: footer}, [{type: 'click', fn: function() {ViewFooter(this.previousSibling)}}]),
       ck = GM_getValue('checkbox1'),
       sty = ck ? '-moz-box' : 'none';
   nav.appendChild(cb);
@@ -280,6 +281,7 @@
       #nav-breadcrumbs span {font-size: ' + fontSize + ' !important;}\
       #checkbox1 {margin-left: 2px !important;}\
       #cbLabel {font-size: ' + fontSize + ' !important; margin-left: 4px !important;}\
+      #cbLabel:hover {text-decoration: underline !important;}\
       .crumb span {margin-left: 4px !important;}\
       .icon-boardrules {margin-right: 50px !important;}\
       .icon.fa-bars.fa-fw {text-shadow: 1px 1px 2px #000 !important;}\
