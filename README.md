@@ -3,6 +3,6 @@ Tweaks for the Pale Moon Forum: <a href="https://raw.githubusercontent.com/srazz
 
 To theme scrollbar and checkboxes, use this version of Greasemonkey: <a href="https://raw.githubusercontent.com/srazzano/Greasemonkey/master/greasemonkey-PM1.0.2.xpi">Download</a>
 
-Start by clicking on "View All Boards" button to view all boards collapsed and select/deselect desired boards to expand/collapse.<br>Then click on "Hide Unchecked Boards" button to hide the unchecked boards. Will retain selected boards on page reload.
+Start by clicking on "View All Boards" button to view all boards collapsed and select/deselect desired boards to<br> expand/collapse. Then click on "Hide Unchecked Boards" button to hide the unchecked boards. Will retain selected boards on page reload.
 
 <img src="https://github.com/srazzano/Images/blob/master/forum2.png"/>
