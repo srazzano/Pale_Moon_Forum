@@ -93,21 +93,21 @@
     return document.querySelector(el);
   }
 
-  function HideFooter(e) {
-    var bool = GM_getValue(e.id) !== false ? false : true,
-        sty = bool ? 'none' : '-moz-box';
-    $('#page-footer').style.display = sty;
-    GM_setValue(e.id, bool);
-    $('#checkbox1').checked = bool;
-  }
-
-  function ViewHide(e) {
+  function CollapseExpand(e) {
     var elm = e.parentNode,
         bool = GM_getValue(e.id) !== false ? false : true,
         sty = bool ? 'block' : 'none';
     elm.setAttribute('opened', bool);
     elm.childNodes[2].lastElementChild.style.display = sty;
     GM_setValue(e.id, bool); 
+  }
+
+  function HideFooter(e) {
+    var bool = GM_getValue(e.id) !== false ? false : true,
+        sty = bool ? 'none' : '-moz-box';
+    $('#page-footer').style.display = sty;
+    GM_setValue(e.id, bool);
+    $('#checkbox1').checked = bool;
   }
 
   function ViewHideBoards(bool) {
@@ -187,12 +187,12 @@
   $('#page-footer').style.display = sty;
 
   if (pmindex) {
-    var hClosed = $c('button', {id: 'hideBoardsbtn', className: 'viewHideBtn', textContent: hideBoardsText, title: hideBoardsTip}, [{type: 'click', fn: function() {ViewHideBoards(true)}}]),
-        oClosed = $c('button', {id: 'viewBoardsbtn', className: 'viewHideBtn', textContent: viewBoardsText, title: viewBoardsTip}, [{type: 'click', fn: function() {ViewHideBoards(false)}}]);
-    ActionBar.insertBefore(hClosed, ActionBar.firstElementChild);
-    ActionBar.insertBefore(oClosed, ActionBar.firstElementChild);
+    var hBoards = $c('button', {id: 'hideBoardsbtn', className: 'viewHideBtn', textContent: hideBoardsText, title: hideBoardsTip}, [{type: 'click', fn: function() {ViewHideBoards(true)}}]),
+        vBoards = $c('button', {id: 'viewBoardsbtn', className: 'viewHideBtn', textContent: viewBoardsText, title: viewBoardsTip}, [{type: 'click', fn: function() {ViewHideBoards(false)}}]);
+    ActionBar.insertBefore(hBoards, ActionBar.firstElementChild);
+    ActionBar.insertBefore(vBoards, ActionBar.firstElementChild);
     for (var i = 0, item = $('.forabg'); i < item.length; i++) {
-      var ckBox = $c('input', {id: 'Board'+(i+1), className: 'boardCB', type: 'checkbox'}, [{type: 'click', fn: function() {ViewHide(this)}}]),
+      var ckBox = $c('input', {id: 'Board'+(i+1), className: 'boardCB', type: 'checkbox'}, [{type: 'click', fn: function() {CollapseExpand(this)}}]),
           bool = GM_getValue('Board' + (i+1)),
           sty = bool ? 'block' : 'none';
       item[i].insertBefore(ckBox, item[i].firstChild);
@@ -204,7 +204,7 @@
 
   if (pmforum) {
     var ann = $q('.forumbg.announcement'),
-        ckBox = $c('input', {id: 'Board10', className: 'boardCB', type: 'checkbox'}, [{type: 'click', fn: function() {ViewHide(this)}}]),
+        ckBox = $c('input', {id: 'Board10', className: 'boardCB', type: 'checkbox'}, [{type: 'click', fn: function() {CollapseExpand(this)}}]),
         board = GM_getValue('Board10'),
         sty = board ? 'block' : 'none';
     ann.insertBefore(ckBox, ann.firstChild);
