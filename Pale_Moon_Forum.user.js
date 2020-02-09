@@ -88,7 +88,8 @@
     return node;
   }
 
-  function $q(el) {
+  function $q(el, e) {
+    if (e) return document.querySelectorAll(el);
     return document.querySelector(el);
   }
 
@@ -147,7 +148,7 @@
   $q('A[href="//www.palemoon.org/"][style="color:#ffff80;"]').innerHTML = linkHomePage.toUpperCase();
   $q('A[href="//www.palemoon.org/"][target="_blank"][style="color: rgb(255, 255, 128); display: none;"]').nextSibling.nodeValue = '';
 
-  var utc = document.querySelectorAll('#nav-footer > li.rightside');
+  var utc = $q('#nav-footer > li.rightside', true);
   for (var i = 0; i < utc.length; i++) if (utc[i].textContent.match("All times")) utc[i].setAttribute('id', 'clock');
 
   SiteDescription.appendChild(NavMain);
@@ -197,7 +198,6 @@
       item[i].insertBefore(ckBox, item[i].firstChild);
       $('#Board' + (i+1)).checked = bool;
       item[i].setAttribute('opened', bool);
-      item[i].style.display = 'block';
       item[i].style.display = sty;
       item[i].childNodes[2].lastElementChild.style.display = sty;
   } }
