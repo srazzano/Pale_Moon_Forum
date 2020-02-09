@@ -330,9 +330,9 @@
       .jumpbox-return {margin: 3px 0 0 0 !important; padding: 3px 6px !important;}\
       .jumpbox-return * {color: ' + textColor + ' !important;}\
       .mark:hover, .pagination > a:hover, .jumpbox-return:hover, .advanced-search-link:hover {background: ' + boardHoverBG + ' !important;}\
-      .button.button-secondary {-moz-appearance: none !important; background: ' + boardBG + ' !important; border: 1px solid #314A85 !important; border-radius: 4px !important; box-shadow: inset 0 0 1px #FFF !important; color: ' + textColor + ' !important; padding: 3px 6px !important; text-shadow: 1px 1px 2px #000 !important;}\
+      .button.button-secondary:not([class*="bbcode"]) {-moz-appearance: none !important; background: ' + boardBG + ' !important; border: 1px solid #314A85 !important; border-radius: 4px !important; box-shadow: inset 0 0 1px #FFF !important; color: ' + textColor + ' !important; padding: 3px 6px !important; text-shadow: 1px 1px 2px #000 !important;}\
       .button.button-secondary .fa-fw {color: ' + textColor + ' !important;}\
-      .button.button-secondary:hover {background: ' + boardHoverBG + ' !important;}\
+      .button.button-secondary:not([class*="bbcode"]):hover {background: ' + boardHoverBG + ' !important;}\
       .sticky {background: ' + stickyBG + ' !important;}\
       .forabg, .forumbg {background: ' + boardHoverBG + ' !important; border: 1px solid #314A85 !important; border-radius: 6px 6px 12px 12px !important; box-shadow: inset 0 0 1px #FFF !important; margin: 0 0 5px 0 !important; padding: 4px 4px 3px 4px !important; position: relative !important;}\
       .forabg:hover .header a, .forumbg:hover .header a {color: ' + textHoverColor + ' !important;}\
