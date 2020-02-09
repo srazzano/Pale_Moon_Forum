@@ -76,8 +76,7 @@
     if (evls instanceof Array) {
       for (var i = 0; i < evls.length; i++) {
         var evl = evls[i];
-        if (typeof evl.type == 'string' && typeof evl.fn == 'function')
-          node.addEventListener(evl.type, evl.fn, false);
+        if (typeof evl.type == 'string' && typeof evl.fn == 'function') node.addEventListener(evl.type, evl.fn, false);
     } }
     return node;
   }
@@ -111,8 +110,7 @@
   }
 
   function ViewHideBoards(bool) {
-    var elm = $('.boardCB');
-    for (var i = 0; i < elm.length; i++) {
+    for (var i = 0, elm = $('.boardCB'); i < elm.length; i++) {
       if (bool) {
         if (elm[i].checked === false) elm[i].parentNode.style.display = 'none';
       } else {
