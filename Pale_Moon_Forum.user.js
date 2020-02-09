@@ -42,7 +42,7 @@
         linkNewTab = 'new tab',
         textBracket = ')',
         hideFooter = 'Hide footer',
-        openBoardsText = 'Open Unchecked Boards',
+        openBoardsText = 'View All Boards',
         openBoardsTip = 'Open All Unchecked Boards',
         hideBoardsText = 'Hide Unchecked Boards',
         hideBoardsTip = 'Hide All Unchecked Boards';
@@ -188,8 +188,8 @@
   if (pmindex) {
     var hClosed = $c('button', {id: 'hideBoardsbtn', className: 'closeOpenBtn', textContent: hideBoardsText, title: hideBoardsTip}, [{type: 'click', fn: function() {CloseOpenBoards(true)}}]),
         oClosed = $c('button', {id: 'openBoardsbtn', className: 'closeOpenBtn', textContent: openBoardsText, title: openBoardsTip}, [{type: 'click', fn: function() {CloseOpenBoards(false)}}]);
-    ActionBar.insertBefore(oClosed, ActionBar.firstElementChild);
     ActionBar.insertBefore(hClosed, ActionBar.firstElementChild);
+    ActionBar.insertBefore(oClosed, ActionBar.firstElementChild);
     for (var i = 0, item = $('.forabg'); i < item.length; i++) {
       var ckBox = $c('input', {id: 'Board'+(i+1), className: 'boardCB', type: 'checkbox'}, [{type: 'click', fn: function() {CloseOpen(this)}}]),
           bool = GM_getValue('Board' + (i+1)),
@@ -393,4 +393,4 @@
     }\
   ');
 
-})();
+})()
