@@ -88,8 +88,8 @@
     return node;
   }
 
-  function $q(el, e) {
-    if (e) return document.querySelectorAll(el);
+  function $q(el, all) {
+    if (all) return document.querySelectorAll(el);
     return document.querySelector(el);
   }
 
