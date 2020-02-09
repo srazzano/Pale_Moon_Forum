@@ -107,7 +107,7 @@
         sty = bool ? 'none' : '-moz-box';
     $('#page-footer').style.display = sty;
     GM_setValue(e.id, bool);
-    $('#checkbox1').checked = bool;
+    $('#hidefooter').checked = bool;
   }
 
   function ViewHideBoards(bool) {
@@ -164,7 +164,7 @@
   SiteDescriptionP.appendChild(NavBreadcrumbs);
   try {DateTime.appendChild(Bullet)} catch(ex) {}
 
-  if (!GM_getValue('checkbox1')) GM_setValue('checkbox1', false);
+  if (!GM_getValue('hidefooter')) GM_setValue('hidefooter', false);
   if (!GM_getValue('Board1')) GM_setValue('Board1', false);
   if (!GM_getValue('Board2')) GM_setValue('Board2', false);
   if (!GM_getValue('Board3')) GM_setValue('Board3', false);
@@ -177,18 +177,18 @@
   if (!GM_getValue('Board10')) GM_setValue('Board10', false);
 
   var nav = $q('#nav-breadcrumbs > LI:nth-child(2)'),
-      cb = $c('input', {id: 'checkbox1', type: 'checkbox'}, [{type: 'click', fn: function() {HideFooter(this)}}]),
-      cbLabel = $c('label', {id: 'cbLabel', textContent: hideFooter}, [{type: 'click', fn: function() {HideFooter(this.previousSibling)}}]),
-      ck = GM_getValue('checkbox1'),
+      cb = $c('input', {id: 'hidefooter', type: 'checkbox'}, [{type: 'click', fn: function() {HideFooter(this)}}]),
+      hidefooterLabel = $c('label', {id: 'hidefooterLabel', textContent: hideFooter}, [{type: 'click', fn: function() {HideFooter(this.previousSibling)}}]),
+      ck = GM_getValue('hidefooter'),
       sty = ck ? 'none' : '-moz-box';
   nav.appendChild(cb);
-  nav.appendChild(cbLabel);
-  $('#checkbox1').checked = ck;
+  nav.appendChild(hidefooterLabel);
+  $('#hidefooter').checked = ck;
   $('#page-footer').style.display = sty;
 
   if (pmindex) {
-    var hBoards = $c('button', {id: 'hideBoardsbtn', className: 'viewHideBtn', textContent: hideBoardsText, title: hideBoardsTip}, [{type: 'click', fn: function() {ViewHideBoards(true)}}]),
-        vBoards = $c('button', {id: 'viewBoardsbtn', className: 'viewHideBtn', textContent: viewBoardsText, title: viewBoardsTip}, [{type: 'click', fn: function() {ViewHideBoards(false)}}]);
+    var hBoards = $c('button', {id: 'hideBoardsBtn', className: 'viewHideBtn', textContent: hideBoardsText, title: hideBoardsTip}, [{type: 'click', fn: function() {ViewHideBoards(true)}}]),
+        vBoards = $c('button', {id: 'viewBoardsBtn', className: 'viewHideBtn', textContent: viewBoardsText, title: viewBoardsTip}, [{type: 'click', fn: function() {ViewHideBoards(false)}}]);
     ActionBar.insertBefore(hBoards, ActionBar.firstElementChild);
     ActionBar.insertBefore(vBoards, ActionBar.firstElementChild);
     for (var i = 0, item = $('.forabg'); i < item.length; i++) {
@@ -257,7 +257,7 @@
       html, body {background: ' + bodyBG + ' !important;}\
       #page-header {height: 83px !important; position: fixed !important; top: 0 !important; width: 100% !important; z-index: 2147483647 !important;}\
       #page-header > .headerbar {background: ' + headerBG + ' !important; border: 1px solid #314A85 !important; border-radius: 0 0 8px 8px !important; height: 83px !important; margin: 0 2px !important; padding: 0 !important;}\
-      #page-header > .headerbar a, #cbLabel {font-style: italic !important; font-weight: bold !important;}\
+      #page-header > .headerbar a, #hidefooterLabel {font-style: italic !important; font-weight: bold !important;}\
       #wrap {background: none !important; border: none !important; box-shadow: none !important; min-width: 100% !important; padding: 0 !important;}\
       #page-body {margin: 76px 2px 0 2px !important;}\
       a {border: 1px dotted transparent !important; outline: none !important;}\
@@ -281,9 +281,9 @@
       #nav-breadcrumbs a {color: ' + textColor + ' !important;}\
       #nav-breadcrumbs li {margin: 2px 8px 0 0 !important;}\
       #nav-breadcrumbs span {font-size: ' + fontSize + ' !important;}\
-      #checkbox1 {margin: -2px 0 0 4px !important;}\
-      #cbLabel {font-size: ' + fontSize + ' !important; margin: 0 !important; padding-left: 4px !important;}\
-      #checkbox1:hover + #cbLabel, #cbLabel:hover {cursor: pointer !important; text-decoration: underline !important;}\
+      #hidefooter {margin: -2px 0 0 4px !important;}\
+      #hidefooterLabel {font-size: ' + fontSize + ' !important; margin: 0 !important; padding-left: 4px !important;}\
+      #hidefooter:hover + #hidefooterLabel, #hidefooterLabel:hover {cursor: pointer !important; text-decoration: underline !important;}\
       .crumb span {margin-left: 4px !important;}\
       .icon-boardrules {margin-right: 50px !important;}\
       .icon.fa-bars.fa-fw {text-shadow: 1px 1px 2px #000 !important;}\
@@ -301,7 +301,7 @@
       #page-body > p.responsive-center {cursor: default !important; font-weight: bold !important; height: 18px !important; margin: 3px 0 0 0 !important; padding-bottom: 2px !important; padding-top: 4px !important; text-shadow: 1px 1px 2px #000 !important;}\
       #page-body > p.responsive-center.time {color: ' + boardHoverBG + ' !important; text-shadow: none !important;}\
       #page-body > p:nth-child(2) {float: right !important;}\
-      #site-description h1, #site-description p, #site-description span, #site-description a, #site-description i, #site-description span.username, #site-description #cbLabel {color: ' + headerText + ' !important;}\
+      #site-description h1, #site-description p, #site-description span, #site-description a, #site-description i, #site-description span.username, #site-description #hidefooterLabel {color: ' + headerText + ' !important;}\
       body.section-viewtopic #page-body > P {display: none !important;}\
       #aBull {margin: 0 8px !important;}\
       .rightside.responsive-search, .icon.fa-file-o.fa-fw.icon-red {color: ' + textColor + ' !important;}\
@@ -350,7 +350,7 @@
       .forabg li:last-child, .forumbg.announcement ul > li:last-child, .topiclist.topics li:last-of-type {border-radius: 0 0 9px 9px !important;}\
       li.header dt, li.header dd {color: ' + textColor + ' !important;}\
       li.header dt:hover, li.header dd:hover {color: ' + textHoverColor + ' !important;}\
-      #checkbox1 {-moz-appearance: none !important; border: 1px solid #FFF !important; border-radius: 3px !important; box-shadow: inset 0 0 2px #000 !important; height: 17px !important; width: 17px !important;}\
+      #hidefooter {-moz-appearance: none !important; border: 1px solid #FFF !important; border-radius: 3px !important; box-shadow: inset 0 0 2px #000 !important; height: 17px !important; width: 17px !important;}\
       input.boardCB {-moz-appearance: none !important; border: 1px solid #FFF !important; border-radius: 3px !important; box-shadow: inset 0 0 2px #000 !important; float: left !important; height: 17px !important; margin: -1px 5px 0 0 !important; padding: 0 !important; position: relative !important; width: 17px !important; z-index: 2 !important;}\
       #page-body > div:nth-child(5) > div > ul:last-child > li:last-child {border-radius: 0 0 9px 9px !important;}\
       #page-body > div:nth-child(6) > div > ul:last-child > li:last-child {border-radius: 0 0 9px 9px !important;}\
