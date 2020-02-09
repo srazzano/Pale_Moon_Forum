@@ -42,8 +42,8 @@
         linkNewTab = 'new tab',
         textBracket = ')',
         hideFooter = 'Hide footer',
-        openBoardsText = 'View All Boards',
-        openBoardsTip = 'Open All Unchecked Boards',
+        viewBoardsText = 'View All Boards',
+        viewBoardsTip = 'View All Unchecked Boards',
         hideBoardsText = 'Hide Unchecked Boards',
         hideBoardsTip = 'Hide All Unchecked Boards';
 
@@ -92,7 +92,15 @@
     return document.querySelector(el);
   }
 
-  function CloseOpen(e) {
+  function HideFooter(e) {
+    var bool = GM_getValue(e.id) !== false ? false : true,
+        sty = bool ? 'none' : '-moz-box';
+    $('#page-footer').style.display = sty;
+    GM_setValue(e.id, bool);
+    $('#checkbox1').checked = bool;
+  }
+
+  function ViewHide(e) {
     var elm = e.parentNode,
         bool = GM_getValue(e.id) !== false ? false : true,
         sty = bool ? 'block' : 'none';
@@ -101,7 +109,7 @@
     GM_setValue(e.id, bool); 
   }
 
-  function CloseOpenBoards(bool) {
+  function ViewHideBoards(bool) {
     var elm = $('.boardCB');
     for (var i = 0; i < elm.length; i++) {
       if (bool) {
@@ -109,16 +117,8 @@
       } else {
         if (elm[i].checked === false) elm[i].parentNode.style.display = 'block';
         if (elm[i].checked === false) elm[i].parentNode.childNodes[2].lastElementChild.style.display = 'none';
-  } } } 
-  
-  function ViewFooter(e) {
-    var bool = GM_getValue(e.id) !== false ? false : true,
-        sty = bool ? 'none' : '-moz-box';
-    $('#page-footer').style.display = sty;
-    GM_setValue(e.id, bool);
-    $('#checkbox1').checked = bool;
-  }
-  
+  } } }
+
   var ActionBar = $('.action-bar', $('#page-body'), 1),
       Link0 = $c('a', {id: 'aLink0', textContent: linkNewTab.toUpperCase()}, [{type: 'click', fn: function() {window.open(Url1, '_blank')}}]),
       Label0 = $n('text', {textContent: textBracket}),
@@ -146,10 +146,10 @@
   $q('A[href="//www.palemoon.org/"][target="_blank"][style="color:#ffff80;"]').style.display = 'none';
   $q('A[href="//www.palemoon.org/"][style="color:#ffff80;"]').innerHTML = linkHomePage.toUpperCase();
   $q('A[href="//www.palemoon.org/"][target="_blank"][style="color: rgb(255, 255, 128); display: none;"]').nextSibling.nodeValue = '';
-  
+
   var utc = document.querySelectorAll('#nav-footer > li.rightside');
   for (var i = 0; i < utc.length; i++) if (utc[i].textContent.match("All times")) utc[i].setAttribute('id', 'clock');
-  
+
   SiteDescription.appendChild(NavMain);
   SiteDescriptionP.innerHTML = SiteDescriptionP.innerHTML.replace('Visit the', '').replace('Discussion forum for the Pale Moon web browser', '').replace(/\(or\s+in/, '(in');
   SiteDescriptionP.appendChild(Link0);
@@ -176,8 +176,8 @@
   if (!GM_getValue('Board10')) GM_setValue('Board10', false);
 
   var nav = $q('#nav-breadcrumbs > LI:nth-child(2)'),
-      cb = $c('input', {id: 'checkbox1', type: 'checkbox'}, [{type: 'click', fn: function() {ViewFooter(this)}}]),
-      cbLabel = $c('label', {id: 'cbLabel', textContent: hideFooter}, [{type: 'click', fn: function() {ViewFooter(this.previousSibling)}}]),
+      cb = $c('input', {id: 'checkbox1', type: 'checkbox'}, [{type: 'click', fn: function() {HideFooter(this)}}]),
+      cbLabel = $c('label', {id: 'cbLabel', textContent: hideFooter}, [{type: 'click', fn: function() {HideFooter(this.previousSibling)}}]),
       ck = GM_getValue('checkbox1'),
       sty = ck ? 'none' : '-moz-box';
   nav.appendChild(cb);
@@ -186,12 +186,12 @@
   $('#page-footer').style.display = sty;
 
   if (pmindex) {
-    var hClosed = $c('button', {id: 'hideBoardsbtn', className: 'closeOpenBtn', textContent: hideBoardsText, title: hideBoardsTip}, [{type: 'click', fn: function() {CloseOpenBoards(true)}}]),
-        oClosed = $c('button', {id: 'openBoardsbtn', className: 'closeOpenBtn', textContent: openBoardsText, title: openBoardsTip}, [{type: 'click', fn: function() {CloseOpenBoards(false)}}]);
+    var hClosed = $c('button', {id: 'hideBoardsbtn', className: 'viewHideBtn', textContent: hideBoardsText, title: hideBoardsTip}, [{type: 'click', fn: function() {ViewHideBoards(true)}}]),
+        oClosed = $c('button', {id: 'viewBoardsbtn', className: 'viewHideBtn', textContent: viewBoardsText, title: viewBoardsTip}, [{type: 'click', fn: function() {ViewHideBoards(false)}}]);
     ActionBar.insertBefore(hClosed, ActionBar.firstElementChild);
     ActionBar.insertBefore(oClosed, ActionBar.firstElementChild);
     for (var i = 0, item = $('.forabg'); i < item.length; i++) {
-      var ckBox = $c('input', {id: 'Board'+(i+1), className: 'boardCB', type: 'checkbox'}, [{type: 'click', fn: function() {CloseOpen(this)}}]),
+      var ckBox = $c('input', {id: 'Board'+(i+1), className: 'boardCB', type: 'checkbox'}, [{type: 'click', fn: function() {ViewHide(this)}}]),
           bool = GM_getValue('Board' + (i+1)),
           sty = bool ? 'block' : 'none';
       item[i].insertBefore(ckBox, item[i].firstChild);
@@ -201,10 +201,10 @@
       item[i].style.display = sty;
       item[i].childNodes[2].lastElementChild.style.display = sty;
   } }
- 
+
   if (pmforum) {
     var ann = $q('.forumbg.announcement'),
-        ckBox = $c('input', {id: 'Board10', className: 'boardCB', type: 'checkbox'}, [{type: 'click', fn: function() {CloseOpen(this)}}]),
+        ckBox = $c('input', {id: 'Board10', className: 'boardCB', type: 'checkbox'}, [{type: 'click', fn: function() {ViewHide(this)}}]),
         board = GM_getValue('Board10'),
         sty = board ? 'block' : 'none';
     ann.insertBefore(ckBox, ann.firstChild);
@@ -319,9 +319,9 @@
       .action-bar.bar-top button.button.button-search {height: 26px !important;}\
       .action-bar.bar-top a.button.button-search-end {padding: 3px 4px 3px 4px !important;}\
       .action-bar .button-search-end {border: 1px solid #C7C3BF !important; margin-left: -1px !important;}\
-      .closeOpenBtn, .action-bar > a.button, #ucp .panel a.mark {-moz-appearance: none !important; background: ' + boardBG + ' !important; border: 1px solid #314A85 !important; border-radius: 4px !important; box-shadow: inset 0 0 1px #FFF !important; color: ' + textColor + ' !important; cursor: pointer !important; font-size: ' + fontSize + ' !important; margin: 0 5px 0 0 !important; padding: 0 6px !important; text-shadow: 1px 1px 2px #000 !important;}\
-      .closeOpenBtn {height: 26px !important;}\
-      .closeOpenBtn:hover, .action-bar > a.button:hover, #ucp .panel a.mark:hover {background: ' + boardHoverBG + ' !important; color: ' + textHoverColor + ' !important;}\
+      .viewHideBtn, .action-bar > a.button, #ucp .panel a.mark {-moz-appearance: none !important; background: ' + boardBG + ' !important; border: 1px solid #314A85 !important; border-radius: 4px !important; box-shadow: inset 0 0 1px #FFF !important; color: ' + textColor + ' !important; cursor: pointer !important; font-size: ' + fontSize + ' !important; margin: 0 5px 0 0 !important; padding: 0 6px !important; text-shadow: 1px 1px 2px #000 !important;}\
+      .viewHideBtn {height: 26px !important;}\
+      .viewHideBtn:hover, .action-bar > a.button:hover, #ucp .panel a.mark:hover {background: ' + boardHoverBG + ' !important; color: ' + textHoverColor + ' !important;}\
       .mark-read.rightside {background: ' + boardBG + ' !important; border: 1px solid #314A85 !important; border-radius: 4px !important; box-shadow: inset 0 0 1px #FFF !important; color: ' + textColor + ' !important; float: none !important; font-size: ' + fontSize + ' !important; height: 20px !important; margin: 0 !important; padding: 4px 6px 0 6px !important; position: relative !important; text-decoration: none !important; text-shadow: 1px 1px 2px #000 !important; top: 0 !important; vertical-align: top !important;}\
       .mark-read.rightside:hover {background: ' + boardHoverBG + ' !important; color: ' + textHoverColor + ' !important;}\
       .pagination > a.mark {height: 20px !important; padding: 4px 6px 0 6px !important;}\
@@ -393,4 +393,4 @@
     }\
   ');
 
-})()
+})();
