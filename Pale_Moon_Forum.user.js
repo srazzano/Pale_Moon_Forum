@@ -375,8 +375,8 @@
       #jumpbox {margin: 0 !important;}\
       #jumpbox span {text-decoration: none !important;}\
       .action-bar.actions-jump {margin-bottom: 2px !important;}\
-      #clock::before {color: ' + textColor + ' !important; content: "\u231A" !important; font-family: monospace !important; font-size: 18px !important; position: relative !important; top: 3px !important;}\
-      #clock {cursor: default !important; margin-top: 1px !important;}\
+      #clock:before {color: ' + textColor + ' !important; content: "\u2022" !important; font-family: monospace !important; font-size: 24px !important; position: relative !important; top: 4px !important;}\
+      #clock {cursor: default !important; margin: 0 0 1px 6px !important;}\
       body.section-posting #nav-footer > LI:nth-child(3) {margin-top: 1px !important;}\
       .navbar {background: transparent !important;}\
       .pagination a[data-ajax] {height: 20px !important; padding: 2px 6px !important;}\
