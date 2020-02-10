@@ -159,7 +159,7 @@
   SiteDescriptionP.appendChild(Label3);
   SiteDescriptionP.insertBefore(Separator, Label1);
   SiteDescriptionP.appendChild(NavBreadcrumbs);
-  try {DateTime.appendChild(Bullet)} catch(ex) {}
+  //try {DateTime.appendChild(Bullet)} catch(ex) {}
 
   if (!GM_getValue('hidefooter')) GM_setValue('hidefooter', false);
   if (!GM_getValue('Board1')) GM_setValue('Board1', false);
@@ -294,7 +294,7 @@
       #page-header, .topics, .posts, .views {cursor: default !important;}\
       #site-description br, #page-body h2, .rules, .stat-block, .copyright {display: none !important;}\
       #page-body > div:nth-child(2):not(.boardrules-container) {display: none !important;}\
-      #page-body p {color: #000 !important; position: relative !important; top: -3px !important;}\
+      #page-body p {color: #000 !important;}\
       #page-body > p.responsive-center {cursor: default !important; font-weight: bold !important; height: 18px !important; margin: 3px 0 0 0 !important; padding-bottom: 2px !important; padding-top: 4px !important; text-shadow: 1px 1px 2px #000 !important;}\
       #page-body > p.responsive-center.time {color: ' + boardHoverBG + ' !important; text-shadow: none !important;}\
       #page-body > p:nth-child(2) {float: right !important;}\
@@ -302,6 +302,7 @@
       body.section-viewtopic #page-body > P {display: none !important;}\
       #aBull {margin: 0 8px !important;}\
       .rightside.responsive-search, .icon.fa-file-o.fa-fw.icon-red {color: ' + textColor + ' !important;}\
+      .right.responsive-center.time.rightside {display: none !important;}\
       .button.button-search icon.fa-search.fa-fw, .button.button-search icon.fa-cog.fa-fw {color: #606060 !important;}\
       #username_logged_in .username {color: ' + textColor + ' !important; text-shadow: 1px 1px 2px #000 !important;}\
       #username_logged_in a span {color: #000 !important; text-shadow: none !important;}\
