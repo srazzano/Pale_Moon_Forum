@@ -329,7 +329,7 @@
       #page-body p.advanced-search-link {float: left !important; margin: 3px 5px 0 0 !important;}\
       p.advanced-search-link a, p.advanced-search-link a i {color: #FFF !important; text-decoration: none !important;}\
       .mark-read.rightside:after, .mark[data-ajax]:after, .pagination > a:after {color: ' + textColor + ' !important; content: "\u2714" !important; margin-left: 6px !important;}\
-      .jumpbox-return {margin: 3px 0 0 0 !important; padding: 3px 6px !important;}\
+      .jumpbox-return {margin: 0px 0 3px 0 !important; padding: 3px 6px !important;}\
       .jumpbox-return * {color: ' + textColor + ' !important;}\
       .mark:hover, .pagination > a:hover, .jumpbox-return:hover, .advanced-search-link:hover {background: ' + boardHoverBG + ' !important;}\
       .button.button-secondary:not([class*="bbcode-"]) {-moz-appearance: none !important; background: ' + boardBG + ' !important; border: 1px solid #314A85 !important; border-radius: 4px !important; box-shadow: inset 0 0 1px #FFF !important; color: ' + textColor + ' !important; padding: 3px 6px !important; text-shadow: 1px 1px 2px #000 !important;}\
