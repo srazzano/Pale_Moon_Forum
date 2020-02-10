@@ -160,6 +160,7 @@
   SiteDescriptionP.insertBefore(Separator, Label1);
   SiteDescriptionP.appendChild(NavBreadcrumbs);
   //try {DateTime.appendChild(Bullet)} catch(ex) {}
+  try {DateTime.textContent = DateTime.textContent.replace('It is c', 'C')} catch(ex) {}
 
   if (!GM_getValue('hidefooter')) GM_setValue('hidefooter', false);
   if (!GM_getValue('Board1')) GM_setValue('Board1', false);
