@@ -33,6 +33,7 @@
         scrollbarThumb = 'linear-gradient(to right, #5BA4ED, #314A85)',
         scrollbarThumbHover = 'linear-gradient(to right, #B2D2F3, #6181C5)',
         bullet = '\u2022',
+        currentDate = '📅\u2006',
         textPaleMoon = 'Pale Moon ',
         linkAddonsSite = 'add-ons site',
         Url1  = 'https://www.palemoon.org/',
@@ -147,7 +148,7 @@
   $q('A[href="//www.palemoon.org/"][target="_blank"][style="color: rgb(255, 255, 128); display: none;"]').nextSibling.nodeValue = '';
 
   for (var i = 0, utc = $q('#nav-footer > li.rightside', true); i < utc.length; i++) if (utc[i].textContent.match("All times")) utc[i].setAttribute('id', 'clock');
-
+  
   SiteDescription.appendChild(NavMain);
   SiteDescriptionP.innerHTML = SiteDescriptionP.innerHTML.replace('Visit the', '').replace('Discussion forum for the Pale Moon web browser', '').replace(/\(or\s+in/, '(in');
   SiteDescriptionP.appendChild(Link0);
@@ -160,7 +161,7 @@
   SiteDescriptionP.insertBefore(Separator, Label1);
   SiteDescriptionP.appendChild(NavBreadcrumbs);
   //try {DateTime.appendChild(Bullet)} catch(ex) {}
-  try {DateTime.textContent = DateTime.textContent.replace('It is currently', 'Current date: ').replace(/,.*/, '')} catch(ex) {}
+  try {DateTime.textContent = DateTime.textContent.replace('It is currently', currentDate).replace(/,.*/, '')} catch(ex) {}
 
   if (!GM_getValue('hidefooter')) GM_setValue('hidefooter', false);
   if (!GM_getValue('Board1')) GM_setValue('Board1', false);
@@ -374,7 +375,7 @@
       #jumpbox {margin: 0 !important;}\
       #jumpbox span {text-decoration: none !important;}\
       .action-bar.actions-jump {margin-bottom: 2px !important;}\
-      #clock:before {content: "\u231A" !important; font-family: monospace !important; font-size: 18px !important; position: relative !important; top: 3px !important;}\
+      #clock::before {color: ' + textColor + ' !important; content: "\u231A" !important; font-family: monospace !important; font-size: 18px !important; position: relative !important; top: 3px !important;}\
       #clock {cursor: default !important; margin-top: 1px !important;}\
       body.section-posting #nav-footer > LI:nth-child(3) {margin-top: 1px !important;}\
       .navbar {background: transparent !important;}\
