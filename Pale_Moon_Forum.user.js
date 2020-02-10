@@ -321,13 +321,13 @@
       a.top {font-weight: bold !important; padding: 5px !important; text-decoration: none !important;}\
       a.top i {color:#FFF !important;}\
       .top:hover, .viewHideBtn:hover, .action-bar > a.button:hover, #ucp .panel a.mark:hover {background: ' + boardHoverBG + ' !important; color: ' + textHoverColor + ' !important;}\
-      .mark-read.rightside {background: ' + boardBG + ' !important; border: 1px solid #314A85 !important; border-radius: 4px !important; box-shadow: inset 0 0 1px #FFF !important; color: ' + textColor + ' !important; float: none !important; font-size: ' + fontSize + ' !important; height: 20px !important; margin: 0 !important; padding: 4px 6px 0 6px !important; position: relative !important; text-decoration: none !important; text-shadow: 1px 1px 2px #000 !important; top: 0 !important; vertical-align: top !important;}\
+      .mark-read.rightside {background: ' + boardBG + ' !important; border: 1px solid #314A85 !important; border-radius: 4px !important; box-shadow: inset 0 0 1px #FFF !important; color: ' + textColor + ' !important; float: right !important; font-size: ' + fontSize + ' !important; height: 20px !important; margin: 0 8px 0 0 !important; padding: 4px 6px 0 6px !important; position: relative !important; text-decoration: none !important; text-shadow: 1px 1px 2px #000 !important; top: 0 !important; vertical-align: top !important;}\
       .mark-read.rightside:hover {background: ' + boardHoverBG + ' !important; color: ' + textHoverColor + ' !important;}\
       .pagination > a.mark {height: 20px !important; padding: 4px 6px 0 6px !important;}\
       .mark, .pagination > a, .jumpbox-return, .advanced-search-link {background: ' + boardBG + ' !important; border: 1px solid #314A85 !important; border-radius: 4px !important; box-shadow: inset 0 0 1px #FFF !important; color: ' + textColor + ' !important; font-size: ' + fontSize + ' !important; font-weight: bold !important; padding: 4px 6px !important; text-shadow: 1px 1px 2px #000 !important;}\
       #page-body p.advanced-search-link {float: left !important; margin: 3px 5px 0 0 !important;}\
       p.advanced-search-link a, p.advanced-search-link a i {color: #FFF !important; text-decoration: none !important;}\
-      .mark[data-ajax]:after, .pagination > a:after {color: ' + textColor + ' !important; content: "\u2714" !important; margin-left: 6px !important;}\
+      .mark-read.rightside:after, .mark[data-ajax]:after, .pagination > a:after {color: ' + textColor + ' !important; content: "\u2714" !important; margin-left: 6px !important;}\
       .jumpbox-return {margin: 3px 0 0 0 !important; padding: 3px 6px !important;}\
       .jumpbox-return * {color: ' + textColor + ' !important;}\
       .mark:hover, .pagination > a:hover, .jumpbox-return:hover, .advanced-search-link:hover {background: ' + boardHoverBG + ' !important;}\
