@@ -316,9 +316,11 @@
       .action-bar.bar-top button.button.button-search {height: 26px !important;}\
       .action-bar.bar-top a.button.button-search-end {padding: 3px 4px 3px 4px !important;}\
       .action-bar .button-search-end {border: 1px solid #C7C3BF !important; margin-left: -1px !important;}\
-      .viewHideBtn, .action-bar > a.button, #ucp .panel a.mark {-moz-appearance: none !important; background: ' + boardBG + ' !important; border: 1px solid #314A85 !important; border-radius: 4px !important; box-shadow: inset 0 0 1px #FFF !important; color: ' + textColor + ' !important; cursor: pointer !important; font-size: ' + fontSize + ' !important; margin: 0 5px 0 0 !important; padding: 0 6px !important; text-shadow: 1px 1px 2px #000 !important;}\
+      .top, .viewHideBtn, .action-bar > a.button, #ucp .panel a.mark {-moz-appearance: none !important; background: ' + boardBG + ' !important; border: 1px solid #314A85 !important; border-radius: 4px !important; box-shadow: inset 0 0 1px #FFF !important; color: ' + textColor + ' !important; cursor: pointer !important; font-size: ' + fontSize + ' !important; margin: 0 5px 0 0 !important; padding: 0 6px !important; text-shadow: 1px 1px 2px #000 !important;}\
       .viewHideBtn {height: 26px !important;}\
-      .viewHideBtn:hover, .action-bar > a.button:hover, #ucp .panel a.mark:hover {background: ' + boardHoverBG + ' !important; color: ' + textHoverColor + ' !important;}\
+      a.top {font-weight: bold !important; padding: 5px !important; text-decoration: none !important;}\
+      a.top i {color:#FFF !important;}\
+      .top:hover, .viewHideBtn:hover, .action-bar > a.button:hover, #ucp .panel a.mark:hover {background: ' + boardHoverBG + ' !important; color: ' + textHoverColor + ' !important;}\
       .mark-read.rightside {background: ' + boardBG + ' !important; border: 1px solid #314A85 !important; border-radius: 4px !important; box-shadow: inset 0 0 1px #FFF !important; color: ' + textColor + ' !important; float: none !important; font-size: ' + fontSize + ' !important; height: 20px !important; margin: 0 !important; padding: 4px 6px 0 6px !important; position: relative !important; text-decoration: none !important; text-shadow: 1px 1px 2px #000 !important; top: 0 !important; vertical-align: top !important;}\
       .mark-read.rightside:hover {background: ' + boardHoverBG + ' !important; color: ' + textHoverColor + ' !important;}\
       .pagination > a.mark {height: 20px !important; padding: 4px 6px 0 6px !important;}\
@@ -368,6 +370,7 @@
       #nav-footer > li i {position: relative !important; top: 1px !important;}\
       #nav-footer a, #nav-footer span, #nav-footer i {color: ' + textColor + ' !important;}\
       #jumpbox {margin: 0 !important;}\
+      #jumpbox span {text-decoration: none !important;}\
       .action-bar.actions-jump {margin-bottom: 2px !important;}\
       #clock:before {content: "\u231A" !important; font-family: monospace !important; font-size: 18px !important; position: relative !important; top: 3px !important;}\
       #clock {cursor: default !important; margin-top: 1px !important;}\
