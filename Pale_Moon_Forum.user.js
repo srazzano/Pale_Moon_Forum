@@ -361,6 +361,7 @@
       body.section-viewforum #page-body > div:nth-child(5):hover > div > UL:first-child > li > dl > dt > div {color: ' + textHoverColor + ' !important; cursor: default !important;}\
       body.section-viewforum #page-body > div:nth-child(6):hover > div > UL:first-child > li > dl > dt > div {color: ' + textHoverColor + ' !important; cursor: default !important;}\
       #page-body > p.responsive-center.time, .row strong, .lastpost > span:last-child {cursor: default !important;}\
+      #page-body > p.responsive-center.time {font-size: 115% !important; margin-right: 0 !important;}\
       .topiclist.forums {margin-top: -2px !important;}\
       .row-item.forum_unread .list-inner {color: #000 !important;}\
       .row:hover {background-color: #F6F4D0 !important;}\
