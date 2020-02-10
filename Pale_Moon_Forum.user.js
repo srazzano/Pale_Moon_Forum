@@ -160,7 +160,7 @@
   SiteDescriptionP.insertBefore(Separator, Label1);
   SiteDescriptionP.appendChild(NavBreadcrumbs);
   //try {DateTime.appendChild(Bullet)} catch(ex) {}
-  try {DateTime.textContent = DateTime.textContent.replace('It is c', 'C').replace(/,.*/, '')} catch(ex) {}
+  try {DateTime.textContent = DateTime.textContent.replace('It is currently', 'Current date: ').replace(/,.*/, '')} catch(ex) {}
 
   if (!GM_getValue('hidefooter')) GM_setValue('hidefooter', false);
   if (!GM_getValue('Board1')) GM_setValue('Board1', false);
@@ -296,8 +296,6 @@
       #site-description br, #page-body h2, .rules, .stat-block, .copyright {display: none !important;}\
       #page-body > div:nth-child(2):not(.boardrules-container) {display: none !important;}\
       #page-body p {color: #000 !important;}\
-      #page-body > p.responsive-center {cursor: default !important; font-weight: bold !important; height: 18px !important; margin: 3px 0 0 0 !important; padding-bottom: 2px !important; padding-top: 4px !important; text-shadow: 1px 1px 2px #000 !important;}\
-      #page-body > p.responsive-center.time {color: ' + boardHoverBG + ' !important; text-shadow: none !important;}\
       #page-body > p:nth-child(2) {float: right !important;}\
       #site-description h1, #site-description p, #site-description span, #site-description a, #site-description i, #site-description span.username, #site-description #hidefooterLabel {color: ' + headerText + ' !important;}\
       body.section-viewtopic #page-body > P {display: none !important;}\
@@ -318,12 +316,13 @@
       .action-bar.bar-top button.button.button-search {height: 26px !important;}\
       .action-bar.bar-top a.button.button-search-end {padding: 3px 4px 3px 4px !important;}\
       .action-bar .button-search-end {border: 1px solid #C7C3BF !important; margin-left: -1px !important;}\
-      .top, .viewHideBtn, .action-bar > a.button, #ucp .panel a.mark {-moz-appearance: none !important; background: ' + boardBG + ' !important; border: 1px solid #314A85 !important; border-radius: 4px !important; box-shadow: inset 0 0 1px #FFF !important; color: ' + textColor + ' !important; cursor: pointer !important; font-size: ' + fontSize + ' !important; margin: 0 5px 0 0 !important; padding: 0 6px !important; text-shadow: 1px 1px 2px #000 !important;}\
+      top, .viewHideBtn, .action-bar > a.button, #ucp .panel a.mark {-moz-appearance: none !important; background: ' + boardBG + ' !important; border: 1px solid #314A85 !important; border-radius: 4px !important; box-shadow: inset 0 0 1px #FFF !important; color: ' + textColor + ' !important; cursor: pointer !important; font-size: ' + fontSize + ' !important; margin: 0 5px 0 0 !important; padding: 0 6px !important; text-shadow: 1px 1px 2px #000 !important;}\
       .viewHideBtn {height: 26px !important;}\
       a.top {font-weight: bold !important; padding: 5px !important; text-decoration: none !important;}\
       a.top i {color:#FFF !important;}\
       .top:hover, .viewHideBtn:hover, .action-bar > a.button:hover, #ucp .panel a.mark:hover {background: ' + boardHoverBG + ' !important; color: ' + textHoverColor + ' !important;}\
-      .mark-read.rightside {background: ' + boardBG + ' !important; border: 1px solid #314A85 !important; border-radius: 4px !important; box-shadow: inset 0 0 1px #FFF !important; color: ' + textColor + ' !important; float: right !important; font-size: ' + fontSize + ' !important; height: 20px !important; margin: 0 5px 0 0 !important; padding: 4px 6px 0 6px !important; position: relative !important; text-decoration: none !important; text-shadow: 1px 1px 2px #000 !important; top: 0 !important; vertical-align: top !important;}\
+      #page-body > p.responsive-center.time, .mark-read.rightside {background: ' + boardBG + ' !important; border: 1px solid #314A85 !important; border-radius: 4px !important; box-shadow: inset 0 0 1px #FFF !important; color: ' + textColor + ' !important; float: right !important; font-size: ' + fontSize + ' !important; height: 20px !important; margin: 0 5px 0 0 !important; padding: 4px 6px 0 6px !important; position: relative !important; text-decoration: none !important; text-shadow: 1px 1px 2px #000 !important; top: 0 !important; vertical-align: top !important;}\
+      .mark-read.rightside {padding: 2px 6px !important;}\
       .mark-read.rightside:hover {background: ' + boardHoverBG + ' !important; color: ' + textHoverColor + ' !important;}\
       .pagination > a.mark {height: 20px !important; padding: 4px 6px 0 6px !important;}\
       .mark, .pagination > a, .jumpbox-return, .advanced-search-link {background: ' + boardBG + ' !important; border: 1px solid #314A85 !important; border-radius: 4px !important; box-shadow: inset 0 0 1px #FFF !important; color: ' + textColor + ' !important; font-size: ' + fontSize + ' !important; font-weight: bold !important; padding: 4px 6px !important; text-shadow: 1px 1px 2px #000 !important;}\
@@ -361,7 +360,7 @@
       body.section-viewforum #page-body > div:nth-child(4):hover > div > UL:first-child > li > dl > dt > div {color: ' + textHoverColor + ' !important; cursor: default !important;}\
       body.section-viewforum #page-body > div:nth-child(5):hover > div > UL:first-child > li > dl > dt > div {color: ' + textHoverColor + ' !important; cursor: default !important;}\
       body.section-viewforum #page-body > div:nth-child(6):hover > div > UL:first-child > li > dl > dt > div {color: ' + textHoverColor + ' !important; cursor: default !important;}\
-      .row strong, .lastpost > span:last-child {cursor: default !important;}\
+      #page-body > p.responsive-center.time, .row strong, .lastpost > span:last-child {cursor: default !important;}\
       .topiclist.forums {margin-top: -2px !important;}\
       .row-item.forum_unread .list-inner {color: #000 !important;}\
       .row:hover {background-color: #F6F4D0 !important;}\
