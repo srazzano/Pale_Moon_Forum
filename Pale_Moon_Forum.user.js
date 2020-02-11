@@ -93,6 +93,53 @@
     return document.querySelector(el);
   }
 
+  function aDate() {
+    var Weekday='Sunday,Monday,Tuesday,Wednesday,Thursday,Friday,Saturday',
+        WeekdayAbbr='Sun,Mon,Tue,Wed,Thu,Fri,Sat',
+        Month='January,February,March,April,May,June,July,August,September,October,November,December',
+        MonthAbbr='Jan,Feb,Mar,Apr,May,Jun,Jul,Aug,Sep,Oct,Nov,Dec',
+        MonthNo='1,2,3,4,5,6,7,8,9,10,11,12',
+        DayNo='"",1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,27,28,29,30,31',
+        DayOrd='"",1st,2nd,3rd,4th,5th,6th,7th,8th,9th,10th,11th,12th,13th,14th,15th,16th,17th,18th,19th,20th,21st,22nd,23rd,24th,25th,26th,27th,28th,29th,30th,31st';
+    var date = new Date(),
+        weekday = date.getDay(),
+        mth = date.getMonth(),
+        dy = date.getDate(),
+        daynames = Weekday.split(','),
+        daynames2 = WeekdayAbbr.split(','),
+        months = Month.split(','),
+        months2 = MonthAbbr.split(','),
+        months3 = MonthNo.split(','),
+        days = DayNo.split(','),
+        days2 = DayOrd.split(','),
+        dayname = daynames[weekday] + ', ',
+        dayname2 = daynames2[weekday] + ', ',
+        month = months[mth] + ' ',
+        month2 = months2[mth] + ' ',
+        month3 = months3[mth] + ' ',
+        day = days[dy] + ' ',
+        day2 = days2[dy] + ' ',
+        year = date.getFullYear(),
+        year2 = year - 2000;
+    return dayname2 + month2 + day2 + year;
+  }
+
+  function aTime() {
+    var date = new Date(),
+        hour = date.getHours(),
+        hour2 = hour,
+        minute = date.getMinutes(),
+        second = date.getSeconds(),
+        ampm;
+    if (hour < 12) {ampm = ' AM';} else {ampm = ' PM';}
+    if (hour > 12) {hour = hour - 12;}
+    if (hour === 0) {hour = 12;}
+    if (hour2 < 10) {hour2 = '0' + hour2;}
+    if (minute < 10) {minute = ':0' + minute;} else {minute = ':' + minute;}
+    if (second < 10) {second = ':0' + second;} else {second = ':' + second;}
+    return hour + minute + ampm;
+  }
+
   function CollapseExpand(e) {
     var elm = e.parentNode,
         bool = GM_getValue(e.id) !== false ? false : true,
@@ -160,8 +207,7 @@
   SiteDescriptionP.appendChild(Label3);
   SiteDescriptionP.insertBefore(Separator, Label1);
   SiteDescriptionP.appendChild(NavBreadcrumbs);
-  //try {DateTime.appendChild(Bullet)} catch(ex) {}
-  try {DateTime.textContent = DateTime.textContent.replace('It is currently', currentDate).replace(/,.*/, '')} catch(ex) {}
+  DateTime.textContent = aDate() + ' \u2022' + aTime();
 
   if (!GM_getValue('hidefooter')) GM_setValue('hidefooter', false);
   if (!GM_getValue('Board1')) GM_setValue('Board1', false);
