@@ -207,7 +207,6 @@
   SiteDescriptionP.appendChild(Label3);
   SiteDescriptionP.insertBefore(Separator, Label1);
   SiteDescriptionP.appendChild(NavBreadcrumbs);
-  DateTime.textContent = aDate() + ' \u2022' + aTime();
 
   if (!GM_getValue('hidefooter')) GM_setValue('hidefooter', false);
   if (!GM_getValue('Board1')) GM_setValue('Board1', false);
@@ -295,6 +294,8 @@
       }\
     ');
   } catch(ex) {}
+
+  DateTime.textContent = aDate() + ' \u2022' + aTime();
 
   GM_addStyle('\
     ' + cssRule + ' {\
