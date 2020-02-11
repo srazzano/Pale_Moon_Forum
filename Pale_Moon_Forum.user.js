@@ -296,7 +296,7 @@
     ');
   } catch(ex) {}
 
-  DateTime.textContent = aDate() + aTime();
+  try {DateTime.textContent = aDate() + aTime();} catch(ex) {}
 
   GM_addStyle('\
     ' + cssRule + ' {\
