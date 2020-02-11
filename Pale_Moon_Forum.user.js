@@ -112,8 +112,8 @@
         months3 = MonthNo.split(','),
         days = DayNo.split(','),
         days2 = DayOrd.split(','),
-        dayname = daynames[weekday] + ', ',
-        dayname2 = daynames2[weekday] + ', ',
+        dayname = daynames[weekday] + ' ',
+        dayname2 = daynames2[weekday] + ' ',
         month = months[mth] + ' ',
         month2 = months2[mth] + ' ',
         month3 = months3[mth] + ' ',
@@ -121,7 +121,7 @@
         day2 = days2[dy] + ' ',
         year = date.getFullYear(),
         year2 = year - 2000;
-    return dayname2 + month2 + day + year;
+    return dayname2 + '\u2022\u2004' + month2 + day + year;
   }
 
   function aTime() {
