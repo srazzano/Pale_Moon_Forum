@@ -42,6 +42,7 @@
         linkNewTab = 'new tab',
         textBracket = ')',
         hideFooter = 'Hide footer',
+        hover = 'Hover to refresh',
         viewBoardsText = 'View All Boards',
         viewBoardsTip = 'View All Unchecked Boards',
         hideBoardsText = 'Hide Unchecked Boards',
@@ -297,6 +298,7 @@
   } catch(ex) {}
 
   try {DateTime.textContent = aDate() + aTime()} catch(ex) {}
+  DateTime.title = hover;
   DateTime.onmouseover = function() {DateTime.textContent = aDate() + aTime()}
 
   GM_addStyle('\
