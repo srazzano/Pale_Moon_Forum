@@ -33,7 +33,6 @@
         scrollbarThumb = 'linear-gradient(to right, #5BA4ED, #314A85)',
         scrollbarThumbHover = 'linear-gradient(to right, #B2D2F3, #6181C5)',
         bullet = '\u2022',
-        currentDate = '📅\u2006',
         textPaleMoon = 'Pale Moon ',
         linkAddonsSite = 'add-ons site',
         Url1  = 'https://www.palemoon.org/',
