@@ -297,7 +297,7 @@
   } catch(ex) {}
 
   try {DateTime.textContent = aDate() + aTime()} catch(ex) {}
-  DateTime.addEventListener('mouseover', function() {DateTime.textContent = aDate() + aTime()}, false);
+  DateTime.onmouseover = function() {DateTime.textContent = aDate() + aTime()}
 
   GM_addStyle('\
     ' + cssRule + ' {\
