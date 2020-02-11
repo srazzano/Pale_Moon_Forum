@@ -121,7 +121,7 @@
         day2 = days2[dy] + ' ',
         year = date.getFullYear(),
         year2 = year - 2000;
-    return dayname2 + month2 + day2 + year;
+    return dayname2 + month2 + day + year;
   }
 
   function aTime() {
@@ -295,7 +295,7 @@
     ');
   } catch(ex) {}
 
-  DateTime.textContent = aDate() + ' \u2022' + aTime();
+  DateTime.textContent = aDate() + '\u2004\u2022\u2009' + aTime();
 
   GM_addStyle('\
     ' + cssRule + ' {\
