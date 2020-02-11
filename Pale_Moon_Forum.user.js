@@ -120,7 +120,7 @@
         dayord = days2[dy] + ' ',
         yearlong = date.getFullYear(),
         yearshort = yearlong - 2000;
-    // (daynamelong / daynameabbr) (monthlong / monthabbr / monthnum) (daynum / dayord) (yearlong / yearshort)
+    // (daynameabbr / daynamelong) (monthabbr / monthlong / monthnum) (daynum / dayord) (yearlong / yearshort)
     return daynameabbr + '\u2022\u2004' + monthabbr + daynum + yearlong;
   }
 
@@ -365,14 +365,14 @@
       .action-bar.bar-top button.button.button-search {height: 26px !important;}\
       .action-bar.bar-top a.button.button-search-end {padding: 3px 4px 3px 4px !important;}\
       .action-bar .button-search-end {border: 1px solid #C7C3BF !important; margin-left: -1px !important;}\
-      .top, .viewHideBtn, .action-bar > a.button, #ucp .panel a.mark {-moz-appearance: none !important; background: ' + boardBG + ' !important; border: 1px solid #314A85 !important; border-radius: 4px !important; box-shadow: inset 0 0 1px #FFF !important; color: ' + textColor + ' !important; cursor: pointer !important; font-size: ' + fontSize + ' !important; margin: 0 5px 0 0 !important; padding: 0 6px !important; text-shadow: 1px 1px 2px #000 !important;}\
+      a.top, .viewHideBtn, .action-bar > a.button, #ucp .panel a.mark {-moz-appearance: none !important; background: ' + boardBG + ' !important; border: 1px solid #314A85 !important; border-radius: 4px !important; box-shadow: inset 0 0 1px #FFF !important; color: ' + textColor + ' !important; cursor: pointer !important; font-size: ' + fontSize + ' !important; margin: 0 5px 0 0 !important; padding: 0 6px !important; text-shadow: 1px 1px 2px #000 !important;}\
       .viewHideBtn {height: 26px !important;}\
       a.top {font-weight: bold !important; padding: 5px !important; text-decoration: none !important;}\
       a.top i {color:#FFF !important;}\
       a.top:hover, .viewHideBtn:hover, .action-bar > a.button:hover, #ucp .panel a.mark:hover {background: ' + boardHoverBG + ' !important; color: ' + textHoverColor + ' !important;}\
       p.responsive-center.time, .mark-read.rightside {background: ' + boardBG + ' !important; border: 1px solid #314A85 !important; border-radius: 4px !important; box-shadow: inset 0 0 1px #FFF !important; color: ' + textColor + ' !important; float: right !important; font-size: ' + fontSize + ' !important; height: 20px !important; margin: 0 5px 0 0 !important; padding: 4px 6px 0 6px !important; position: relative !important; text-decoration: none !important; text-shadow: 1px 1px 2px #000 !important; top: 0 !important; vertical-align: top !important;}\
       .mark-read.rightside {padding: 2px 6px !important;}\
-      #page-body > p.responsive-center.time, .mark-read.rightside:hover {background: ' + boardHoverBG + ' !important; color: ' + textHoverColor + ' !important;}\
+      #page-body > p.responsive-center.time, .mark-read.rightside:hover {background: ' + boardHoverBG + ' !important; color: ' + textColor + ' !important;}\
       .pagination > a.mark {height: 20px !important; padding: 4px 6px 0 6px !important;}\
       .mark, .pagination > a, .jumpbox-return, .advanced-search-link {background: ' + boardBG + ' !important; border: 1px solid #314A85 !important; border-radius: 4px !important; box-shadow: inset 0 0 1px #FFF !important; color: ' + textColor + ' !important; font-size: ' + fontSize + ' !important; font-weight: bold !important; padding: 4px 6px !important; text-shadow: 1px 1px 2px #000 !important;}\
       #page-body p.advanced-search-link {float: left !important; margin: 3px 5px 0 0 !important;}\
