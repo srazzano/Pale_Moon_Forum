@@ -196,7 +196,7 @@
   $q('A[href="//www.palemoon.org/"][target="_blank"][style="color: rgb(255, 255, 128); display: none;"]').nextSibling.nodeValue = '';
 
   for (var i = 0, utc = $q('#nav-footer > li.rightside', true); i < utc.length; i++) if (utc[i].textContent.match('All times')) utc[i].setAttribute('id', 'clock');
-  
+
   SiteDescription.appendChild(NavMain);
   SiteDescriptionP.innerHTML = SiteDescriptionP.innerHTML.replace('Visit the', '').replace('Discussion forum for the Pale Moon web browser', '').replace(/\(or\s+in/, '(in');
   SiteDescriptionP.appendChild(Link0);
@@ -302,7 +302,7 @@
     ' + cssRule + ' {\
       html {height: 100% !important;}\
       html, body {background: ' + bodyBG + ' !important;}\
-      #page-header {height: 83px !important; position: fixed !important; top: 0 !important; width: 100% !important; z-index: 2147483647 !important;}\
+      #page-header {-moz-user-select: none !important; height: 83px !important; position: fixed !important; top: 0 !important; width: 100% !important; z-index: 2147483647 !important;}\
       #page-header > .headerbar {background: ' + headerBG + ' !important; border: 1px solid #314A85 !important; border-radius: 0 0 8px 8px !important; height: 83px !important; margin: 0 2px !important; padding: 0 !important;}\
       #page-header > .headerbar a, #hidefooterLabel {font-style: italic !important; font-weight: bold !important;}\
       #wrap {background: none !important; border: none !important; box-shadow: none !important; min-width: 100% !important; padding: 0 !important;}\
@@ -398,6 +398,7 @@
       .topiclist.forums {background: none !important;}\
       .forabg li:last-child, .forumbg.announcement ul > li:last-child, .topiclist.topics li:last-of-type {border-radius: 0 0 9px 9px !important;}\
       li.header dt, li.header dd {color: ' + textColor + ' !important;}\
+      .action-bar, li.header dt, li.header dd, #nav-footer {-moz-user-select: none !important;}\
       li.header dt:hover, li.header dd:hover {color: ' + textHoverColor + ' !important;}\
       #hidefooter {-moz-appearance: none !important; border: 1px solid #FFF !important; border-radius: 3px !important; box-shadow: inset 0 0 2px #000 !important; height: 17px !important; width: 17px !important;}\
       input.boardCB {-moz-appearance: none !important; border: 1px solid #FFF !important; border-radius: 3px !important; box-shadow: inset 0 0 2px #000 !important; float: left !important; height: 17px !important; margin: -1px 5px 0 0 !important; padding: 0 !important; position: relative !important; width: 17px !important; z-index: 2 !important;}\
@@ -432,7 +433,7 @@
       .navbar {background: transparent !important;}\
       .pagination a[data-ajax] {height: 20px !important; padding: 2px 6px !important;}\
       .pagination li.active span, .pagination li a:hover, .pagination li a:hover .icon, .pagination .dropdown-visible a.dropdown-trigger, .nojs .pagination .dropdown-container:hover a.dropdown-trigger {background: ' + boardBG + ' !important; border-color: #314A85 !important; border-radius: 3px !important; box-shadow: inset 0 0 1px #FFF !important; color: ' + textColor + ' !important;}\
-      #viewfolder .header dd.mark {background: none !important; border: none !important; color: #000 !important; pointer-events: none !important; text-shadow: none !important; }\
+      #viewfolder .header dd.mark {background: none !important; border: none !important; color: #000 !important; text-shadow: none !important; }\
       #ucp .topiclist > .header > dl a, #ucp .row-item, #ucp .mark, #ucp span {background: none !important; border: none !important; color: #000 !important; cursor: default !important; text-decoration: none !important; text-shadow: none !important;}\
       .row-item.pm_read .mark {background: none !important; border: none !important;}\
       scrollbar {-moz-appearance: none !important; border-radius: 8px !important;}\
