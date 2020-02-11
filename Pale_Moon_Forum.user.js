@@ -111,34 +111,36 @@
         months3 = MonthNo.split(','),
         days = DayNo.split(','),
         days2 = DayOrd.split(','),
-        dayname = daynames[weekday] + ' ',
-        dayname2 = daynames2[weekday] + ' ',
-        month = months[mth] + ' ',
-        month2 = months2[mth] + ' ',
-        month3 = months3[mth] + ' ',
-        day = days[dy] + ' ',
-        day2 = days2[dy] + ' ',
-        year = date.getFullYear(),
-        year2 = year - 2000;
-    return dayname2 + '\u2022\u2004' + month2 + day + year;
+        daynamelong = daynames[weekday] + ' ',
+        daynameabbr = daynames2[weekday] + ' ',
+        monthlong = months[mth] + ' ',
+        monthabbr = months2[mth] + ' ',
+        monthnum = months3[mth] + ' ',
+        daynum = days[dy] + ' ',
+        dayord = days2[dy] + ' ',
+        yearlong = date.getFullYear(),
+        yearshort = yearlong - 2000;
+    // (daynamelong / daynameabbr) (monthlong / monthabbr / monthnum) (daynum / dayord) (yearlong / yearshort)
+    return daynameabbr + '\u2022\u2004' + monthabbr + daynum + yearlong;
   }
 
   function aTime() {
     var date = new Date(),
-        hour = date.getHours(),
-        hour2 = hour,
+        hour24 = date.getHours(),
+        hour12 = hour24,
         minute = date.getMinutes(),
         second = date.getSeconds(),
         ampm;
-    if (hour < 12) {ampm = ' AM';} else {ampm = ' PM';}
-    if (hour > 12) {hour = hour - 12;}
-    if (hour === 0) {hour = 12;}
-    if (hour2 < 10) {hour2 = '0' + hour2;}
+    if (hour24 < 12) {ampm = ' AM';} else {ampm = ' PM';}
+    if (hour24 > 12) {hour12 = hour24 - 12;}
+    if (hour24 === 0) {hour12 = 12;}
+    if (hour24 < 10) {hour24 = '0' + hour24;}
     if (minute < 10) {minute = ':0' + minute;} else {minute = ':' + minute;}
     if (second < 10) {second = ':0' + second;} else {second = ':' + second;}
-    return hour + minute + ampm;
+    // (hour12 / hour24) (minute) (second) (ampm)
+    return '\u2004\u2022\u2004' + hour12 + minute + ampm;
   }
-
+  
   function CollapseExpand(e) {
     var elm = e.parentNode,
         bool = GM_getValue(e.id) !== false ? false : true,
@@ -294,7 +296,7 @@
     ');
   } catch(ex) {}
 
-  DateTime.textContent = aDate() + '\u2004\u2022\u2009' + aTime();
+  DateTime.textContent = aDate() + aTime();
 
   GM_addStyle('\
     ' + cssRule + ' {\
