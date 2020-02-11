@@ -46,7 +46,14 @@
         viewBoardsText = 'View All Boards',
         viewBoardsTip = 'View All Unchecked Boards',
         hideBoardsText = 'Hide Unchecked Boards',
-        hideBoardsTip = 'Hide All Unchecked Boards';
+        hideBoardsTip = 'Hide All Unchecked Boards',
+        Weekday='Sunday,Monday,Tuesday,Wednesday,Thursday,Friday,Saturday',
+        WeekdayAbbr='Sun,Mon,Tue,Wed,Thu,Fri,Sat',
+        Month='January,February,March,April,May,June,July,August,September,October,November,December',
+        MonthAbbr='Jan,Feb,Mar,Apr,May,Jun,Jul,Aug,Sep,Oct,Nov,Dec',
+        MonthNo='1,2,3,4,5,6,7,8,9,10,11,12',
+        DayNo='"",1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,27,28,29,30,31',
+        DayOrd='"",1st,2nd,3rd,4th,5th,6th,7th,8th,9th,10th,11th,12th,13th,14th,15th,16th,17th,18th,19th,20th,21st,22nd,23rd,24th,25th,26th,27th,28th,29th,30th,31st';
 
   function $(q, root, single, context) {
     root = root || document;
@@ -94,13 +101,6 @@
   }
 
   function aDate() {
-    var Weekday='Sunday,Monday,Tuesday,Wednesday,Thursday,Friday,Saturday',
-        WeekdayAbbr='Sun,Mon,Tue,Wed,Thu,Fri,Sat',
-        Month='January,February,March,April,May,June,July,August,September,October,November,December',
-        MonthAbbr='Jan,Feb,Mar,Apr,May,Jun,Jul,Aug,Sep,Oct,Nov,Dec',
-        MonthNo='1,2,3,4,5,6,7,8,9,10,11,12',
-        DayNo='"",1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,27,28,29,30,31',
-        DayOrd='"",1st,2nd,3rd,4th,5th,6th,7th,8th,9th,10th,11th,12th,13th,14th,15th,16th,17th,18th,19th,20th,21st,22nd,23rd,24th,25th,26th,27th,28th,29th,30th,31st';
     var date = new Date(),
         weekday = date.getDay(),
         mth = date.getMonth(),
