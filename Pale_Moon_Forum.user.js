@@ -42,7 +42,7 @@
         linkNewTab = 'new tab',
         textBracket = ')',
         hideFooter = 'Hide footer',
-        hover = 'Hover to refresh',
+        hover = 'Hover to refresh current date/time',
         viewBoardsText = 'View All Boards',
         viewBoardsTip = 'View All Unchecked Boards',
         hideBoardsText = 'Hide Unchecked Boards',
