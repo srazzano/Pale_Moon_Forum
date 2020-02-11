@@ -116,7 +116,7 @@
         monthlong = months[mth] + ' ',
         monthabbr = months2[mth] + ' ',
         monthnum = months3[mth] + ' ',
-        daynum = days[dy] + ' ',
+        daynum = days[dy] + ', ',
         dayord = days2[dy] + ' ',
         yearlong = date.getFullYear(),
         yearshort = yearlong - 2000;
@@ -138,7 +138,7 @@
     if (minute < 10) {minute = ':0' + minute;} else {minute = ':' + minute;}
     if (second < 10) {second = ':0' + second;} else {second = ':' + second;}
     // (hour12 / hour24) (minute) (second) (ampm)
-    return '\u2004\u2022\u2004' + hour12 + minute + ampm;
+    return '\u2002\u2022\u2004' + hour12 + minute + ampm;
   }
   
   function CollapseExpand(e) {
