@@ -195,7 +195,7 @@
   $q('A[href="//www.palemoon.org/"][style="color:#ffff80;"]').innerHTML = linkHomePage.toUpperCase();
   $q('A[href="//www.palemoon.org/"][target="_blank"][style="color: rgb(255, 255, 128); display: none;"]').nextSibling.nodeValue = '';
 
-  for (var i = 0, utc = $q('#nav-footer > li.rightside', true); i < utc.length; i++) if (utc[i].textContent.match("All times")) utc[i].setAttribute('id', 'clock');
+  for (var i = 0, utc = $q('#nav-footer > li.rightside', true); i < utc.length; i++) if (utc[i].textContent.match('All times')) utc[i].setAttribute('id', 'clock');
   
   SiteDescription.appendChild(NavMain);
   SiteDescriptionP.innerHTML = SiteDescriptionP.innerHTML.replace('Visit the', '').replace('Discussion forum for the Pale Moon web browser', '').replace(/\(or\s+in/, '(in');
