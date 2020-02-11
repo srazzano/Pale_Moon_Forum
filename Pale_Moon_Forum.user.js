@@ -371,13 +371,15 @@
       #nav-footer {background: ' + boardBG + ' !important; border: 1px solid #314A85 !important; border-radius: 4px !important; box-shadow: inset 0 0 1px #FFF !important; color: ' + textColor + ' !important; margin: 0 !important; padding: 0 6px 0 2px !important; text-shadow: 1px 1px 2px #000 !important; width: 715px !important;}\
       #nav-footer:hover {background: ' + boardHoverBG + ' !important;}\
       #nav-footer > li {height: 17px !important; padding: 0 0 6px 0 !important; position: relative !important; top: -1px !important;}\
-      #nav-footer > li i {position: relative !important; top: 1px !important;}\
+      #nav-footer > li i {position: relative !important; top: 0 !important;}\
       #nav-footer a, #nav-footer span, #nav-footer i {color: ' + textColor + ' !important;}\
+      #nav-footer li span a > span {position: relative !important; top: -1px !important;}\
+      #nav-footer li > a > span {position: relative !important; top: -1px !important;}\
       #jumpbox {margin: 0 !important;}\
       #jumpbox span {text-decoration: none !important;}\
       .action-bar.actions-jump {margin-bottom: 2px !important;}\
-      #clock:before {color: ' + textColor + ' !important; content: "\u2022" !important; font-family: monospace !important; font-size: 24px !important; position: relative !important; top: 4px !important;}\
-      #clock {cursor: default !important; margin: 0 0 1px 6px !important;}\
+      #clock:before {color: ' + textColor + ' !important; content: "\u2022" !important; font-family: monospace !important; font-size: 24px !important; margin-left: 4px !important; position: relative !important; top: 4px !important;}\
+      #clock {cursor: default !important; margin: -1px 4px 2px 0 !important;}\
       body.section-posting #nav-footer > LI:nth-child(3) {margin-top: 1px !important;}\
       .navbar {background: transparent !important;}\
       .pagination a[data-ajax] {height: 20px !important; padding: 2px 6px !important;}\
