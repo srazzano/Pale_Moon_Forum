@@ -43,6 +43,7 @@
         linkNewTab = 'new tab',
         textBracket = ')',
         hideFooter = 'Hide footer',
+        hideVisited = 'Hide last visited',
         viewBoardsText = 'View All Boards',
         viewBoardsTip = 'View All Unchecked Boards',
         hideBoardsText = 'Hide Unchecked Boards',
@@ -159,6 +160,14 @@
     $('#hidefooter').checked = bool;
   }
 
+  function HideVisited(e) {
+    var bool = GM_getValue(e.id) !== false ? false : true,
+        sty = bool ? 'none' : '-moz-box';
+    $q('.right.responsive-center.time.rightside').style.display = sty;
+    GM_setValue(e.id, bool);
+    $('#hidevisited').checked = bool;
+  }
+  
   function ViewHideBoards(bool) {
     for (var i = 0, elm = $('.boardCB'); i < elm.length; i++) {
       if (bool) {
@@ -211,7 +220,9 @@
   SiteDescriptionP.insertBefore(Separator, Label1);
   SiteDescriptionP.appendChild(NavBreadcrumbs);
 
+  if (!GM_getValue('lastVisited')) GM_setValue('lastVisited', 'last visited \u2007' + aDate() + aTime());
   if (!GM_getValue('hidefooter')) GM_setValue('hidefooter', false);
+  if (!GM_getValue('hidevisited')) GM_setValue('hidevisited', false);
   if (!GM_getValue('Board1')) GM_setValue('Board1', false);
   if (!GM_getValue('Board2')) GM_setValue('Board2', false);
   if (!GM_getValue('Board3')) GM_setValue('Board3', false);
@@ -227,11 +238,20 @@
       cb = $c('input', {id: 'hidefooter', type: 'checkbox'}, [{type: 'click', fn: function() {HideFooter(this)}}]),
       hidefooterLabel = $c('label', {id: 'hidefooterLabel', textContent: hideFooter}, [{type: 'click', fn: function() {HideFooter(this.previousSibling)}}]),
       ck = GM_getValue('hidefooter'),
-      sty = ck ? 'none' : '-moz-box';
+      sty = ck ? 'none' : '-moz-box',
+      cb2 = $c('input', {id: 'hidevisited', type: 'checkbox'}, [{type: 'click', fn: function() {HideVisited(this)}}]),
+      hidevisitedLabel = $c('label', {id: 'hidevisitedLabel', textContent: hideVisited}, [{type: 'click', fn: function() {HideVisited(this.previousSibling)}}]),
+      ck2 = GM_getValue('hidevisited'),
+      sty2 = ck2 ? 'none' : '-moz-box';
   nav.appendChild(cb);
   nav.appendChild(hidefooterLabel);
+  nav.appendChild(cb2);
+  nav.appendChild(hidevisitedLabel);
   $('#hidefooter').checked = ck;
+  $('#hidevisited').checked = ck2;
   $('#page-footer').style.display = sty;
+  $q('.right.responsive-center.time.rightside').textContent = 'last visited \u2007' + GM_getValue('lastVisited');
+  $q('.right.responsive-center.time.rightside').style.display = sty2;
 
   if (pmindex) {
     var hBoards = $c('button', {id: 'hideBoardsBtn', className: 'viewHideBtn', textContent: hideBoardsText, title: hideBoardsTip}, [{type: 'click', fn: function() {ViewHideBoards(true)}}]),
@@ -303,16 +323,16 @@
     DateTime.addEventListener('mouseover', function() {DateTime.textContent = aDate() + aTime()}, false);
   } catch(ex) {}
 
-  window.addEventListener('load', function() {timer_Interval = setInterval(function() {try {DateTime.textContent = aDate() + aTime()} catch(ex) {}}, timerInterval)}, false);
-  window.addEventListener('unload', function() {clearInterval(timer_Interval)}, false);
-
+  addEventListener('load', function() {timer_Interval = setInterval(function() {try {DateTime.textContent = aDate() + aTime(); GM_setValue('lastVisited', DateTime.textContent)} catch(ex) {}}, timerInterval)}, false);
+  addEventListener('beforeunload', function() {clearInterval(timer_Interval)}, false);
+  
   GM_addStyle('\
     ' + cssRule + ' {\
       html {height: 100% !important;}\
       html, body {background: ' + bodyBG + ' !important;}\
       #page-header {-moz-user-select: none !important; height: 83px !important; position: fixed !important; top: 0 !important; width: 100% !important; z-index: 2147483647 !important;}\
       #page-header > .headerbar {background: ' + headerBG + ' !important; border: 1px solid #314A85 !important; border-radius: 0 0 8px 8px !important; height: 83px !important; margin: 0 2px !important; padding: 0 !important;}\
-      #page-header > .headerbar a, #hidefooterLabel {font-style: italic !important; font-weight: bold !important;}\
+      #page-header > .headerbar a, #hidefooterLabel, #hidevisitedLabel {font-style: italic !important; font-weight: bold !important;}\
       #wrap {background: none !important; border: none !important; box-shadow: none !important; min-width: 100% !important; padding: 0 !important;}\
       #page-body {margin: 76px 2px 0 2px !important;}\
       a {border: 1px dotted transparent !important; outline: none !important;}\
@@ -339,6 +359,9 @@
       #hidefooter {margin: -2px 0 0 4px !important;}\
       #hidefooterLabel {font-size: ' + fontSize + ' !important; margin: 0 !important; padding-left: 4px !important;}\
       #hidefooter:hover + #hidefooterLabel, #hidefooterLabel:hover {cursor: pointer !important; text-decoration: underline !important;}\
+      #hidevisited {margin: -2px 0 0 4px !important;}\
+      #hidevisitedLabel {font-size: ' + fontSize + ' !important; margin: 0 !important; padding-left: 4px !important;}\
+      #hidevisited:hover + #hidevisitedLabel, #hidevisitedLabel:hover {cursor: pointer !important; text-decoration: underline !important;}\
       .crumb span {margin-left: 4px !important;}\
       .icon-boardrules {margin-right: 50px !important;}\
       .icon.fa-bars.fa-fw {text-shadow: 1px 1px 2px #000 !important;}\
@@ -354,11 +377,12 @@
       #page-body > div:nth-child(2):not(.boardrules-container) {display: none !important;}\
       #page-body p {color: #000 !important;}\
       #page-body > p:nth-child(2) {float: right !important;}\
-      #site-description h1, #site-description p, #site-description span, #site-description a, #site-description i, #site-description span.username, #site-description #hidefooterLabel {color: ' + headerText + ' !important;}\
+      #site-description h1, #site-description p, #site-description span, #site-description a, #site-description i, #site-description span.username, #site-description #hidefooterLabel, #site-description #hidevisitedLabel {color: ' + headerText + ' !important;}\
       body.section-viewtopic #page-body > P {display: none !important;}\
       #aBull {margin: 0 8px !important;}\
       .rightside.responsive-search, .icon.fa-file-o.fa-fw.icon-red {color: ' + textColor + ' !important;}\
-      .right.responsive-center.time.rightside {display: none !important;}\
+      .right.responsive-center.time.rightside {margin-left: 5px !important;}\
+      //.right.responsive-center.time.rightside {display: none !important;}\
       .button.button-search icon.fa-search.fa-fw, .button.button-search icon.fa-cog.fa-fw {color: #606060 !important;}\
       #username_logged_in .username {color: ' + textColor + ' !important; text-shadow: 1px 1px 2px #000 !important;}\
       #username_logged_in a span {color: #000 !important; text-shadow: none !important;}\
@@ -408,7 +432,7 @@
       li.header dt, li.header dd {color: ' + textColor + ' !important;}\
       .action-bar, li.header dt, li.header dd, #nav-footer {-moz-user-select: none !important;}\
       li.header dt:hover, li.header dd:hover {color: ' + textHoverColor + ' !important;}\
-      #hidefooter {-moz-appearance: none !important; border: 1px solid #FFF !important; border-radius: 3px !important; box-shadow: inset 0 0 2px #000 !important; height: 17px !important; width: 17px !important;}\
+      #hidefooter, #hidevisited {-moz-appearance: none !important; border: 1px solid #FFF !important; border-radius: 3px !important; box-shadow: inset 0 0 2px #000 !important; height: 17px !important; width: 17px !important;}\
       input.boardCB {-moz-appearance: none !important; border: 1px solid #FFF !important; border-radius: 3px !important; box-shadow: inset 0 0 2px #000 !important; float: left !important; height: 17px !important; margin: -1px 5px 0 0 !important; padding: 0 !important; position: relative !important; width: 17px !important; z-index: 2 !important;}\
       #page-body > div:nth-child(5) > div > ul:last-child > li:last-child {border-radius: 0 0 9px 9px !important;}\
       #page-body > div:nth-child(6) > div > ul:last-child > li:last-child {border-radius: 0 0 9px 9px !important;}\
