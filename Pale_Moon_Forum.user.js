@@ -304,7 +304,7 @@
   } catch(ex) {}
 
   window.addEventListener('load', function() {timer_Interval = setInterval(function() {DateTime.textContent = aDate() + aTime()}, timerInterval)}, false);
-  window.addEventListener('unload', clearInterval(timer_Interval), false);
+  window.addEventListener('unload', function() {clearInterval(timer_Interval)}, false);
 
   GM_addStyle('\
     ' + cssRule + ' {\
