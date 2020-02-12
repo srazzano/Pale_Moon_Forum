@@ -19,7 +19,8 @@
 
   'use strict';
 
-  const cssRule = '/* AGENT_SHEET */ @-moz-document domain("forum.palemoon.org")',
+  const timerInterval = 10000,
+        cssRule = '/* AGENT_SHEET */ @-moz-document domain("forum.palemoon.org")',
         bodyBG = '#E0E0E0',
         fontSize = '110%',
         headerBG = 'linear-gradient(#5BA4ED, #314A85)',
@@ -301,7 +302,7 @@
     DateTime.onmouseover = function() {DateTime.textContent = aDate() + aTime()}
   } catch(ex) {}
 
-  window.setInterval(function() {DateTime.textContent = aDate() + aTime()}, 10000);
+  window.setInterval(function() {DateTime.textContent = aDate() + aTime()}, timerInterval);
 
   GM_addStyle('\
     ' + cssRule + ' {\
