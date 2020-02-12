@@ -301,7 +301,7 @@
     DateTime.onmouseover = function() {DateTime.textContent = aDate() + aTime()}
   } catch(ex) {}
 
-  window.setInterval(function() {DateTime.textContent = aDate() + aTime()}, 15000);
+  window.setInterval(function() {DateTime.textContent = aDate() + aTime()}, 10000);
 
   GM_addStyle('\
     ' + cssRule + ' {\
