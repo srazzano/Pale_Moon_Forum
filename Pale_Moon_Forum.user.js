@@ -42,7 +42,7 @@
         linkNewTab = 'new tab',
         textBracket = ')',
         hideFooter = 'Hide footer',
-        hover = 'Hover to refresh current date/time',
+        dateTimeTip = 'Hover to refresh current date/time',
         viewBoardsText = 'View All Boards',
         viewBoardsTip = 'View All Unchecked Boards',
         hideBoardsText = 'Hide Unchecked Boards',
@@ -112,10 +112,10 @@
         months3 = MonthNo.split(','),
         days = DayNo.split(','),
         days2 = DayOrd.split(','),
+        daynameabbr = daynames2[weekday] + '. ',
         daynamelong = daynames[weekday] + ' ',
-        daynameabbr = daynames2[weekday] + ' ',
+        monthabbr = months2[mth] + '. ',
         monthlong = months[mth] + ' ',
-        monthabbr = months2[mth] + ' ',
         monthnum = months3[mth] + ' ',
         daynum = days[dy] + ', ',
         dayord = days2[dy] + ' ',
@@ -127,8 +127,8 @@
 
   function aTime() {
     var date = new Date(),
-        hour24 = date.getHours(),
-        hour12 = hour24,
+        hour12 = date.getHours(),
+        hour24 = hour12,
         minute = date.getMinutes(),
         second = date.getSeconds(),
         ampm;
@@ -178,10 +178,10 @@
       Link2 = $c('a', {id: 'aLink2', textContent: linkNewTab.toUpperCase()}, [{type: 'click', fn: function() {window.open(Url2, '_blank')}}]),
       Label3 = $n('text', {textContent: textBracket}),
       Bullet = $c('span', {id: 'aBull', textContent: bullet}),
-      SiteDescription = $q('#site-description'),
+      SiteDescription = $('#site-description'),
       SiteDescriptionP = $q('#site-description > p'),
-      NavMain = $q('#nav-main'),
-      NavBreadcrumbs = $q('#nav-breadcrumbs'),
+      NavMain = $('#nav-main'),
+      NavBreadcrumbs = $('#nav-breadcrumbs'),
       IconNotification = $q('.icon-notification > a > strong'),
       IconPM = $q('.icon-pm > a > strong'),
       DateTime = $q('#page-body > p:nth-child(2)'),
@@ -297,10 +297,12 @@
     ');
   } catch(ex) {}
 
-  try {DateTime.textContent = aDate() + aTime()} catch(ex) {}
-  DateTime.title = hover;
-  DateTime.onmouseover = function() {DateTime.textContent = aDate() + aTime()}
-
+  try {
+    DateTime.textContent = aDate() + aTime();
+    DateTime.title = dateTimeTip;
+    DateTime.onmouseover = function() {DateTime.textContent = aDate() + aTime()}
+  } catch(ex) {}
+  
   GM_addStyle('\
     ' + cssRule + ' {\
       html {height: 100% !important;}\
