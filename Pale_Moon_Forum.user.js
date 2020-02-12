@@ -300,7 +300,6 @@
 
   try {
     DateTime.textContent = aDate() + aTime();
-    //DateTime.onmouseover = function() {DateTime.textContent = aDate() + aTime()}
     DateTime.addEventListener('mouseover', function() {DateTime.textContent = aDate() + aTime()}, false);
   } catch(ex) {}
 
