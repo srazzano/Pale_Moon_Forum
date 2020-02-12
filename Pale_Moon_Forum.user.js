@@ -118,10 +118,10 @@
         monthlong = months[mth] + ' ',
         monthnum = months3[mth] + ' ',
         daynum = days[dy] + ', ',
-        dayord = days2[dy] + ' ',
+        dayord = days2[dy] + ', ',
         yearlong = date.getFullYear(),
         yearshort = yearlong - 2000;
-    // (daynameabbr / daynamelong) + bullet + (monthabbr / monthlong / monthnum) + (daynum / dayord) +  (yearlong / yearshort)
+    // OPTIONS: (daynameabbr / daynamelong) + bullet + (monthabbr / monthlong / monthnum) + (daynum / dayord) +  (yearlong / yearshort)
     return daynameabbr + '\u2022\u2004' + monthabbr + daynum + yearlong;
   }
 
@@ -132,13 +132,13 @@
         minute = date.getMinutes(),
         second = date.getSeconds(),
         ampm;
-    if (hour24 < 12) {ampm = ' AM';} else {ampm = ' PM';}
-    if (hour24 > 12) {hour12 = hour24 - 12;}
-    if (hour24 === 0) {hour12 = 12;}
-    if (hour24 < 10) {hour24 = '0' + hour24;}
-    if (minute < 10) {minute = ':0' + minute;} else {minute = ':' + minute;}
-    if (second < 10) {second = ':0' + second;} else {second = ':' + second;}
-    // bullet + (hour12 / hour24) + (minute) + (second) + (ampm)
+    if (hour24 > 12) hour12 = hour24 - 12;
+    if (hour24 === 0) hour12 = 12;
+    if (hour24 < 10) hour24 = '0' + hour24;
+    hour24 < 12 ? ampm = ' AM' : ampm = ' PM';
+    minute < 10 ? minute = ':0' + minute : minute = ':' + minute;
+    second < 10 ? second = ':0' + second : second = ':' + second;
+    // OPTIONS: bullet + (hour12 / hour24) + (minute) + (second) + (ampm)
     return '\u2004\u2022\u2005' + hour12 + minute + ampm;
   }
   
