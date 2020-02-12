@@ -382,7 +382,6 @@
       #aBull {margin: 0 8px !important;}\
       .rightside.responsive-search, .icon.fa-file-o.fa-fw.icon-red {color: ' + textColor + ' !important;}\
       .right.responsive-center.time.rightside {margin-left: 5px !important;}\
-      //.right.responsive-center.time.rightside {display: none !important;}\
       .button.button-search icon.fa-search.fa-fw, .button.button-search icon.fa-cog.fa-fw {color: #606060 !important;}\
       #username_logged_in .username {color: ' + textColor + ' !important; text-shadow: 1px 1px 2px #000 !important;}\
       #username_logged_in a span {color: #000 !important; text-shadow: none !important;}\
