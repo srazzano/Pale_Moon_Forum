@@ -303,7 +303,7 @@
     DateTime.addEventListener('mouseover', function() {DateTime.textContent = aDate() + aTime()}, false);
   } catch(ex) {}
 
-  window.addEventListener('load', function() {timer_Interval = setInterval(function() {DateTime.textContent = aDate() + aTime()}, timerInterval)}, false);
+  window.addEventListener('load', function() {timer_Interval = setInterval(function() {try {DateTime.textContent = aDate() + aTime()} catch(ex) {}}, timerInterval)}, false);
   window.addEventListener('unload', function() {clearInterval(timer_Interval)}, false);
 
   GM_addStyle('\
