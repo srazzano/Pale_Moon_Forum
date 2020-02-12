@@ -168,7 +168,8 @@
         if (elm[i].checked === false) elm[i].parentNode.childNodes[2].lastElementChild.style.display = 'none';
   } } }
 
-  var ActionBar = $('.action-bar', $('#page-body'), 1),
+  var timer_Interval,
+      ActionBar = $('.action-bar', $('#page-body'), 1),
       Link0 = $c('a', {id: 'aLink0', textContent: linkNewTab.toUpperCase()}, [{type: 'click', fn: function() {window.open(Url1, '_blank')}}]),
       Label0 = $n('text', {textContent: textBracket}),
       Separator = $c('span', {id: 'aSep', textContent: bullet}),
@@ -302,7 +303,8 @@
     DateTime.onmouseover = function() {DateTime.textContent = aDate() + aTime()}
   } catch(ex) {}
 
-  window.setInterval(function() {DateTime.textContent = aDate() + aTime()}, timerInterval);
+  window.addEventListener('load', function() {timer_Interval = setInterval(function() {DateTime.textContent = aDate() + aTime()}, timerInterval)}, false);
+  window.addEventListener('unload', clearInterval(timer_Interval), false);
 
   GM_addStyle('\
     ' + cssRule + ' {\
