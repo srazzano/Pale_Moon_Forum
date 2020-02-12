@@ -121,7 +121,7 @@
         dayord = days2[dy] + ' ',
         yearlong = date.getFullYear(),
         yearshort = yearlong - 2000;
-    // (daynameabbr / daynamelong) (monthabbr / monthlong / monthnum) (daynum / dayord) (yearlong / yearshort)
+    // (daynameabbr / daynamelong) + bullet + (monthabbr / monthlong / monthnum) + (daynum / dayord) +  (yearlong / yearshort)
     return daynameabbr + '\u2022\u2004' + monthabbr + daynum + yearlong;
   }
 
@@ -138,7 +138,7 @@
     if (hour24 < 10) {hour24 = '0' + hour24;}
     if (minute < 10) {minute = ':0' + minute;} else {minute = ':' + minute;}
     if (second < 10) {second = ':0' + second;} else {second = ':' + second;}
-    // (hour12 / hour24) (minute) (second) (ampm)
+    // bullet + (hour12 / hour24) + (minute) + (second) + (ampm)
     return '\u2004\u2022\u2005' + hour12 + minute + ampm;
   }
   
