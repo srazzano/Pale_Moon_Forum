@@ -42,7 +42,6 @@
         linkNewTab = 'new tab',
         textBracket = ')',
         hideFooter = 'Hide footer',
-        dateTimeTip = 'Hover to refresh current date/time',
         viewBoardsText = 'View All Boards',
         viewBoardsTip = 'View All Unchecked Boards',
         hideBoardsText = 'Hide Unchecked Boards',
@@ -143,8 +142,8 @@
   }
   
   function CollapseExpand(e) {
-    var elm = e.parentNode,
-        bool = GM_getValue(e.id) !== false ? false : true,
+    var bool = GM_getValue(e.id) !== false ? false : true,
+        elm = e.parentNode,
         sty = bool ? 'block' : 'none';
     elm.setAttribute('opened', bool);
     elm.childNodes[2].lastElementChild.style.display = sty;
@@ -299,10 +298,11 @@
 
   try {
     DateTime.textContent = aDate() + aTime();
-    DateTime.title = dateTimeTip;
     DateTime.onmouseover = function() {DateTime.textContent = aDate() + aTime()}
   } catch(ex) {}
-  
+
+  window.setInterval(function() {DateTime.textContent = aDate() + aTime()}, 15000);
+
   GM_addStyle('\
     ' + cssRule + ' {\
       html {height: 100% !important;}\
