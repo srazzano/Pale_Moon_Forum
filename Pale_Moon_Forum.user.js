@@ -192,6 +192,7 @@
       SiteDescriptionP = $q('#site-description > p'),
       NavMain = $('#nav-main'),
       NavBreadcrumbs = $('#nav-breadcrumbs'),
+      RightSide = $q('.right.responsive-center.time.rightside'),
       IconNotification = $q('.icon-notification > a > strong'),
       IconPM = $q('.icon-pm > a > strong'),
       DateTime = $q('#page-body > p:nth-child(2)'),
@@ -250,10 +251,6 @@
   $('#hidefooter').checked = ck;
   $('#hidevisited').checked = ck2;
   $('#page-footer').style.display = sty;
-  try {
-    $q('.right.responsive-center.time.rightside').textContent = 'Last visited \u2007' + GM_getValue('lastVisited');
-    $q('.right.responsive-center.time.rightside').style.display = sty2;
-  } catch(ex) {}
 
   if (pmindex) {
     var hBoards = $c('button', {id: 'hideBoardsBtn', className: 'viewHideBtn', textContent: hideBoardsText, title: hideBoardsTip}, [{type: 'click', fn: function() {ViewHideBoards(true)}}]),
@@ -323,6 +320,11 @@
   try {
     DateTime.textContent = aDate() + aTime();
     DateTime.addEventListener('mouseover', function() {DateTime.textContent = aDate() + aTime()}, false);
+  } catch(ex) {}
+
+  try {
+    RightSide.style.display = sty2;
+    RightSide.textContent = 'Last visited \u2007' + GM_getValue('lastVisited');
   } catch(ex) {}
 
   addEventListener('load', function() {timer_Interval = setInterval(function() {try {DateTime.textContent = aDate() + aTime()} catch(ex) {}}, timerInterval)}, false);
