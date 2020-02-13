@@ -250,8 +250,10 @@
   $('#hidefooter').checked = ck;
   $('#hidevisited').checked = ck2;
   $('#page-footer').style.display = sty;
-  $q('.right.responsive-center.time.rightside').textContent = 'Last visited \u2007' + GM_getValue('lastVisited');
-  $q('.right.responsive-center.time.rightside').style.display = sty2;
+  try {
+    $q('.right.responsive-center.time.rightside').textContent = 'Last visited \u2007' + GM_getValue('lastVisited');
+    $q('.right.responsive-center.time.rightside').style.display = sty2;
+  } catch(ex) {}
 
   if (pmindex) {
     var hBoards = $c('button', {id: 'hideBoardsBtn', className: 'viewHideBtn', textContent: hideBoardsText, title: hideBoardsTip}, [{type: 'click', fn: function() {ViewHideBoards(true)}}]),
@@ -325,7 +327,7 @@
 
   addEventListener('load', function() {timer_Interval = setInterval(function() {try {DateTime.textContent = aDate() + aTime()} catch(ex) {}}, timerInterval)}, false);
   addEventListener('beforeunload', function() {clearInterval(timer_Interval); GM_setValue('lastVisited', aDate() + aTime())}, false);
-  
+
   GM_addStyle('\
     ' + cssRule + ' {\
       html {height: 100% !important;}\
