@@ -224,13 +224,13 @@
   if (!GM_getValue('Board10')) GM_setValue('Board10', false);
 
   var nav = $q('#nav-breadcrumbs > LI:nth-child(2)'),
-      cb = $c('input', {id: 'hidefooter', type: 'checkbox'}, [{type: 'click', fn: function() {HideFooter(this)}}]),
+      ckBox = $c('input', {id: 'hidefooter', type: 'checkbox'}, [{type: 'click', fn: function() {HideFooter(this)}}]),
       hidefooterLabel = $c('label', {id: 'hidefooterLabel', textContent: hideFooter}, [{type: 'click', fn: function() {HideFooter(this.previousSibling)}}]),
-      ck = GM_getValue('hidefooter'),
-      sty = ck ? 'none' : '-moz-box';
-  nav.appendChild(cb);
+      bool = GM_getValue('hidefooter'),
+      sty = bool ? 'none' : '-moz-box';
+  nav.appendChild(ckBox);
   nav.appendChild(hidefooterLabel);
-  $('#hidefooter').checked = ck;
+  $('#hidefooter').checked = bool;
   $('#page-footer').style.display = sty;
 
   if (pmindex) {
@@ -239,25 +239,28 @@
     ActionBar.insertBefore(hBoards, ActionBar.firstElementChild);
     ActionBar.insertBefore(vBoards, ActionBar.firstElementChild);
     for (var i = 0, item = $('.forabg'); i < item.length; i++) {
-      var ckBox = $c('input', {id: 'Board'+(i+1), className: 'boardCB', type: 'checkbox'}, [{type: 'click', fn: function() {CollapseExpand(this)}}]),
-          bool = GM_getValue('Board' + (i+1)),
-          sty = bool ? 'block' : 'none';
-      item[i].insertBefore(ckBox, item[i].firstChild);
-      $('#Board' + (i+1)).checked = bool;
-      item[i].setAttribute('opened', bool);
-      item[i].style.display = sty;
-      item[i].childNodes[2].lastElementChild.style.display = sty;
-  } }
+      var ckBox2 = $c('input', {id: 'Board'+(i+1), className: 'boardCB', type: 'checkbox'}, [{type: 'click', fn: function() {CollapseExpand(this)}}]),
+          bool2 = GM_getValue('Board' + (i+1)),
+          sty2 = bool2 ? 'block' : 'none';
+      item[i].insertBefore(ckBox2, item[i].firstChild);
+      $('#Board' + (i+1)).checked = bool2;
+      item[i].setAttribute('opened', bool2);
+      item[i].style.display = sty2;
+      item[i].childNodes[2].lastElementChild.style.display = sty2;
+    }
+    DateTime.textContent = aDate() + aTime();
+    DateTime.addEventListener('mouseover', function() {DateTime.textContent = aDate() + aTime()}, false);
+  }
 
   if (pmforum) {
     var ann = $q('.forumbg.announcement'),
-        ckBox = $c('input', {id: 'Board10', className: 'boardCB', type: 'checkbox'}, [{type: 'click', fn: function() {CollapseExpand(this)}}]),
-        board = GM_getValue('Board10'),
-        sty = board ? 'block' : 'none';
-    ann.insertBefore(ckBox, ann.firstChild);
-    $('#Board10').checked = board;
-    ann.setAttribute('opened', board);
-    ann.childNodes[2].lastElementChild.style.display = sty;
+        ckBox3 = $c('input', {id: 'Board10', className: 'boardCB', type: 'checkbox'}, [{type: 'click', fn: function() {CollapseExpand(this)}}]),
+        bool3 = GM_getValue('Board10'),
+        sty3 = bool3 ? 'block' : 'none';
+    ann.insertBefore(ckBox3, ann.firstChild);
+    $('#Board10').checked = bool3;
+    ann.setAttribute('opened', bool3);
+    ann.childNodes[2].lastElementChild.style.display = sty3;
   }
 
   try {
@@ -298,13 +301,8 @@
     ');
   } catch(ex) {}
 
-  try {
-    DateTime.textContent = aDate() + aTime();
-    DateTime.addEventListener('mouseover', function() {DateTime.textContent = aDate() + aTime()}, false);
-  } catch(ex) {}
-
-  addEventListener('load', function() {timer_Interval = setInterval(function() {try {DateTime.textContent = aDate() + aTime()} catch(ex) {}}, timerInterval)}, false);
-  addEventListener('beforeunload', function() {clearInterval(timer_Interval)}, false);
+  addEventListener('load', function() {timer_Interval = setInterval(function() {DateTime.textContent = aDate() + aTime()}, timerInterval)}, false);
+  addEventListener('unload', function() {clearInterval(timer_Interval)}, false);
 
   GM_addStyle('\
     ' + cssRule + ' {\
