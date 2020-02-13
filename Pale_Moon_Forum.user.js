@@ -323,8 +323,8 @@
     DateTime.addEventListener('mouseover', function() {DateTime.textContent = aDate() + aTime()}, false);
   } catch(ex) {}
 
-  addEventListener('load', function() {timer_Interval = setInterval(function() {try {DateTime.textContent = aDate() + aTime(); GM_setValue('lastVisited', DateTime.textContent)} catch(ex) {}}, timerInterval)}, false);
-  addEventListener('beforeunload', function() {clearInterval(timer_Interval)}, false);
+  addEventListener('load', function() {timer_Interval = setInterval(function() {try {DateTime.textContent = aDate() + aTime()} catch(ex) {}}, timerInterval)}, false);
+  addEventListener('beforeunload', function() {clearInterval(timer_Interval); GM_setValue('lastVisited', aDate() + aTime())}, false);
   
   GM_addStyle('\
     ' + cssRule + ' {\
