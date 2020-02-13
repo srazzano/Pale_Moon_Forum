@@ -220,7 +220,7 @@
   SiteDescriptionP.insertBefore(Separator, Label1);
   SiteDescriptionP.appendChild(NavBreadcrumbs);
 
-  if (!GM_getValue('lastVisited')) GM_setValue('lastVisited', 'last visited \u2007' + aDate() + aTime());
+  if (!GM_getValue('lastVisited')) GM_setValue('lastVisited', aDate() + aTime());
   if (!GM_getValue('hidefooter')) GM_setValue('hidefooter', false);
   if (!GM_getValue('hidevisited')) GM_setValue('hidevisited', false);
   if (!GM_getValue('Board1')) GM_setValue('Board1', false);
@@ -250,7 +250,7 @@
   $('#hidefooter').checked = ck;
   $('#hidevisited').checked = ck2;
   $('#page-footer').style.display = sty;
-  $q('.right.responsive-center.time.rightside').textContent = 'last visited \u2007' + GM_getValue('lastVisited');
+  $q('.right.responsive-center.time.rightside').textContent = 'Last visited \u2007' + GM_getValue('lastVisited');
   $q('.right.responsive-center.time.rightside').style.display = sty2;
 
   if (pmindex) {
