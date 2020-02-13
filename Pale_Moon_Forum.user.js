@@ -257,11 +257,12 @@
         ckBox3 = $c('input', {id: 'Board10', className: 'boardCB', type: 'checkbox'}, [{type: 'click', fn: function() {CollapseExpand(this)}}]),
         bool3 = GM_getValue('Board10'),
         sty3 = bool3 ? 'block' : 'none';
-    ann.insertBefore(ckBox3, ann.firstChild);
-    $('#Board10').checked = bool3;
-    ann.setAttribute('opened', bool3);
-    ann.childNodes[2].lastElementChild.style.display = sty3;
-  }
+    if (ann) {
+      ann.insertBefore(ckBox3, ann.firstChild);
+      $('#Board10').checked = bool3;
+      ann.setAttribute('opened', bool3);
+      ann.childNodes[2].lastElementChild.style.display = sty3;
+  } }
 
   try {
     if (IconNotification.textContent != '0') GM_addStyle('\
@@ -301,7 +302,7 @@
     ');
   } catch(ex) {}
 
-  addEventListener('load', function() {timer_Interval = setInterval(function() {DateTime.textContent = aDate() + aTime()}, timerInterval)}, false);
+  addEventListener('load', function() {timer_Interval = setInterval(function() {try {DateTime.textContent = aDate() + aTime()} catch(ex) {}}, timerInterval)}, false);
   addEventListener('unload', function() {clearInterval(timer_Interval)}, false);
 
   GM_addStyle('\
