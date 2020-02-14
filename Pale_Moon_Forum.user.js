@@ -100,11 +100,15 @@
     return document.querySelector(el);
   }
 
-  function aDate() {
+  function aDateTime() {
     var date = new Date(),
         weekday = date.getDay(),
         mth = date.getMonth(),
         dy = date.getDate(),
+        hour12 = date.getHours(),
+        hour24 = hour12,
+        minute = date.getMinutes(),
+        second = date.getSeconds(),
         daynames = Weekday.split(','),
         daynames2 = WeekdayAbbr.split(','),
         months = Month.split(','),
@@ -113,50 +117,39 @@
         days = DayNo.split(','),
         days2 = DayOrd.split(','),
         daynameabbr = daynames2[weekday] + '. ',
-        daynamelong = daynames[weekday] + ' ',
+        daynamelong = daynames[weekday] + ', ',
         monthabbr = months2[mth] + '. ',
         monthlong = months[mth] + ' ',
         monthnum = months3[mth] + ' ',
         daynum = days[dy] + ', ',
         dayord = days2[dy] + ', ',
         yearlong = date.getFullYear(),
-        yearshort = yearlong - 2000;
-    // OPTIONS: (daynameabbr / daynamelong) + bullet + (monthabbr / monthlong / monthnum) + (daynum / dayord) +  (yearlong / yearshort)
-    return daynameabbr + '\u2022\u2004' + monthabbr + daynum + yearlong;
-  }
-
-  function aTime() {
-    var date = new Date(),
-        hour12 = date.getHours(),
-        hour24 = hour12,
-        minute = date.getMinutes(),
-        second = date.getSeconds(),
-        ampm;
+        yearshort = yearlong - 2000, ampm;
     if (hour24 > 12) hour12 = hour24 - 12;
     if (hour24 === 0) hour12 = 12;
     if (hour24 < 10) hour24 = '0' + hour24;
     hour24 < 12 ? ampm = ' AM' : ampm = ' PM';
     minute < 10 ? minute = ':0' + minute : minute = ':' + minute;
     second < 10 ? second = ':0' + second : second = ':' + second;
-    // OPTIONS: bullet + (hour12 / hour24) + (minute) + (second) + (ampm)
-    return '\u2004\u2022\u2005' + hour12 + minute + ampm;
+    // OPTIONS: (daynameabbr / daynamelong) + bullet + (monthabbr / monthlong / monthnum) + (daynum / dayord) +  (yearlong / yearshort) + bullet + (hour12 / hour24) + (minute) + (second) + (ampm)
+    return daynameabbr + '\u2022\u2004' + monthabbr + daynum + yearlong + '\u2004\u2022\u2005' + hour12 + minute + ampm;
   }
 
   function CollapseExpand(e) {
     var bool = GM_getValue(e.id) !== false ? false : true,
         elm = e.parentNode,
         sty = bool ? 'block' : 'none';
+    GM_setValue(e.id, bool); 
     elm.setAttribute('opened', bool);
     elm.childNodes[2].lastElementChild.style.display = sty;
-    GM_setValue(e.id, bool); 
   }
 
   function HideFooter(e) {
     var bool = GM_getValue(e.id) !== false ? false : true,
         sty = bool ? 'none' : '-moz-box';
-    $('#page-footer').style.display = sty;
     GM_setValue(e.id, bool);
     $('#hidefooter').checked = bool;
+    $('#page-footer').style.display = sty;
   }
 
   function ViewHideBoards(bool) {
@@ -248,8 +241,8 @@
       item[i].style.display = sty2;
       item[i].childNodes[2].lastElementChild.style.display = sty2;
     }
-    DateTime.textContent = aDate() + aTime();
-    DateTime.addEventListener('mouseover', function() {DateTime.textContent = aDate() + aTime()}, false);
+    DateTime.textContent = aDateTime();
+    DateTime.addEventListener('mouseover', function() {DateTime.textContent = aDateTime()}, false);
   }
 
   if (pmforum) {
@@ -264,7 +257,7 @@
       announ.childNodes[2].lastElementChild.style.display = sty3;
   } }
 
-  addEventListener('load', function() {timer_Interval = setInterval(function() {try {DateTime.textContent = aDate() + aTime()} catch(ex) {}}, timerInterval)}, false);
+  addEventListener('load', function() {timer_Interval = setInterval(function() {try {DateTime.textContent = aDateTime()} catch(ex) {}}, timerInterval)}, false);
   addEventListener('unload', function() {clearInterval(timer_Interval)}, false);
 
   try {
