@@ -4,8 +4,8 @@
 // @version       1.0.2
 // @namespace     srazzano
 // @description   Pale Moon Forum Tweaks
-// @include       https://forum.palemoon.org*
 // @author        Sonny Razzano
+// @include       https://forum.palemoon.org*
 // @icon          https://raw.githubusercontent.com/srazzano/Images/master/logo.png
 // @homepageURL   https://github.com/srazzano/Pale_Moon_Forum
 // @downloadURL   https://raw.githubusercontent.com/srazzano/Pale_Moon_Forum/master/Pale_Moon_Forum.user.js
@@ -27,6 +27,7 @@
         headerText = '#FFF',
         boardBG = 'linear-gradient(#5BA4ED, #314A85)',
         boardHoverBG = '#314A85',
+        lockedBG = '#FFEAEA',
         stickyBG = '#FFEAEA',
         textColor = '#FFF',
         textHoverColor = '#FFF',
@@ -47,6 +48,7 @@
         viewBoardsTip = 'View All Unchecked Boards',
         hideBoardsText = 'Hide Unchecked Boards',
         hideBoardsTip = 'Hide All Unchecked Boards',
+        dateTimeTip = 'Current Date/Time',
         Weekday = 'Sunday,Monday,Tuesday,Wednesday,Thursday,Friday,Saturday',
         WeekdayAbbr = 'Sun,Mon,Tue,Wed,Thu,Fri,Sat',
         Month = 'January,February,March,April,May,June,July,August,September,October,November,December',
@@ -242,6 +244,7 @@
       item[i].childNodes[2].lastElementChild.style.display = sty2;
     }
     DateTime.textContent = aDateTime();
+    DateTime.title = dateTimeTip;
     DateTime.addEventListener('mouseover', function() {DateTime.textContent = aDateTime()}, false);
   }
 
@@ -385,6 +388,7 @@
       .button.button-secondary .fa-fw {color: ' + textColor + ' !important;}\
       .button.button-secondary:not([class*="bbcode-"]):hover {background: ' + boardHoverBG + ' !important;}\
       .sticky {background: ' + stickyBG + ' !important;}\
+      .global-announce, .announce {background: ' + lockedBG + ' !important;}\
       .forabg, .forumbg {background: ' + boardHoverBG + ' !important; border: 1px solid #314A85 !important; border-radius: 6px 6px 12px 12px !important; box-shadow: inset 0 0 1px #FFF !important; margin: 0 0 5px 0 !important; padding: 4px 4px 3px 4px !important; position: relative !important;}\
       .forabg:hover .header a, .forumbg:hover .header a {color: ' + textHoverColor + ' !important;}\
       .forabg[opened="false"], .forumbg[opened="false"] {background: ' + boardBG + ' !important; border-radius: 4px !important; height: 17px !important; width: 353px !important;}\
