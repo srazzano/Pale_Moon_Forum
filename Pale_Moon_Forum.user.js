@@ -193,6 +193,7 @@
   $q('A[href="//www.palemoon.org/"][target="_blank"][style="color: rgb(255, 255, 128); display: none;"]').nextSibling.nodeValue = '';
 
   for (var i = 0, utc = $q('#nav-footer > li.rightside', true); i < utc.length; i++) if (utc[i].textContent.match('All times')) utc[i].setAttribute('id', 'clock');
+  $q('#clock > span').textContent = 'UTC-7'
 
   SiteDescription.appendChild(NavMain);
   SiteDescriptionP.innerHTML = SiteDescriptionP.innerHTML.replace('Visit the', '').replace('Discussion forum for the Pale Moon web browser', '').replace(/\(or\s+in/, '(in');
@@ -364,10 +365,11 @@
       .action-bar > a.button > span, .action-bar > a.button > i {position: relative !important; top: 3px !important;}\
       .action-bar > a.button > i {color: #FFF !important;}\
       .action-bar.bar-top .search-box {padding: 0 !important;}\
-      .action-bar.bar-top input#search_keywords, #add_keywords.inputbox {color: #000 !important; height: 26px !important;}\
+      .action-bar.bar-top input#search_keywords, #add_keywords.inputbox {color: #000 !important; height: 26px !important; width: 155px !important;}\
       .action-bar.bar-top button.button.button-search {height: 26px !important;}\
       .action-bar.bar-top a.button.button-search-end {padding: 3px 4px 3px 4px !important;}\
       .action-bar .button-search-end {border: 1px solid #C7C3BF !important; margin-left: -1px !important;}\
+      #keywords {width: 155px !important;}\
       a.top, .viewHideBtn, .action-bar > a.button, #ucp .panel a.mark {-moz-appearance: none !important; background: ' + boardBG + ' !important; border: 1px solid #203974 !important; border-radius: 4px !important; box-shadow: inset 0 0 1px #FFF !important; color: ' + textColor + ' !important; cursor: pointer !important; font-size: ' + fontSize + ' !important; margin: 0 5px 0 0 !important; padding: 0 6px !important; text-shadow: 1px 1px 2px #000 !important;}\
       .viewHideBtn {height: 26px !important;}\
       a.top {font-weight: bold !important; padding: 5px !important; text-decoration: none !important;}\
