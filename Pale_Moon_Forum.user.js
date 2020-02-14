@@ -25,7 +25,7 @@
         fontSize = '110%',
         headerBG = 'linear-gradient(#5BA4ED, #314A85)',
         headerText = '#FFF',
-        boardBG = 'linear-gradient(#5BA4ED, #314A85)',
+        boardBG = 'linear-gradient(#4A93DC, #314A85)',
         boardHoverBG = '#314A85',
         lockedBG = '#FFEAEA',
         stickyBG = '#FFEAEA',
