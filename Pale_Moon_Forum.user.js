@@ -48,7 +48,7 @@
         viewBoardsTip = 'View All Unchecked Boards',
         hideBoardsText = 'Hide Unchecked Boards',
         hideBoardsTip = 'Hide All Unchecked Boards',
-        dateTimeTip = 'Current Local Date/Time',
+        dateTimeTip = 'Current Local Time',
         Weekday = 'Sunday,Monday,Tuesday,Wednesday,Thursday,Friday,Saturday',
         WeekdayAbbr = 'Sun,Mon,Tue,Wed,Thu,Fri,Sat',
         Month = 'January,February,March,April,May,June,July,August,September,October,November,December',
