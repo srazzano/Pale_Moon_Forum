@@ -21,6 +21,8 @@
 
   const timerInterval = 10000,
         cssRule = '/* AGENT_SHEET */ @-moz-document domain("forum.palemoon.org")',
+        customCheckbox = true,
+        customScrollbar = true,
         bodyBG = '#E0E0E0',
         fontSize = '110%',
         headerBG = 'linear-gradient(#5BA4ED, #314A85)',
@@ -57,7 +59,7 @@
         DayNo = '"",1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,27,28,29,30,31',
         DayOrd = '"",1st,2nd,3rd,4th,5th,6th,7th,8th,9th,10th,11th,12th,13th,14th,15th,16th,17th,18th,19th,20th,21st,22nd,23rd,24th,25th,26th,27th,28th,29th,30th,31st';
 
-    var timer_Interval,
+  var timer_Interval,
       ActionBar = $('.action-bar', $('#page-body'), 1),
       Link0 = $c('a', {id: 'aLink0', textContent: linkNewTab.toUpperCase()}, [{type: 'click', fn: function() {window.open(Url1, '_blank')}}]),
       Label0 = $n('text', {textContent: textBracket}),
@@ -192,9 +194,6 @@
   $q('A[href="//www.palemoon.org/"][style="color:#ffff80;"]').innerHTML = linkHomePage.toUpperCase();
   $q('A[href="//www.palemoon.org/"][target="_blank"][style="color: rgb(255, 255, 128); display: none;"]').nextSibling.nodeValue = '';
 
-  for (var i = 0, utc = $q('#nav-footer > li.rightside', true); i < utc.length; i++) if (utc[i].textContent.match('All times')) utc[i].setAttribute('id', 'clock');
-  $q('#clock > span').textContent = 'UTC -7'
-
   SiteDescription.appendChild(NavMain);
   SiteDescriptionP.innerHTML = SiteDescriptionP.innerHTML.replace('Visit the', '').replace('Discussion forum for the Pale Moon web browser', '').replace(/\(or\s+in/, '(in');
   SiteDescriptionP.appendChild(Link0);
@@ -206,6 +205,9 @@
   SiteDescriptionP.appendChild(Label3);
   SiteDescriptionP.insertBefore(Separator, Label1);
   SiteDescriptionP.appendChild(NavBreadcrumbs);
+
+  for (var i = 0, utc = $q('#nav-footer > li.rightside', true); i < utc.length; i++) if (utc[i].textContent.match('All times')) utc[i].setAttribute('id', 'clock');
+  $q('#clock > span').textContent = 'UTC -7'
 
   if (!GM_getValue('hidefooter')) GM_setValue('hidefooter', false);
   if (!GM_getValue('Board1')) GM_setValue('Board1', false);
@@ -301,6 +303,26 @@
       }\
     ');
   } catch(ex) {}
+
+  if (customCheckbox) GM_addStyle('\
+    ' + cssRule + ' {\
+      input.boardCB {-moz-appearance: none !important; border: 1px solid #FFF !important; border-radius: 3px !important; box-shadow: inset 0 0 2px #000 !important;}\
+    }\
+  ');
+
+  if (customScrollbar) GM_addStyle('\
+    ' + cssRule + ' {\
+      scrollbar {-moz-appearance: none !important; border-radius: 8px !important;}\
+      scrollbar > slider {-moz-appearance: none !important; background: ' + scrollbarSlider + ' !important; border-width: 0 !important; border-radius: 8px !important; box-shadow: none !important;}\
+      scrollbar > slider > thumb {-moz-appearance: none !important; background: ' + scrollbarThumb + ' !important; border-width: 0 !important; border-radius: 10px !important; box-shadow: inset 0 0 2px #FFF !important;}\
+      scrollbar[orient="vertical"] > slider > thumb {min-height: 35px !important;}\
+      scrollbar[orient="horizontal"] > slider > thumb {min-width: 35px !important;}\
+      scrollbar > slider > thumb:hover, scrollbar > slider > thumb:active {background: ' + scrollbarThumbHover + ' ! important;}\
+      scrollbar > scrollbarbutton {-moz-appearance: none !important; background: none !important; border: none !important;}\
+      scrollbar[orient="vertical"] > scrollbarbutton {min-height: 0 !important;}\
+      scrollbar[orient="horizontal"] > scrollbarbutton {min-width: 0 !important;}\
+    }\
+  ');
 
   GM_addStyle('\
     ' + cssRule + ' {\
@@ -401,13 +423,13 @@
       .forabg[opened="true"] dt > .list-inner > a {height: 11px !important; top: -2px !important;}\
       .forumbg > div:nth-child(1) .header dt > div {position: relative !important; left: 20px !important;}\
       .forabg[opened="false"] .list-inner, .forumbg[opened="false"] .list-inner {width: 100% !important;}\
+      input.boardCB {float: left !important; height: 17px !important; width: 17px !important; margin: -1px 5px 0 0 !important; padding: 0 !important; position: relative !important; z-index: 2 !important;}\
       .topiclist.forums {background: none !important;}\
       .forabg li:last-child, .forumbg.announcement ul > li:last-child, .topiclist.topics li:last-of-type {border-radius: 0 0 9px 9px !important;}\
       li.header dt, li.header dd {color: ' + textColor + ' !important;}\
       .action-bar, li.header dt, li.header dd, #nav-footer {-moz-user-select: none !important;}\
       li.header dt:hover, li.header dd:hover {color: ' + textHoverColor + ' !important;}\
       #hidefooter {-moz-appearance: none !important; border: 1px solid #FFF !important; border-radius: 3px !important; box-shadow: inset 0 0 2px #000 !important; height: 17px !important; width: 17px !important;}\
-      input.boardCB {-moz-appearance: none !important; border: 1px solid #FFF !important; border-radius: 3px !important; box-shadow: inset 0 0 2px #000 !important; float: left !important; height: 17px !important; margin: -1px 5px 0 0 !important; padding: 0 !important; position: relative !important; width: 17px !important; z-index: 2 !important;}\
       #page-body > div:nth-child(5) > div > ul:last-child > li:last-child {border-radius: 0 0 9px 9px !important;}\
       #page-body > div:nth-child(6) > div > ul:last-child > li:last-child {border-radius: 0 0 9px 9px !important;}\
       .header, .header a {color: ' + textColor + ' !important; display: block !important; font-size: ' + fontSize + ' !important; font-weight: bold !important; position: relative !important; text-shadow: 1px 1px 2px #000 !important; top: -1px !important;}\
@@ -442,15 +464,6 @@
       #viewfolder .header dd.mark {background: none !important; border: none !important; color: #000 !important; text-shadow: none !important; }\
       #ucp .topiclist > .header > dl a, #ucp .row-item, #ucp .mark, #ucp span {background: none !important; border: none !important; color: #000 !important; cursor: default !important; text-decoration: none !important; text-shadow: none !important;}\
       .row-item.pm_read .mark {background: none !important; border: none !important;}\
-      scrollbar {-moz-appearance: none !important; border-radius: 8px !important;}\
-      scrollbar > slider {-moz-appearance: none !important; background: ' + scrollbarSlider + ' !important; border-width: 0 !important; border-radius: 8px !important; box-shadow: none !important;}\
-      scrollbar > slider > thumb {-moz-appearance: none !important; background: ' + scrollbarThumb + ' !important; border-width: 0 !important; border-radius: 10px !important; box-shadow: inset 0 0 2px #FFF !important;}\
-      scrollbar[orient="vertical"] > slider > thumb {min-height: 35px !important;}\
-      scrollbar[orient="horizontal"] > slider > thumb {min-width: 35px !important;}\
-      scrollbar > slider > thumb:hover, scrollbar > slider > thumb:active {background: ' + scrollbarThumbHover + ' ! important;}\
-      scrollbar > scrollbarbutton {-moz-appearance: none !important; background: none !important; border: none !important;}\
-      scrollbar[orient="vertical"] > scrollbarbutton {min-height: 0 !important;}\
-      scrollbar[orient="horizontal"] > scrollbarbutton {min-width: 0 !important;}\
     }\
   ');
 
