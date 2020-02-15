@@ -57,6 +57,31 @@
         DayNo = '"",1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,27,28,29,30,31',
         DayOrd = '"",1st,2nd,3rd,4th,5th,6th,7th,8th,9th,10th,11th,12th,13th,14th,15th,16th,17th,18th,19th,20th,21st,22nd,23rd,24th,25th,26th,27th,28th,29th,30th,31st';
 
+    var timer_Interval,
+      ActionBar = $('.action-bar', $('#page-body'), 1),
+      Link0 = $c('a', {id: 'aLink0', textContent: linkNewTab.toUpperCase()}, [{type: 'click', fn: function() {window.open(Url1, '_blank')}}]),
+      Label0 = $n('text', {textContent: textBracket}),
+      Separator = $c('span', {id: 'aSep', textContent: bullet}),
+      Label1 = $n('text', {textContent: textPaleMoon}),
+      Link1 = $c('a', {id: 'aLink1', href: Url2, textContent: linkAddonsSite.toUpperCase()}),
+      Label2 = $n('text', {textContent: textInA}),
+      Link2 = $c('a', {id: 'aLink2', textContent: linkNewTab.toUpperCase()}, [{type: 'click', fn: function() {window.open(Url2, '_blank')}}]),
+      Label3 = $n('text', {textContent: textBracket}),
+      Bullet = $c('span', {id: 'aBull', textContent: bullet}),
+      SiteDescription = $('#site-description'),
+      SiteDescriptionP = $q('#site-description > p'),
+      NavMain = $('#nav-main'),
+      NavBreadcrumbs = $('#nav-breadcrumbs'),
+      IconNotification = $q('.icon-notification > a > strong'),
+      IconPM = $q('.icon-pm > a > strong'),
+      DateTime = $q('#page-body > p:nth-child(2)'),
+      url = window.location.href.toLowerCase(),
+      pmindex = url.match('https://forum.palemoon.org/index'),
+      pmforum = url.match('https://forum.palemoon.org/viewforum'),
+      pmtopic = url.match('https://forum.palemoon.org/viewtopic'),
+      pmsearch = url.match('https://forum.palemoon.org/search'),
+      pmucp = url.match('https://forum.palemoon.org/ucp');
+
   function $(q, root, single, context) {
     root = root || document;
     context = context || root;
@@ -156,44 +181,19 @@
 
   function ViewHideBoards(bool) {
     for (var i = 0, elm = $('.boardCB'); i < elm.length; i++) {
-      if (bool) {
-        if (elm[i].checked === false) elm[i].parentNode.style.display = 'none';
-      } else {
-        if (elm[i].checked === false) elm[i].parentNode.style.display = 'block';
-        if (elm[i].checked === false) elm[i].parentNode.childNodes[2].lastElementChild.style.display = 'none';
-  } } }
-
-  var timer_Interval,
-      ActionBar = $('.action-bar', $('#page-body'), 1),
-      Link0 = $c('a', {id: 'aLink0', textContent: linkNewTab.toUpperCase()}, [{type: 'click', fn: function() {window.open(Url1, '_blank')}}]),
-      Label0 = $n('text', {textContent: textBracket}),
-      Separator = $c('span', {id: 'aSep', textContent: bullet}),
-      Label1 = $n('text', {textContent: textPaleMoon}),
-      Link1 = $c('a', {id: 'aLink1', href: Url2, textContent: linkAddonsSite.toUpperCase()}),
-      Label2 = $n('text', {textContent: textInA}),
-      Link2 = $c('a', {id: 'aLink2', textContent: linkNewTab.toUpperCase()}, [{type: 'click', fn: function() {window.open(Url2, '_blank')}}]),
-      Label3 = $n('text', {textContent: textBracket}),
-      Bullet = $c('span', {id: 'aBull', textContent: bullet}),
-      SiteDescription = $('#site-description'),
-      SiteDescriptionP = $q('#site-description > p'),
-      NavMain = $('#nav-main'),
-      NavBreadcrumbs = $('#nav-breadcrumbs'),
-      IconNotification = $q('.icon-notification > a > strong'),
-      IconPM = $q('.icon-pm > a > strong'),
-      DateTime = $q('#page-body > p:nth-child(2)'),
-      url = window.location.href.toLowerCase(),
-      pmindex = url.match('https://forum.palemoon.org/index'),
-      pmforum = url.match('https://forum.palemoon.org/viewforum'),
-      pmtopic = url.match('https://forum.palemoon.org/viewtopic'),
-      pmsearch = url.match('https://forum.palemoon.org/search'),
-      pmucp = url.match('https://forum.palemoon.org/ucp');
+      if (elm[i].checked === false) {
+        if (bool) elm[i].parentNode.style.display = 'none';
+        else {
+          elm[i].parentNode.style.display = 'block';
+          elm[i].parentNode.childNodes[2].lastElementChild.style.display = 'none';
+  } } } }
 
   $q('A[href="//www.palemoon.org/"][target="_blank"][style="color:#ffff80;"]').style.display = 'none';
   $q('A[href="//www.palemoon.org/"][style="color:#ffff80;"]').innerHTML = linkHomePage.toUpperCase();
   $q('A[href="//www.palemoon.org/"][target="_blank"][style="color: rgb(255, 255, 128); display: none;"]').nextSibling.nodeValue = '';
 
   for (var i = 0, utc = $q('#nav-footer > li.rightside', true); i < utc.length; i++) if (utc[i].textContent.match('All times')) utc[i].setAttribute('id', 'clock');
-  $q('#clock > span').textContent = 'UTC-7'
+  $q('#clock > span').textContent = 'UTC -7'
 
   SiteDescription.appendChild(NavMain);
   SiteDescriptionP.innerHTML = SiteDescriptionP.innerHTML.replace('Visit the', '').replace('Discussion forum for the Pale Moon web browser', '').replace(/\(or\s+in/, '(in');
