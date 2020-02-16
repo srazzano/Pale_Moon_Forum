@@ -248,7 +248,7 @@
     }
     DateTime.textContent = aDateTime();
     DateTime.title = dateTimeTip;
-    DateTime.addEventListener('mouseover', function() {if (pmindex) DateTime.textContent = aDateTime()}, false);
+    DateTime.addEventListener('mouseover', function() {DateTime.textContent = aDateTime()}, false);
   }
 
   if (pmforum) {
@@ -370,7 +370,6 @@
       #page-header, .topics, .posts, .views {cursor: default !important;}\
       #site-description br, #page-body h2, .rules, .stat-block, .copyright {display: none !important;}\
       #page-body > div:nth-child(2):not(.boardrules-container) {display: none !important;}\
-      //#page-body p {color: #000 !important;}\
       #page-body > p:nth-child(2) {float: right !important;}\
       #site-description h1, #site-description p, #site-description span, #site-description a, #site-description i, #site-description span.username, #site-description #hidefooterLabel {color: ' + headerText + ' !important;}\
       body.section-viewtopic #page-body > P {display: none !important;}\
