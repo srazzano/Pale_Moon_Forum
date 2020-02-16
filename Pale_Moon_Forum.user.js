@@ -263,7 +263,7 @@
       announ.childNodes[2].lastElementChild.style.display = sty3;
   } }
 
-  addEventListener('load', function() {timer_Interval = setInterval(function() {try {if (pmindex) DateTime.textContent = aDateTime()} catch(ex) {}}, timerInterval)}, false);
+  addEventListener('load', function() {timer_Interval = setInterval(function() {if (pmindex) DateTime.textContent = aDateTime()}, timerInterval)}, false);
   addEventListener('unload', function() {clearInterval(timer_Interval)}, false);
 
   try {
