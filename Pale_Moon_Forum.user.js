@@ -27,13 +27,13 @@
         fontSize = '110%',
         headerBG = 'linear-gradient(#5BA4ED, #314A85)',
         headerText = '#FFF',
-        boardBG = 'linear-gradient(#4A93DC, #314A85)',
-        boardHoverBG = '#203974',
+        boardBG = 'linear-gradient(#4D85CA, #314A85)',
+        boardHoverBG = '#001752', //#102863',
         lockedBG = '#FFEAEA',
         stickyBG = '#FFEAEA',
         textColor = '#FFF',
         textHoverColor = '#FFF',
-        scrollbarSlider = '#203974',
+        scrollbarSlider = '#001752',
         scrollbarThumb = 'linear-gradient(to right, #5BA4ED, #314A85)',
         scrollbarThumbHover = 'linear-gradient(to right, #B2D2F3, #6181C5)',
         bullet = '\u2022',
@@ -329,12 +329,11 @@
       html {height: 100% !important;}\
       html, body {background: ' + bodyBG + ' !important;}\
       #page-header {-moz-user-select: none !important; height: 83px !important; position: fixed !important; top: 0 !important; width: 100% !important; z-index: 2147483647 !important;}\
-      #page-header > .headerbar {background: ' + headerBG + ' !important; border: 1px solid #203974 !important; border-radius: 0 0 8px 8px !important; height: 83px !important; margin: 0 2px !important; padding: 0 !important;}\
+      #page-header > .headerbar {background: ' + headerBG + ' !important; border: 1px solid #001752 !important; border-radius: 0 0 8px 8px !important; height: 83px !important; margin: 0 2px !important; padding: 0 !important;}\
       #page-header > .headerbar a, #hidefooterLabel {font-style: italic !important; font-weight: bold !important;}\
       #wrap {background: none !important; border: none !important; box-shadow: none !important; min-width: 100% !important; padding: 0 !important;}\
       #page-body {margin: 76px 2px 0 2px !important;}\
       a {border: 1px dotted transparent !important; outline: none !important;}\
-      a:hover {text-decoration: underline !important;}\
       #aLink0, #aLink2 {cursor: pointer !important;}\
       #logo {padding: 6px !important;}\
       .site_logo {background: url(https://raw.githubusercontent.com/srazzano/Images/master/logo.png) !important; height: 70px !important; width: 70px !important;}\
@@ -362,7 +361,6 @@
       .icon.fa-bars.fa-fw {text-shadow: 1px 1px 2px #000 !important;}\
       #site-description {height: 0 !important; margin: 0 !important; padding: 0 !important; text-shadow: 1px 1px 2px #000 !important; width: 100% !important;}\
       #site-description ul.linklist li {margin: 0 5px 0 0 !important;}\
-      #site-description li span:hover {text-decoration: underline !important;}\
       #site-description > p {margin: 0 !important; padding: 0 !important;}\
       #site-description > p:nth-child(3) {margin: 0 !important; padding: 0 !important;}\
       .dropdown-trigger.dropdown-toggle {text-decoration: none !important;}\
@@ -375,7 +373,7 @@
       body.section-viewtopic #page-body > P {display: none !important;}\
       #aBull {margin: 0 8px !important;}\
       .rightside.responsive-search, .icon.fa-file-o.fa-fw.icon-red {color: ' + textColor + ' !important;}\
-      p.responsive-center.time, .mark-read.rightside {background: ' + boardBG + ' !important; border: 1px solid #203974 !important; border-radius: 4px !important; box-shadow: inset 0 0 1px #FFF !important; color: ' + textColor + ' !important; float: right !important; font-size: ' + fontSize + ' !important; height: 20px !important; margin: 0 5px 0 0 !important; padding: 4px 6px 0 6px !important; position: relative !important; text-decoration: none !important; text-shadow: 1px 1px 2px #000 !important; top: 0 !important; vertical-align: top !important;}\
+      p.responsive-center.time, .mark-read.rightside {background: ' + boardBG + ' !important; border: 1px solid #001752 !important; border-radius: 4px !important; box-shadow: inset 0 0 1px #FFF !important; color: ' + textColor + ' !important; float: right !important; font-size: ' + fontSize + ' !important; height: 20px !important; margin: 0 5px 0 0 !important; padding: 4px 6px 0 6px !important; position: relative !important; text-decoration: none !important; text-shadow: 1px 1px 2px #000 !important; top: 0 !important; vertical-align: top !important;}\
       #page-body > p.responsive-center.time, .mark-read.rightside:hover {background: ' + boardHoverBG + ' !important; color: ' + textColor + ' !important;}\
       #page-body > p.responsive-center.time, .row strong, .lastpost > span:last-child {cursor: default !important;}\
       #page-body > p.responsive-center.time {-moz-user-select: none !important; font-size: 115% !important; margin-right: 0 !important;}\
@@ -395,14 +393,14 @@
       .action-bar.bar-top a.button.button-search-end {padding: 3px 4px 3px 4px !important;}\
       .action-bar .button-search-end {border: 1px solid #C7C3BF !important; margin-left: -1px !important;}\
       #keywords {width: 155px !important;}\
-      a.top, .viewHideBtn, .action-bar > a.button, #ucp .panel a.mark {-moz-appearance: none !important; background: ' + boardBG + ' !important; border: 1px solid #203974 !important; border-radius: 4px !important; box-shadow: inset 0 0 1px #FFF !important; color: ' + textColor + ' !important; cursor: pointer !important; font-size: ' + fontSize + ' !important; margin: 0 5px 0 0 !important; padding: 0 6px !important; text-shadow: 1px 1px 2px #000 !important;}\
+      a.top, .viewHideBtn, .action-bar > a.button, #ucp .panel a.mark {-moz-appearance: none !important; background: ' + boardBG + ' !important; border: 1px solid #001752 !important; border-radius: 4px !important; box-shadow: inset 0 0 1px #FFF !important; color: ' + textColor + ' !important; cursor: pointer !important; font-size: ' + fontSize + ' !important; margin: 0 5px 0 0 !important; padding: 0 6px !important; text-shadow: 1px 1px 2px #000 !important;}\
       .viewHideBtn {height: 26px !important;}\
       a.top {font-weight: bold !important; padding: 5px !important; text-decoration: none !important;}\
       a.top i {color:#FFF !important;}\
       a.top:hover, .viewHideBtn:hover, .action-bar > a.button:hover, #ucp .panel a.mark:hover {background: ' + boardHoverBG + ' !important; color: ' + textHoverColor + ' !important;}\
       .mark-read.rightside {padding: 2px 6px !important;}\
       .pagination > a.mark {height: 20px !important; padding: 4px 6px 0 6px !important;}\
-      .mark, .pagination > a, .jumpbox-return, .advanced-search-link {background: ' + boardBG + ' !important; border: 1px solid #203974 !important; border-radius: 4px !important; box-shadow: inset 0 0 1px #FFF !important; color: ' + textColor + ' !important; font-size: ' + fontSize + ' !important; font-weight: bold !important; padding: 4px 6px !important; text-shadow: 1px 1px 2px #000 !important;}\
+      .mark, .pagination > a, .jumpbox-return, .advanced-search-link {background: ' + boardBG + ' !important; border: 1px solid #001752 !important; border-radius: 4px !important; box-shadow: inset 0 0 1px #FFF !important; color: ' + textColor + ' !important; font-size: ' + fontSize + ' !important; font-weight: bold !important; padding: 4px 6px !important; text-shadow: 1px 1px 2px #000 !important;}\
       #page-body p.advanced-search-link {float: left !important; margin: 0px 5px 0 0 !important; padding: 0px 6px 0 4px !important;}\
       #page-body p.advanced-search-link > a{margin-top: 3px !important; padding-bottom: 5px !important;}\
       p.advanced-search-link a, p.advanced-search-link a i {color: #FFF !important; text-decoration: none !important;}\
@@ -410,12 +408,12 @@
       .jumpbox-return {margin: 0px 0 3px 0 !important; padding: 3px 6px !important;}\
       .jumpbox-return * {color: ' + textColor + ' !important;}\
       .mark:hover, .pagination > a:hover, .jumpbox-return:hover, .advanced-search-link:hover {background: ' + boardHoverBG + ' !important;}\
-      .button.button-secondary:not([class*="bbcode-"]) {-moz-appearance: none !important; background: ' + boardBG + ' !important; border: 1px solid #203974 !important; border-radius: 4px !important; box-shadow: inset 0 0 1px #FFF !important; color: ' + textColor + ' !important; padding: 3px 6px !important; text-shadow: 1px 1px 2px #000 !important;}\
+      .button.button-secondary:not([class*="bbcode-"]) {-moz-appearance: none !important; background: ' + boardBG + ' !important; border: 1px solid #001752 !important; border-radius: 4px !important; box-shadow: inset 0 0 1px #FFF !important; color: ' + textColor + ' !important; padding: 3px 6px !important; text-shadow: 1px 1px 2px #000 !important;}\
       .button.button-secondary .fa-fw {color: ' + textColor + ' !important;}\
       .button.button-secondary:not([class*="bbcode-"]):hover {background: ' + boardHoverBG + ' !important;}\
       .sticky {background: ' + stickyBG + ' !important;}\
       .global-announce, .announce {background: ' + lockedBG + ' !important;}\
-      .forabg, .forumbg {background: ' + boardHoverBG + ' !important; border: 1px solid #203974 !important; border-radius: 6px 6px 12px 12px !important; box-shadow: inset 0 0 1px #FFF !important; margin: 0 0 5px 0 !important; padding: 4px 4px 3px 4px !important; position: relative !important;}\
+      .forabg, .forumbg {background: ' + boardHoverBG + ' !important; border: 1px solid #001752 !important; border-radius: 6px 6px 12px 12px !important; box-shadow: inset 0 0 1px #FFF !important; margin: 0 0 5px 0 !important; padding: 4px 4px 3px 4px !important; position: relative !important;}\
       .forabg:hover .header a, .forumbg:hover .header a {color: ' + textHoverColor + ' !important;}\
       .forabg[opened="false"], .forumbg[opened="false"] {background: ' + boardBG + ' !important; border-radius: 4px !important; height: 17px !important; width: 353px !important;}\
       .forabg[opened="false"] .row-item dd, .forumbg[opened="false"] .row-item dd {display: none !important;}\
@@ -445,7 +443,7 @@
       .row:hover {background-color: #F6F4D0 !important;}\
       #page-footer {margin: 0 0 0 2px !important; padding: 0 !important;}\
       #page-footer .navbar {padding: 0 !important;}\
-      #nav-footer {background: ' + boardBG + ' !important; border: 1px solid #203974 !important; border-radius: 4px !important; box-shadow: inset 0 0 1px #FFF !important; color: ' + textColor + ' !important; margin: 0 !important; padding: 0 6px 0 2px !important; text-shadow: 1px 1px 2px #000 !important; width: 715px !important;}\
+      #nav-footer {background: ' + boardBG + ' !important; border: 1px solid #001752 !important; border-radius: 4px !important; box-shadow: inset 0 0 1px #FFF !important; color: ' + textColor + ' !important; margin: 0 !important; padding: 0 6px 0 2px !important; text-shadow: 1px 1px 2px #000 !important; width: 715px !important;}\
       #nav-footer:hover {background: ' + boardHoverBG + ' !important;}\
       #nav-footer > li {height: 17px !important; padding: 0 0 6px 0 !important; position: relative !important; top: -1px !important;}\
       #nav-footer > li i {position: relative !important; top: 0 !important;}\
@@ -460,7 +458,8 @@
       body.section-posting #nav-footer > LI:nth-child(3) {margin-top: 1px !important;}\
       .navbar {background: transparent !important;}\
       .pagination a[data-ajax] {height: 20px !important; padding: 2px 6px !important;}\
-      .pagination li.active span, .pagination li a:hover, .pagination li a:hover .icon, .pagination .dropdown-visible a.dropdown-trigger, .nojs .pagination .dropdown-container:hover a.dropdown-trigger {background: ' + boardBG + ' !important; border-color: #203974 !important; border-radius: 3px !important; box-shadow: inset 0 0 1px #FFF !important; color: ' + textColor + ' !important;}\
+      .pagination li.active span, .pagination li a:hover, .pagination li a:hover .icon, .pagination .dropdown-visible a.dropdown-trigger, .nojs .pagination .dropdown-container:hover a.dropdown-trigger {background: ' + boardBG + ' !important; border-color: #001752 !important; border-radius: 3px !important; box-shadow: inset 0 0 1px #FFF !important; color: ' + textColor + ' !important;}\
+      .pagination li a:hover {background: ' + boardHoverBG + ' !important; color: ' + textColor + ' !important;}\
       #viewfolder .header dd.mark {background: none !important; border: none !important; color: #000 !important; text-shadow: none !important; }\
       #ucp .topiclist > .header > dl a, #ucp .row-item, #ucp .mark, #ucp span {background: none !important; border: none !important; color: #000 !important; cursor: default !important; text-decoration: none !important; text-shadow: none !important;}\
       .row-item.pm_read .mark {background: none !important; border: none !important;}\
