@@ -187,8 +187,9 @@
         sty = bool ? 'none' : 'block';
     GM_setValue(e.id, bool);
     $('#hidestats').checked = bool;
-    $q('.online-list').style.display = sty;
-    $q('.statistics').style.display = sty;
+    if ($q('.online-list')) $q('.online-list').style.display = sty;
+    if ($q('.statistics')) $q('.statistics').style.display = sty;
+    if ($q('.permissions')) $q('.permissions').style.display = sty;
   }
 
   function ViewHideBoards(bool) {
@@ -244,8 +245,9 @@
   nav.appendChild(hidefooterLabel);
   $('#hidestats').checked = bool1;
   $('#hidefooter').checked = bool2;
-  $q('.online-list').style.display = sty1;
-  $q('.statistics').style.display = sty1;
+  if ($q('.online-list')) $q('.online-list').style.display = sty1;
+  if ($q('.statistics')) $q('.statistics').style.display = sty1;
+  if ($q('.permissions')) $q('.permissions').style.display = sty1;
   $('#page-footer').style.display = sty2;
 
   for (var i = 0, utc = $q('#nav-footer > li.rightside', true); i < utc.length; i++) if (utc[i].textContent.match('All times')) utc[i].setAttribute('id', 'utc');
