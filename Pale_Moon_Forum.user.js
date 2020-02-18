@@ -326,26 +326,29 @@
 
   GM_addStyle('\
     ' + cssRule + ' {\
+/* BODY */\
       html {height: 100% !important;}\
       html, body {background: ' + bodyBG + ' !important;}\
+/* PAGE-HEADER */\
       #page-header {-moz-user-select: none !important; height: 83px !important; position: fixed !important; top: 0 !important; width: 100% !important; z-index: 2147483647 !important;}\
       #page-header > .headerbar {background: ' + headerBG + ' !important; border: 1px solid #001752 !important; border-radius: 0 0 8px 8px !important; height: 83px !important; margin: 0 2px !important; padding: 0 !important;}\
       #page-header > .headerbar a, #hidefooterLabel {font-style: italic !important; font-weight: bold !important;}\
+      .header, .header a {color: ' + textColor + ' !important; display: block !important; font-size: ' + fontSize + ' !important; font-weight: bold !important; position: relative !important; text-shadow: 1px 1px 2px #000 !important; top: -1px !important;}\
+      .header:hover, .header:hover a {color: ' + textHoverColor + ' !important;}\
       #wrap {background: none !important; border: none !important; box-shadow: none !important; min-width: 100% !important; padding: 0 !important;}\
-      #page-body {margin: 76px 2px 0 2px !important;}\
       a {border: 1px dotted transparent !important; outline: none !important;}\
       #aLink0, #aLink2 {cursor: pointer !important;}\
       #logo {padding: 6px !important;}\
       .site_logo {background: url(https://raw.githubusercontent.com/srazzano/Images/master/logo.png) !important; height: 70px !important; width: 70px !important;}\
       .headerbar h1 {margin: 6px 0 0 0 !important;}\
-      .navbar {padding: 0 8px !important;}\
-      .navbar ul.linklist {padding: 0 !important;}\
-      ul.navlinks {border: none !important;}\
       #aSep {margin: 0 6px !important;}\
       .search-header {margin-top: 30px !important;}\
       .search-box button.search-icon, .search-box a.button {padding: 3px 4px 1px 2px !important;}\
       .advanced-search-link { margin: 7px 0 0 0 !important;}\
       .advanced-search-link span#aBull {display: none !important;}\
+      .navbar {padding: 0 8px !important;}\
+      .navbar ul.linklist {padding: 0 !important;}\
+      ul.navlinks {border: none !important;}\
       #nav-main {position: absolute !important; right: 12px !important; top: 0 !important;}\
       #nav-main a, #nav-main span, #viewfolder .mark {color: ' + textColor + ' !important; font-weight: bold !important; text-shadow: 1px 1px 2px #000 !important;}\
       #nav-main .dropdown *, #notification_list *, #nav-main #quick-links a, .header .list-inner.with-mark, .header .mark {color: #000 !important; text-shadow: none !important;}\
@@ -353,7 +356,7 @@
       #nav-breadcrumbs a {color: ' + textColor + ' !important;}\
       #nav-breadcrumbs li {margin: 2px 8px 0 0 !important;}\
       #nav-breadcrumbs span {font-size: ' + fontSize + ' !important;}\
-      #hidefooter {margin: -2px 0 0 4px !important;}\
+      #hidefooter {-moz-appearance: none !important; border: 1px solid #FFF !important; border-radius: 3px !important; box-shadow: inset 0 0 2px #000 !important; height: 17px !important; margin: -2px 0 0 4px !important; width: 17px !important;}\
       #hidefooterLabel {font-size: ' + fontSize + ' !important; margin: 0 !important; padding-left: 4px !important;}\
       #hidefooter:hover + #hidefooterLabel, #hidefooterLabel:hover {cursor: pointer !important; text-decoration: underline !important;}\
       .crumb span {margin-left: 4px !important;}\
@@ -363,6 +366,7 @@
       #site-description ul.linklist li {margin: 0 5px 0 0 !important;}\
       #site-description > p {margin: 0 !important; padding: 0 !important;}\
       #site-description > p:nth-child(3) {margin: 0 !important; padding: 0 !important;}\
+      #aBull {margin: 0 8px !important;}\
       .dropdown-trigger.dropdown-toggle {text-decoration: none !important;}\
       .dropdown-trigger.dropdown-toggle:hover > span {text-decoration: underline !important;}\
       #page-header, .topics, .posts, .views {cursor: default !important;}\
@@ -370,8 +374,12 @@
       #page-body > div:nth-child(2):not(.boardrules-container) {display: none !important;}\
       #page-body > p:nth-child(2) {float: right !important;}\
       #site-description h1, #site-description p, #site-description span, #site-description a, #site-description i, #site-description span.username, #site-description #hidefooterLabel {color: ' + headerText + ' !important;}\
+      #username_logged_in .username {color: ' + textColor + ' !important; text-shadow: 1px 1px 2px #000 !important;}\
+      #username_logged_in a span {color: #000 !important; text-shadow: none !important;}\
       body.section-viewtopic #page-body > P {display: none !important;}\
-      #aBull {margin: 0 8px !important;}\
+/* PAGE-BODY */\
+      #page-body {margin: 76px 2px 0 2px !important;}\
+/* ACTION-BAR */\
       .rightside.responsive-search, .icon.fa-file-o.fa-fw.icon-red {color: ' + textColor + ' !important;}\
       p.responsive-center.time, .mark-read.rightside {background: ' + boardBG + ' !important; border: 1px solid #001752 !important; border-radius: 4px !important; box-shadow: inset 0 0 1px #FFF !important; color: ' + textColor + ' !important; float: right !important; font-size: ' + fontSize + ' !important; height: 20px !important; margin: 0 5px 0 0 !important; padding: 4px 6px 0 6px !important; position: relative !important; text-decoration: none !important; text-shadow: 1px 1px 2px #000 !important; top: 0 !important; vertical-align: top !important;}\
       #page-body > p.responsive-center.time, .mark-read.rightside:hover {background: ' + boardHoverBG + ' !important; color: ' + textColor + ' !important;}\
@@ -379,10 +387,8 @@
       #page-body > p.responsive-center.time {-moz-user-select: none !important; font-size: 115% !important; margin-right: 0 !important;}\
       .right.responsive-center.time.rightside {display: none !important;}\
       .button.button-search icon.fa-search.fa-fw, .button.button-search icon.fa-cog.fa-fw {color: #606060 !important;}\
-      #username_logged_in .username {color: ' + textColor + ' !important; text-shadow: 1px 1px 2px #000 !important;}\
-      #username_logged_in a span {color: #000 !important; text-shadow: none !important;}\
       .action-bar.compact {margin: 0 0 4px 0 !important;}\
-      .action-bar {margin: 0 0 5px 0 !important;}\
+      .action-bar {-moz-user-select: none !important; margin: 0 0 5px 0 !important;}\
       .action-bar a {text-decoration: none !important;}\
       .action-bar > a.button {height: 24px !important;}\
       .action-bar > a.button > span, .action-bar > a.button > i {position: relative !important; top: 3px !important;}\
@@ -395,24 +401,23 @@
       #keywords {width: 155px !important;}\
       a.top, .viewHideBtn, .action-bar > a.button, #ucp .panel a.mark {-moz-appearance: none !important; background: ' + boardBG + ' !important; border: 1px solid #001752 !important; border-radius: 4px !important; box-shadow: inset 0 0 1px #FFF !important; color: ' + textColor + ' !important; cursor: pointer !important; font-size: ' + fontSize + ' !important; margin: 0 5px 0 0 !important; padding: 0 6px !important; text-shadow: 1px 1px 2px #000 !important;}\
       .viewHideBtn {height: 26px !important;}\
-      a.top {font-weight: bold !important; padding: 5px !important; text-decoration: none !important;}\
-      a.top i {color:#FFF !important;}\
-      a.top:hover, .viewHideBtn:hover, .action-bar > a.button:hover, #ucp .panel a.mark:hover {background: ' + boardHoverBG + ' !important; color: ' + textHoverColor + ' !important;}\
       .mark-read.rightside {padding: 2px 6px !important;}\
       .pagination > a.mark {height: 20px !important; padding: 4px 6px 0 6px !important;}\
-      .mark, .pagination > a, .jumpbox-return, .advanced-search-link {background: ' + boardBG + ' !important; border: 1px solid #001752 !important; border-radius: 4px !important; box-shadow: inset 0 0 1px #FFF !important; color: ' + textColor + ' !important; font-size: ' + fontSize + ' !important; font-weight: bold !important; padding: 4px 6px !important; text-shadow: 1px 1px 2px #000 !important;}\
+      .mark, .pagination > a, .advanced-search-link {background: ' + boardBG + ' !important; border: 1px solid #001752 !important; border-radius: 4px !important; box-shadow: inset 0 0 1px #FFF !important; color: ' + textColor + ' !important; font-size: ' + fontSize + ' !important; font-weight: bold !important; padding: 4px 6px !important; text-shadow: 1px 1px 2px #000 !important;}\
       #page-body p.advanced-search-link {float: left !important; margin: 0px 5px 0 0 !important; padding: 0px 6px 0 4px !important;}\
       #page-body p.advanced-search-link > a{margin-top: 3px !important; padding-bottom: 5px !important;}\
       p.advanced-search-link a, p.advanced-search-link a i {color: #FFF !important; text-decoration: none !important;}\
       .mark-read.rightside:after, .mark[data-ajax]:after, .pagination > a:after {color: ' + textColor + ' !important; content: "\u2714" !important; margin-left: 6px !important;}\
-      .jumpbox-return {margin: 0px 0 3px 0 !important; padding: 3px 6px !important;}\
-      .jumpbox-return * {color: ' + textColor + ' !important;}\
-      .mark:hover, .pagination > a:hover, .jumpbox-return:hover, .advanced-search-link:hover {background: ' + boardHoverBG + ' !important;}\
+      .mark:hover, .pagination > a:hover, .advanced-search-link:hover {background: ' + boardHoverBG + ' !important;}\
       .button.button-secondary:not([class*="bbcode-"]) {-moz-appearance: none !important; background: ' + boardBG + ' !important; border: 1px solid #001752 !important; border-radius: 4px !important; box-shadow: inset 0 0 1px #FFF !important; color: ' + textColor + ' !important; padding: 3px 6px !important; text-shadow: 1px 1px 2px #000 !important;}\
       .button.button-secondary .fa-fw {color: ' + textColor + ' !important;}\
       .button.button-secondary:not([class*="bbcode-"]):hover {background: ' + boardHoverBG + ' !important;}\
-      .sticky {background: ' + stickyBG + ' !important;}\
-      .global-announce, .announce {background: ' + lockedBG + ' !important;}\
+      #clock:before {color: ' + textColor + ' !important; content: "\u2022" !important; font-family: monospace !important; font-size: 24px !important; margin-left: 4px !important; position: relative !important; top: 4px !important;}\
+      #clock {cursor: default !important; margin: -1px 4px 2px 0 !important;}\
+      .pagination a[data-ajax] {height: 20px !important; padding: 2px 6px !important;}\
+      .pagination li.active span, .pagination li a:hover, .pagination li a:hover .icon, .pagination .dropdown-visible a.dropdown-trigger, .nojs .pagination .dropdown-container:hover a.dropdown-trigger {background: ' + boardBG + ' !important; border-color: #001752 !important; border-radius: 3px !important; box-shadow: inset 0 0 1px #FFF !important; color: ' + textColor + ' !important;}\
+      .pagination li a:hover {background: ' + boardHoverBG + ' !important; color: ' + textColor + ' !important;}\
+/* BOARDS */\
       .forabg, .forumbg {background: ' + boardHoverBG + ' !important; border: 1px solid #001752 !important; border-radius: 6px 6px 12px 12px !important; box-shadow: inset 0 0 1px #FFF !important; margin: 0 0 5px 0 !important; padding: 4px 4px 3px 4px !important; position: relative !important;}\
       .forabg:hover .header a, .forumbg:hover .header a {color: ' + textHoverColor + ' !important;}\
       .forabg[opened="false"], .forumbg[opened="false"] {background: ' + boardBG + ' !important; border-radius: 4px !important; height: 17px !important; width: 353px !important;}\
@@ -427,13 +432,10 @@
       .topiclist.forums {background: none !important;}\
       .forabg li:last-child, .forumbg.announcement ul > li:last-child, .topiclist.topics li:last-of-type {border-radius: 0 0 9px 9px !important;}\
       li.header dt, li.header dd {color: ' + textColor + ' !important;}\
-      .action-bar, li.header dt, li.header dd, #nav-footer {-moz-user-select: none !important;}\
+      li.header dt, li.header dd, #nav-footer {-moz-user-select: none !important;}\
       li.header dt:hover, li.header dd:hover {color: ' + textHoverColor + ' !important;}\
-      #hidefooter {-moz-appearance: none !important; border: 1px solid #FFF !important; border-radius: 3px !important; box-shadow: inset 0 0 2px #000 !important; height: 17px !important; width: 17px !important;}\
       #page-body > div:nth-child(5) > div > ul:last-child > li:last-child {border-radius: 0 0 9px 9px !important;}\
       #page-body > div:nth-child(6) > div > ul:last-child > li:last-child {border-radius: 0 0 9px 9px !important;}\
-      .header, .header a {color: ' + textColor + ' !important; display: block !important; font-size: ' + fontSize + ' !important; font-weight: bold !important; position: relative !important; text-shadow: 1px 1px 2px #000 !important; top: -1px !important;}\
-      .header:hover, .header:hover a {color: ' + textHoverColor + ' !important;}\
       body.section-index #page-body > div:nth-child(4):hover > div > ul:first-child > li > dl > dt > div {color: ' + textHoverColor + ' !important; cursor: default !important;}\
       body.section-viewforum #page-body > div:nth-child(4):hover > div > UL:first-child > li > dl > dt > div {color: ' + textHoverColor + ' !important; cursor: default !important;}\
       body.section-viewforum #page-body > div:nth-child(5):hover > div > UL:first-child > li > dl > dt > div {color: ' + textHoverColor + ' !important; cursor: default !important;}\
@@ -441,6 +443,9 @@
       .topiclist.forums {margin-top: -2px !important;}\
       .row-item.forum_unread .list-inner {color: #000 !important;}\
       .row:hover {background-color: #F6F4D0 !important;}\
+      .sticky {background: ' + stickyBG + ' !important;}\
+      .global-announce, .announce {background: ' + lockedBG + ' !important;}\
+/* PAGE-FOOTER */\
       #page-footer {margin: 0 0 0 2px !important; padding: 0 !important;}\
       #page-footer .navbar {padding: 0 !important;}\
       #nav-footer {background: ' + boardBG + ' !important; border: 1px solid #001752 !important; border-radius: 4px !important; box-shadow: inset 0 0 1px #FFF !important; color: ' + textColor + ' !important; margin: 0 !important; padding: 0 6px 0 2px !important; text-shadow: 1px 1px 2px #000 !important; width: 715px !important;}\
@@ -450,19 +455,21 @@
       #nav-footer a, #nav-footer span, #nav-footer i {color: ' + textColor + ' !important;}\
       #nav-footer li span a > span {position: relative !important; top: -1px !important;}\
       #nav-footer li > a > span {position: relative !important; top: -1px !important;}\
+      .jumpbox-return {background: ' + boardBG + ' !important; border: 1px solid #001752 !important; border-radius: 4px !important; box-shadow: inset 0 0 1px #FFF !important; color: ' + textColor + ' !important; font-size: ' + fontSize + ' !important; font-weight: bold !important; padding: 4px 6px !important; text-shadow: 1px 1px 2px #000 !important;}\
+      .jumpbox-return * {color: ' + textColor + ' !important;}\
+      .jumpbox-return {margin: 0px 0 3px 0 !important; padding: 3px 6px !important;}\
+      .jumpbox-return:hover, .advanced-search-link:hover {background: ' + boardHoverBG + ' !important;}\
       #jumpbox {margin: 0 !important;}\
       #jumpbox span {text-decoration: none !important;}\
       .action-bar.actions-jump {margin-bottom: 2px !important;}\
-      #clock:before {color: ' + textColor + ' !important; content: "\u2022" !important; font-family: monospace !important; font-size: 24px !important; margin-left: 4px !important; position: relative !important; top: 4px !important;}\
-      #clock {cursor: default !important; margin: -1px 4px 2px 0 !important;}\
       body.section-posting #nav-footer > LI:nth-child(3) {margin-top: 1px !important;}\
       .navbar {background: transparent !important;}\
-      .pagination a[data-ajax] {height: 20px !important; padding: 2px 6px !important;}\
-      .pagination li.active span, .pagination li a:hover, .pagination li a:hover .icon, .pagination .dropdown-visible a.dropdown-trigger, .nojs .pagination .dropdown-container:hover a.dropdown-trigger {background: ' + boardBG + ' !important; border-color: #001752 !important; border-radius: 3px !important; box-shadow: inset 0 0 1px #FFF !important; color: ' + textColor + ' !important;}\
-      .pagination li a:hover {background: ' + boardHoverBG + ' !important; color: ' + textColor + ' !important;}\
       #viewfolder .header dd.mark {background: none !important; border: none !important; color: #000 !important; text-shadow: none !important; }\
       #ucp .topiclist > .header > dl a, #ucp .row-item, #ucp .mark, #ucp span {background: none !important; border: none !important; color: #000 !important; cursor: default !important; text-decoration: none !important; text-shadow: none !important;}\
       .row-item.pm_read .mark {background: none !important; border: none !important;}\
+      a.top {font-weight: bold !important; padding: 5px !important; text-decoration: none !important;}\
+      a.top i {color:#FFF !important;}\
+      a.top:hover, .viewHideBtn:hover, .action-bar > a.button:hover, #ucp .panel a.mark:hover {background: ' + boardHoverBG + ' !important; color: ' + textHoverColor + ' !important;}\
     }\
   ');
 
