@@ -46,6 +46,7 @@
         linkHomePage = 'home page',
         linkNewTab = 'new tab',
         textBracket = ')',
+        clearField = 'Clear search field',
         hideStats = 'Stats',
         hideFooter = 'Footer',
         viewBoardsText = 'View All Boards',
@@ -231,7 +232,7 @@
 
   var srch = $('#search-box'),
       nav = $q('#nav-breadcrumbs > LI:nth-child(2)'),
-      btn = $c('button', {id: 'clearBtn', className: 'clearBtn', title: 'Clear field'}, [{type: 'click', fn: function() {$('#keywords').value = ''}}]),
+      btn = $c('button', {id: 'clearBtn', className: 'clearBtn', title: clearField}, [{type: 'click', fn: function() {$('#keywords').value = ''}}]),
       hidestatsLabel = $c('label', {id: 'hidestatsLabel', textContent: hideStats}, [{type: 'click', fn: function() {HideStats(this.previousSibling)}}]),
       ckBox1 = $c('input', {id: 'hidestats', type: 'checkbox'}, [{type: 'click', fn: function() {HideStats(this)}}]),
       hidefooterLabel = $c('label', {id: 'hidefooterLabel', textContent: hideFooter}, [{type: 'click', fn: function() {HideFooter(this.previousSibling)}}]),
