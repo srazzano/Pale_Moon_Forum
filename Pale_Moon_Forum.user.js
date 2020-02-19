@@ -176,21 +176,19 @@
   }
 
   function HideFooter(e) {
-    var bool = GM_getValue(e.id) !== false ? false : true,
-        sty = bool ? 'none' : '-moz-box';
+    var bool = GM_getValue(e.id) !== false ? false : true;
     GM_setValue(e.id, bool);
     $('#hidefooter').checked = bool;
-    if ($('#page-footer')) $('#page-footer').style.display = sty;
+    if (bool) $('#page-footer').setAttribute('hide-footer', true);
+    else $('#page-footer').removeAttribute('hide-footer');
   }
 
   function HideStats(e) {
-    var bool = GM_getValue(e.id) !== false ? false : true,
-        sty = bool ? 'none' : 'block';
+    var bool = GM_getValue(e.id) !== false ? false : true;
     GM_setValue(e.id, bool);
     $('#hidestats').checked = bool;
-    if ($q('.online-list')) $q('.online-list').style.display = sty;
-    if ($q('.statistics')) $q('.statistics').style.display = sty;
-    if ($q('.permissions')) $q('.permissions').style.display = sty;
+    if (bool) $('#page-body').setAttribute('hide-stats', true);
+    else $('#page-body').removeAttribute('hide-stats');
   }
 
   function ViewHideBoards(bool) {
@@ -237,19 +235,17 @@
       hidefooterLabel = $c('label', {id: 'hidefooterLabel', textContent: hideFooter}, [{type: 'click', fn: function() {HideFooter(this.previousSibling)}}]),
       ckBox2 = $c('input', {id: 'hidefooter', type: 'checkbox'}, [{type: 'click', fn: function() {HideFooter(this)}}]),
       bool1 = GM_getValue('hidestats'),
-      sty1 = bool1 ? 'none' : 'block',
-      bool2 = GM_getValue('hidefooter'),
-      sty2 = bool2 ? 'none' : '-moz-box';
+      bool2 = GM_getValue('hidefooter');
   nav.appendChild(ckBox1);
   nav.appendChild(hidestatsLabel);
   nav.appendChild(ckBox2);
   nav.appendChild(hidefooterLabel);
   $('#hidestats').checked = bool1;
   $('#hidefooter').checked = bool2;
-  if ($q('.online-list')) $q('.online-list').style.display = sty1;
-  if ($q('.statistics')) $q('.statistics').style.display = sty1;
-  if ($q('.permissions')) $q('.permissions').style.display = sty1;
-  $('#page-footer').style.display = sty2;
+  if (bool1) $('#page-body').setAttribute('hide-stats', true);
+  else $('#page-body').removeAttribute('hide-stats');
+  if (bool2) $('#page-footer').setAttribute('hide-footer', true);
+  else $('#page-footer').removeAttribute('hide-footer');
 
   for (var i = 0, utc = $q('#nav-footer > li.rightside', true); i < utc.length; i++) if (utc[i].textContent.match('All times')) utc[i].setAttribute('id', 'utc');
   $q('#utc > span').textContent = 'UTC -7';
@@ -403,6 +399,13 @@
       body.section-viewtopic #page-body > P {display: none !important;}\
 /* PAGE-BODY */\
       #page-body {margin: 76px 2px 0 2px !important;}\
+      #page-body .stat-block {display: block !important;}\
+      #page-body[hide-stats] .stat-block {display: none !important;}\
+      .stat-block > h3 {border: none !important; margin-top: 5px !important;}\
+      .stat-block > h3 > a {background: ' + boardBG + ' !important; border: 1px solid #001752 !important; border-radius: 4px !important; box-shadow: inset 0 0 1px #FFF !important; color: ' + textColor + ' !important; padding: 5px 6px !important; text-decoration: none !important; text-shadow: 1px 1px 2px #000 !important;}\
+      .stat-block > h3 > a:hover {background: ' + boardHoverBG + ' !important;}\
+      .stat-block p {margin: 5px 10px !important;}\
+      .stat-block.statistics {margin-bottom: 10px !important; margin-top: 10px !important;}\
 /* ACTION-BAR */\
       .rightside.responsive-search, .icon.fa-file-o.fa-fw.icon-red {color: ' + textColor + ' !important;}\
       p.responsive-center.time, .mark-read.rightside {background: ' + boardBG + ' !important; border: 1px solid #001752 !important; border-radius: 4px !important; box-shadow: inset 0 0 1px #FFF !important; color: ' + textColor + ' !important; float: right !important; font-size: ' + fontSize + ' !important; height: 20px !important; margin: 0 5px 0 0 !important; padding: 4px 6px 0 6px !important; position: relative !important; text-decoration: none !important; text-shadow: 1px 1px 2px #000 !important; top: 0 !important; vertical-align: top !important;}\
@@ -471,7 +474,8 @@
       .global-announce, .announce {background: ' + lockedBG + ' !important;}\
       .sticky:hover, .global-announce:hover, .announce:hover {background: ' + stickyHoverBG + ' !important;}\
 /* PAGE-FOOTER */\
-      #page-footer {margin: 0 0 0 2px !important; padding: 0 !important;}\
+      #page-footer {display: -moz-box !important; margin: 0 0 0 2px !important; padding: 0 !important;}\
+      #page-footer[hide-footer] {display: none !important;}\
       #page-footer .navbar {padding: 0 !important;}\
       #nav-footer {background: ' + boardBG + ' !important; border: 1px solid #001752 !important; border-radius: 4px !important; box-shadow: inset 0 0 1px #FFF !important; color: ' + textColor + ' !important; margin: 0 !important; padding: 0 6px 0 2px !important; text-shadow: 1px 1px 2px #000 !important; width: 715px !important;}\
       #nav-footer:hover {background: ' + boardHoverBG + ' !important;}\
@@ -495,11 +499,6 @@
       a.top {font-weight: bold !important; padding: 5px !important; text-decoration: none !important;}\
       a.top i {color:#FFF !important;}\
       a.top:hover, .viewHideBtn:hover, .action-bar > a.button:hover, #ucp .panel a.mark:hover {background: ' + boardHoverBG + ' !important; color: ' + textHoverColor + ' !important;}\
-      .stat-block > h3 {border: none !important; margin-top: 5px !important;}\
-      .stat-block > h3 > a {background: ' + boardBG + ' !important; border: 1px solid #001752 !important; border-radius: 4px !important; box-shadow: inset 0 0 1px #FFF !important; color: ' + textColor + ' !important; padding: 5px 6px !important; text-decoration: none !important; text-shadow: 1px 1px 2px #000 !important;}\
-      .stat-block > h3 > a:hover {background: ' + boardHoverBG + ' !important;}\
-      .stat-block p {margin: 5px 10px !important;}\
-      .stat-block.statistics {margin-bottom: 10px !important; margin-top: 10px !important;}\
     }\
   ');
 
