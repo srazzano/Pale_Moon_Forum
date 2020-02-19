@@ -357,7 +357,7 @@
       #page-header > .headerbar a, #hidestatsLabel, #hidefooterLabel {font-style: italic !important; font-weight: bold !important;}\
       .header, .header a {color: ' + textColor + ' !important; display: block !important; font-size: ' + fontSize + ' !important; font-weight: bold !important; position: relative !important; text-shadow: 1px 1px 2px #000 !important; top: -1px !important;}\
       .header:hover, .header:hover a {color: ' + textHoverColor + ' !important;}\
-      #wrap {background: none !important; border: none !important; box-shadow: none !important; min-width: 100% !important; padding: 0 !important;}\
+      #wrap {background: ' + bodyBG + ' !important; border: none !important; box-shadow: none !important; min-width: 100% !important; padding: 0 !important;}\
       a {border: 1px dotted transparent !important; outline: none !important;}\
       #aLink0, #aLink2 {cursor: pointer !important;}\
       #logo {padding: 6px !important;}\
