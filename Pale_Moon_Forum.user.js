@@ -229,13 +229,16 @@
   SiteDescriptionP.insertBefore(Separator, Label1);
   SiteDescriptionP.appendChild(NavBreadcrumbs);
 
-  var nav = $q('#nav-breadcrumbs > LI:nth-child(2)'),
+  var srch = $('#search-box'),
+      nav = $q('#nav-breadcrumbs > LI:nth-child(2)'),
+      btn = $c('button', {id: 'clearBtn', className: 'clearBtn', title: 'Clear field'}, [{type: 'click', fn: function() {$('#keywords').value = ''}}]),
       hidestatsLabel = $c('label', {id: 'hidestatsLabel', textContent: hideStats}, [{type: 'click', fn: function() {HideStats(this.previousSibling)}}]),
       ckBox1 = $c('input', {id: 'hidestats', type: 'checkbox'}, [{type: 'click', fn: function() {HideStats(this)}}]),
       hidefooterLabel = $c('label', {id: 'hidefooterLabel', textContent: hideFooter}, [{type: 'click', fn: function() {HideFooter(this.previousSibling)}}]),
       ckBox2 = $c('input', {id: 'hidefooter', type: 'checkbox'}, [{type: 'click', fn: function() {HideFooter(this)}}]),
       bool1 = GM_getValue('hidestats'),
       bool2 = GM_getValue('hidefooter');
+  srch.insertBefore(btn, srch.firstChild);
   nav.appendChild(ckBox1);
   nav.appendChild(hidestatsLabel);
   nav.appendChild(ckBox2);
@@ -361,7 +364,9 @@
       .site_logo {background: url(https://raw.githubusercontent.com/srazzano/Images/master/logo.png) !important; height: 70px !important; width: 70px !important;}\
       .headerbar h1 {margin: 6px 0 0 0 !important;}\
       #aSep {margin: 0 6px !important;}\
+      #clearBtn {-moz-appearance: none !important; background: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAACoElEQVR42p3TXUhTYRgH8P/ZOWeeeba574YfpUl+kRYWmZEEXogR3ZSSiQoWXRSWqWXoRUZlJaaFSUgaFvRxkUVBaVJkpIJRiGmJH7Nk6qbTHfWcbU6nKw2EJA3tf/Ncvb/n4X14CPxHyvITEuYLd+pKzTtirY+vZ8edoTBXPOV0Vufdbj6yJuDujZzI7rbGJomYljAyxbG80ldVqwIeV5w+JLikqb6Bu/bxVhO6Oj7Ck7RH51591PJP4P6t44l6lbTip5tQ9faPwU3J4CZVYGQ62Czfcs4WlJeuCFQVp8dt9FHU+unV5LDVAYWchtlshcnCg7c54JwWGnKL6mNXBJ5U5htVSi8/y5ABgX5ecNh4KBRycJNTEBwzMBoHuk8Wvg5ZFrhz6XB2YFRKiYj2hJdciuGBLliHOsG4jJDKZODtM+jq7HlWUNF08C+g8mJyDCkW17PaIInaOxQSuRY8L4CmachlUpj72/C1tRGzdi69oLzu3hKg8kJyRoC/tkShZMUTHIcRzgEr7wLJrkdwRDRmwaCvrw+f3j+3zM4IIQ9etIwT107EkhRJJvn66s75+mnDCYqGbb6jVq+D1TIKpZzE+DSDEdMQBkYccFE6vK2tK/vQPpi50JQ4n7Zzq5giLis08r2EhBU5HdPYvCUMxp5uRG4PA0POobtvFN7rpJi0z8E0vwmDYTSxsLqh5jewOH7GgchgYVzI9A8OTLMLHBsQHAQfFTAxYYdYIoPLaYdGq8Ikx+NLx2Bc0cPmN0uAxWQlRSkFjk9kWSZVq/fabTCOYU9MBHp/WKDXsBC53TD0mPfffPr55bLAHwnYoGE3qaUe8aH+6h0iEallPCiGYWhPUkSmrwZYckTj39tDFz6apKlwntBsO5pV0poSH078Alpn/+PyIVH1AAAAAElFTkSuQmCC) no-repeat center, linear-gradient(#F0F0F0, #E0E0E0) !important; border-right: 1px solid #C7C3BF !important; border-radius: 4px 0 0 4px !important; float: left !important; height: 24px !important; width: 29px !important;}\
       .search-header {margin-top: 30px !important;}\
+      #search-box {float: right !important; width: 240px !important;}\
       .search-box button.search-icon, .search-box a.button {padding: 3px 4px 1px 2px !important;}\
       .advanced-search-link { margin: 7px 0 0 0 !important;}\
       .advanced-search-link span#aBull {display: none !important;}\
@@ -390,7 +395,6 @@
       .dropdown-trigger.dropdown-toggle:hover > span {text-decoration: underline !important;}\
       #page-header, .topics, .posts, .views {cursor: default !important;}\
       #site-description br, #page-body h2, .rules, .copyright {display: none !important;}\
-      //.stat-block {display: none !important;}\
       #page-body > div:nth-child(2):not(.boardrules-container) {display: none !important;}\
       #page-body > p:nth-child(2) {float: right !important;}\
       #site-description h1, #site-description p, #site-description span, #site-description a, #site-description i, #site-description span.username, #site-description #hidestatsLabel, #site-description #hidefooterLabel {color: ' + headerText + ' !important;}\
@@ -425,7 +429,7 @@
       .action-bar.bar-top button.button.button-search {height: 26px !important;}\
       .action-bar.bar-top a.button.button-search-end {padding: 3px 4px 3px 4px !important;}\
       .action-bar .button-search-end {border: 1px solid #C7C3BF !important; margin-left: -1px !important;}\
-      #keywords {width: 155px !important;}\
+      #keywords {border-radius: 0 !important; width: 155px !important;}\
       a.top, .viewHideBtn, .action-bar > a.button, #ucp .panel a.mark {-moz-appearance: none !important; background: ' + boardBG + ' !important; border: 1px solid #001752 !important; border-radius: 4px !important; box-shadow: inset 0 0 1px #FFF !important; color: ' + textColor + ' !important; cursor: pointer !important; font-size: ' + fontSize + ' !important; margin: 0 5px 0 0 !important; padding: 0 6px !important; text-shadow: 1px 1px 2px #000 !important;}\
       .viewHideBtn {height: 26px !important;}\
       .mark-read.rightside {padding: 2px 6px !important;}\
