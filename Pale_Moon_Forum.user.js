@@ -31,6 +31,7 @@
         boardHoverBG = '#001752',
         lockedBG = '#FFEAEA',
         stickyBG = '#FFEAEA',
+        stickyHoverBG = '#EED9D9',
         textColor = '#FFF',
         textHoverColor = '#FFF',
         scrollbarSlider = '#001752',
@@ -468,6 +469,7 @@
       .row:hover {background-color: #F6F4D0 !important;}\
       .sticky {background: ' + stickyBG + ' !important;}\
       .global-announce, .announce {background: ' + lockedBG + ' !important;}\
+      .sticky:hover, .global-announce:hover, .announce:hover {background: ' + stickyHoverBG + ' !important;}\
 /* PAGE-FOOTER */\
       #page-footer {margin: 0 0 0 2px !important; padding: 0 !important;}\
       #page-footer .navbar {padding: 0 !important;}\
