@@ -493,6 +493,8 @@
       a.top {font-weight: bold !important; padding: 5px !important; text-decoration: none !important;}\
       a.top i {color:#FFF !important;}\
       a.top:hover, .viewHideBtn:hover, .action-bar > a.button:hover, #ucp .panel a.mark:hover {background: ' + boardHoverBG + ' !important; color: ' + textHoverColor + ' !important;}\
+      .stat-block > h3 > a {background: ' + boardBG + ' !important; border: 1px solid #001752 !important; border-radius: 4px !important; box-shadow: inset 0 0 1px #FFF !important; color: ' + textColor + ' !important; padding: 4px 6px !important; text-decoration: none !important; text-shadow: 1px 1px 2px #000 !important;}\
+      .stat-block > h3 > a:hover {background: ' + boardHoverBG + ' !important;}\
     }\
   ');
 
