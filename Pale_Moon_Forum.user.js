@@ -365,8 +365,8 @@
       .site_logo {background: url(https://raw.githubusercontent.com/srazzano/Images/master/logo.png) !important; height: 70px !important; width: 70px !important;}\
       .headerbar h1 {margin: 6px 0 0 0 !important;}\
       #aSep {margin: 0 6px !important;}\
-      #clearBtn {-moz-appearance: none !important; background: url(https://raw.githubusercontent.com/srazzano/Images/master/broom16.png) no-repeat center, linear-gradient(#FFFFFF, #E9E9E9) !important; border-right: 1px solid #C7C3BF !important; border-radius: 4px 0 0 4px !important; filter: grayscale(1) !important; float: left !important; height: 24px !important; width: 29px !important;}\
-      #clearBtn:hover {background: url(https://raw.githubusercontent.com/srazzano/Images/master/broom16.png) no-repeat center, linear-gradient(#E9E9E9, #FFFFFF) !important; filter: none !important;}\
+      #clearBtn {-moz-appearance: none !important; background: url(https://raw.githubusercontent.com/srazzano/Images/master/clear.png) no-repeat center, linear-gradient(#FFFFFF, #E9E9E9) !important; border-right: 1px solid #C7C3BF !important; border-radius: 4px 0 0 4px !important; filter: grayscale(1) !important; float: left !important; height: 24px !important; width: 29px !important;}\
+      #clearBtn:hover {background: url(https://raw.githubusercontent.com/srazzano/Images/master/clear.png) no-repeat center, linear-gradient(#E9E9E9, #FFFFFF) !important; filter: none !important;}\
       .search-header {margin-top: 30px !important;}\
       #search-box {float: right !important; width: 240px !important;}\
       .search-box button.search-icon, .search-box a.button {padding: 3px 4px 1px 2px !important;}\
