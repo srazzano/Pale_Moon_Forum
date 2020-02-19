@@ -23,7 +23,7 @@
         cssRule = '/* AGENT_SHEET */ @-moz-document domain("forum.palemoon.org")',
         customCheckbox = true,
         customScrollbar = true,
-        bodyBG = '#E0E0E0',
+        bodyBG = '#F0F0F0',
         fontSize = '110%',
         headerBG = 'linear-gradient(#5BA4ED, #314A85)',
         headerText = '#FFF',
@@ -179,7 +179,7 @@
         sty = bool ? 'none' : '-moz-box';
     GM_setValue(e.id, bool);
     $('#hidefooter').checked = bool;
-    $('#page-footer').style.display = sty;
+    if ($('#page-footer')) $('#page-footer').style.display = sty;
   }
 
   function HideStats(e) {
@@ -231,13 +231,13 @@
   SiteDescriptionP.appendChild(NavBreadcrumbs);
 
   var nav = $q('#nav-breadcrumbs > LI:nth-child(2)'),
-      ckBox1 = $c('input', {id: 'hidestats', type: 'checkbox'}, [{type: 'click', fn: function() {HideStats(this)}}]),
-      ckBox2 = $c('input', {id: 'hidefooter', type: 'checkbox'}, [{type: 'click', fn: function() {HideFooter(this)}}]),
       hidestatsLabel = $c('label', {id: 'hidestatsLabel', textContent: hideStats}, [{type: 'click', fn: function() {HideStats(this.previousSibling)}}]),
+      ckBox1 = $c('input', {id: 'hidestats', type: 'checkbox'}, [{type: 'click', fn: function() {HideStats(this)}}]),
       hidefooterLabel = $c('label', {id: 'hidefooterLabel', textContent: hideFooter}, [{type: 'click', fn: function() {HideFooter(this.previousSibling)}}]),
+      ckBox2 = $c('input', {id: 'hidefooter', type: 'checkbox'}, [{type: 'click', fn: function() {HideFooter(this)}}]),
       bool1 = GM_getValue('hidestats'),
-      bool2 = GM_getValue('hidefooter'),
       sty1 = bool1 ? 'none' : 'block',
+      bool2 = GM_getValue('hidefooter'),
       sty2 = bool2 ? 'none' : '-moz-box';
   nav.appendChild(ckBox1);
   nav.appendChild(hidestatsLabel);
@@ -493,8 +493,10 @@
       a.top {font-weight: bold !important; padding: 5px !important; text-decoration: none !important;}\
       a.top i {color:#FFF !important;}\
       a.top:hover, .viewHideBtn:hover, .action-bar > a.button:hover, #ucp .panel a.mark:hover {background: ' + boardHoverBG + ' !important; color: ' + textHoverColor + ' !important;}\
+      .stat-block > h3 {margin-top: 5px !important;}\
       .stat-block > h3 > a {background: ' + boardBG + ' !important; border: 1px solid #001752 !important; border-radius: 4px !important; box-shadow: inset 0 0 1px #FFF !important; color: ' + textColor + ' !important; padding: 5px 6px !important; text-decoration: none !important; text-shadow: 1px 1px 2px #000 !important;}\
       .stat-block > h3 > a:hover {background: ' + boardHoverBG + ' !important;}\
+      .stat-block p {margin: 5px 10px !important;}\
     }\
   ');
 
