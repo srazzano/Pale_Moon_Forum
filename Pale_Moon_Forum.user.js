@@ -46,8 +46,8 @@
         linkHomePage = 'home page',
         linkNewTab = 'new tab',
         textBracket = ')',
-        hideStats = 'Hide stats',
-        hideFooter = 'Hide footer',
+        hideStats = 'Stats',
+        hideFooter = 'Footer',
         viewBoardsText = 'View All Boards',
         viewBoardsTip = 'View All Unchecked Boards',
         hideBoardsText = 'Hide Unchecked Boards',
@@ -179,16 +179,16 @@
     var bool = GM_getValue(e.id) !== false ? false : true;
     GM_setValue(e.id, bool);
     $('#hidefooter').checked = bool;
-    if (bool) $('#page-footer').setAttribute('hide-footer', true);
-    else $('#page-footer').removeAttribute('hide-footer');
+    if (bool) $('#page-footer').removeAttribute('hide-footer');
+    else $('#page-footer').setAttribute('hide-footer', true);
   }
 
   function HideStats(e) {
     var bool = GM_getValue(e.id) !== false ? false : true;
     GM_setValue(e.id, bool);
     $('#hidestats').checked = bool;
-    if (bool) $('#page-body').setAttribute('hide-stats', true);
-    else $('#page-body').removeAttribute('hide-stats');
+    if (bool) $('#page-body').removeAttribute('hide-stats');
+    else $('#page-body').setAttribute('hide-stats', true);
   }
 
   function ViewHideBoards(bool) {
@@ -242,10 +242,10 @@
   nav.appendChild(hidefooterLabel);
   $('#hidestats').checked = bool1;
   $('#hidefooter').checked = bool2;
-  if (bool1) $('#page-body').setAttribute('hide-stats', true);
-  else $('#page-body').removeAttribute('hide-stats');
-  if (bool2) $('#page-footer').setAttribute('hide-footer', true);
-  else $('#page-footer').removeAttribute('hide-footer');
+  if (bool1) $('#page-body').removeAttribute('hide-stats');
+  else $('#page-body').setAttribute('hide-stats', true);
+  if (bool2) $('#page-footer').removeAttribute('hide-footer');
+  else $('#page-footer').setAttribute('hide-footer', true);
 
   for (var i = 0, utc = $q('#nav-footer > li.rightside', true); i < utc.length; i++) if (utc[i].textContent.match('All times')) utc[i].setAttribute('id', 'utc');
   $q('#utc > span').textContent = 'UTC -7';
