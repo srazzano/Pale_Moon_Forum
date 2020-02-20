@@ -437,6 +437,8 @@
       .action-bar.bar-top input#search_keywords, #add_keywords.inputbox {color: #000 !important; height: 26px !important; width: 155px !important;}\
       .action-bar.bar-top button.button.button-search {height: 26px !important;}\
       .action-bar.bar-top a.button.button-search-end {padding: 3px 4px 3px 4px !important;}\
+      #site-description .button.button-search {border: none !important; border-left: 1px solid #C7C3BF !important; padding: 2px 5px 4px 5px !important;}\
+      #site-description.button.button-search-end {border: none !important; border-left: 1px solid #C7C3BF !important; height: 20px !important; width: 22px !important;}\
       .action-bar .button-search-end {border: 1px solid #C7C3BF !important; margin-left: -1px !important;}\
       #keywords {border-radius: 0 !important; width: 155px !important;}\
       a.top, .viewHideBtn, .action-bar > a.button, #ucp .panel a.mark {-moz-appearance: none !important; background: ' + boardBG + ' !important; border: 1px solid #001752 !important; border-radius: 4px !important; box-shadow: inset 0 0 1px #FFF !important; color: ' + textColor + ' !important; cursor: pointer !important; font-size: ' + fontSize + ' !important; margin: 0 5px 0 0 !important; padding: 0 6px !important; text-shadow: 1px 1px 2px #000 !important;}\
@@ -497,9 +499,10 @@
       #nav-footer a, #nav-footer span, #nav-footer i {color: ' + textColor + ' !important;}\
       #nav-footer li span a > span {position: relative !important; top: -1px !important;}\
       #nav-footer li > a > span {position: relative !important; top: -1px !important;}\
-      .jumpbox-return {background: ' + boardBG + ' !important; border: 1px solid #001752 !important; border-radius: 4px !important; box-shadow: inset 0 0 1px #FFF !important; color: ' + textColor + ' !important; font-size: ' + fontSize + ' !important; font-weight: bold !important; margin: 0px 0 3px 0 !important; padding: 3px 6px !important; text-shadow: 1px 1px 2px #000 !important;}\
+      #viewfolder > DIV:first-child > DIV > FIELDSET > DIV > a, .jumpbox-return {background: ' + boardBG + ' !important; border: 1px solid #001752 !important; border-radius: 4px !important; box-shadow: inset 0 0 1px #FFF !important; color: ' + textColor + ' !important; font-size: ' + fontSize + ' !important; font-weight: bold !important; margin: 0px 0 3px 0 !important; padding: 3px 6px !important; text-shadow: 1px 1px 2px #000 !important;}\
+      #viewfolder > DIV:first-child > DIV > FIELDSET > DIV > a {margin: 5px 0 0 0 !important; padding: 1px 6px !important; text-decoration: none !important;}\
       .jumpbox-return * {color: ' + textColor + ' !important;}\
-      .jumpbox-return:hover, .advanced-search-link:hover {background: ' + boardHoverBG + ' !important;}\
+      .jumpbox-return:hover, .advanced-search-link:hover, #viewfolder > DIV:first-child > DIV > FIELDSET > DIV > a:hover {background: ' + boardHoverBG + ' !important;}\
       #jumpbox {height: 26px !important; margin: 0 !important; padding: 2px 6px !important;}\
       #jumpbox span {text-decoration: none !important;}\
       #jumpbox > span > span {position: relative !important; top: -1px !important;}\
