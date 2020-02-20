@@ -178,7 +178,6 @@
   }
 
   function HideFooter(e) {
-    alert(getSelection());
     var bool = GM_getValue(e.id) !== false ? false : true;
     GM_setValue(e.id, bool);
     $('#hidefooter').checked = bool;
