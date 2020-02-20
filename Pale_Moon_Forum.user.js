@@ -291,7 +291,7 @@
       announ.childNodes[2].lastElementChild.style.display = sty4;
   } }
 
-  if (pmsearch || pmforum) {
+  if (pmsearch || pmforum || pmtopic) {
     var srch = $q('#page-body .search-box'),
         inst = $c('button', {id: 'insertBtn2', className: 'insertBtn', title: insertField}, [{type: 'click', fn: function() {pmsearch ? $('#add_keywords').value = getSelection() : $('#search_keywords').value = getSelection()}}]),
         clr = $c('button', {id: 'clearBtn2', className: 'clearBtn', title: clearField}, [{type: 'click', fn: function() {pmsearch ? $('#add_keywords').value = '' : $('#search_keywords').value = ''}}]);
