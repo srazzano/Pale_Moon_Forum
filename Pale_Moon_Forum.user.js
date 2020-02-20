@@ -46,6 +46,7 @@
         linkHomePage = 'home page',
         linkNewTab = 'new tab',
         textBracket = ')',
+        insertField = 'Insert selection into search field',
         clearField = 'Clear search field',
         hideStats = 'Stats',
         hideFooter = 'Footer',
@@ -177,6 +178,7 @@
   }
 
   function HideFooter(e) {
+    alert(getSelection());
     var bool = GM_getValue(e.id) !== false ? false : true;
     GM_setValue(e.id, bool);
     $('#hidefooter').checked = bool;
@@ -233,14 +235,16 @@
   try {
     var srch = $('#search-box'),
         nav = $q('#nav-breadcrumbs > LI:nth-child(2)'),
-        btn = $c('button', {id: 'clearBtn', className: 'clearBtn', title: clearField}, [{type: 'click', fn: function() {$('#keywords').value = ''}}]),
+        inst = $c('button', {id: 'insertBtn', className: 'insertBtn', title: insertField}, [{type: 'click', fn: function() {$('#keywords').value = getSelection()}}]),
+        clr = $c('button', {id: 'clearBtn', className: 'clearBtn', title: clearField}, [{type: 'click', fn: function() {$('#keywords').value = ''}}]),
         hidestatsLabel = $c('label', {id: 'hidestatsLabel', textContent: hideStats}, [{type: 'click', fn: function() {HideStats(this.previousSibling)}}]),
         ckBox1 = $c('input', {id: 'hidestats', type: 'checkbox'}, [{type: 'click', fn: function() {HideStats(this)}}]),
         hidefooterLabel = $c('label', {id: 'hidefooterLabel', textContent: hideFooter}, [{type: 'click', fn: function() {HideFooter(this.previousSibling)}}]),
         ckBox2 = $c('input', {id: 'hidefooter', type: 'checkbox'}, [{type: 'click', fn: function() {HideFooter(this)}}]),
         bool1 = GM_getValue('hidestats'),
         bool2 = GM_getValue('hidefooter');
-    srch.insertBefore(btn, srch.firstChild);
+    srch.insertBefore(clr, srch.firstChild);
+    srch.insertBefore(inst, srch.firstChild);
     nav.appendChild(ckBox1);
     nav.appendChild(hidestatsLabel);
     nav.appendChild(ckBox2);
@@ -367,10 +371,12 @@
       .site_logo {background: url(https://raw.githubusercontent.com/srazzano/Images/master/logo.png) !important; height: 70px !important; width: 70px !important;}\
       .headerbar h1 {margin: 6px 0 0 0 !important;}\
       #aSep {margin: 0 6px !important;}\
-      #clearBtn {-moz-appearance: none !important; background: url(https://raw.githubusercontent.com/srazzano/Images/master/clear.png) no-repeat center, linear-gradient(#FFFFFF, #E9E9E9) !important; border-right: 1px solid #C7C3BF !important; border-radius: 4px 0 0 4px !important; filter: grayscale(1) !important; float: left !important; height: 24px !important; width: 29px !important;}\
+      #insertBtn {-moz-appearance: none !important; background: url(https://raw.githubusercontent.com/srazzano/Images/master/insert.png) no-repeat center, linear-gradient(#FFFFFF, #E9E9E9) !important; border-right: 1px solid #C7C3BF !important; border-radius: 4px 0 0 4px !important; filter: grayscale(1) !important; float: left !important; height: 24px !important; width: 29px !important;}\
+      #insertBtn:hover {background: url(https://raw.githubusercontent.com/srazzano/Images/master/insert.png) no-repeat center, linear-gradient(#E9E9E9, #FFFFFF) !important; filter: none !important;}\
+      #clearBtn {-moz-appearance: none !important; background: url(https://raw.githubusercontent.com/srazzano/Images/master/clear.png) no-repeat center, linear-gradient(#FFFFFF, #E9E9E9) !important; border-right: 1px solid #C7C3BF !important; border-radius: 0 !important; filter: grayscale(1) !important; float: left !important; height: 24px !important; width: 29px !important;}\
       #clearBtn:hover {background: url(https://raw.githubusercontent.com/srazzano/Images/master/clear.png) no-repeat center, linear-gradient(#E9E9E9, #FFFFFF) !important; filter: none !important;}\
       .search-header {margin-top: 30px !important;}\
-      #search-box {float: right !important; width: 240px !important;}\
+      #search-box {float: right !important; width: 272px !important;}\
       .search-box button.search-icon, .search-box a.button {padding: 3px 4px 1px 2px !important;}\
       .advanced-search-link { margin: 7px 0 0 0 !important;}\
       .advanced-search-link span#aBull {display: none !important;}\
