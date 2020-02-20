@@ -255,7 +255,7 @@
     if (bool2) $('#page-footer').removeAttribute('hide-footer');
     else $('#page-footer').setAttribute('hide-footer', true);
   } catch(ex) {}
-
+  
   for (var i = 0, utc = $q('#nav-footer > LI.rightside', true); i < utc.length; i++) if (utc[i].textContent.match('All times')) utc[i].setAttribute('id', 'utc');
   $q('#utc > span').textContent = 'UTC -7';
 
@@ -290,6 +290,14 @@
       announ.setAttribute('opened', bool4);
       announ.childNodes[2].lastElementChild.style.display = sty4;
   } }
+
+  if (pmsearch || pmforum) {
+    var srch = $q('#page-body .search-box'),
+        inst = $c('button', {id: 'insertBtn2', className: 'insertBtn', title: insertField}, [{type: 'click', fn: function() {pmsearch ? $('#add_keywords').value = getSelection() : $('#search_keywords').value = getSelection()}}]),
+        clr = $c('button', {id: 'clearBtn2', className: 'clearBtn', title: clearField}, [{type: 'click', fn: function() {pmsearch ? $('#add_keywords').value = '' : $('#search_keywords').value = ''}}]);
+    srch.insertBefore(clr, srch.firstChild);
+    srch.insertBefore(inst, srch.firstChild);
+  }
 
   addEventListener('load', function() {timer_Interval = setInterval(function() {if (pmindex) DateTime.textContent = aDateTime()}, timerInterval)}, false);
   addEventListener('unload', function() {clearInterval(timer_Interval)}, false);
@@ -370,11 +378,17 @@
       .site_logo {background: url(https://raw.githubusercontent.com/srazzano/Images/master/logo.png) !important; height: 70px !important; width: 70px !important;}\
       .headerbar h1 {margin: 6px 0 0 0 !important;}\
       #aSep {margin: 0 6px !important;}\
-      #insertBtn {-moz-appearance: none !important; background: url(https://raw.githubusercontent.com/srazzano/Images/master/insert.png) no-repeat center, linear-gradient(#FFFFFF, #E9E9E9) !important; border-right: 1px solid #C7C3BF !important; border-radius: 4px 0 0 4px !important; box-shadow: 0 0 0 1px #FFFFFF inset !important; filter: grayscale(1) !important; float: left !important; height: 24px !important; width: 29px !important;}\
-      #insertBtn:hover {background: url(https://raw.githubusercontent.com/srazzano/Images/master/insert.png) no-repeat center, linear-gradient(#E9E9E9, #FFFFFF) !important; filter: none !important;}\
-      #clearBtn {-moz-appearance: none !important; background: url(https://raw.githubusercontent.com/srazzano/Images/master/clear.png) no-repeat center, linear-gradient(#FFFFFF, #E9E9E9) !important; border-right: 1px solid #C7C3BF !important; border-radius: 0 !important; box-shadow: 0 0 0 1px #FFFFFF inset !important; filter: grayscale(1) !important; float: left !important; height: 24px !important; width: 29px !important;}\
-      #clearBtn:hover {background: url(https://raw.githubusercontent.com/srazzano/Images/master/clear.png) no-repeat center, linear-gradient(#E9E9E9, #FFFFFF) !important; filter: none !important;}\
+      .insertBtn {-moz-appearance: none !important; background: url(https://raw.githubusercontent.com/srazzano/Images/master/insert.png) no-repeat center, linear-gradient(#FFFFFF, #E9E9E9) !important; border-right: 1px solid #C7C3BF !important; border-radius: 4px 0 0 4px !important; box-shadow: 0 0 0 1px #FFF inset !important; filter: grayscale(1) !important; float: left !important; height: 24px !important; width: 29px !important;}\
+      .insertBtn:hover {background: url(https://raw.githubusercontent.com/srazzano/Images/master/insert.png) no-repeat center, linear-gradient(#E9E9E9, #FFFFFF) !important; filter: none !important;}\
+      .clearBtn {-moz-appearance: none !important; background: url(https://raw.githubusercontent.com/srazzano/Images/master/clear.png) no-repeat center, linear-gradient(#FFFFFF, #E9E9E9) !important; border-right: 1px solid #C7C3BF !important; border-radius: 0 !important; box-shadow: 0 0 0 1px #FFF inset !important; filter: grayscale(1) !important; float: left !important; height: 24px !important; width: 29px !important;}\
+      .clearBtn:hover {background: url(https://raw.githubusercontent.com/srazzano/Images/master/clear.png) no-repeat center, linear-gradient(#E9E9E9, #FFFFFF) !important; filter: none !important;}\
+      #page-body .insertBtn {border: 1px solid #C7C3BF !important; height: 26px !important;}\
+      #page-body .clearBtn {border: 1px solid #C7C3BF !important; border-left: none !important; border-right: none !important; height: 26px !important;}\
+      #add_keywords {border-radius: 0 !important;}\
+      #page-body .insertBtn {}\
+      #page-body .clearBtn {}\
       .search-header {margin-top: 30px !important;}\
+      #page-body .search-box {width: 280px !important;}\
       #search-box {float: right !important; width: 272px !important;}\
       .search-box button.search-icon, .search-box a.button {padding: 3px 4px 1px 2px !important;}\
       .advanced-search-link { margin: 7px 0 0 0 !important;}\
