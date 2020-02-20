@@ -230,28 +230,30 @@
   SiteDescriptionP.insertBefore(Separator, Label1);
   SiteDescriptionP.appendChild(NavBreadcrumbs);
 
-  var srch = $('#search-box'),
-      nav = $q('#nav-breadcrumbs > LI:nth-child(2)'),
-      btn = $c('button', {id: 'clearBtn', className: 'clearBtn', title: clearField}, [{type: 'click', fn: function() {$('#keywords').value = ''}}]),
-      hidestatsLabel = $c('label', {id: 'hidestatsLabel', textContent: hideStats}, [{type: 'click', fn: function() {HideStats(this.previousSibling)}}]),
-      ckBox1 = $c('input', {id: 'hidestats', type: 'checkbox'}, [{type: 'click', fn: function() {HideStats(this)}}]),
-      hidefooterLabel = $c('label', {id: 'hidefooterLabel', textContent: hideFooter}, [{type: 'click', fn: function() {HideFooter(this.previousSibling)}}]),
-      ckBox2 = $c('input', {id: 'hidefooter', type: 'checkbox'}, [{type: 'click', fn: function() {HideFooter(this)}}]),
-      bool1 = GM_getValue('hidestats'),
-      bool2 = GM_getValue('hidefooter');
-  srch.insertBefore(btn, srch.firstChild);
-  nav.appendChild(ckBox1);
-  nav.appendChild(hidestatsLabel);
-  nav.appendChild(ckBox2);
-  nav.appendChild(hidefooterLabel);
-  $('#hidestats').checked = bool1;
-  $('#hidefooter').checked = bool2;
-  if (bool1) $('#page-body').removeAttribute('hide-stats');
-  else $('#page-body').setAttribute('hide-stats', true);
-  if (bool2) $('#page-footer').removeAttribute('hide-footer');
-  else $('#page-footer').setAttribute('hide-footer', true);
+  try {
+    var srch = $('#search-box'),
+        nav = $q('#nav-breadcrumbs > LI:nth-child(2)'),
+        btn = $c('button', {id: 'clearBtn', className: 'clearBtn', title: clearField}, [{type: 'click', fn: function() {$('#keywords').value = ''}}]),
+        hidestatsLabel = $c('label', {id: 'hidestatsLabel', textContent: hideStats}, [{type: 'click', fn: function() {HideStats(this.previousSibling)}}]),
+        ckBox1 = $c('input', {id: 'hidestats', type: 'checkbox'}, [{type: 'click', fn: function() {HideStats(this)}}]),
+        hidefooterLabel = $c('label', {id: 'hidefooterLabel', textContent: hideFooter}, [{type: 'click', fn: function() {HideFooter(this.previousSibling)}}]),
+        ckBox2 = $c('input', {id: 'hidefooter', type: 'checkbox'}, [{type: 'click', fn: function() {HideFooter(this)}}]),
+        bool1 = GM_getValue('hidestats'),
+        bool2 = GM_getValue('hidefooter');
+    srch.insertBefore(btn, srch.firstChild);
+    nav.appendChild(ckBox1);
+    nav.appendChild(hidestatsLabel);
+    nav.appendChild(ckBox2);
+    nav.appendChild(hidefooterLabel);
+    $('#hidestats').checked = bool1;
+    $('#hidefooter').checked = bool2;
+    if (bool1) $('#page-body').removeAttribute('hide-stats');
+    else $('#page-body').setAttribute('hide-stats', true);
+    if (bool2) $('#page-footer').removeAttribute('hide-footer');
+    else $('#page-footer').setAttribute('hide-footer', true);
+  } catch(ex) {}
 
-  for (var i = 0, utc = $q('#nav-footer > li.rightside', true); i < utc.length; i++) if (utc[i].textContent.match('All times')) utc[i].setAttribute('id', 'utc');
+  for (var i = 0, utc = $q('#nav-footer > LI.rightside', true); i < utc.length; i++) if (utc[i].textContent.match('All times')) utc[i].setAttribute('id', 'utc');
   $q('#utc > span').textContent = 'UTC -7';
 
   if (pmindex) {
