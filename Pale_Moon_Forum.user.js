@@ -389,7 +389,7 @@
       #page-body .clearBtn {}\
       .search-header {margin-top: 30px !important;}\
       #page-body .search-box {width: 280px !important;}\
-      #search-box {float: right !important; width: 272px !important;}\
+      #search-box {float: right !important; width: 275px !important;}\
       .search-box button.search-icon, .search-box a.button {padding: 3px 4px 1px 2px !important;}\
       .advanced-search-link { margin: 7px 0 0 0 !important;}\
       .advanced-search-link span#aBull {display: none !important;}\
