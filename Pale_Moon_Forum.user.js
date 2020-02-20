@@ -280,23 +280,28 @@
   }
 
   if (pmforum) {
-    var announ = $q('.forumbg.announcement'),
-        ckBox4 = $c('input', {id: 'Board10', className: 'boardCB', type: 'checkbox'}, [{type: 'click', fn: function() {CollapseExpand(this)}}]),
-        bool4 = GM_getValue('Board10'),
-        sty4 = bool4 ? 'block' : 'none';
-    if (announ) {
-      announ.insertBefore(ckBox4, announ.firstChild);
-      $('#Board10').checked = bool4;
-      announ.setAttribute('opened', bool4);
-      announ.childNodes[2].lastElementChild.style.display = sty4;
-  } }
+    try {
+      var announ = $q('.forumbg.announcement'),
+          ckBox4 = $c('input', {id: 'Board10', className: 'boardCB', type: 'checkbox'}, [{type: 'click', fn: function() {CollapseExpand(this)}}]),
+          bool4 = GM_getValue('Board10'),
+          sty4 = bool4 ? 'block' : 'none';
+      if (announ) {
+        announ.insertBefore(ckBox4, announ.firstChild);
+        $('#Board10').checked = bool4;
+        announ.setAttribute('opened', bool4);
+        announ.childNodes[2].lastElementChild.style.display = sty4;
+      }
+    } catch(ex) {}
+  }
 
   if (pmsearch || pmforum || pmtopic) {
-    var srch = $q('#page-body .search-box'),
-        inst = $c('button', {id: 'insertBtn2', className: 'insertBtn', title: insertField}, [{type: 'click', fn: function() {pmsearch ? $('#add_keywords').value = getSelection() : $('#search_keywords').value = getSelection()}}]),
-        clr = $c('button', {id: 'clearBtn2', className: 'clearBtn', title: clearField}, [{type: 'click', fn: function() {pmsearch ? $('#add_keywords').value = '' : $('#search_keywords').value = ''}}]);
-    srch.insertBefore(clr, srch.firstChild);
-    srch.insertBefore(inst, srch.firstChild);
+    try {
+      var srch = $q('#page-body .search-box'),
+          inst = $c('button', {id: 'insertBtn2', className: 'insertBtn', title: insertField}, [{type: 'click', fn: function() {pmsearch ? $('#add_keywords').value = getSelection() : $('#search_keywords').value = getSelection()}}]),
+          clr = $c('button', {id: 'clearBtn2', className: 'clearBtn', title: clearField}, [{type: 'click', fn: function() {pmsearch ? $('#add_keywords').value = '' : $('#search_keywords').value = ''}}]);
+      srch.insertBefore(clr, srch.firstChild);
+      srch.insertBefore(inst, srch.firstChild);
+    } catch(ex) {}
   }
 
   addEventListener('load', function() {timer_Interval = setInterval(function() {if (pmindex) DateTime.textContent = aDateTime()}, timerInterval)}, false);
