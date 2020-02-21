@@ -486,6 +486,9 @@
       .pagination a[data-ajax] {height: 20px !important; padding: 2px 6px !important;}\
       .pagination li.active span, .pagination li a:hover, .pagination li a:hover .icon, .pagination .dropdown-visible a.dropdown-trigger, .nojs .pagination .dropdown-container:hover a.dropdown-trigger {background: ' + boardBG + ' !important; border-color: #001752 !important; border-radius: 3px !important; box-shadow: inset 0 0 1px #FFF !important; color: ' + textColor + ' !important;}\
       .pagination li a:hover {background: ' + boardHoverBG + ' !important; color: ' + textColor + ' !important;}\
+      .pagination > ul {position: relative !important; top: -2px !important;}\
+      .pagination > a {padding: 3px 6px !important; margin-bottom: 2px !important;}\
+      .action-bar.bar-top .pagination {margin-bottom: -2px !important;}\
 /* BOARDS */\
       .forabg a:hover {text-decoration: underline !important;}\
       .forabg, .forumbg {background: ' + boardHoverBG + ' !important; border: 1px solid #001752 !important; border-radius: 6px 6px 12px 12px !important; box-shadow: inset 0 0 1px #FFF !important; margin: 0 0 5px 0 !important; padding: 4px 4px 3px 4px !important; position: relative !important;}\
