@@ -47,6 +47,7 @@
         linkHomePage = 'home page',
         linkNewTab = 'new tab',
         textBracket = ')',
+        searchKeyword = 'Search for keywords...',
         insertField = 'Insert selected text into search field',
         clearField = 'Clear search field',
         hideStats = 'Stats',
@@ -216,6 +217,7 @@
   if (!GM_getValue('Board9')) GM_setValue('Board9', false);
   if (!GM_getValue('Board10')) GM_setValue('Board10', false);
 
+  $('#keywords').placeholder = searchKeyword;
   $q('A[href="//www.palemoon.org/"][target="_blank"][style="color:#ffff80;"]').style.display = 'none';
   $q('A[href="//www.palemoon.org/"][style="color:#ffff80;"]').innerHTML = linkHomePage.toUpperCase();
   $q('A[href="//www.palemoon.org/"][target="_blank"][style="color: rgb(255, 255, 128); display: none;"]').nextSibling.nodeValue = '';
@@ -256,7 +258,7 @@
     if (bool2) $('#page-footer').removeAttribute('hide-footer');
     else $('#page-footer').setAttribute('hide-footer', true);
   } catch(ex) {}
-  
+
   for (var i = 0, utc = $q('#nav-footer > LI.rightside', true); i < utc.length; i++) if (utc[i].textContent.match('All times')) utc[i].setAttribute('id', 'utc');
   $q('#utc > span').textContent = 'UTC -7';
 
@@ -397,10 +399,10 @@
       .clearBtn:hover {background: url(https://raw.githubusercontent.com/srazzano/Images/master/clear.png) no-repeat center, linear-gradient(#E9E9E9, #FFFFFF) !important; filter: none !important;}\
       #page-body .insertBtn {border: 1px solid #C7C3BF !important; height: 26px !important;}\
       #page-body .clearBtn {border: 1px solid #C7C3BF !important; border-left: none !important; border-right: none !important; height: 26px !important;}\
-      #search-box {box-shadow: none !important; float: right !important; width: 367px !important;}\
-      #forum-search {width: 370px !important;}\
-      #keywords, #add_keywords {border-radius: 0 !important; width: 250px !important;}\
-      #search_keywords, #add_keywords {border-radius: 0 !important; color: #000 !important; height: 26px !important; width: 250px !important;}\
+      #search-box {box-shadow: none !important; float: right !important; width: 342px !important;}\
+      #forum-search {width: 345px !important;}\
+      #keywords, #add_keywords {border-radius: 0 !important; width: 225px !important;}\
+      #search_keywords, #add_keywords {border-radius: 0 !important; color: #000 !important; height: 26px !important; width: 225px !important;}\
       .search-header {margin-top: 30px !important;}\
       .search-box {width: 370px !important;}\
       .search-box button.search-icon, .search-box a.button {padding: 3px 4px 1px 2px !important;}\
