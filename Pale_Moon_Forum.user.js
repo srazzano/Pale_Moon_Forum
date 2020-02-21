@@ -234,7 +234,6 @@
 
   try {
     var srch = $('#search-box'),
-        nav = $q('#nav-breadcrumbs > LI:nth-child(2)'),
         inst = $c('button', {id: 'insertBtn', className: 'insertBtn', title: insertField}, [{type: 'click', fn: function() {$('#keywords').value = getSelection()}}]),
         clr = $c('button', {id: 'clearBtn', className: 'clearBtn', title: clearField}, [{type: 'click', fn: function() {$('#keywords').value = ''}}]),
         hidestatsLabel = $c('label', {id: 'hidestatsLabel', textContent: hideStats}, [{type: 'click', fn: function() {HideStats(this.previousSibling)}}]),
@@ -245,10 +244,10 @@
         bool2 = GM_getValue('hidefooter');
     srch.insertBefore(clr, srch.firstChild);
     srch.insertBefore(inst, srch.firstChild);
-    nav.appendChild(ckBox1);
-    nav.appendChild(hidestatsLabel);
-    nav.appendChild(ckBox2);
-    nav.appendChild(hidefooterLabel);
+    srch.insertBefore(hidestatsLabel, srch.firstChild);
+    srch.insertBefore(ckBox1, srch.firstChild);
+    srch.insertBefore(hidefooterLabel, srch.firstChild);
+    srch.insertBefore(ckBox2, srch.firstChild);
     $('#hidestats').checked = bool1;
     $('#hidefooter').checked = bool2;
     if (bool1) $('#page-body').removeAttribute('hide-stats');
@@ -402,7 +401,7 @@
       #page-body .clearBtn {}\
       .search-header {margin-top: 30px !important;}\
       #page-body .search-box {width: 280px !important;}\
-      #search-box {float: right !important; width: 275px !important;}\
+      #search-box {box-shadow: none !important; float: right !important; width: 412px !important;}\
       .search-box button.search-icon, .search-box a.button {padding: 3px 4px 1px 2px !important;}\
       .advanced-search-link { margin: 7px 0 0 0 !important;}\
       .advanced-search-link span#aBull {display: none !important;}\
@@ -416,9 +415,11 @@
       #nav-breadcrumbs a {color: ' + textColor + ' !important;}\
       #nav-breadcrumbs li {margin: 2px 8px 0 0 !important;}\
       #nav-breadcrumbs span {font-size: ' + fontSize + ' !important;}\
-      #hidestats, #hidefooter {-moz-appearance: none !important; border: 1px solid #FFF !important; border-radius: 3px !important; box-shadow: inset 0 0 2px #000 !important; height: 17px !important; margin: -2px 0 0 4px !important; width: 17px !important;}\
-      #hidestatsLabel, #hidefooterLabel {font-size: ' + fontSize + ' !important; margin: 0 !important; padding-left: 4px !important;}\
-      #hidestats:hover + #hidestatsLabel, #hidefooter:hover + #hidefooterLabel, #hidestatsLabel:hover, #hidefooterLabel:hover {cursor: pointer !important; text-decoration: underline !important;}\
+      #hidefooter, #hidestats {-moz-appearance: none !important; border: 1px solid #FFF !important; border-radius: 3px !important; box-shadow: inset 0 0 2px #000 !important; height: 17px !important; margin: -2px 0 0 4px !important; width: 17px !important;}\
+      #hidefooterLabel, #hidestatsLabel {color: ' + textColor + ' !important; font-size: ' + fontSize + ' !important; margin: 4px 6px 0 0 !important; padding-left: 4px !important; text-shadow: 1px 1px 2px #000 !important;}\
+      #hidefooter, #hidefooterLabel, #hidestats, #hidestatsLabel {float: left !important;}\
+      #hidefooter, #hidestats {margin: 4px 0 0 0 !important;}\
+      #hidefooter:hover + #hidefooterLabel, #hidefooterLabel:hover, #hidestats:hover + #hidestatsLabel, #hidestatsLabel:hover {cursor: pointer !important; text-decoration: underline !important;}\
       .crumb span {margin-left: 4px !important;}\
       .icon-boardrules {margin-right: 50px !important;}\
       .icon.fa-bars.fa-fw {text-shadow: 1px 1px 2px #000 !important;}\
@@ -433,7 +434,7 @@
       #site-description br, #page-body h2, .rules, .copyright {display: none !important;}\
       #page-body > div:nth-child(2):not(.boardrules-container) {display: none !important;}\
       #page-body > p:nth-child(2) {float: right !important;}\
-      #site-description h1, #site-description p, #site-description span, #site-description a, #site-description i, #site-description span.username, #site-description #hidestatsLabel, #site-description #hidefooterLabel {color: ' + headerText + ' !important;}\
+      #site-description h1, #site-description p, #site-description span, #site-description a, #site-description i, #site-description span.username {color: ' + headerText + ' !important;}\
       #username_logged_in .username {color: ' + textColor + ' !important; text-shadow: 1px 1px 2px #000 !important;}\
       #username_logged_in a span {color: #000 !important; text-shadow: none !important;}\
       body.section-viewtopic #page-body > P {display: none !important;}\
