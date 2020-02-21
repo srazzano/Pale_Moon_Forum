@@ -399,19 +399,19 @@
       .clearBtn:hover {background: url(https://raw.githubusercontent.com/srazzano/Images/master/clear.png) no-repeat center, linear-gradient(#E9E9E9, #FFFFFF) !important; filter: none !important;}\
       #page-body .insertBtn {border: 1px solid #C7C3BF !important; height: 26px !important;}\
       #page-body .clearBtn {border: 1px solid #C7C3BF !important; border-left: none !important; border-right: none !important; height: 26px !important;}\
-      #search-box {box-shadow: none !important; float: right !important; width: 342px !important;}\
+      #search-box {box-shadow: none !important; float: right !important; width: 317px !important;}\
       #forum-search {width: 345px !important;}\
-      #keywords, #add_keywords {border-radius: 0 !important; width: 225px !important;}\
-      #search_keywords, #add_keywords {border-radius: 0 !important; color: #000 !important; height: 26px !important; width: 225px !important;}\
+      #keywords, #add_keywords {border-radius: 0 !important; width: 200px !important;}\
+      #search_keywords, #add_keywords {border-radius: 0 !important; color: #000 !important; height: 26px !important; width: 200px !important;}\
       .search-header {margin-top: 30px !important;}\
-      .search-box {width: 370px !important;}\
+      .search-box {width: 345px !important;}\
       .search-box button.search-icon, .search-box a.button {padding: 3px 4px 1px 2px !important;}\
       .advanced-search-link { margin: 7px 0 0 0 !important;}\
       .advanced-search-link span#aBull {display: none !important;}\
       .navbar {padding: 0 8px !important;}\
       .navbar ul.linklist {padding: 0 !important;}\
       ul.navlinks {border: none !important;}\
-      #nav-main {position: absolute !important; right: 12px !important; top: 0 !important;}\
+      #nav-main {position: absolute !important; right: 4px !important; top: 0 !important;}\
       #nav-main a, #nav-main span, #viewfolder .mark {color: ' + textColor + ' !important; font-weight: bold !important; text-shadow: 1px 1px 2px #000 !important;}\
       #nav-main .dropdown *, #notification_list *, #nav-main #quick-links a, .header .list-inner.with-mark, .header .mark {color: #000 !important; text-shadow: none !important;}\
       #nav-breadcrumbs {height: 0 !important; margin: 6px 0 0 0 !important; padding: 0 !important;}\
