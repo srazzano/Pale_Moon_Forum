@@ -244,10 +244,10 @@
         bool2 = GM_getValue('hidefooter');
     srch.insertBefore(clr, srch.firstChild);
     srch.insertBefore(inst, srch.firstChild);
-    srch.insertBefore(hidestatsLabel, srch.firstChild);
-    srch.insertBefore(ckBox1, srch.firstChild);
     srch.insertBefore(hidefooterLabel, srch.firstChild);
     srch.insertBefore(ckBox2, srch.firstChild);
+    srch.insertBefore(hidestatsLabel, srch.firstChild);
+    srch.insertBefore(ckBox1, srch.firstChild);
     $('#hidestats').checked = bool1;
     $('#hidefooter').checked = bool2;
     if (bool1) $('#page-body').removeAttribute('hide-stats');
@@ -452,7 +452,7 @@
       p.responsive-center.time, .mark-read.rightside {background: ' + boardBG + ' !important; border: 1px solid #001752 !important; border-radius: 4px !important; box-shadow: inset 0 0 1px #FFF !important; color: ' + textColor + ' !important; float: right !important; font-size: ' + fontSize + ' !important; height: 20px !important; margin: 0 5px 0 0 !important; padding: 4px 6px 0 6px !important; position: relative !important; text-decoration: none !important; text-shadow: 1px 1px 2px #000 !important; top: 0 !important; vertical-align: top !important;}\
       #page-body > p.responsive-center.time, .mark-read.rightside:hover {background: ' + boardHoverBG + ' !important; color: ' + textColor + ' !important;}\
       #page-body > p.responsive-center.time, .row strong, .lastpost > span:last-child {cursor: default !important;}\
-      #page-body > p.responsive-center.time {-moz-user-select: none !important; font-size: 115% !important; margin-right: 0 !important; text-align: center !important; width: 215px !important;}\
+      #page-body > p.responsive-center.time {-moz-user-select: none !important; font-size: 115% !important; margin-right: 0 !important; padding: 4px 0 0 0 !important; text-align: center !important; width: 211px !important;}\
       .right.responsive-center.time.rightside {display: none !important;}\
       .button.button-search icon.fa-search.fa-fw, .button.button-search icon.fa-cog.fa-fw {color: #606060 !important;}\
       .action-bar.compact {margin: 0 0 4px 0 !important;}\
@@ -491,7 +491,7 @@
       .forabg a:hover {text-decoration: underline !important;}\
       .forabg, .forumbg {background: ' + boardHoverBG + ' !important; border: 1px solid #001752 !important; border-radius: 6px 6px 12px 12px !important; box-shadow: inset 0 0 1px #FFF !important; margin: 0 0 5px 0 !important; padding: 4px 4px 3px 4px !important; position: relative !important;}\
       .forabg:hover .header a, .forumbg:hover .header a {color: ' + textHoverColor + ' !important;}\
-      .forabg[opened="false"], .forumbg[opened="false"] {background: ' + boardBG + ' !important; border-radius: 4px !important; height: 17px !important; width: 353px !important;}\
+      .forabg[opened="false"], .forumbg[opened="false"] {background: ' + boardBG + ' !important; border-radius: 4px !important; height: 17px !important; width: 300px !important;}\
       .forabg[opened="false"] .row-item dd, .forumbg[opened="false"] .row-item dd {display: none !important;}\
       .forabg[opened="false"]:hover, .forumbg[opened="false"]:hover {background: ' + boardHoverBG + ' !important;}\
       .forabg[opened="true"], .forumbg[opened="true"] {background: ' + boardHoverBG + ' !important;}\
