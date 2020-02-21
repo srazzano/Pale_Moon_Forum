@@ -515,9 +515,9 @@
       .row:hover {background-color: #F6F4D0 !important;}\
       //.sticky {background: ' + stickyBG + ' !important;}\
       //.sticky:hover, .global-announce:hover, .announce:hover {background: ' + stickyHoverBG + ' !important;}\
+      //.global-announce, .announce {background: ' + lockedBG + ' !important;}\
       .forumbg li[locked] {background: ' + lockedBG + ' !important;}\
       .forumbg li[locked]:hover {background: ' + lockedHoverBG + ' !important;}\
-      .global-announce, .announce {background: ' + lockedBG + ' !important;}\
 /* PAGE-FOOTER */\
       #page-footer {display: -moz-box !important; margin: 0 0 0 2px !important; padding: 0 !important;}\
       #page-footer[hide-footer] {display: none !important;}\
