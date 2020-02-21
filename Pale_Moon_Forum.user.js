@@ -479,7 +479,7 @@
       .pagination li.active span, .pagination li a:hover, .pagination li a:hover .icon, .pagination .dropdown-visible a.dropdown-trigger, .nojs .pagination .dropdown-container:hover a.dropdown-trigger {background: ' + boardBG + ' !important; border-color: #001752 !important; border-radius: 3px !important; box-shadow: inset 0 0 1px #FFF !important; color: ' + textColor + ' !important;}\
       .pagination li a:hover {background: ' + boardHoverBG + ' !important; color: ' + textColor + ' !important;}\
 /* BOARDS */\
-      a.forumtitle:hover {text-decoration: underline !important;}\
+      .forabg a:hover {text-decoration: underline !important;}\
       .forabg, .forumbg {background: ' + boardHoverBG + ' !important; border: 1px solid #001752 !important; border-radius: 6px 6px 12px 12px !important; box-shadow: inset 0 0 1px #FFF !important; margin: 0 0 5px 0 !important; padding: 4px 4px 3px 4px !important; position: relative !important;}\
       .forabg:hover .header a, .forumbg:hover .header a {color: ' + textHoverColor + ' !important;}\
       .forabg[opened="false"], .forumbg[opened="false"] {background: ' + boardBG + ' !important; border-radius: 4px !important; height: 17px !important; width: 353px !important;}\
