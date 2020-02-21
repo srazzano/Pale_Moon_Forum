@@ -30,6 +30,7 @@
         boardBG = 'linear-gradient(#4D85CA, #314A85)',
         boardHoverBG = '#001752',
         lockedBG = '#EED9D9',
+        lockedHoverBG = '#FFEAEA',
         stickyBG = '#EED9D9',
         stickyHoverBG = '#FFEAEA',
         textColor = '#FFF',
@@ -292,6 +293,13 @@
         announ.childNodes[2].lastElementChild.style.display = sty4;
       }
     } catch(ex) {}
+    try {
+      var lock = $q('.forumbg dt', true);
+      for (var i = 0; i < lock.length; i++) {
+        if (lock[i].title.match('This topic is locked')) lock[i].parentNode.parentNode.setAttribute('locked', true);
+        else lock[i].parentNode.parentNode.removeAttribute('locked');
+      }
+    } catch(ex) {}
   }
 
   if (pmsearch || pmforum || pmtopic) {
@@ -505,9 +513,11 @@
       .topiclist.forums {margin-top: -2px !important;}\
       .row-item.forum_unread .list-inner {color: #000 !important;}\
       .row:hover {background-color: #F6F4D0 !important;}\
-      .sticky {background: ' + stickyBG + ' !important;}\
+      //.sticky {background: ' + stickyBG + ' !important;}\
+      //.sticky:hover, .global-announce:hover, .announce:hover {background: ' + stickyHoverBG + ' !important;}\
+      .forumbg li[locked] {background: ' + lockedBG + ' !important;}\
+      .forumbg li[locked]:hover {background: ' + lockedHoverBG + ' !important;}\
       .global-announce, .announce {background: ' + lockedBG + ' !important;}\
-      .sticky:hover, .global-announce:hover, .announce:hover {background: ' + stickyHoverBG + ' !important;}\
 /* PAGE-FOOTER */\
       #page-footer {display: -moz-box !important; margin: 0 0 0 2px !important; padding: 0 !important;}\
       #page-footer[hide-footer] {display: none !important;}\
