@@ -234,6 +234,7 @@
 
   try {
     var srch = $('#search-box'),
+        nav = $('#nav-main'),
         inst = $c('button', {id: 'insertBtn', className: 'insertBtn', title: insertField}, [{type: 'click', fn: function() {$('#keywords').value = getSelection()}}]),
         clr = $c('button', {id: 'clearBtn', className: 'clearBtn', title: clearField}, [{type: 'click', fn: function() {$('#keywords').value = ''}}]),
         hidestatsLabel = $c('label', {id: 'hidestatsLabel', textContent: hideStats}, [{type: 'click', fn: function() {HideStats(this.previousSibling)}}]),
@@ -244,10 +245,10 @@
         bool2 = GM_getValue('hidefooter');
     srch.insertBefore(clr, srch.firstChild);
     srch.insertBefore(inst, srch.firstChild);
-    srch.insertBefore(hidefooterLabel, srch.firstChild);
-    srch.insertBefore(ckBox2, srch.firstChild);
-    srch.insertBefore(hidestatsLabel, srch.firstChild);
-    srch.insertBefore(ckBox1, srch.firstChild);
+    nav.insertBefore(hidefooterLabel, nav.firstChild);
+    nav.insertBefore(ckBox2, nav.firstChild);
+    nav.insertBefore(hidestatsLabel, nav.firstChild);
+    nav.insertBefore(ckBox1, nav.firstChild);
     $('#hidestats').checked = bool1;
     $('#hidefooter').checked = bool2;
     if (bool1) $('#page-body').removeAttribute('hide-stats');
@@ -396,12 +397,12 @@
       .clearBtn:hover {background: url(https://raw.githubusercontent.com/srazzano/Images/master/clear.png) no-repeat center, linear-gradient(#E9E9E9, #FFFFFF) !important; filter: none !important;}\
       #page-body .insertBtn {border: 1px solid #C7C3BF !important; height: 26px !important;}\
       #page-body .clearBtn {border: 1px solid #C7C3BF !important; border-left: none !important; border-right: none !important; height: 26px !important;}\
-      #add_keywords {border-radius: 0 !important;}\
-      #page-body .insertBtn {}\
-      #page-body .clearBtn {}\
+      #search-box {box-shadow: none !important; float: right !important; width: 367px !important;}\
+      #forum-search {width: 370px !important;}\
+      #keywords, #add_keywords {border-radius: 0 !important; width: 250px !important;}\
+      #search_keywords, #add_keywords {border-radius: 0 !important; color: #000 !important; height: 26px !important; width: 250px !important;}\
       .search-header {margin-top: 30px !important;}\
-      #page-body .search-box {width: 280px !important;}\
-      #search-box {box-shadow: none !important; float: right !important; width: 410px !important;}\
+      .search-box {width: 370px !important;}\
       .search-box button.search-icon, .search-box a.button {padding: 3px 4px 1px 2px !important;}\
       .advanced-search-link { margin: 7px 0 0 0 !important;}\
       .advanced-search-link span#aBull {display: none !important;}\
@@ -415,10 +416,9 @@
       #nav-breadcrumbs a {color: ' + textColor + ' !important;}\
       #nav-breadcrumbs li {margin: 2px 8px 0 0 !important;}\
       #nav-breadcrumbs span {font-size: ' + fontSize + ' !important;}\
-      #hidefooter, #hidestats {-moz-appearance: none !important; border: 1px solid #FFF !important; border-radius: 3px !important; box-shadow: inset 0 0 2px #000 !important; height: 17px !important; margin: -2px 0 0 4px !important; width: 17px !important;}\
-      #hidefooterLabel, #hidestatsLabel {color: ' + textColor + ' !important; font-size: ' + fontSize + ' !important; margin: 4px 6px 0 0 !important; padding-left: 4px !important; text-shadow: 1px 1px 2px #000 !important;}\
+      #hidefooter, #hidestats {-moz-appearance: none !important; border: 1px solid #FFF !important; border-radius: 3px !important; box-shadow: inset 0 0 2px #000 !important; height: 17px !important; margin: 6px 0 0 0 !important; width: 17px !important;}\
+      #hidefooterLabel, #hidestatsLabel {color: ' + textColor + ' !important; font-size: ' + fontSize + ' !important; margin: 7px 4px 0 0 !important; padding-left: 4px !important; text-shadow: 1px 1px 2px #000 !important;}\
       #hidefooter, #hidefooterLabel, #hidestats, #hidestatsLabel {float: left !important;}\
-      #hidefooter, #hidestats {margin: 4px 0 0 0 !important;}\
       #hidefooter:hover + #hidefooterLabel, #hidefooterLabel:hover, #hidestats:hover + #hidestatsLabel, #hidestatsLabel:hover {cursor: pointer !important; text-decoration: underline !important;}\
       .crumb span {margin-left: 4px !important;}\
       .icon-boardrules {margin-right: 50px !important;}\
@@ -461,14 +461,11 @@
       .action-bar > a.button {height: 24px !important;}\
       .action-bar > a.button > span, .action-bar > a.button > i {position: relative !important; top: 3px !important;}\
       .action-bar > a.button > i {color: #FFF !important;}\
-      .action-bar.bar-top .search-box {padding: 0 !important;}\
-      .action-bar.bar-top input#search_keywords, #add_keywords.inputbox {color: #000 !important; height: 26px !important; width: 155px !important;}\
       .action-bar.bar-top button.button.button-search {height: 26px !important;}\
       .action-bar.bar-top a.button.button-search-end {padding: 3px 4px 3px 4px !important;}\
       #page-header .button.button-search {border: none !important; border-left: 1px solid #C7C3BF !important; padding: 2px 5px 4px 5px !important;}\
       #page-header .button.button-search-end {border: none !important; border-left: 1px solid #C7C3BF !important; height: 20px !important; width: 22px !important;}\
       .action-bar .button-search-end {border: 1px solid #C7C3BF !important; margin-left: -1px !important;}\
-      #keywords {border-radius: 0 !important; width: 155px !important;}\
       a.top, .viewHideBtn, .action-bar > a.button, #ucp .panel a.mark {-moz-appearance: none !important; background: ' + boardBG + ' !important; border: 1px solid #001752 !important; border-radius: 4px !important; box-shadow: inset 0 0 1px #FFF !important; color: ' + textColor + ' !important; cursor: pointer !important; font-size: ' + fontSize + ' !important; margin: 0 5px 0 0 !important; padding: 0 6px !important; text-shadow: 1px 1px 2px #000 !important;}\
       .viewHideBtn {height: 26px !important;}\
       .mark-read.rightside {padding: 2px 6px !important;}\
