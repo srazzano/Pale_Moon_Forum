@@ -58,9 +58,9 @@
         hideBoardsTip = 'Hide All Unchecked Boards',
         dateTimeTip = 'Current Local Time',
         Weekday = 'Sunday,Monday,Tuesday,Wednesday,Thursday,Friday,Saturday',
-        WeekdayAbbr = 'Sun,Mon,Tue,Wed,Thu,Fri,Sat',
+        WeekdayAbbr = 'Sun.,Mon.,Tue.,Wed.,Thu.,Fri.,Sat.',
         Month = 'January,February,March,April,May,June,July,August,September,October,November,December',
-        MonthAbbr = 'Jan,Feb,Mar,Apr,May,Jun,Jul,Aug,Sep,Oct,Nov,Dec',
+        MonthAbbr = 'Jan.,Feb.,Mar.,Apr.,May,Jun.,Jul.,Aug.,Sep.,Oct.,Nov.,Dec.',
         MonthNo = '1,2,3,4,5,6,7,8,9,10,11,12',
         DayNo = '"",1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,27,28,29,30,31',
         DayOrd = '"",1st,2nd,3rd,4th,5th,6th,7th,8th,9th,10th,11th,12th,13th,14th,15th,16th,17th,18th,19th,20th,21st,22nd,23rd,24th,25th,26th,27th,28th,29th,30th,31st';
@@ -151,9 +151,9 @@
         months3 = MonthNo.split(','),
         days = DayNo.split(','),
         days2 = DayOrd.split(','),
-        daynameabbr = daynames2[weekday] + '. ',
+        daynameabbr = daynames2[weekday] + ' ',
         daynamelong = daynames[weekday] + ', ',
-        monthabbr = months2[mth] + '. ',
+        monthabbr = months2[mth] + ' ',
         monthlong = months[mth] + ' ',
         monthnum = months3[mth] + ' ',
         daynum = days[dy] + ', ',
@@ -457,7 +457,6 @@
       #page-body > p.responsive-center.time {-moz-user-select: none !important; font-size: 115% !important; margin-right: 0 !important; padding: 4px 0 0 0 !important; text-align: center !important; width: 211px !important;}\
       .right.responsive-center.time.rightside {display: none !important;}\
       .button.button-search icon.fa-search.fa-fw, .button.button-search icon.fa-cog.fa-fw {color: #606060 !important;}\
-      .action-bar.compact {margin: 0 0 4px 0 !important;}\
       .action-bar {-moz-user-select: none !important; margin: 0 0 5px 0 !important;}\
       .action-bar a {text-decoration: none !important;}\
       .action-bar > a.button {height: 24px !important;}\
@@ -493,7 +492,7 @@
       .forabg a:hover {text-decoration: underline !important;}\
       .forabg, .forumbg {background: ' + boardHoverBG + ' !important; border: 1px solid #001752 !important; border-radius: 6px 6px 12px 12px !important; box-shadow: inset 0 0 1px #FFF !important; margin: 0 0 5px 0 !important; padding: 4px 4px 3px 4px !important; position: relative !important;}\
       .forabg:hover .header a, .forumbg:hover .header a {color: ' + textHoverColor + ' !important;}\
-      .forabg[opened="false"], .forumbg[opened="false"] {background: ' + boardBG + ' !important; border-radius: 4px !important; height: 17px !important; width: 300px !important;}\
+      .forabg[opened="false"], .forumbg[opened="false"] {background: ' + boardBG + ' !important; border-radius: 4px !important; height: 17px !important; width: 310px !important;}\
       .forabg[opened="false"] .row-item dd, .forumbg[opened="false"] .row-item dd {display: none !important;}\
       .forabg[opened="false"]:hover, .forumbg[opened="false"]:hover {background: ' + boardHoverBG + ' !important;}\
       .forabg[opened="true"], .forumbg[opened="true"] {background: ' + boardHoverBG + ' !important;}\
