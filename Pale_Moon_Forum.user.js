@@ -25,7 +25,7 @@
         customScrollbar = true,
         bodyBG = '#F0F0F0',
         fontSize = '110%',
-        headerBG = 'linear-gradient(#5BA4ED, #314A85)',
+        headerBG = 'linear-gradient(#4D85CA, #314A85)',
         headerText = '#FFF',
         boardBG = 'linear-gradient(#4D85CA, #314A85)',
         boardHoverBG = '#001752',
