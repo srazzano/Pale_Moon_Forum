@@ -217,22 +217,25 @@
   if (!GM_getValue('Board9')) GM_setValue('Board9', false);
   if (!GM_getValue('Board10')) GM_setValue('Board10', false);
 
-  $('#keywords').placeholder = searchKeyword;
-  $q('A[href="//www.palemoon.org/"][target="_blank"][style="color:#ffff80;"]').style.display = 'none';
-  $q('A[href="//www.palemoon.org/"][style="color:#ffff80;"]').innerHTML = linkHomePage.toUpperCase();
-  $q('A[href="//www.palemoon.org/"][target="_blank"][style="color: rgb(255, 255, 128); display: none;"]').nextSibling.nodeValue = '';
-
-  SiteDescription.appendChild(NavMain);
-  SiteDescriptionP.innerHTML = SiteDescriptionP.innerHTML.replace('Visit the', '').replace('Discussion forum for the Pale Moon web browser', '').replace(/\(or\s+in/, '(in');
-  SiteDescriptionP.appendChild(Link0);
-  SiteDescriptionP.appendChild(Label0);
-  SiteDescriptionP.appendChild(Label1);
-  SiteDescriptionP.appendChild(Link1);
-  SiteDescriptionP.appendChild(Label2);
-  SiteDescriptionP.appendChild(Link2);
-  SiteDescriptionP.appendChild(Label3);
-  SiteDescriptionP.insertBefore(Separator, Label1);
-  SiteDescriptionP.appendChild(NavBreadcrumbs);
+  try {
+    $('#keywords').placeholder = searchKeyword;
+    $q('A[href="//www.palemoon.org/"][target="_blank"][style="color:#ffff80;"]').style.display = 'none';
+    $q('A[href="//www.palemoon.org/"][style="color:#ffff80;"]').innerHTML = linkHomePage.toUpperCase();
+    $q('A[href="//www.palemoon.org/"][target="_blank"][style="color: rgb(255, 255, 128); display: none;"]').nextSibling.nodeValue = '';
+    SiteDescription.appendChild(NavMain);
+    SiteDescriptionP.innerHTML = SiteDescriptionP.innerHTML.replace('Visit the', '').replace('Discussion forum for the Pale Moon web browser', '').replace(/\(or\s+in/, '(in');
+    SiteDescriptionP.appendChild(Link0);
+    SiteDescriptionP.appendChild(Label0);
+    SiteDescriptionP.appendChild(Label1);
+    SiteDescriptionP.appendChild(Link1);
+    SiteDescriptionP.appendChild(Label2);
+    SiteDescriptionP.appendChild(Link2);
+    SiteDescriptionP.appendChild(Label3);
+    SiteDescriptionP.insertBefore(Separator, Label1);
+    SiteDescriptionP.appendChild(NavBreadcrumbs);
+    var pm = $q('#site-description > P:nth-child(3)');
+    pm.innerHTML = pm.innerHTML.replace(/Pale Moon /g, '');
+  } catch(ex) {};
 
   try {
     var srch = $('#search-box'),
