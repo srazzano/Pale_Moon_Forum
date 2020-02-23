@@ -489,7 +489,6 @@
       .button.button-secondary:not([class*="bbcode-"]):hover {background: ' + boardHoverBG + ' !important;}\
       #utc:before {color: ' + textColor + ' !important; content: "\u2022" !important; font-family: monospace !important; font-size: 24px !important; margin-left: 4px !important; position: relative !important; top: 4px !important;}\
       #utc {cursor: default !important; margin: -1px 4px 2px 0 !important;}\
-      //.pagination a[data-ajax] {height: 20px !important; padding: 2px 6px !important;}\
       .pagination li.active span, .pagination li a:hover, .pagination li a:hover .icon, .pagination .dropdown-visible a.dropdown-trigger, .nojs .pagination .dropdown-container:hover a.dropdown-trigger {background: ' + boardBG + ' !important; border-color: #001752 !important; border-radius: 4px !important; box-shadow: inset 0 0 1px #FFF !important; color: ' + textColor + ' !important;}\
       .pagination li.active span {background: ' + boardHoverBG + ' !important; cursor: default !important;}\
       .pagination li a:hover {background: ' + boardBG + ' !important; color: ' + textColor + ' !important;}\
@@ -516,6 +515,7 @@
       li.header dt, li.header dd {color: ' + textColor + ' !important;}\
       li.header dt, li.header dd, #nav-footer {-moz-user-select: none !important;}\
       li.header dt:hover, li.header dd:hover {color: ' + textHoverColor + ' !important;}\
+      li.row dl {margin: 0 !important;}\
       #page-body > div:nth-child(5) > div > ul:last-child > li:last-child {border-radius: 0 0 9px 9px !important;}\
       #page-body > div:nth-child(6) > div > ul:last-child > li:last-child {border-radius: 0 0 9px 9px !important;}\
       body.section-index #page-body > div:nth-child(4):hover > div > ul:first-child > li > dl > dt > div {color: ' + textHoverColor + ' !important; cursor: default !important;}\
