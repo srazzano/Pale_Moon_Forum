@@ -218,6 +218,7 @@
   if (!GM_getValue('Board10')) GM_setValue('Board10', false);
 
   try {
+    var pm = $q('#site-description > P:nth-child(3)');
     $('#keywords').placeholder = searchKeyword;
     $q('A[href="//www.palemoon.org/"][target="_blank"][style="color:#ffff80;"]').style.display = 'none';
     $q('A[href="//www.palemoon.org/"][style="color:#ffff80;"]').innerHTML = linkHomePage.toUpperCase();
@@ -233,7 +234,6 @@
     SiteDescriptionP.appendChild(Label3);
     SiteDescriptionP.insertBefore(Separator, Label1);
     SiteDescriptionP.appendChild(NavBreadcrumbs);
-    var pm = $q('#site-description > P:nth-child(3)');
     pm.innerHTML = pm.innerHTML.replace(/Pale Moon /g, '');
   } catch(ex) {};
 
@@ -242,6 +242,7 @@
         nav = $('#nav-main'),
         inst = $c('button', {id: 'insertBtn', className: 'insertBtn', title: insertField}, [{type: 'click', fn: function() {$('#keywords').value = getSelection()}}]),
         clr = $c('button', {id: 'clearBtn', className: 'clearBtn', title: clearField}, [{type: 'click', fn: function() {$('#keywords').value = ''}}]),
+        spn = $c('span', {id: 'stats-footer'}),
         hidestatsLabel = $c('label', {id: 'hidestatsLabel', textContent: hideStats}, [{type: 'click', fn: function() {HideStats(this.previousSibling)}}]),
         ckBox1 = $c('input', {id: 'hidestats', type: 'checkbox'}, [{type: 'click', fn: function() {HideStats(this)}}]),
         hidefooterLabel = $c('label', {id: 'hidefooterLabel', textContent: hideFooter}, [{type: 'click', fn: function() {HideFooter(this.previousSibling)}}]),
@@ -250,10 +251,11 @@
         bool2 = GM_getValue('hidefooter');
     srch.insertBefore(clr, srch.firstChild);
     srch.insertBefore(inst, srch.firstChild);
-    nav.insertBefore(hidefooterLabel, nav.firstChild);
-    nav.insertBefore(ckBox2, nav.firstChild);
-    nav.insertBefore(hidestatsLabel, nav.firstChild);
-    nav.insertBefore(ckBox1, nav.firstChild);
+    spn.appendChild(ckBox1);
+    spn.appendChild(hidestatsLabel);
+    spn.appendChild(ckBox2);
+    spn.appendChild(hidefooterLabel);
+    nav.insertBefore(spn, nav.firstChild);
     $('#hidestats').checked = bool1;
     $('#hidefooter').checked = bool2;
     if (bool1) $('#page-body').removeAttribute('hide-stats');
@@ -424,6 +426,7 @@
       #hidefooter, #hidestats {-moz-appearance: none !important; border: 1px solid #FFF !important; border-radius: 3px !important; box-shadow: inset 0 0 2px #000 !important; height: 17px !important; margin: 6px 0 0 0 !important; width: 17px !important;}\
       #hidefooterLabel, #hidestatsLabel {color: ' + textColor + ' !important; font-size: ' + fontSize + ' !important; margin: 7px 4px 0 0 !important; padding-left: 4px !important; text-shadow: 1px 1px 2px #000 !important;}\
       #hidefooter, #hidefooterLabel, #hidestats, #hidestatsLabel {float: left !important;}\
+      #hidefooterLabel {margin-right: 2px !important;}\
       #hidefooter:hover + #hidefooterLabel, #hidefooterLabel:hover, #hidestats:hover + #hidestatsLabel, #hidestatsLabel:hover {cursor: pointer !important; text-decoration: underline !important;}\
       .crumb span {margin-left: 4px !important;}\
       .icon-boardrules {margin-right: 50px !important;}\
@@ -538,10 +541,11 @@
       #viewfolder > DIV:first-child > DIV > FIELDSET > DIV > a {margin: 5px 0 0 0 !important; padding: 1px 6px !important; text-decoration: none !important;}\
       .jumpbox-return * {color: ' + textColor + ' !important;}\
       .jumpbox-return:hover, .advanced-search-link:hover, #viewfolder > DIV:first-child > DIV > FIELDSET > DIV > a:hover {background: ' + boardHoverBG + ' !important;}\
-      #jumpbox {height: 26px !important; margin: 0 !important; padding: 2px 6px !important;}\
+      #jumpbox {height: 26px !important; margin: 0 !important; padding: 0 !important;}\
       #jumpbox span {text-decoration: none !important;}\
       #jumpbox > span > span {position: relative !important; top: -1px !important;}\
       .action-bar.actions-jump {margin-bottom: 2px !important;}\
+      .section-viewforum .jumpbox-return {margin-top: -2px !important;}\
       body.section-posting #nav-footer > LI:nth-child(3) {margin-top: 1px !important;}\
       .navbar {background: transparent !important;}\
       #viewfolder .header dd.mark {background: none !important; border: none !important; color: #000 !important; text-shadow: none !important; }\
@@ -550,6 +554,7 @@
       a.top {font-weight: bold !important; padding: 5px !important; text-decoration: none !important;}\
       a.top i {color:#FFF !important;}\
       a.top:hover, .viewHideBtn:hover, .action-bar > a.button:hover, #ucp .panel a.mark:hover {background: ' + boardHoverBG + ' !important; color: ' + textHoverColor + ' !important;}\
+      A[href="#faqlinks"][class="top"] {display: none !important;}\
     }\
   ');
 
