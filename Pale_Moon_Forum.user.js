@@ -463,7 +463,7 @@
       p.responsive-center.time, .mark-read.rightside {background: ' + boardBG + ' !important; border: 1px solid #001752 !important; border-radius: 4px !important; box-shadow: inset 0 0 1px #FFF !important; color: ' + textColor + ' !important; float: right !important; font-size: ' + fontSize + ' !important; height: 20px !important; margin: 0 5px 0 0 !important; padding: 4px 6px 0 6px !important; position: relative !important; text-decoration: none !important; text-shadow: 1px 1px 2px #000 !important; top: 0 !important; vertical-align: top !important;}\
       #page-body > p.responsive-center.time, .mark-read.rightside:hover {background: ' + boardHoverBG + ' !important; color: ' + textColor + ' !important;}\
       #page-body > p.responsive-center.time, .row strong, .lastpost > span:last-child {cursor: default !important;}\
-      #page-body > p.responsive-center.time {-moz-user-select: none !important; font-size: 115% !important; margin-right: 0 !important; padding: 5px 0 0 0 !important; text-align: center !important; width: 211px !important;}\
+      #page-body > p.responsive-center.time {-moz-user-select: none !important; font-size: 115% !important; height: 18px !important; argin-right: 0 !important; padding: 5px 0 0 0 !important; text-align: center !important; width: 211px !important;}\
       .right.responsive-center.time.rightside {display: none !important;}\
       .button.button-search icon.fa-search.fa-fw, .button.button-search icon.fa-cog.fa-fw {color: #606060 !important;}\
       .action-bar {-moz-user-select: none !important; margin: 0 0 5px 0 !important;}\
@@ -489,13 +489,13 @@
       .button.button-secondary:not([class*="bbcode-"]):hover {background: ' + boardHoverBG + ' !important;}\
       #utc:before {color: ' + textColor + ' !important; content: "\u2022" !important; font-family: monospace !important; font-size: 24px !important; margin-left: 4px !important; position: relative !important; top: 4px !important;}\
       #utc {cursor: default !important; margin: -1px 4px 2px 0 !important;}\
-      .pagination a[data-ajax] {height: 20px !important; padding: 2px 6px !important;}\
+      //.pagination a[data-ajax] {height: 20px !important; padding: 2px 6px !important;}\
       .pagination li.active span, .pagination li a:hover, .pagination li a:hover .icon, .pagination .dropdown-visible a.dropdown-trigger, .nojs .pagination .dropdown-container:hover a.dropdown-trigger {background: ' + boardBG + ' !important; border-color: #001752 !important; border-radius: 4px !important; box-shadow: inset 0 0 1px #FFF !important; color: ' + textColor + ' !important;}\
       .pagination li.active span {background: ' + boardHoverBG + ' !important; cursor: default !important;}\
       .pagination li a:hover {background: ' + boardBG + ' !important; color: ' + textColor + ' !important;}\
       .pagination > ul {position: relative !important; top: -2px !important;}\
       .pagination > a {padding: 5px 6px !important; margin-bottom: 2px !important;}\
-      .pagination > a.mark {height: 21px !important; padding: 3px 6px 0 6px !important;}\
+      .pagination > a.mark, .pagination > a.mark-read, .action-bar.bar-bottom .pagination a[data-ajax] {height: 21px !important; padding: 3px 6px 0 6px !important;}\
       .mark:hover, .pagination > a:hover, .advanced-search-link:hover {background: ' + boardHoverBG + ' !important;}\
       .action-bar.bar-top .pagination {margin-bottom: -2px !important;}\
 /* BOARDS */\
