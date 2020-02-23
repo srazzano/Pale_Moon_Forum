@@ -527,8 +527,7 @@
       #page-footer {display: -moz-box !important; margin: 0 0 0 2px !important; padding: 0 !important;}\
       #page-footer[hide-footer] {display: none !important;}\
       #page-footer .navbar {padding: 0 !important;}\
-      #nav-footer {background: ' + boardBG + ' !important; border: 1px solid #001752 !important; border-radius: 4px !important; box-shadow: inset 0 0 1px #FFF !important; color: ' + textColor + ' !important; margin: 0 !important; padding: 0 6px 0 2px !important; text-shadow: 1px 1px 2px #000 !important; width: 715px !important;}\
-      #nav-footer:hover {background: ' + boardHoverBG + ' !important;}\
+      #nav-footer {background: ' + boardHoverBG + ' !important; border: 1px solid #001752 !important; border-radius: 4px !important; box-shadow: inset 0 0 1px #FFF !important; color: ' + textColor + ' !important; margin: 0 !important; padding: 0 6px 0 2px !important; text-shadow: 1px 1px 2px #000 !important; width: 715px !important;}\
       #nav-footer > li {height: 17px !important; padding: 0 0 6px 0 !important; position: relative !important; top: -1px !important;}\
       #nav-footer > li i {position: relative !important; top: 0 !important;}\
       #nav-footer a, #nav-footer span, #nav-footer i {color: ' + textColor + ' !important;}\
