@@ -456,7 +456,8 @@
       .stat-block p {margin: 5px 10px !important;}\
       .stat-block.statistics {margin-bottom: 10px !important; margin-top: 10px !important;}\
 /* ACTION-BAR */\
-      .rightside.responsive-search, .icon.fa-file-o.fa-fw.icon-red {color: ' + textColor + ' !important;}\
+      .rightside.responsive-search {display: none !important;}\
+      .icon.fa-file-o.fa-fw.icon-red {color: ' + textColor + ' !important;}\
       p.responsive-center.time, .mark-read.rightside {background: ' + boardBG + ' !important; border: 1px solid #001752 !important; border-radius: 4px !important; box-shadow: inset 0 0 1px #FFF !important; color: ' + textColor + ' !important; float: right !important; font-size: ' + fontSize + ' !important; height: 20px !important; margin: 0 5px 0 0 !important; padding: 4px 6px 0 6px !important; position: relative !important; text-decoration: none !important; text-shadow: 1px 1px 2px #000 !important; top: 0 !important; vertical-align: top !important;}\
       #page-body > p.responsive-center.time, .mark-read.rightside:hover {background: ' + boardHoverBG + ' !important; color: ' + textColor + ' !important;}\
       #page-body > p.responsive-center.time, .row strong, .lastpost > span:last-child {cursor: default !important;}\
