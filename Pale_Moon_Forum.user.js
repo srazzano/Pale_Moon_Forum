@@ -249,8 +249,6 @@
         ckBox2 = $c('input', {id: 'hidefooter', type: 'checkbox'}, [{type: 'click', fn: function() {HideFooter(this)}}]),
         bool1 = GM_getValue('hidestats'),
         bool2 = GM_getValue('hidefooter');
-    srch.insertBefore(clr, srch.firstChild);
-    srch.insertBefore(inst, srch.firstChild);
     spn.appendChild(ckBox1);
     spn.appendChild(hidestatsLabel);
     spn.appendChild(ckBox2);
@@ -262,6 +260,8 @@
     else $('#page-body').setAttribute('hide-stats', true);
     if (bool2) $('#page-footer').removeAttribute('hide-footer');
     else $('#page-footer').setAttribute('hide-footer', true);
+    srch.insertBefore(clr, srch.firstChild);
+    srch.insertBefore(inst, srch.firstChild);
   } catch(ex) {}
 
   for (var i = 0, utc = $q('#nav-footer > LI.rightside', true); i < utc.length; i++) if (utc[i].textContent.match('All times')) utc[i].setAttribute('id', 'utc');
