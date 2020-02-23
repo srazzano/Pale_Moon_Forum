@@ -428,7 +428,7 @@
       #hidefooter, #hidestats {-moz-appearance: none !important; border: 1px solid #FFF !important; border-radius: 3px !important; box-shadow: inset 0 0 2px #000 !important; height: 17px !important; margin: 6px 0 0 0 !important; width: 17px !important;}\
       #hidefooterLabel, #hidestatsLabel {color: ' + textColor + ' !important; font-size: ' + fontSize + ' !important; margin: 7px 4px 0 0 !important; padding-left: 4px !important; text-shadow: 1px 1px 2px #000 !important;}\
       #hidefooter, #hidefooterLabel, #hidestats, #hidestatsLabel {float: left !important;}\
-      #hidefooterLabel {margin-right: 2px !important;}\
+      #hidefooterLabel {margin-right: 0 !important;}\
       #hidefooter:hover + #hidefooterLabel, #hidefooterLabel:hover, #hidestats:hover + #hidestatsLabel, #hidestatsLabel:hover {cursor: pointer !important; text-decoration: underline !important;}\
       .crumb span {margin-left: 4px !important;}\
       .icon-boardrules {margin-right: 50px !important;}\
@@ -450,13 +450,6 @@
       body.section-viewtopic #page-body > P {display: none !important;}\
 /* PAGE-BODY */\
       #page-body {margin: 76px 2px 0 2px !important;}\
-      #page-body .stat-block {display: block !important;}\
-      #page-body[hide-stats] .stat-block {display: none !important;}\
-      .stat-block > h3 {border: none !important; margin-top: 5px !important;}\
-      .stat-block > h3 > a {background: ' + boardBG + ' !important; border: 1px solid #001752 !important; border-radius: 4px !important; box-shadow: inset 0 0 1px #FFF !important; color: ' + textColor + ' !important; padding: 5px 6px !important; text-decoration: none !important; text-shadow: 1px 1px 2px #000 !important;}\
-      .stat-block > h3 > a:hover {background: ' + boardHoverBG + ' !important;}\
-      .stat-block p {margin: 5px 10px !important;}\
-      .stat-block.statistics {margin-bottom: 10px !important; margin-top: 10px !important;}\
 /* ACTION-BAR */\
       .rightside.responsive-search {display: none !important;}\
       .icon.fa-file-o.fa-fw.icon-red {color: ' + textColor + ' !important;}\
@@ -559,6 +552,15 @@
       a.top i {color:#FFF !important;}\
       a.top:hover, .viewHideBtn:hover, .action-bar > a.button:hover, #ucp .panel a.mark:hover {background: ' + boardHoverBG + ' !important; color: ' + textHoverColor + ' !important;}\
       A[href="#faqlinks"][class="top"] {display: none !important;}\
+      #page-body .stat-block {display: block !important;}\
+      #page-body[hide-stats] .stat-block {display: none !important;}\
+      .stat-block.online-list, .stat-block.statistics {background: #F0F4F9; !important; border: 5px solid #001752 !important;}\
+      .stat-block.online-list {border-bottom: none !important; border-radius: 8px 8px 0 0 !important; padding: 0 0 5px 0 !important;}\
+      .stat-block.online-list > h3 {background: ' + boardHoverBG + ' !important; border: none !important; box-shadow: none !important; margin: -5px 0 0 0 !important;padding: 5px 6px !important; text-decoration: none !important; text-shadow: 1px 1px 2px #000 !important;}\
+      .stat-block.online-list > h3 > a {color: ' + textColor + ' !important;}\
+      .stat-block.statistics {border-top: none !important; border-radius: 0 0 12px 12px !important; margin: -22px 0 5px 0 !important; padding: 0 0 5px 0 !important;}\
+      .stat-block.statistics > h3 {background: none !important; border: none !important; padding: 8px 0 0 6px !important;}\
+      .stat-block.online-list p, .stat-block.statistics p {margin: 0 14px !important;}\
     }\
   ');
 
