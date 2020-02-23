@@ -407,12 +407,11 @@
       .clearBtn:hover {background: url(https://raw.githubusercontent.com/srazzano/Images/master/clear.png) no-repeat center, linear-gradient(#E9E9E9, #FFFFFF) !important; filter: none !important;}\
       #page-body .insertBtn {border: 1px solid #C7C3BF !important; height: 26px !important;}\
       #page-body .clearBtn {border: 1px solid #C7C3BF !important; border-left: none !important; border-right: none !important; height: 26px !important;}\
-      #search-box {box-shadow: none !important; float: right !important; width: 317px !important;}\
-      #forum-search {width: 345px !important;}\
+      #search-box {border: 1px solid #001752 !important; box-shadow: none !important; float: right !important; margin-right: 2px !important; width: 317px !important;}\
+      #page-body .search-box, #forum-search {width: 320px !important;}\
       #keywords, #add_keywords {border-radius: 0 !important; width: 200px !important;}\
       #search_keywords, #add_keywords {border-radius: 0 !important; color: #000 !important; height: 26px !important; width: 200px !important;}\
       .search-header {margin-top: 30px !important;}\
-      .search-box {width: 345px !important;}\
       .search-box button.search-icon, .search-box a.button {padding: 3px 4px 1px 2px !important;}\
       .advanced-search-link { margin: 7px 0 0 0 !important;}\
       .advanced-search-link span#aBull {display: none !important;}\
