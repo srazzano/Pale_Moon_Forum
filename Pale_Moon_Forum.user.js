@@ -238,15 +238,12 @@
   } catch(ex) {};
 
   try {
-    var srch = $('#search-box'),
-        nav = $('#nav-main'),
-        inst = $c('button', {id: 'insertBtn', className: 'insertBtn', title: insertField}, [{type: 'click', fn: function() {$('#keywords').value = getSelection()}}]),
-        clr = $c('button', {id: 'clearBtn', className: 'clearBtn', title: clearField}, [{type: 'click', fn: function() {$('#keywords').value = ''}}]),
+    var nav = $('#nav-main'),
         spn = $c('span', {id: 'stats-footer'}),
-        hidestatsLabel = $c('label', {id: 'hidestatsLabel', textContent: hideStats}, [{type: 'click', fn: function() {HideStats(this.previousSibling)}}]),
         ckBox1 = $c('input', {id: 'hidestats', type: 'checkbox'}, [{type: 'click', fn: function() {HideStats(this)}}]),
-        hidefooterLabel = $c('label', {id: 'hidefooterLabel', textContent: hideFooter}, [{type: 'click', fn: function() {HideFooter(this.previousSibling)}}]),
+        hidestatsLabel = $c('label', {id: 'hidestatsLabel', textContent: hideStats}, [{type: 'click', fn: function() {HideStats(this.previousSibling)}}]),
         ckBox2 = $c('input', {id: 'hidefooter', type: 'checkbox'}, [{type: 'click', fn: function() {HideFooter(this)}}]),
+        hidefooterLabel = $c('label', {id: 'hidefooterLabel', textContent: hideFooter}, [{type: 'click', fn: function() {HideFooter(this.previousSibling)}}]),
         bool1 = GM_getValue('hidestats'),
         bool2 = GM_getValue('hidefooter');
     spn.appendChild(ckBox1);
@@ -260,6 +257,12 @@
     else $('#page-body').setAttribute('hide-stats', true);
     if (bool2) $('#page-footer').removeAttribute('hide-footer');
     else $('#page-footer').setAttribute('hide-footer', true);
+  } catch(ex) {}
+
+  try {
+    var srch = $('#search-box'),
+        clr = $c('button', {id: 'clearBtn', className: 'clearBtn', title: clearField}, [{type: 'click', fn: function() {$('#keywords').value = ''}}]),
+        inst = $c('button', {id: 'insertBtn', className: 'insertBtn', title: insertField}, [{type: 'click', fn: function() {$('#keywords').value = getSelection()}}]);
     srch.insertBefore(clr, srch.firstChild);
     srch.insertBefore(inst, srch.firstChild);
   } catch(ex) {}
