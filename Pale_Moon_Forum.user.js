@@ -557,7 +557,7 @@
       .stat-block.online-list, .stat-block.statistics {background: #F0F4F9; !important; border: 5px solid #001752 !important;}\
       .stat-block.online-list {border-bottom: none !important; border-radius: 8px 8px 0 0 !important; padding: 0 0 5px 0 !important;}\
       .stat-block.online-list > h3 {background: ' + boardHoverBG + ' !important; border: none !important; box-shadow: none !important; margin: -5px 0 0 0 !important;padding: 5px 6px !important; text-decoration: none !important; text-shadow: 1px 1px 2px #000 !important;}\
-      .stat-block.online-list > h3 > a {color: ' + textColor + ' !important;}\
+      .stat-block.online-list > h3 > a {color: ' + textColor + ' !important; display: block !important;}\
       .stat-block.statistics {border-top: none !important; border-radius: 0 0 12px 12px !important; margin: -22px 0 5px 0 !important; padding: 0 0 5px 0 !important;}\
       .stat-block.statistics > h3 {background: none !important; border: none !important; padding: 8px 0 0 6px !important;}\
       .stat-block.online-list p, .stat-block.statistics p {margin: 0 14px !important;}\
