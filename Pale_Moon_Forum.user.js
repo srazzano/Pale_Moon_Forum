@@ -421,7 +421,7 @@
       #nav-main {position: absolute !important; right: 4px !important; top: 0 !important;}\
       #nav-main a, #nav-main span, #viewfolder .mark {color: ' + textColor + ' !important; font-weight: bold !important; text-shadow: 1px 1px 2px #000 !important;}\
       #nav-main .dropdown *, #notification_list *, #nav-main #quick-links a, .header .list-inner.with-mark, .header .mark {color: #000 !important; text-shadow: none !important;}\
-      #nav-breadcrumbs {height: 0 !important; margin: 6px 0 0 0 !important; padding: 0 !important;}\
+      #nav-breadcrumbs {height: 0 !important; margin: 7px 0 0 0 !important; padding: 0 !important;}\
       #nav-breadcrumbs a {color: ' + textColor + ' !important;}\
       #nav-breadcrumbs li {margin: 2px 8px 0 0 !important;}\
       #nav-breadcrumbs span {font-size: ' + fontSize + ' !important;}\
