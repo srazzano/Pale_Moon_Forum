@@ -332,7 +332,7 @@
           -moz-appearance: none !important;\
           background: linear-gradient(#314984, #61B0FC) !important;\
           border: 1px solid #314984 !important;\
-          border-radius: 3px !important;\
+          border-radius: 4px !important;\
           color: #FFF !important;\
           padding: 0 8px !important;\
           text-decoration: none !important;\
@@ -350,7 +350,7 @@
           -moz-appearance: none !important;\
           background: linear-gradient(#006300, #00CC00) !important;\
           border: 1px solid #006300 !important;\
-          border-radius: 3px !important;\
+          border-radius: 4px !important;\
           color: #FFF !important;\
           padding: 0 8px !important;\
           text-decoration: none !important;\
@@ -492,7 +492,7 @@
       #utc:before {color: ' + textColor + ' !important; content: "\u2022" !important; font-family: monospace !important; font-size: 24px !important; margin-left: 4px !important; position: relative !important; top: 4px !important;}\
       #utc {cursor: default !important; margin: -1px 4px 2px 0 !important;}\
       .pagination a[data-ajax] {height: 20px !important; padding: 2px 6px !important;}\
-      .pagination li.active span, .pagination li a:hover, .pagination li a:hover .icon, .pagination .dropdown-visible a.dropdown-trigger, .nojs .pagination .dropdown-container:hover a.dropdown-trigger {background: ' + boardBG + ' !important; border-color: #001752 !important; border-radius: 3px !important; box-shadow: inset 0 0 1px #FFF !important; color: ' + textColor + ' !important;}\
+      .pagination li.active span, .pagination li a:hover, .pagination li a:hover .icon, .pagination .dropdown-visible a.dropdown-trigger, .nojs .pagination .dropdown-container:hover a.dropdown-trigger {background: ' + boardBG + ' !important; border-color: #001752 !important; border-radius: 4px !important; box-shadow: inset 0 0 1px #FFF !important; color: ' + textColor + ' !important;}\
       .pagination li.active span {background: ' + boardHoverBG + ' !important; cursor: default !important;}\
       .pagination li a:hover {background: ' + boardBG + ' !important; color: ' + textColor + ' !important;}\
       .pagination > ul {position: relative !important; top: -2px !important;}\
