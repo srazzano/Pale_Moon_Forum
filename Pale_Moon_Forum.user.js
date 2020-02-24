@@ -218,7 +218,7 @@
   if (!GM_getValue('Board9')) GM_setValue('Board9', false);
   if (!GM_getValue('Board10')) GM_setValue('Board10', false);
 
-  try {
+  //try {
     var pm = $q('#site-description > P:nth-child(3)');
     $('#keywords').placeholder = searchKeyword;
     $q('A[href="//www.palemoon.org/"][target="_blank"][style="color:#ffff80;"]').style.display = 'none';
@@ -236,29 +236,33 @@
     SiteDescriptionP.insertBefore(Separator, Label1);
     SiteDescriptionP.appendChild(NavBreadcrumbs);
     pm.innerHTML = pm.innerHTML.replace(/Pale Moon /g, '');
-  } catch(ex) {};
+  //} catch(ex) {};
 
-  try {
-    var nav = $('#nav-main'),
-        spn = $c('span', {id: 'stats-footer'}),
-        ckBox1 = $c('input', {id: 'hidestats', type: 'checkbox'}, [{type: 'click', fn: function() {HideStats(this)}}]),
-        hidestatsLabel = $c('label', {id: 'hidestatsLabel', textContent: hideStats}, [{type: 'click', fn: function() {HideStats(this.previousSibling)}}]),
-        ckBox2 = $c('input', {id: 'hidefooter', type: 'checkbox'}, [{type: 'click', fn: function() {HideFooter(this)}}]),
-        hidefooterLabel = $c('label', {id: 'hidefooterLabel', textContent: hideFooter}, [{type: 'click', fn: function() {HideFooter(this.previousSibling)}}]),
-        bool1 = GM_getValue('hidestats'),
-        bool2 = GM_getValue('hidefooter');
-    spn.appendChild(ckBox1);
-    spn.appendChild(hidestatsLabel);
-    spn.appendChild(ckBox2);
-    spn.appendChild(hidefooterLabel);
-    nav.insertBefore(spn, nav.firstChild);
-    $('#hidestats').checked = bool1;
-    $('#hidefooter').checked = bool2;
-    if (bool1) $('#page-body').removeAttribute('hide-stats');
-    else $('#page-body').setAttribute('hide-stats', true);
-    if (bool2) $('#page-footer').removeAttribute('hide-footer');
-    else $('#page-footer').setAttribute('hide-footer', true);
-  } catch(ex) {}
+  var nav = $('#nav-main'),
+      spn = $c('span', {id: 'stats-footer'}),
+      ckBox1 = $c('input', {id: 'hidestats', type: 'checkbox'}, [{type: 'click', fn: function() {HideStats(this)}}]),
+      hidestatsLabel = $c('label', {id: 'hidestatsLabel', textContent: hideStats}, [{type: 'click', fn: function() {HideStats(this.previousSibling)}}]),
+      ckBox2 = $c('input', {id: 'hidefooter', type: 'checkbox'}, [{type: 'click', fn: function() {HideFooter(this)}}]),
+      hidefooterLabel = $c('label', {id: 'hidefooterLabel', textContent: hideFooter}, [{type: 'click', fn: function() {HideFooter(this.previousSibling)}}]),
+      bool1 = GM_getValue('hidestats'),
+      bool2 = GM_getValue('hidefooter');
+  spn.appendChild(ckBox1);
+  spn.appendChild(hidestatsLabel);
+  spn.appendChild(ckBox2);
+  spn.appendChild(hidefooterLabel);
+  nav.insertBefore(spn, nav.firstChild);
+  $('#hidestats').checked = bool1;
+  $('#hidefooter').checked = bool2;
+  if (bool1) $('#page-body').removeAttribute('hide-stats');
+  else $('#page-body').setAttribute('hide-stats', true);
+  if (bool2) $('#page-footer').removeAttribute('hide-footer');
+  else $('#page-footer').setAttribute('hide-footer', true);
+
+  var drop = $q('#quick-links .dropdown-contents'),
+      faq = $q('#nav-main > LI:nth-child(3)'),
+      rule = $q('#nav-main > LI:nth-child(4)');
+  drop.appendChild(rule);
+  drop.appendChild(faq);
 
   try {
     var srch = $('#search-box'),
@@ -457,6 +461,7 @@
       #username_logged_in .username {color: ' + textColor + ' !important; text-shadow: 1px 1px 2px #000 !important;}\
       #username_logged_in a span {color: #000 !important; text-shadow: none !important;}\
       body.section-viewtopic #page-body > P {display: none !important;}\
+      #quick-links LI {border: none !important;}\
 /* PAGE-BODY */\
       #page-body {margin: 76px 2px 0 2px !important;}\
 /* ACTION-BAR */\
