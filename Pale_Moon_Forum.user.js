@@ -547,9 +547,9 @@
       .jumpbox-return * {color: ' + textColor + ' !important;}\
       .jumpbox-return:hover, .advanced-search-link:hover, #viewfolder > DIV:first-child > DIV > FIELDSET > DIV > a:hover {background: ' + boardHoverBG + ' !important;}\
       #jumpbox {height: 26px !important; margin: 0 !important; padding: 0 !important;}\
-      #jumpbox span {text-decoration: none !important;}\
       #jumpbox > span > span {position: relative !important; top: -1px !important;}\
       .action-bar.actions-jump {margin-bottom: 2px !important;}\
+      #jumpbox span {margin: -3px 0 0 0 !important; text-decoration: none !important;}\
       .section-viewforum .jumpbox-return {margin-top: -2px !important;}\
       body.section-posting #nav-footer > LI:nth-child(3) {margin-top: 1px !important;}\
       .navbar {background: transparent !important;}\
