@@ -31,6 +31,7 @@
         boardHoverBG = '#001752',
         lockedBG = '#EED9D9',
         lockedHoverBG = '#FFEAEA',
+        rowHover = '#FFFFEE',
         stickyBG = '#EED9D9',
         stickyHoverBG = '#FFEAEA',
         textColor = '#FFF',
@@ -322,6 +323,14 @@
     } catch(ex) {}
   }
 
+  try {
+    var stat1 = $q('.stat-block.online-list'),
+        stat2 = $q('.stat-block.statistics'),
+        stat3 = $q('.stat-block.permissions');
+    if (stat3) stat1.appendChild(stat3);
+    if (stat2) stat1.appendChild(stat2);
+  } catch(ex) {}
+
   addEventListener('load', function() {timer_Interval = setInterval(function() {if (pmindex) DateTime.textContent = aDateTime()}, timerInterval)}, false);
   addEventListener('unload', function() {clearInterval(timer_Interval)}, false);
 
@@ -517,7 +526,7 @@
       body.section-viewforum #page-body > div:nth-child(6):hover > div > UL:first-child > li > dl > dt > div {color: ' + textHoverColor + ' !important; cursor: default !important;}\
       .topiclist.forums {margin-top: -2px !important;}\
       .row-item.forum_unread .list-inner {color: #000 !important;}\
-      .row:hover {background-color: #F6F4D0 !important;}\
+      .row:hover {background-color: ' + rowHover + ' !important;}\
       //.sticky {background: ' + stickyBG + ' !important;}\
       //.sticky:hover, .global-announce:hover, .announce:hover {background: ' + stickyHoverBG + ' !important;}\
       //.global-announce, .announce {background: ' + lockedBG + ' !important;}\
@@ -553,13 +562,14 @@
       A[href="#faqlinks"][class="top"] {display: none !important;}\
       #page-body .stat-block {display: block !important;}\
       #page-body[hide-stats] .stat-block {display: none !important;}\
-      .stat-block.online-list, .stat-block.statistics {background: #F0F4F9; !important; border: 5px solid #001752 !important;}\
-      .stat-block.online-list {border-bottom: none !important; border-radius: 8px 8px 0 0 !important; padding: 0 0 5px 0 !important;}\
+      .stat-block.online-list {background: #F0F4F9 !important; border: 5px solid #001752 !important; border-radius: 8px 8px 12px 12px !important; margin-bottom: 5px !important; padding-bottom: 0 !important;}\
+      .stat-block.online-list {padding: 0 !important;}\
       .stat-block.online-list > h3 {background: ' + boardHoverBG + ' !important; border: none !important; box-shadow: none !important; margin: -5px 0 0 0 !important;padding: 5px 6px !important; text-decoration: none !important; text-shadow: 1px 1px 2px #000 !important;}\
       .stat-block.online-list > h3 > a {color: ' + textColor + ' !important; display: block !important;}\
-      .stat-block.statistics {border-top: none !important; border-radius: 0 0 12px 12px !important; margin: -22px 0 5px 0 !important; padding: 0 0 5px 0 !important;}\
-      .stat-block.statistics > h3 {background: none !important; border: none !important; padding: 8px 0 0 6px !important;}\
-      .stat-block.online-list p, .stat-block.statistics p {margin: 0 14px !important;}\
+      .stat-block.statistics {border: none !important; border-radius: 0 !important; padding: 8px 0 0 0 !important;}\
+      .stat-block.statistics > h3, .stat-block.permissions > h3 {border: none !important; padding: 0 !important; margin: 8px 0 -4px 4px !important;}\
+      .stat-block.online-list p, .stat-block.statistics p {margin: 4px 0 4px 8px !important;}\
+      .stat-block.online-list:hover, .stat-block.online-list:hover .stat-block.statistics {background: ' + rowHover + ' !important;}\
     }\
   ');
 
