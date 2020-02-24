@@ -233,6 +233,7 @@
   SiteDescriptionP.appendChild(Label3);
   SiteDescriptionP.insertBefore(Separator, Label1);
   SiteDescriptionP.appendChild(NavBreadcrumbs);
+  SiteDescriptionP.removeChild(SiteDescriptionP.childNodes[9]);
 
   var nav = $('#nav-main'),
       spn = $c('span', {id: 'stats-footer'}),
