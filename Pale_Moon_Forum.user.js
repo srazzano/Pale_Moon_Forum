@@ -572,6 +572,7 @@
       .stat-block.statistics > h3 {border: none !important; padding: 0 !important; margin: 0 0 -4px 4px !important;}\
       .stat-block.permissions > h3 {border: none !important; padding: 0 !important; margin: 8px 0 -4px 4px !important;}\
       #page-body > DIV:last-child > DIV > P > STRONG * {color: #000  !important;}\
+      .stat-block.online-list > p:first-of-type {border-bottom: 1px solid #000 !important; !important; padding-bottom: 8px !important;}\
       .stat-block.online-list:hover, .stat-block.online-list:hover .stat-block.statistics {background: ' + rowHover + ' !important; border-radius: 8px 8px 12px 12px !important;}\
     }\
   ');
