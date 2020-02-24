@@ -398,9 +398,10 @@
       html {height: 100% !important;}\
       html, body {background: ' + bodyBG + ' !important;}\
 /* PAGE-HEADER */\
-      #page-header {-moz-user-select: none !important; height: 83px !important; position: fixed !important; top: 0 !important; width: 100% !important; z-index: 2147483647 !important;}\
+      #page-header {-moz-user-select: none !important; position: fixed !important; top: 0 !important; width: 100% !important; z-index: 2147483647 !important;}\
       #page-header > .headerbar {background: ' + headerBG + ' !important; border: 1px solid #001752 !important; border-radius: 0 0 8px 8px !important; height: 83px !important; margin: 0 2px !important; padding: 0 !important;}\
       #page-header > .headerbar a, #hidestatsLabel, #hidefooterLabel {font-style: italic !important; font-weight: bold !important;}\
+      #site-description h1, #site-description p, #site-description span, #site-description a, #site-description i, #site-description span.username, #stats-footer > label, ul#nav-main span {color: ' + headerText + ' !important;}\
       .header, .header a {color: ' + textColor + ' !important; display: block !important; font-size: ' + fontSize + ' !important; font-weight: bold !important; position: relative !important; text-shadow: 1px 1px 2px #000 !important; top: -1px !important;}\
       .header:hover, .header:hover a {color: ' + textHoverColor + ' !important;}\
       #wrap {background: ' + bodyBG + ' !important; border: none !important; box-shadow: none !important; min-width: 100% !important; padding: 0 !important;}\
@@ -453,7 +454,6 @@
       #site-description br, #page-body h2, .rules, .copyright {display: none !important;}\
       #page-body > div:nth-child(2):not(.boardrules-container) {display: none !important;}\
       #page-body > p:nth-child(2) {float: right !important;}\
-      #site-description h1, #site-description p, #site-description span, #site-description a, #site-description i, #site-description span.username {color: ' + headerText + ' !important;}\
       #username_logged_in .username {color: ' + textColor + ' !important; text-shadow: 1px 1px 2px #000 !important;}\
       #username_logged_in a span {color: #000 !important; text-shadow: none !important;}\
       body.section-viewtopic #page-body > P {display: none !important;}\
