@@ -83,7 +83,6 @@
       NavBreadcrumbs = $('#nav-breadcrumbs'),
       IconNotification = $q('.icon-notification > a > strong'),
       IconPM = $q('.icon-pm > a > strong'),
-      DateTime = $q('#page-body > p:nth-child(2)'),
       url = window.location.href.toLowerCase(),
       pmindex = url.match('https://forum.palemoon.org/index'),
       pmforum = url.match('https://forum.palemoon.org/viewforum'),
@@ -235,6 +234,13 @@
   SiteDescriptionP.appendChild(NavBreadcrumbs);
   SiteDescriptionP.removeChild(SiteDescriptionP.childNodes[9]);
 
+  var dt = $c('span', {id: 'date-time'}),
+      sd = $q('#site-description > H1');
+  sd.appendChild(dt);
+  dt.textContent = aDateTime();
+  dt.title = dateTimeTip;
+  dt.addEventListener('mouseover', function() {dt.textContent = aDateTime()}, false);
+
   var nav = $('#nav-main'),
       spn = $c('span', {id: 'stats-footer'}),
       ckBox1 = $c('input', {id: 'hidestats', type: 'checkbox'}, [{type: 'click', fn: function() {HideStats(this)}}]),
@@ -288,11 +294,7 @@
       item[i].setAttribute('opened', bool3);
       item[i].style.display = sty3;
       item[i].childNodes[2].lastElementChild.style.display = sty3;
-    }
-    DateTime.textContent = aDateTime();
-    DateTime.title = dateTimeTip;
-    DateTime.addEventListener('mouseover', function() {DateTime.textContent = aDateTime()}, false);
-  }
+  } }
 
   if (pmforum) {
     try {
@@ -334,7 +336,7 @@
     if (stat2) stat1.appendChild(stat2);
   } catch(ex) {}
 
-  addEventListener('load', function() {timer_Interval = setInterval(function() {if (pmindex) DateTime.textContent = aDateTime()}, timerInterval)}, false);
+  addEventListener('load', function() {timer_Interval = setInterval(function() {dt.textContent = aDateTime()}, timerInterval)}, false);
   addEventListener('unload', function() {clearInterval(timer_Interval)}, false);
 
   try {
@@ -405,6 +407,7 @@
       #page-header > .headerbar {background: ' + headerBG + ' !important; border: 1px solid #001752 !important; border-radius: 0 0 8px 8px !important; height: 83px !important; margin: 0 2px !important; padding: 0 !important;}\
       #page-header > .headerbar a, #hidestatsLabel, #hidefooterLabel {font-style: italic !important; font-weight: bold !important;}\
       #site-description h1, #site-description p, #site-description span, #site-description a, #site-description i, #site-description span.username, #stats-footer > label, ul#nav-main span {color: ' + headerText + ' !important;}\
+      #date-time {font-size: 70% !important; margin-left: 10px !important;}\
       .header, .header a {color: ' + textColor + ' !important; display: block !important; font-size: ' + fontSize + ' !important; font-weight: bold !important; position: relative !important; text-shadow: 1px 1px 2px #000 !important; top: -1px !important;}\
       .header:hover, .header:hover a {color: ' + textHoverColor + ' !important;}\
       #wrap {background: ' + bodyBG + ' !important; border: none !important; box-shadow: none !important; min-width: 100% !important; padding: 0 !important;}\
@@ -466,11 +469,11 @@
 /* ACTION-BAR */\
       .rightside.responsive-search {display: none !important;}\
       .icon.fa-file-o.fa-fw.icon-red {color: ' + textColor + ' !important;}\
-      p.responsive-center.time, .mark-read.rightside {background: ' + boardBG + ' !important; border: 1px solid #001752 !important; border-radius: 4px !important; box-shadow: inset 0 0 1px #FFF !important; color: ' + textColor + ' !important; float: right !important; font-size: ' + fontSize + ' !important; height: 20px !important; margin: 0 5px 0 0 !important; padding: 4px 6px 0 6px !important; position: relative !important; text-decoration: none !important; text-shadow: 1px 1px 2px #000 !important; top: 0 !important; vertical-align: top !important;}\
+      .mark-read.rightside {background: ' + boardBG + ' !important; border: 1px solid #001752 !important; border-radius: 4px !important; box-shadow: inset 0 0 1px #FFF !important; color: ' + textColor + ' !important; float: right !important; font-size: ' + fontSize + ' !important; height: 20px !important; margin: 0 !important; padding: 4px 6px 0 6px !important; position: relative !important; text-decoration: none !important; text-shadow: 1px 1px 2px #000 !important; top: 0 !important; vertical-align: top !important;}\
       #page-body > p.responsive-center.time, .mark-read.rightside:hover {background: ' + boardHoverBG + ' !important; color: ' + textColor + ' !important;}\
       #page-body > p.responsive-center.time, .row strong, .lastpost > span:last-child {cursor: default !important;}\
       #page-body > p.responsive-center.time {-moz-user-select: none !important; font-size: 115% !important; height: 19px !important; margin-right: 0 !important; padding: 5px 0 0 0 !important; text-align: center !important; width: 211px !important;}\
-      .right.responsive-center.time.rightside {display: none !important;}\
+      .responsive-center.time, .right.responsive-center.time.rightside {display: none !important;}\
       .button.button-search icon.fa-search.fa-fw, .button.button-search icon.fa-cog.fa-fw {color: #606060 !important;}\
       .action-bar {-moz-user-select: none !important; margin: 0 0 5px 0 !important;}\
       .action-bar a {text-decoration: none !important;}\
@@ -531,9 +534,6 @@
       .topiclist.forums {margin-top: -2px !important;}\
       .row-item.forum_unread .list-inner {color: #000 !important;}\
       .row:hover {background-color: ' + rowHover + ' !important;}\
-      //.sticky {background: ' + stickyBG + ' !important;}\
-      //.sticky:hover, .global-announce:hover, .announce:hover {background: ' + stickyHoverBG + ' !important;}\
-      //.global-announce, .announce {background: ' + lockedBG + ' !important;}\
       .forumbg li[locked] {background: ' + lockedBG + ' !important;}\
       .forumbg li[locked]:hover {background: ' + lockedHoverBG + ' !important;}\
 /* PAGE-FOOTER */\
