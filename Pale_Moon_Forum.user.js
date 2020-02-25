@@ -257,7 +257,9 @@
 
   var drop = $q('#quick-links .dropdown-contents'),
       faq = $q('#nav-main > LI:nth-child(3)'),
-      rule = $q('#nav-main > LI:nth-child(4)');
+      rule = $q('#nav-main > LI:nth-child(4)'),
+      pm = $q('#nav-main > LI:nth-child(6)');
+  drop.insertBefore(pm, drop.childNodes[15]);
   drop.appendChild(rule);
   drop.appendChild(faq);
 
