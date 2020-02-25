@@ -3,4 +3,4 @@ Tweaks for the Pale Moon Forum: <a href="https://raw.githubusercontent.com/srazz
 
 Start by clicking on "View All Boards" button to view all collapsed boards, then check/uncheck desired boards<br>to expand/collapse. Click on "Hide Unchecked Boards" button or reload page to hide the unchecked boards.<br>Displays only selected (checked) boards on all return visits to the page.
 
-<img src="https://github.com/srazzano/Images/blob/master/forum3.png"/>
+<img src="https://github.com/srazzano/Images/blob/master/pmforum.png"/>
