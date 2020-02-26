@@ -431,8 +431,6 @@
       .search-box button.search-icon, .search-box a.button {padding: 3px 4px 1px 2px !important;}\
       .advanced-search-link { margin: 7px 0 0 0 !important;}\
       .advanced-search-link span#aBull {display: none !important;}\
-      .navbar {padding: 0 8px !important;}\
-      .navbar ul.linklist {padding: 0 !important;}\
       ul.navlinks {border: none !important;}\
       #nav-main {position: absolute !important; right: 4px !important; top: 0 !important;}\
       #nav-main a, #nav-main span, #viewfolder .mark {color: ' + textColor + ' !important; font-weight: bold !important; text-shadow: 1px 1px 2px #000 !important;}\
@@ -459,7 +457,6 @@
       #page-header, .topics, .posts, .views {cursor: default !important;}\
       #site-description br, #page-body h2, .rules, .copyright {display: none !important;}\
       #page-body > div:nth-child(2):not(.boardrules-container) {display: none !important;}\
-      #page-body > p:nth-child(2) {float: right !important;}\
       #username_logged_in .username {color: ' + textColor + ' !important; text-shadow: 1px 1px 2px #000 !important;}\
       #username_logged_in a span {color: #000 !important; text-shadow: none !important;}\
       body.section-viewtopic #page-body > P {display: none !important;}\
@@ -469,11 +466,10 @@
 /* ACTION-BAR */\
       .rightside.responsive-search {display: none !important;}\
       .icon.fa-file-o.fa-fw.icon-red {color: ' + textColor + ' !important;}\
-      .mark-read.rightside {background: ' + boardBG + ' !important; border: 1px solid #001752 !important; border-radius: 4px !important; box-shadow: inset 0 0 1px #FFF !important; color: ' + textColor + ' !important; float: right !important; font-size: ' + fontSize + ' !important; height: 20px !important; margin: 0 !important; padding: 4px 6px 0 6px !important; position: relative !important; text-decoration: none !important; text-shadow: 1px 1px 2px #000 !important; top: 0 !important; vertical-align: top !important;}\
-      #page-body > p.responsive-center.time, .mark-read.rightside:hover {background: ' + boardHoverBG + ' !important; color: ' + textColor + ' !important;}\
-      #page-body > p.responsive-center.time, .row strong, .lastpost > span:last-child {cursor: default !important;}\
-      #page-body > p.responsive-center.time {-moz-user-select: none !important; font-size: 115% !important; height: 19px !important; margin-right: 0 !important; padding: 5px 0 0 0 !important; text-align: center !important; width: 211px !important;}\
-      .responsive-center.time, .right.responsive-center.time.rightside {display: none !important;}\
+      .mark-read.rightside {background: ' + boardBG + ' !important; border: 1px solid #001752 !important; border-radius: 4px !important; box-shadow: inset 0 0 1px #FFF !important; color: ' + textColor + ' !important; float: right !important; font-size: ' + fontSize + ' !important; height: 20px !important; margin: 0 !important; padding: 4px 6px 0 6px !important; text-decoration: none !important; text-shadow: 1px 1px 2px #000 !important; }\
+      .mark-read.rightside:hover {background: ' + boardHoverBG + ' !important; color: ' + textColor + ' !important;}\
+      .row strong, .lastpost > span:last-child {cursor: default !important;}\
+      #page-body > p {display: none !important;}\
       .button.button-search icon.fa-search.fa-fw, .button.button-search icon.fa-cog.fa-fw {color: #606060 !important;}\
       .action-bar {-moz-user-select: none !important; margin: 0 0 5px 0 !important;}\
       .action-bar a {text-decoration: none !important;}\
@@ -489,9 +485,6 @@
       .viewHideBtn {height: 26px !important;}\
       .mark-read.rightside {padding: 4px 6px 0 6px !important;}\
       .mark, .pagination > a, .advanced-search-link {background: ' + boardBG + ' !important; border: 1px solid #001752 !important; border-radius: 4px !important; box-shadow: inset 0 0 1px #FFF !important; color: ' + textColor + ' !important; font-size: ' + fontSize + ' !important; font-weight: bold !important; padding: 4px 6px !important; text-shadow: 1px 1px 2px #000 !important;}\
-      #page-body p.advanced-search-link {float: left !important; margin: 0px 5px 0 0 !important; padding: 0px 6px 0 4px !important;}\
-      #page-body p.advanced-search-link > a{margin-top: 3px !important; padding-bottom: 5px !important;}\
-      p.advanced-search-link a, p.advanced-search-link a i {color: #FFF !important; text-decoration: none !important;}\
       .mark-read.rightside:after, .mark[data-ajax]:after, .pagination > a:after {color: ' + textColor + ' !important; content: "\u2714" !important; margin-left: 6px !important;}\
       .button.button-secondary:not([class*="bbcode-"]) {-moz-appearance: none !important; background: ' + boardBG + ' !important; border: 1px solid #001752 !important; border-radius: 4px !important; box-shadow: inset 0 0 1px #FFF !important; color: ' + textColor + ' !important; padding: 3px 6px !important; text-shadow: 1px 1px 2px #000 !important;}\
       .button.button-secondary .fa-fw {color: ' + textColor + ' !important;}\
@@ -501,7 +494,6 @@
       .pagination li.active span, .pagination li a:hover, .pagination li a:hover .icon, .pagination .dropdown-visible a.dropdown-trigger, .nojs .pagination .dropdown-container:hover a.dropdown-trigger {background: ' + boardBG + ' !important; border-color: #001752 !important; border-radius: 4px !important; box-shadow: inset 0 0 1px #FFF !important; color: ' + textColor + ' !important;}\
       .pagination li.active span {background: ' + boardHoverBG + ' !important; cursor: default !important;}\
       .pagination li a:hover {background: ' + boardBG + ' !important; color: ' + textColor + ' !important;}\
-      .pagination > ul {position: relative !important; top: -2px !important;}\
       .pagination > a {padding: 5px 6px !important; margin-bottom: 2px !important;}\
       .pagination > a.mark, .pagination > a.mark-read, .action-bar.bar-bottom .pagination a[data-ajax] {height: 21px !important; padding: 3px 6px 0 6px !important;}\
       .mark:hover, .pagination > a:hover, .advanced-search-link:hover {background: ' + boardHoverBG + ' !important;}\
@@ -539,13 +531,11 @@
 /* PAGE-FOOTER */\
       #page-footer {display: -moz-box !important; margin: 0 0 0 2px !important; padding: 0 !important;}\
       #page-footer[hide-footer] {display: none !important;}\
-      #page-footer .navbar {padding: 0 !important;}\
-      #nav-footer {background: ' + boardHoverBG + ' !important; border: 1px solid #001752 !important; border-radius: 4px !important; box-shadow: inset 0 0 1px #FFF !important; color: ' + textColor + ' !important; margin: 0 !important; padding: 0 6px 0 2px !important; text-shadow: 1px 1px 2px #000 !important; width: 800px !important;}\
-      #nav-footer > li {height: 17px !important; padding: 0 0 6px 0 !important; position: relative !important; top: -1px !important;}\
-      #nav-footer > li i {position: relative !important; top: 0 !important;}\
+      .navbar {background: transparent !important; padding: 0 !important;}\
+      #nav-footer {background: ' + boardHoverBG + ' !important; border: 1px solid #001752 !important; border-radius: 4px !important; box-shadow: inset 0 0 1px #FFF !important; color: ' + textColor + ' !important; margin: 0 !important; padding: 0 4px !important; text-shadow: 1px 1px 2px #000 !important; width: 800px !important;}\
+      #nav-footer > li {height: 24px !important; padding: 0 !important; margin-top: -1px !important;}\
+      #nav-footer #utc {margin-top: -2px !important;}\
       #nav-footer a, #nav-footer span, #nav-footer i {color: ' + textColor + ' !important;}\
-      #nav-footer li span a > span {position: relative !important; top: -1px !important;}\
-      #nav-footer li > a > span {position: relative !important; top: -1px !important;}\
       #viewfolder > DIV:first-child > DIV > FIELDSET > DIV > a, .jumpbox-return {background: ' + boardBG + ' !important; border: 1px solid #001752 !important; border-radius: 4px !important; box-shadow: inset 0 0 1px #FFF !important; color: ' + textColor + ' !important; font-size: ' + fontSize + ' !important; font-weight: bold !important; margin: 0px 0 3px 0 !important; padding: 3px 6px !important; text-shadow: 1px 1px 2px #000 !important;}\
       #viewfolder > DIV:first-child > DIV > FIELDSET > DIV > a {margin: 5px 0 0 0 !important; padding: 1px 6px !important; text-decoration: none !important;}\
       .jumpbox-return * {color: ' + textColor + ' !important;}\
@@ -556,7 +546,6 @@
       #jumpbox span {margin: -3px 0 0 0 !important; text-decoration: none !important;}\
       .section-viewforum .jumpbox-return {margin-top: -2px !important;}\
       body.section-posting #nav-footer > LI:nth-child(3) {margin-top: 1px !important;}\
-      .navbar {background: transparent !important;}\
       #viewfolder .header dd.mark {background: none !important; border: none !important; color: #000 !important; text-shadow: none !important; }\
       #ucp .topiclist > .header > dl a, #ucp .row-item, #ucp .mark, #ucp span {background: none !important; border: none !important; color: #000 !important; cursor: default !important; text-decoration: none !important; text-shadow: none !important;}\
       .row-item.pm_read .mark {background: none !important; border: none !important;}\
