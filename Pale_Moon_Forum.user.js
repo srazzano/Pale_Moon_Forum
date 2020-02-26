@@ -217,7 +217,7 @@
   if (!GM_getValue('Board9')) GM_setValue('Board9', false);
   if (!GM_getValue('Board10')) GM_setValue('Board10', false);
 
-  SiteDescriptionP.innerHTML = SiteDescriptionP.innerHTML.replace('Visit the', '').replace('Discussion forum for the Pale Moon web browser', '').replace(/\(or\s+in/, '(in').replace(/\sa\s/g, ' ').replace('Pale Moon', '');
+  SiteDescriptionP.innerHTML = SiteDescriptionP.innerHTML.replace('Visit the', '').replace('Discussion forum for the Pale Moon web browser', '').replace(/\(or\s+in/, '(in').replace(/\sa\s/g, ' ');
   $('#keywords').placeholder = searchKeyword;
   $q('A[href="//www.palemoon.org/"][target="_blank"][style="color:#ffff80;"]').style.display = 'none';
   $q('A[href="//www.palemoon.org/"][style="color:#ffff80;"]').innerHTML = linkHomePage.toUpperCase();
@@ -232,7 +232,6 @@
   SiteDescriptionP.appendChild(Label3);
   SiteDescriptionP.insertBefore(Separator, Label1);
   SiteDescriptionP.appendChild(NavBreadcrumbs);
-  SiteDescriptionP.removeChild(SiteDescriptionP.childNodes[9]);
 
   var dt = $c('span', {id: 'date-time'}),
       sd = $q('#site-description > H1');
