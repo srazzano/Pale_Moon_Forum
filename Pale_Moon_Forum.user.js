@@ -260,13 +260,17 @@
   if (bool2) $('#page-footer').removeAttribute('hide-footer');
   else $('#page-footer').setAttribute('hide-footer', true);
 
-  var drop = $q('#quick-links .dropdown-contents'),
-      faq = $q('#nav-main > LI:nth-child(3)'),
-      rule = $q('#nav-main > LI:nth-child(4)'),
-      pm = $q('#nav-main > LI:nth-child(6)');
-  drop.insertBefore(pm, drop.childNodes[15]);
-  drop.appendChild(rule);
-  drop.appendChild(faq);
+  try {
+    var drop = $q('#quick-links .dropdown-contents'),
+        faq = $q('#nav-main > LI:nth-child(3)'),
+        rule = $q('#nav-main > LI:nth-child(4)'),
+        pm = $q('#nav-main > LI:nth-child(6)'),
+        sep = $c('LI', {id: 'separator'});
+    drop.insertBefore(pm, drop.childNodes[15]);
+    drop.appendChild(rule);
+    drop.appendChild(faq);
+    drop.insertBefore(sep, drop.childNodes[15]);
+  } catch(ex) {}
 
   try {
     var srch = $('#search-box'),
@@ -422,10 +426,10 @@
       .clearBtn:hover {background: url(https://raw.githubusercontent.com/srazzano/Images/master/clear.png) no-repeat center, linear-gradient(#E9E9E9, #FFFFFF) !important; filter: none !important;}\
       #page-body .insertBtn {border: 1px solid #C7C3BF !important; height: 26px !important;}\
       #page-body .clearBtn {border: 1px solid #C7C3BF !important; border-left: none !important; border-right: none !important; height: 26px !important;}\
-      #search-box {border: 1px solid #001752 !important; box-shadow: none !important; float: right !important; margin: -58px 0 0 0 !important; width: 317px !important;}\
-      .search-box {width: 320px !important;}\
-      #keywords, #add_keywords {border-radius: 0 !important; width: 200px !important;}\
-      #search_keywords, #add_keywords {border-radius: 0 !important; color: #000 !important; height: 26px !important; width: 200px !important;}\
+      #search-box {border: 1px solid #001752 !important; box-shadow: none !important; float: right !important; margin: -58px 3px 0 0 !important; width: 298px !important;}\
+      .search-box {width: 301px !important;}\
+      #keywords, #add_keywords {border-radius: 0 !important; width: 181px !important;}\
+      #search_keywords, #add_keywords {border-radius: 0 !important; color: #000 !important; height: 26px !important; width: 181px !important;}\
       .search-header {margin-top: 30px !important;}\
       .search-box button.search-icon, .search-box a.button {padding: 3px 4px 1px 2px !important;}\
       .advanced-search-link { margin: 7px 0 0 0 !important;}\
@@ -460,6 +464,7 @@
       #username_logged_in a span {color: #000 !important; text-shadow: none !important;}\
       body.section-viewtopic #page-body > P {display: none !important;}\
       #quick-links LI {border: none !important;}\
+      #page-header .dropdown li#separator {border-bottom: 1px solid #000 !important;}\
 /* PAGE-BODY */\
       #page-body {margin: 76px 2px 0 2px !important;}\
 /* ACTION-BAR */\
@@ -551,8 +556,9 @@
       #utc:before {color: ' + textColor + ' !important; content: "\u2022" !important; font-family: monospace !important; font-size: 24px !important; margin-left: 4px !important; position: relative !important; top: 4px !important;}\
       #utc {cursor: default !important; margin: -1px 4px 2px 0 !important;}\
       #nav-footer a, #nav-footer span, #nav-footer i {color: ' + textColor + ' !important;}\
-      #viewfolder > DIV:first-child > DIV > FIELDSET > DIV > a, .jumpbox-return {background: ' + boardBG + ' !important; border: 1px solid #001752 !important; border-radius: 4px !important; box-shadow: inset 0 0 1px #FFF !important; color: ' + textColor + ' !important; font-size: ' + fontSize + ' !important; font-weight: bold !important; margin: 0px 0 3px 0 !important; padding: 3px 6px !important; text-shadow: 1px 1px 2px #000 !important;}\
+      #viewfolder > DIV:first-child > DIV > FIELDSET > DIV > a, .jumpbox-return {background: ' + boardBG + ' !important; border: 1px solid #001752 !important; border-radius: 4px !important; box-shadow: inset 0 0 1px #FFF !important; color: ' + textColor + ' !important; font-size: ' + fontSize + ' !important; font-weight: bold !important; margin: 0px 0 3px 0 !important; padding: 3px 6px 3px 4px !important; text-shadow: 1px 1px 2px #000 !important;}\
       #viewfolder > DIV:first-child > DIV > FIELDSET > DIV > a {margin: 5px 0 0 0 !important; padding: 1px 6px !important; text-decoration: none !important;}\
+      body.section-viewforum .button.button-secondary.dropdown-trigger.dropdown-select.dropdown-toggle {padding: 2px 6px 3px 6px !important;}\
       .jumpbox-return * {color: ' + textColor + ' !important;}\
       .jumpbox-return:hover, .advanced-search-link:hover, #viewfolder > DIV:first-child > DIV > FIELDSET > DIV > a:hover {background: ' + boardHoverBG + ' !important;}\
       #jumpbox {height: 26px !important; margin: 0 !important; padding: 0 !important;}\
