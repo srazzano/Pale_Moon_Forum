@@ -402,7 +402,7 @@
       html {height: 100% !important;}\
       html, body {background: ' + bodyBG + ' !important;}\
 /* PAGE-HEADER */\
-      #page-header {-moz-user-select: none !important; position: fixed !important; top: 0 !important; width: 100% !important; z-index: 2147483647 !important;}\
+      #page-header {-moz-user-select: none !important; position: fixed !important; top: 0 !important; width: 100% !important; z-index: 2147483646 !important;}\
       #page-header > .headerbar {background: ' + headerBG + ' !important; border: 1px solid #001752 !important; border-radius: 0 0 8px 8px !important; height: 83px !important; margin: 0 2px !important; padding: 0 !important;}\
       #page-header > .headerbar a, #hidestatsLabel, #hidefooterLabel {font-style: italic !important; font-weight: bold !important;}\
       #site-description h1, #site-description p, #site-description span, #site-description a, #site-description i, #site-description span.username, #stats-footer > label, ul#nav-main span {color: ' + headerText + ' !important;}\
@@ -412,7 +412,7 @@
       #wrap {background: ' + bodyBG + ' !important; border: none !important; box-shadow: none !important; min-width: 100% !important; padding: 0 !important;}\
       a {border: 1px dotted transparent !important; outline: none !important;}\
       #aLink0, #aLink2 {cursor: pointer !important;}\
-      #logo {padding: 6px !important;}\
+      #logo {padding: 6px 4px 6px 2px !important; position: relative !important; z-index: 2147483647 !important;}\
       .site_logo {background: url(https://raw.githubusercontent.com/srazzano/Images/master/logo.png) !important; height: 70px !important; width: 70px !important;}\
       .headerbar h1 {margin: 6px 0 0 0 !important;}\
       #aSep {margin: 0 6px !important;}\
@@ -488,8 +488,6 @@
       .button.button-secondary:not([class*="bbcode-"]) {-moz-appearance: none !important; background: ' + boardBG + ' !important; border: 1px solid #001752 !important; border-radius: 4px !important; box-shadow: inset 0 0 1px #FFF !important; color: ' + textColor + ' !important; padding: 3px 6px !important; text-shadow: 1px 1px 2px #000 !important;}\
       .button.button-secondary .fa-fw {color: ' + textColor + ' !important;}\
       .button.button-secondary:not([class*="bbcode-"]):hover {background: ' + boardHoverBG + ' !important;}\
-      #utc:before {color: ' + textColor + ' !important; content: "\u2022" !important; font-family: monospace !important; font-size: 24px !important; margin-left: 4px !important; position: relative !important; top: 4px !important;}\
-      #utc {cursor: default !important; margin: -1px 4px 2px 0 !important;}\
       .pagination li.active span, .pagination li a:hover, .pagination li a:hover .icon, .pagination .dropdown-visible a.dropdown-trigger, .nojs .pagination .dropdown-container:hover a.dropdown-trigger {background: ' + boardBG + ' !important; border-color: #001752 !important; border-radius: 4px !important; box-shadow: inset 0 0 1px #FFF !important; color: ' + textColor + ' !important;}\
       .pagination li.active span {background: ' + boardHoverBG + ' !important; cursor: default !important;}\
       .pagination li a:hover {background: ' + boardBG + ' !important; color: ' + textColor + ' !important;}\
@@ -550,7 +548,8 @@
       .navbar {background: transparent !important; padding: 0 !important;}\
       #nav-footer {background: ' + boardHoverBG + ' !important; border: 1px solid #001752 !important; border-radius: 4px !important; box-shadow: inset 0 0 1px #FFF !important; color: ' + textColor + ' !important; margin: 0 !important; padding: 0 4px !important; text-shadow: 1px 1px 2px #000 !important; width: 800px !important;}\
       #nav-footer > li {height: 24px !important; padding: 0 !important; margin-top: -1px !important;}\
-      #nav-footer #utc {margin-top: -2px !important;}\
+      #utc:before {color: ' + textColor + ' !important; content: "\u2022" !important; font-family: monospace !important; font-size: 24px !important; margin-left: 4px !important; position: relative !important; top: 4px !important;}\
+      #utc {cursor: default !important; margin: -1px 4px 2px 0 !important;}\
       #nav-footer a, #nav-footer span, #nav-footer i {color: ' + textColor + ' !important;}\
       #viewfolder > DIV:first-child > DIV > FIELDSET > DIV > a, .jumpbox-return {background: ' + boardBG + ' !important; border: 1px solid #001752 !important; border-radius: 4px !important; box-shadow: inset 0 0 1px #FFF !important; color: ' + textColor + ' !important; font-size: ' + fontSize + ' !important; font-weight: bold !important; margin: 0px 0 3px 0 !important; padding: 3px 6px !important; text-shadow: 1px 1px 2px #000 !important;}\
       #viewfolder > DIV:first-child > DIV > FIELDSET > DIV > a {margin: 5px 0 0 0 !important; padding: 1px 6px !important; text-decoration: none !important;}\
