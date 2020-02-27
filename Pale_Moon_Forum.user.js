@@ -422,7 +422,7 @@
       .clearBtn:hover {background: url(https://raw.githubusercontent.com/srazzano/Images/master/clear.png) no-repeat center, linear-gradient(#E9E9E9, #FFFFFF) !important; filter: none !important;}\
       #page-body .insertBtn {border: 1px solid #C7C3BF !important; height: 26px !important;}\
       #page-body .clearBtn {border: 1px solid #C7C3BF !important; border-left: none !important; border-right: none !important; height: 26px !important;}\
-      #search-box {border: 1px solid #001752 !important; box-shadow: none !important; float: right !important; margin-right: 2px !important; width: 317px !important;}\
+      #search-box.search-header {box-shadow: none !important; float: right !important; margin: -58px 0 0 0 !important; width: 317px !important;}\
       #page-body .search-box, #forum-search {width: 320px !important;}\
       #keywords, #add_keywords {border-radius: 0 !important; width: 200px !important;}\
       #search_keywords, #add_keywords {border-radius: 0 !important; color: #000 !important; height: 26px !important; width: 200px !important;}\
@@ -446,7 +446,7 @@
       .crumb span {margin-left: 4px !important;}\
       .icon-boardrules {margin-right: 50px !important;}\
       .icon.fa-bars.fa-fw {text-shadow: 1px 1px 2px #000 !important;}\
-      #site-description {height: 0 !important; margin: 0 !important; padding: 0 !important; text-shadow: 1px 1px 2px #000 !important; width: 100% !important;}\
+      #site-description {margin: 0 !important; padding: 0 !important; text-shadow: 1px 1px 2px #000 !important; width: 100% !important;}\
       #site-description ul.linklist li {margin: 0 5px 0 0 !important;}\
       #site-description > p {margin: 0 !important; padding: 0 !important;}\
       #site-description > p:nth-child(3) {margin: 0 !important; padding: 0 !important;}\
@@ -528,10 +528,24 @@
       .forumbg li[locked] {background: ' + lockedBG + ' !important;}\
       .forumbg li[locked]:hover {background: ' + lockedHoverBG + ' !important;}\
 /* PAGE-FOOTER */\
+      #page-body .stat-block {display: block !important;}\
+      #page-body[hide-stats] .stat-block {display: none !important;}\
+      .stat-block.online-list {border: 5px solid #001752 !important; border-radius: 6px 6px 12px 12px !important; margin-bottom: 5px !important; padding: 0 !important; width: 800px !important;}\
+      .stat-block.online-list > h3 {background: ' + boardHoverBG + ' !important; border: none !important; margin: -5px 0 0 0 !important;padding: 5px 6px !important; text-decoration: none !important; text-shadow: 1px 1px 2px #000 !important;}\
+      .stat-block.online-list > h3 > a {color: ' + textColor + ' !important; display: block !important;}\
+      .stat-block.online-list > h3 > a:after {content: " ?" !important;}\
+      .stat-block.online-list p, .stat-block.statistics p {color: #000 !important; margin: 4px 8px !important;}\
+      .stat-block.online-list p em {margin-top: 5px !important;}\
+      .stat-block.online-list p * {display: inline-block !important;}\
+      .stat-block.statistics {border: none !important; border-radius: 0 !important; padding: 4px 0 4px 0 !important;}\
+      .stat-block.statistics > h3 {border-bottom: 1px solid #000 !important; padding: 0 !important; margin: 0 4px !important;}\
+      .stat-block.permissions > h3 {border: none !important; padding: 0 !important; margin: 8px 0 -4px 4px !important;}\
+      #page-body > DIV:last-child > DIV > P > STRONG * {color: #000  !important;}\
+      #page-body .stat-block.online-list:hover {background: ' + rowHover + ' !important;}\
       #page-footer {display: -moz-box !important; margin: 0 0 0 2px !important; padding: 0 !important;}\
       #page-footer[hide-footer] {display: none !important;}\
       .navbar {background: transparent !important; padding: 0 !important;}\
-      #nav-footer {background: ' + boardHoverBG + ' !important; border: 1px solid #001752 !important; border-radius: 6px !important; box-shadow: inset 0 0 1px #FFF !important; color: ' + textColor + ' !important; margin: 0 !important; padding: 0 4px !important; text-shadow: 1px 1px 2px #000 !important; width: 800px !important;}\
+      #nav-footer {background: ' + boardHoverBG + ' !important; border: 1px solid #001752 !important; border-radius: 4px !important; box-shadow: inset 0 0 1px #FFF !important; color: ' + textColor + ' !important; margin: 0 !important; padding: 0 4px !important; text-shadow: 1px 1px 2px #000 !important; width: 800px !important;}\
       #nav-footer > li {height: 24px !important; padding: 0 !important; margin-top: -1px !important;}\
       #nav-footer #utc {margin-top: -2px !important;}\
       #nav-footer a, #nav-footer span, #nav-footer i {color: ' + textColor + ' !important;}\
@@ -552,20 +566,6 @@
       a.top i {color:#FFF !important;}\
       a.top:hover, .viewHideBtn:hover, .action-bar > a.button:hover, #ucp .panel a.mark:hover {background: ' + boardHoverBG + ' !important; color: ' + textHoverColor + ' !important;}\
       A[href="#faqlinks"][class="top"] {display: none !important;}\
-      #page-body .stat-block {display: block !important;}\
-      #page-body[hide-stats] .stat-block {display: none !important;}\
-      .stat-block.online-list {border: 5px solid #001752 !important; border-radius: 6px 6px 12px 12px !important; margin-bottom: 5px !important; padding: 0 !important; width: 800px !important;}\
-      .stat-block.online-list > h3 {background: ' + boardHoverBG + ' !important; border: none !important; margin: -5px 0 0 0 !important;padding: 5px 6px !important; text-decoration: none !important; text-shadow: 1px 1px 2px #000 !important;}\
-      .stat-block.online-list > h3 > a {color: ' + textColor + ' !important; display: block !important;}\
-      .stat-block.online-list > h3 > a:after {content: " ?" !important;}\
-      .stat-block.online-list p, .stat-block.statistics p {color: #000 !important; margin: 4px 8px !important;}\
-      .stat-block.online-list p em {margin-top: 5px !important;}\
-      .stat-block.online-list p * {display: inline-block !important;}\
-      .stat-block.statistics {border: none !important; border-radius: 0 !important; padding: 4px 0 4px 0 !important;}\
-      .stat-block.statistics > h3 {border-bottom: 1px solid #000 !important; padding: 0 !important; margin: 0 0 0 4px !important;}\
-      .stat-block.permissions > h3 {border: none !important; padding: 0 !important; margin: 8px 0 -4px 4px !important;}\
-      #page-body > DIV:last-child > DIV > P > STRONG * {color: #000  !important;}\
-      #page-body .stat-block.online-list:hover {background: ' + rowHover + ' !important;}\
     }\
   ');
 
