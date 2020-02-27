@@ -280,8 +280,11 @@
     srch.insertBefore(inst, srch.firstChild);
   } catch(ex) {}
 
-  for (var i = 0, utc = $q('#nav-footer > LI.rightside', true); i < utc.length; i++) if (utc[i].textContent.match('All times')) utc[i].setAttribute('id', 'utc');
-  $q('#utc > span').textContent = 'UTC -7';
+  try {
+    for (var i = 0, utc = $q('#nav-footer > LI.rightside', true); i < utc.length; i++) if (utc[i].textContent.match('All times')) utc[i].setAttribute('id', 'utc');
+    var ut = $q('#utc > span');
+    ut.textContent = ut.textContent.replace('-0', ' -').replace('-1', ' -1').replace(':00', '');
+  } catch(ex) {}
 
   if (pmindex) {
     var hBoards = $c('button', {id: 'hideBoardsBtn', className: 'viewHideBtn', textContent: hideBoardsText, title: hideBoardsTip}, [{type: 'click', fn: function() {ViewHideBoards(true)}}]),
@@ -459,7 +462,7 @@
       .dropdown-trigger.dropdown-toggle:hover > span {text-decoration: underline !important;}\
       #page-header, .topics, .posts, .views {cursor: default !important;}\
       #site-description br, #page-body h2, .rules, .copyright {display: none !important;}\
-      #page-body > div:nth-child(2):not(.boardrules-container) {display: none !important;}\
+      body.section-viewforum #page-body > div:nth-child(2) > P {display: none !important;}\
       #username_logged_in .username {color: ' + textColor + ' !important; text-shadow: 1px 1px 2px #000 !important;}\
       #username_logged_in a span {color: #000 !important; text-shadow: none !important;}\
       body.section-viewtopic #page-body > P {display: none !important;}\
