@@ -422,7 +422,7 @@
       .clearBtn:hover {background: url(https://raw.githubusercontent.com/srazzano/Images/master/clear.png) no-repeat center, linear-gradient(#E9E9E9, #FFFFFF) !important; filter: none !important;}\
       #page-body .insertBtn {border: 1px solid #C7C3BF !important; height: 26px !important;}\
       #page-body .clearBtn {border: 1px solid #C7C3BF !important; border-left: none !important; border-right: none !important; height: 26px !important;}\
-      #search-box {box-shadow: none !important; float: right !important; margin: -58px 0 0 0 !important; width: 317px !important;}\
+      #search-box {border: 1px solid #001752 !important; box-shadow: none !important; float: right !important; margin: -58px 0 0 0 !important; width: 317px !important;}\
       .search-box {width: 320px !important;}\
       #keywords, #add_keywords {border-radius: 0 !important; width: 200px !important;}\
       #search_keywords, #add_keywords {border-radius: 0 !important; color: #000 !important; height: 26px !important; width: 200px !important;}\
@@ -478,7 +478,7 @@
       .action-bar.bar-top button.button.button-search {height: 26px !important;}\
       .action-bar.bar-top a.button.button-search-end {padding: 3px 4px 3px 4px !important;}\
       #page-header .button.button-search {border: none !important; border-left: 1px solid #C7C3BF !important; padding: 2px 5px 4px 5px !important;}\
-      #page-header .button.button-search-end {border: none !important; border-left: 1px solid #C7C3BF !important; height: 20px !important; width: 22px !important;}\
+      #page-header .button.button-search-end {border: none !important; border-left: 1px solid #C7C3BF !important; height: 20px !important; width: 23px !important;}\
       .action-bar .button-search-end {border: 1px solid #C7C3BF !important; margin-left: -1px !important;}\
       a.top, .viewHideBtn, .action-bar > a.button, #ucp .panel a.mark {-moz-appearance: none !important; background: ' + boardBG + ' !important; border: 1px solid #001752 !important; border-radius: 4px !important; box-shadow: inset 0 0 1px #FFF !important; color: ' + textColor + ' !important; cursor: pointer !important; font-size: ' + fontSize + ' !important; margin: 0 5px 0 0 !important; padding: 0 6px !important; text-shadow: 1px 1px 2px #000 !important;}\
       .viewHideBtn {height: 26px !important;}\
@@ -510,6 +510,9 @@
       .forumbg > div:nth-child(1) .header dt > div {position: relative !important; left: 20px !important;}\
       .forabg[opened="false"] .list-inner, .forumbg[opened="false"] .list-inner {width: 100% !important;}\
       input.boardCB {float: left !important; height: 17px !important; width: 17px !important; margin: -1px 5px 0 0 !important; padding: 0 !important; position: relative !important; z-index: 2 !important;}\
+      .forumbg.forumbg-table {border: 2px solid #001752 !important; box-shadow: none !important;}\
+      #team > TBODY tr, #team > TBODY tr td {border: none !important;}\
+      #team > TBODY tr:last-child {border-radius: 0 0 9px 9px !important;}\
       .topiclist.forums {background: none !important;}\
       .forabg li:last-child, .forumbg.announcement ul > li:last-child, .topiclist.topics li:last-of-type {border-radius: 0 0 9px 9px !important;}\
       li.header dt, li.header dd {color: ' + textColor + ' !important;}\
