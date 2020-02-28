@@ -560,7 +560,7 @@
       #nav-footer {background: ' + boardHoverBG + ' !important; border: 1px solid #001752 !important; border-radius: 4px !important; box-shadow: inset 0 0 1px #FFF !important; color: ' + textColor + ' !important; margin: 0 !important; padding: 0 4px !important; text-shadow: 1px 1px 2px #000 !important; width: 800px !important;}\
       #nav-footer > li {height: 24px !important; padding: 0 !important; margin-top: -1px !important;}\
       #utc:before {color: ' + textColor + ' !important; content: "\u2022" !important; font-family: monospace !important; font-size: 24px !important; margin-left: 4px !important; position: relative !important; top: 3px !important;}\
-      #utc {cursor: default !important; margin: 0 4px 1px 0 !important; position: relative !important; top: -1px !important;}\
+      #utc {cursor: default !important; margin: 0 4px 1px 0 !important; position: relative !important; top: 0 !important;}\
       #nav-footer a, #nav-footer span, #nav-footer i {color: ' + textColor + ' !important;}\
       #viewfolder > DIV:first-child > DIV > FIELDSET > DIV > a, .jumpbox-return {background: ' + boardBG + ' !important; border: 1px solid #001752 !important; border-radius: 4px !important; box-shadow: inset 0 0 1px #FFF !important; color: ' + textColor + ' !important; font-size: ' + fontSize + ' !important; font-weight: bold !important; margin: 0px 0 3px 0 !important; padding: 3px 6px 3px 4px !important; text-shadow: 1px 1px 2px #000 !important;}\
       #viewfolder > DIV:first-child > DIV > FIELDSET > DIV > a {margin: 5px 0 0 0 !important; padding: 1px 6px !important; text-decoration: none !important;}\
