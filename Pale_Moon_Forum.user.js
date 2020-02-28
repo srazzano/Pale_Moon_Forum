@@ -17,6 +17,9 @@
 
 (function () {
 
+  var abc= $q('HEAD');
+  if (abc.innerHTML.match('pycode')) return;
+  
   'use strict';
 
   const timerInterval = 10000,
@@ -561,11 +564,15 @@
       #nav-footer a, #nav-footer span, #nav-footer i {color: ' + textColor + ' !important;}\
       #viewfolder > DIV:first-child > DIV > FIELDSET > DIV > a, .jumpbox-return {background: ' + boardBG + ' !important; border: 1px solid #001752 !important; border-radius: 4px !important; box-shadow: inset 0 0 1px #FFF !important; color: ' + textColor + ' !important; font-size: ' + fontSize + ' !important; font-weight: bold !important; margin: 0px 0 3px 0 !important; padding: 3px 6px 3px 4px !important; text-shadow: 1px 1px 2px #000 !important;}\
       #viewfolder > DIV:first-child > DIV > FIELDSET > DIV > a {margin: 5px 0 0 0 !important; padding: 1px 6px !important; text-decoration: none !important;}\
-      body.section-viewforum .button.button-secondary.dropdown-trigger.dropdown-select.dropdown-toggle {padding: 3px 6px 3px 6px !important;}\
+      body.section-viewforum .button.button-secondary.dropdown-trigger.dropdown-select.dropdown-toggle {height: 24px !important; padding: 0 6px !important;}\
+      body.section-viewforum .button.button-secondary.dropdown-trigger.dropdown-select.dropdown-toggle > .icon {margin-top: 5px !important;}\
+      body.section-viewforum .button.button-secondary.dropdown-trigger.dropdown-select.dropdown-toggle > span i {margin-top: 2px !important;}\
       .jumpbox-return * {color: ' + textColor + ' !important;}\
       .jumpbox-return:hover, .advanced-search-link:hover, #viewfolder > DIV:first-child > DIV > FIELDSET > DIV > a:hover {background: ' + boardHoverBG + ' !important;}\
       #jumpbox {height: 26px !important; margin: 0 !important; padding: 0 !important;}\
-      #jumpbox > span > span {position: relative !important; top: -1px !important;}\
+      body.section-viewforum #jumpbox span span {position: relative !important; top: 1px !important;}\
+      body.section-viewtopic #jumpbox > span > span {position: relative !important; top: -2px !important;}\
+      body.section-viewtopic #jumpbox > span > span > i {position: relative !important; top: 1px !important;}\
       .action-bar.actions-jump {margin-bottom: 2px !important;}\
       #jumpbox span {margin: -3px 0 0 0 !important; text-decoration: none !important;}\
       .section-viewforum .jumpbox-return {margin-top: -2px !important;}\
