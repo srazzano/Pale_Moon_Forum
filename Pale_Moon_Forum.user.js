@@ -17,10 +17,10 @@
 
 (function () {
 
-  var abc= $q('HEAD');
-  if (abc.innerHTML.match('pycode')) return;
-  
   'use strict';
+
+  var head = $q('HEAD');
+  if (head.innerHTML.match('pycode')) return;
 
   const timerInterval = 10000,
         cssRule = '/* AGENT_SHEET */ @-moz-document domain("forum.palemoon.org")',
