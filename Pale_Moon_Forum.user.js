@@ -140,37 +140,39 @@
 
   function aDateTime() {
     var date = new Date(),
-        weekday = date.getDay(),
+        wd = date.getDay(),
         mth = date.getMonth(),
         dy = date.getDate(),
-        hour12 = date.getHours(),
-        hour24 = hour12,
-        minute = date.getMinutes(),
-        second = date.getSeconds(),
-        daynames = Weekday.split(','),
-        daynames2 = WeekdayAbbr.split(','),
-        months = Month.split(','),
-        months2 = MonthAbbr.split(','),
-        months3 = MonthNo.split(','),
-        days = DayNo.split(','),
-        days2 = DayOrd.split(','),
-        daynameabbr = daynames2[weekday] + ' ',
-        daynamelong = daynames[weekday] + ', ',
-        monthabbr = months2[mth] + ' ',
-        monthlong = months[mth] + ' ',
-        monthnum = months3[mth] + ' ',
-        daynum = days[dy] + ', ',
-        dayord = days2[dy] + ', ',
-        yearlong = date.getFullYear(),
-        yearshort = yearlong - 2000, ampm;
-    if (hour24 > 12) hour12 = hour24 - 12;
-    if (hour24 === 0) hour12 = 12;
-    if (hour24 < 10) hour24 = '0' + hour24;
-    hour24 < 12 ? ampm = ' AM' : ampm = ' PM';
-    minute < 10 ? minute = ':0' + minute : minute = ':' + minute;
-    second < 10 ? second = ':0' + second : second = ':' + second;
-    // OPTIONS: (daynameabbr / daynamelong) + bullet + (monthabbr / monthlong / monthnum) + (daynum / dayord) +  (yearlong / yearshort) + bullet + (hour12 / hour24) + (minute) + (second) + (ampm)
-    return daynameabbr + '\u2022\u2004' + monthabbr + daynum + yearlong + '\u2004\u2022\u2005' + hour12 + minute + ampm;
+        yr = date.getFullYear(),
+        hr = date.getHours(),
+        min = date.getMinutes(),
+        sec = date.getSeconds(),
+        weekdaylong = Weekday.split(','),
+        weekdayabbr = WeekdayAbbr.split(','),
+        monthlong = Month.split(','),
+        monthabbr = MonthAbbr.split(','),
+        monthnum = MonthNo.split(','),
+        daynum = DayNo.split(','),
+        dayord = DayOrd.split(','),
+        ww = weekdayabbr[wd] + ' ',
+        wwww = weekdaylong[wd] + ', ',
+        m = monthnum[mth] + ' ',
+        mm = monthabbr[mth] + ' ',
+        mmmm = monthlong[mth] + ' ',
+        dd = daynum[dy] + ', ',
+        dddd = dayord[dy] + ', ',
+        yy = yr - 2000,
+        yyyy = yr,
+        hr12, hr24, ampm;
+    if (hr > 12) {hr12 = hr - 12; hr24 = hr} 
+    else {hr12 = hr; hr24 = hr}
+    if (hr < 10) {hr12 = hr; hr24 = '0' + hr}
+    if (hr === 0) {hr12 = 12; hr24 = '00'}
+    hr < 12 ? ampm = ' AM' : ampm = ' PM';
+    min < 10 ? min = ':0' + min : min = ':' + min;
+    sec < 10 ? sec = ':0' + sec : sec = ':' + sec;
+    // OPTIONS: (ww / wwww) + bullet + (m / mm / mmmm) + (dd / dddd) +  (yy / yyyy) + bullet + (hr12 / hr24) + (min) + (sec) + (ampm)
+    return ww + '\u2022\u2004' + mm + dd + yyyy + '\u2004\u2022\u2005' + hr12 + min + ampm;
   }
 
   function CollapseExpand(e) {
