@@ -172,7 +172,7 @@
     min < 10 ? min = ':0' + min : min = ':' + min;
     sec < 10 ? sec = ':0' + sec : sec = ':' + sec;
     // OPTIONS: (ww / wwww) + bullet + (m / mm / mmmm) + (dd / dddd) +  (yy / yyyy) + bullet + (hr12 / hr24) + (min) + (sec) + (ampm)
-    return ww + '\u2022\u2004' + mm + dd + yyyy + '\u2004\u2022\u2005' + hr12 + min + ampm + ' (' + hr24 + min + ')';
+    return ww + '\u2022\u2004' + mm + dd + yyyy + '\u2004\u2022\u2005' + hr12 + min + ampm;
   }
 
   function CollapseExpand(e) {
