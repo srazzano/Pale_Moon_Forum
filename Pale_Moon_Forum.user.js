@@ -172,7 +172,7 @@
     min < 10 ? min = ':0' + min : min = ':' + min;
     sec < 10 ? sec = ':0' + sec : sec = ':' + sec;
     // OPTIONS: (ww / wwww) + bullet + (m / mm / mmmm) + (dd / dddd) +  (yy / yyyy) + bullet + (hr12 / hr24) + (min) + (sec) + (ampm)
-    return ww + '\u2022\u2004' + mm + dd + yyyy + '\u2004\u2022\u2005' + hr12 + min + ampm;
+    return ww + '\u2022\u2004' + mm + dd + yyyy + '\u2004\u2022\u2005' + hr12 + min + ampm + ' (' + hr24 + min + ')';
   }
 
   function CollapseExpand(e) {
@@ -222,21 +222,23 @@
   if (!GM_getValue('Board9')) GM_setValue('Board9', false);
   if (!GM_getValue('Board10')) GM_setValue('Board10', false);
 
-  SiteDescriptionP.innerHTML = SiteDescriptionP.innerHTML.replace('Visit the', '').replace('Discussion forum for the Pale Moon web browser', '').replace(/\(or\s+in/, '(in').replace(/\sa\s/g, ' ');
-  $('#keywords').placeholder = searchKeyword;
-  $q('A[href="//www.palemoon.org/"][target="_blank"][style="color:#ffff80;"]').style.display = 'none';
-  $q('A[href="//www.palemoon.org/"][style="color:#ffff80;"]').innerHTML = linkHomePage.toUpperCase();
-  $q('A[href="//www.palemoon.org/"][target="_blank"][style="color: rgb(255, 255, 128); display: none;"]').nextSibling.nodeValue = '';
-  SiteDescription.appendChild(NavMain);
-  SiteDescriptionP.appendChild(Link0);
-  SiteDescriptionP.appendChild(Label0);
-  SiteDescriptionP.appendChild(Label1);
-  SiteDescriptionP.appendChild(Link1);
-  SiteDescriptionP.appendChild(Label2);
-  SiteDescriptionP.appendChild(Link2);
-  SiteDescriptionP.appendChild(Label3);
-  SiteDescriptionP.insertBefore(Separator, Label1);
-  SiteDescriptionP.appendChild(NavBreadcrumbs);
+  try {
+    SiteDescriptionP.innerHTML = SiteDescriptionP.innerHTML.replace('Visit the', '').replace('Discussion forum for the Pale Moon web browser', '').replace(/\(or\s+in/, '(in').replace(/\sa\s/g, ' ');
+    $('#keywords').placeholder = searchKeyword;
+    $q('A[href="//www.palemoon.org/"][target="_blank"][style="color:#ffff80;"]').style.display = 'none';
+    $q('A[href="//www.palemoon.org/"][style="color:#ffff80;"]').innerHTML = linkHomePage.toUpperCase();
+    $q('A[href="//www.palemoon.org/"][target="_blank"][style="color: rgb(255, 255, 128); display: none;"]').nextSibling.nodeValue = '';
+    SiteDescription.appendChild(NavMain);
+    SiteDescriptionP.appendChild(Link0);
+    SiteDescriptionP.appendChild(Label0);
+    SiteDescriptionP.appendChild(Label1);
+    SiteDescriptionP.appendChild(Link1);
+    SiteDescriptionP.appendChild(Label2);
+    SiteDescriptionP.appendChild(Link2);
+    SiteDescriptionP.appendChild(Label3);
+    SiteDescriptionP.insertBefore(Separator, Label1);
+    SiteDescriptionP.appendChild(NavBreadcrumbs);
+  } catch(ex) {}
 
   var dt = $c('span', {id: 'date-time'}),
       sd = $q('#site-description > H1');
