@@ -667,7 +667,7 @@
       body.section-viewforum #page-body > div:nth-child(2) > P {display: none !important;}\
       body.section-viewtopic #page-body > P {display: none !important;}\
       #quick-links LI {border: none !important;}\
-      .dropdown-contents {min-height: 320px !important; width: 180px !important;}\
+      #quick-links .dropdown-contents {min-height: 320px !important; width: 180px !important;}\
       #page-body {margin: 80px 2px 0 2px !important;}\
       .rightside.responsive-search {display: none !important;}\
       .icon.fa-file-o.fa-fw.icon-red {c}\
