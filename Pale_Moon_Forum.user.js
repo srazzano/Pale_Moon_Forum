@@ -20,7 +20,7 @@
   'use strict';
 
   var head = $q('HEAD');
-  if (head.innerHTML.match('pycode')) return;
+  //if (head.innerHTML.match('pycode')) return;
 
   const timerInterval = 10000,
         cssRule = '/* AGENT_SHEET */ @-moz-document domain("forum.palemoon.org")',
@@ -396,22 +396,43 @@
     }\
   ');
 
-  if (customScrollbar) GM_addStyle('\
-    ' + cssRule + ' {\
-      scrollbar {-moz-appearance: none !important; border-radius: 8px !important;}\
-      scrollbar > slider {-moz-appearance: none !important; background: ' + scrollbarSlider + ' !important; border-width: 0 !important; border-radius: 8px !important; box-shadow: none !important;}\
-      scrollbar > slider > thumb {-moz-appearance: none !important; background: ' + scrollbarThumb + ' !important; border-width: 0 !important; border-radius: 10px !important; box-shadow: inset 0 0 2px #FFF !important;}\
-      scrollbar[orient="vertical"] > slider > thumb {min-height: 35px !important;}\
-      scrollbar[orient="horizontal"] > slider > thumb {min-width: 35px !important;}\
-      scrollbar > slider > thumb:hover, scrollbar > slider > thumb:active {background: ' + scrollbarThumbHover + ' ! important;}\
-      scrollbar > scrollbarbutton {-moz-appearance: none !important; background: none !important; border: none !important;}\
-      scrollbar[orient="vertical"] > scrollbarbutton {min-height: 0 !important;}\
-      scrollbar[orient="horizontal"] > scrollbarbutton {min-width: 0 !important;}\
-    }\
-  ');
+  if (customScrollbar && !head.innerHTML.match('pycode')) {
+    GM_addStyle('\
+      ' + cssRule + ' {\
+        scrollbar {-moz-appearance: none !important; border-radius: 8px !important;}\
+        scrollbar > slider {-moz-appearance: none !important; background: ' + scrollbarSlider + ' !important; border-width: 0 !important; border-radius: 8px !important; box-shadow: none !important;}\
+        scrollbar > slider > thumb {-moz-appearance: none !important; background: ' + scrollbarThumb + ' !important; border-width: 0 !important; border-radius: 10px !important; box-shadow: inset 0 0 2px #FFF !important;}\
+        scrollbar[orient="vertical"] > slider > thumb {min-height: 35px !important;}\
+        scrollbar[orient="horizontal"] > slider > thumb {min-width: 35px !important;}\
+        scrollbar > slider > thumb:hover, scrollbar > slider > thumb:active {background: ' + scrollbarThumbHover + ' ! important;}\
+        scrollbar > scrollbarbutton {-moz-appearance: none !important; background: none !important; border: none !important;}\
+        scrollbar[orient="vertical"] > scrollbarbutton {min-height: 0 !important;}\
+        scrollbar[orient="horizontal"] > scrollbarbutton {min-width: 0 !important;}\
+      }\
+    ');
+  }
 
-  GM_addStyle('\
-    ' + cssRule + ' {\
+  if (customScrollbar && head.innerHTML.match('pycode')) {
+    GM_addStyle('\
+      ' + cssRule + ' {\
+        scrollbar {-moz-appearance: none !important; background: #000 !important;}\
+        scrollbar > slider {-moz-appearance: none !important; background: rgba(0, 0, 0, .3) !important; border-width: 0 !important; border-radius: 8px !important; box-shadow: inset 0 0 1px 1px rgba(0, 0, 0, .3), inset 3px 3px 3px 3px rgba(0, 0, 0, .3), inset -3px -3px 6px 3px hsla(0, 0%, 70%, 0.70) !important;}\
+        scrollbar > slider > thumb {-moz-appearance: none !important; background-color: rgba(0, 0, 0, .8) !important; border-width: 0 !important; border-radius: 10px !important; box-shadow: inset 0 0 1px 1px rgba(0, 0, 0, .3), inset -3px -3px 3px 3px rgba(0, 0, 0, .3), inset 5px 5px 5px 5px hsla(0, 0%, 90%, 0.80) !important;}\
+        scrollbar[orient="vertical"] > slider > thumb {min-height: 35px !important;}\
+        scrollbar[orient="horizontal"] > slider > thumb {min-width: 35px !important;}\
+        scrollbar > slider > thumb:hover, scrollbar > slider > thumb:active {box-shadow: inset 0 0 1px 0 rgba(255, 255, 255, .2), inset 0 0 2px 2px rgba(0, 0, 0, .2), inset -3px -3px 3px 3px rgba(0, 0, 0, .5), inset 5px 5px 6px 6px hsla(0, 0%, 100%, 0.90) !important;}\
+        scrollbar > scrollbarbutton {-moz-appearance: none !important; background: none !important; border: none !important;}\
+        scrollbar[orient="vertical"] > scrollbarbutton {min-height: 0 !important;}\
+        scrollbar[orient="horizontal"] > scrollbarbutton {min-width: 0 !important;}\
+        scrollbar[orient="vertical"] {padding-left: 0 !important;}\
+        scrollbar[orient="horizontal"] {padding-top: 0 !important;}\
+      }\
+    ');
+  }
+  
+  if (!head.innerHTML.match('pycode')) {
+    GM_addStyle('\
+      ' + cssRule + ' {\
 /* BODY */\
       html {height: 100% !important;}\
       html, body {background: ' + bodyBG + ' !important;}\
@@ -588,7 +609,151 @@
       a.top i {color:#FFF !important;}\
       a.top:hover, .viewHideBtn:hover, .action-bar > a.button:hover, #ucp .panel a.mark:hover {background: ' + boardHoverBG + ' !important; color: ' + textHoverColor + ' !important;}\
       A[href="#faqlinks"][class="top"] {display: none !important;}\
-    }\
-  ');
-
+      }\
+    ');
+  } else {
+    GM_addStyle('\
+      ' + cssRule + ' {\
+      html {height: 100% !important;}\
+      #page-header {-moz-user-select: none !important; position: fixed !important; top: 0 !important; width: 100% !important; z-index: 2147483646 !important;}\
+      #page-header > .headerbar {height: 83px !important; margin: 0 2px !important; padding: 0 !important;}\
+      #page-header > .headerbar a, #hidestatsLabel, #hidefooterLabel {font-style: italic !important; font-weight: bold !important;}\
+      #page-header a, #page-header label {color: #CCC !important;}\
+      #page-header a:hover, #page-header label:hover {color: #FFF !important;}\
+      #site-description {background: #42474F !important; margin: 0 !important; padding: 0 !important; width: 100% !important;}\
+      #date-time {font-size: 70% !important; margin-left: 10px !important;}\
+      .header, .header a {display: block !important; font-size: ' + fontSize + ' !important; font-weight: bold !important; position: relative !important; top: -1px !important;}\
+      #wrap {border: none !important; box-shadow: none !important; min-width: 100% !important; padding: 0 !important;}\
+      a {border: 1px dotted transparent !important; outline: none !important;}\
+      #aLink0, #aLink2 {cursor: pointer !important;}\
+      #logo {padding: 6px 4px 6px 2px !important; position: relative !important; z-index: 2147483647 !important;}\
+      .site_logo {background: url(https://raw.githubusercontent.com/srazzano/Images/master/logo.png) !important; height: 70px !important; width: 70px !important;}\
+      .headerbar h1 {margin: 6px 0 0 0 !important;}\
+      #aSep {margin: 0 6px !important;}\
+      .insertBtn {-moz-appearance: none !important; background: #4E545C url(https://raw.githubusercontent.com/srazzano/Images/master/insert.png) no-repeat center !important; border: 1px solid #000 !important; filter: grayscale(1) !important; float: left !important; height: 26px !important; width: 29px !important;}\
+      .insertBtn:hover {background: #565D67 url(https://raw.githubusercontent.com/srazzano/Images/master/insert.png) no-repeat center !important; filter: none !important;}\
+      .clearBtn {-moz-appearance: none !important; background: #4E545C url(https://raw.githubusercontent.com/srazzano/Images/master/clear.png) no-repeat center !important; border-top: 1px solid #000 !important; border-bottom: 1px solid #000 !important; filter: grayscale(1) !important; float: left !important; height: 26px !important; width: 29px !important;}\
+      .clearBtn:hover {background: #565D67 url(https://raw.githubusercontent.com/srazzano/Images/master/clear.png) no-repeat center !important; filter: none !important;}\
+      .button.button-search {border: none !important; border-top: 1px solid #000 !important; border-bottom: 1px solid #000 !important;}\
+      .button.button-search-end {border: 1px solid #000 !important; border-radius: 0 !important;}\
+      #search-box {float: right !important; margin: -58px 3px 0 0 !important; width: 301px !important;}\
+      .search-box {width: 301px !important;}\
+      #keywords, #search_keywords, #add_keywords {border: 1px solid #000 !important; border-radius: 0 !important; height: 26px !important; width: 181px !important;}\
+      .search-header {margin-top: 30px !important;}\
+      .search-box button.search-icon, .search-box a.button {padding: 3px 4px 1px 2px !important;}\
+      .advanced-search-link { margin: 7px 0 0 0 !important;}\
+      .advanced-search-link span#aBull {display: none !important;}\
+      ul.navlinks {border: none !important;}\
+      #nav-main {position: absolute !important; right: 4px !important; top: 0 !important;}\
+      #nav-main a, #nav-main span, #viewfolder .mark {font-weight: bold !important;}\
+      #nav-breadcrumbs {height: 0 !important; margin: 7px 0 0 0 !important; padding: 0 !important;}\
+      #nav-breadcrumbs li {margin: 2px 8px 0 0 !important;}\
+      #nav-breadcrumbs span {font-size: ' + fontSize + ' !important;}\
+      #hidefooter, #hidestats {-moz-appearance: none !important; border: 1px solid #FFF !important; border-radius: 3px !important; box-shadow: inset 0 0 2px #000 !important; height: 17px !important; margin: 6px 0 0 0 !important; width: 17px !important;}\
+      #hidefooterLabel, #hidestatsLabel {font-size: ' + fontSize + ' !important; margin: 7px 4px 0 0 !important; padding-left: 4px !important;}\
+      #hidefooter, #hidefooterLabel, #hidestats, #hidestatsLabel {float: left !important;}\
+      #hidefooterLabel {margin-right: 0 !important;}\
+      #hidefooter:hover + #hidefooterLabel, #hidefooterLabel:hover, #hidestats:hover + #hidestatsLabel, #hidestatsLabel:hover {color: #FFF !important; cursor: pointer !important; text-decoration: underline !important;}\
+      .crumb span {margin-left: 4px !important;}\
+      .icon-boardrules {margin-right: 50px !important;}\
+      #site-description ul.linklist li {margin: 0 5px 0 0 !important;}\
+      #site-description > p {margin: 0 !important; padding: 0 !important;}\
+      #site-description > p:nth-child(3) {margin: 0 !important; padding: 0 !important;}\
+      #aBull {margin: 0 8px !important;}\
+      .dropdown-trigger.dropdown-toggle {text-decoration: none !important;}\
+      .dropdown-trigger.dropdown-toggle:hover > span {text-decoration: underline !important;}\
+      #page-header, .topics, .posts, .views {cursor: default !important;}\
+      #site-description br, #page-body h2, .rules, .copyright {display: none !important;}\
+      body.section-viewforum #page-body > div:nth-child(2) > P {display: none !important;}\
+      body.section-viewtopic #page-body > P {display: none !important;}\
+      #quick-links LI {border: none !important;}\
+      .dropdown-contents {min-height: 320px !important; width: 180px !important;}\
+      #page-body {margin: 80px 2px 0 2px !important;}\
+      .rightside.responsive-search {display: none !important;}\
+      .icon.fa-file-o.fa-fw.icon-red {c}\
+      .mark-read.rightside {float: right !important; font-size: ' + fontSize + ' !important; height: 20px !important; margin: 0 !important; padding: 4px 6px 0 6px !important; text-decoration: none !important;}\
+      .row strong, .lastpost > span:last-child {cursor: default !important;}\
+      #page-body > p {display: none !important;}\
+      .action-bar {-moz-user-select: none !important; margin: 5px 0 !important;}\
+      .action-bar a {text-decoration: none !important;}\
+      .action-bar > a.button {height: 24px !important;}\
+      .action-bar > a.button > span, .action-bar > a.button > i {position: relative !important; top: 3px !important;}\
+      .action-bar.bar-top button.button.button-search {height: 26px !important;}\
+      .action-bar.bar-top a.button.button-search-end {padding: 3px 4px 3px 4px !important;}\
+      #page-header .button.button-search {padding: 2px 5px 4px 5px !important;}\
+      #page-header .button.button-search-end {height: 20px !important; width: 23px !important;}\
+      .action-bar .button-search-end {margin-left: -1px !important;}\
+      a.top, .viewHideBtn, .action-bar > a.button, #ucp .panel a.mark {cursor: pointer !important; font-size: ' + fontSize + ' !important; margin: 0 5px 0 0 !important; padding: 0 6px !important; text-shadow: 1px 1px 2px #000 !important;}\
+      .viewHideBtn {background-color: #4E545C !important; border-color: #202225 !important; color: #CCC !important; height: 26px !important;}\
+      .mark-read.rightside {padding: 4px 6px 0 6px !important;}\
+      .mark, .pagination > a, .advanced-search-link {font-size: ' + fontSize + ' !important; font-weight: bold !important; padding: 4px 6px !important;}\
+      .mark-read.rightside:after, .mark[data-ajax]:after, .pagination > a:after {content: "\u2714" !important; margin-left: 6px !important;}\
+      .button.button-secondary:not([class*="bbcode-"]) {padding: 3px 6px !important;}\
+      .pagination li.active span, .pagination li a:hover, .pagination li a:hover .icon, .pagination .dropdown-visible a.dropdown-trigger, .nojs .pagination .dropdown-container:hover a.dropdown-trigger {}\
+      .pagination li.active span {cursor: default !important;}\
+      .pagination > a {padding: 5px 6px !important; margin-bottom: 2px !important;}\
+      .pagination > a.mark, .pagination > a.mark-read, .action-bar.bar-bottom .pagination a[data-ajax] {height: 21px !important; padding: 3px 6px 0 6px !important;}\
+      .action-bar.bar-top .pagination {margin-bottom: -2px !important;}\
+      .forabg a:hover {text-decoration: underline !important;}\
+      .forabg, .forumbg {margin: 0 0 5px 0 !important; padding: 4px 4px 3px 4px !important; position: relative !important;}\
+      .header {background: #111 !important;}\
+      li.header dt, li.header dd {color: #CCC !important;}\
+      .forabg[opened="false"], .forumbg[opened="false"] {height: 17px !important; width: 310px !important;}\
+      .forabg[opened="false"] .row-item dd, .forumbg[opened="false"] .row-item dd {display: none !important;}\
+      .forabg[opened="false"] dt > .list-inner > a {height: 17px !important; top: -4px !important; padding: 3px 0 0 0 !important;}\
+      .forabg[opened="true"] dt > .list-inner > a {height: 11px !important; top: -1px !important;}\
+      .forumbg > div:nth-child(1) .header dt > div {position: relative !important; left: 20px !important;}\
+      .forabg[opened="false"] .list-inner, .forumbg[opened="false"] .list-inner {width: 100% !important;}\
+      input.boardCB {float: left !important; height: 17px !important; width: 17px !important; margin: -1px 5px 0 0 !important; padding: 0 !important; position: relative !important; z-index: 2 !important;}\
+      #team > TBODY tr, #team > TBODY tr td {border: none !important;}\
+      .topiclist.forums {background: none !important;}\
+      li.header dt, li.header dd, #nav-footer {-moz-user-select: none !important;}\
+      li.row dl {margin: 0 !important;}\
+      body.section-index #page-body > div:nth-child(4):hover > div > ul:first-child > li > dl > dt > div {cursor: default !important;}\
+      body.section-viewforum #page-body > div:nth-child(4):hover > div > UL:first-child > li > dl > dt > div {cursor: default !important;}\
+      body.section-viewforum #page-body > div:nth-child(5):hover > div > UL:first-child > li > dl > dt > div {cursor: default !important;}\
+      body.section-viewforum #page-body > div:nth-child(6):hover > div > UL:first-child > li > dl > dt > div {cursor: default !important;}\
+      .topiclist.forums {margin-top: -2px !important;}\
+      li.row:hover {background-color: #191919 !important; border-color: #444 !important;}\
+      li.row:hover .list-inner, li.row:hover .list-inner .forumtitle {color: #FFF !important;}\
+      #page-body .forumbg2 {padding: 0 !important;}\
+      #page-body .stat-block {display: block !important;}\
+      #page-body[hide-stats] .stat-block {display: none !important;}\
+      .stat-block.online-list {margin-bottom: 5px !important; padding: 0 !important; width: 800px !important;}\
+      .stat-block.online-list > h3 {border: none !important; margin: -5px 0 0 0 !important;padding: 5px 6px !important; text-decoration: none !important;}\
+      .stat-block.online-list > h3 > a {display: block !important;}\
+      .stat-block.online-list > h3 > a:after {content: " ?" !important;}\
+      .stat-block.online-list p, .stat-block.statistics p {margin: 4px 8px !important;}\
+      .stat-block.online-list p em {margin-top: 5px !important;}\
+      .stat-block.online-list p * {display: inline-block !important;}\
+      .stat-block.statistics {border: none !important; border-radius: 0 !important; padding: 4px 0 4px 0 !important;}\
+      .stat-block.statistics > h3 {padding: 0 !important; margin: 0 4px !important;}\
+      .stat-block.permissions > h3 {border: none !important; padding: 0 !important; margin: 8px 0 -4px 4px !important;}\
+      #page-footer {display: -moz-box !important; margin: 0 0 0 2px !important; padding: 0 !important;}\
+      #page-footer[hide-footer] {display: none !important;}\
+      .navbar {background: transparent !important; padding: 0 !important;}\
+      #nav-footer {margin: 0 !important; padding: 0 4px !important; width: 800px !important;}\
+      #utc:before {content: "\u2022" !important; font-family: monospace !important; font-size: 24px !important; margin-left: 4px !important; position: relative !important; top: 3px !important;}\
+      #viewfolder > DIV:first-child > DIV > FIELDSET > DIV > a, .jumpbox-return {font-size: ' + fontSize + ' !important; font-weight: bold !important; margin: 0px 0 3px 0 !important; padding: 3px 6px 3px 4px !important;}\
+      #viewfolder > DIV:first-child > DIV > FIELDSET > DIV > a {margin: 5px 0 0 0 !important; padding: 1px 6px !important; text-decoration: none !important;}\
+      body.section-viewforum .button.button-secondary.dropdown-trigger.dropdown-select.dropdown-toggle {height: 24px !important; padding: 0 6px !important;}\
+      body.section-viewforum .button.button-secondary.dropdown-trigger.dropdown-select.dropdown-toggle > .icon {margin-top: 5px !important;}\
+      body.section-viewforum .button.button-secondary.dropdown-trigger.dropdown-select.dropdown-toggle > span i {margin-top: 2px !important;}\
+      #jumpbox {height: 26px !important; margin: 0 !important; padding: 0 !important;}\
+      body.section-viewforum #jumpbox span span {position: relative !important; top: 1px !important;}\
+      body.section-viewtopic #jumpbox > span > span {position: relative !important; top: -2px !important;}\
+      body.section-viewtopic #jumpbox > span > span > i {position: relative !important; top: 1px !important;}\
+      .action-bar.actions-jump {margin-bottom: 2px !important;}\
+      #jumpbox span {margin: -3px 0 0 0 !important; text-decoration: none !important;}\
+      .section-viewforum .jumpbox-return {margin-top: -2px !important;}\
+      a.top {font-weight: bold !important; padding: 5px !important; text-decoration: none !important;}\
+      a.top:hover i {color: #FFF !important;}\
+      a.top:hover, .viewHideBtn:hover, .action-bar > a.button:hover, #ucp .panel a.mark:hover {color: #FFF !important;}\
+      A[href="#faqlinks"][class="top"] {display: none !important;}\
+      .stat-block.online-list .username-coloured {color: tan !important;}\
+      .row .username-coloured, .stat-block.online-list a {color: yellow !important;}\
+      }\
+    ');
+  }
+  
 })();
