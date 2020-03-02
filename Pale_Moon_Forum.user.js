@@ -399,7 +399,7 @@
   if (customScrollbar && !head.innerHTML.match('pycode')) {
     GM_addStyle('\
       ' + cssRule + ' {\
-        scrollbar {-moz-appearance: none !important; border-radius: 8px !important;}\
+        scrollbar {-moz-appearance: none !important;background: ' + boardHoverBG + ' !important;}\
         scrollbar > slider {-moz-appearance: none !important; background: ' + scrollbarSlider + ' !important; border-width: 0 !important; border-radius: 8px !important; box-shadow: none !important;}\
         scrollbar > slider > thumb {-moz-appearance: none !important; background: ' + scrollbarThumb + ' !important; border-width: 0 !important; border-radius: 10px !important; box-shadow: inset 0 0 2px #FFF !important;}\
         scrollbar[orient="vertical"] > slider > thumb {min-height: 35px !important;}\
@@ -408,6 +408,8 @@
         scrollbar > scrollbarbutton {-moz-appearance: none !important; background: none !important; border: none !important;}\
         scrollbar[orient="vertical"] > scrollbarbutton {min-height: 0 !important;}\
         scrollbar[orient="horizontal"] > scrollbarbutton {min-width: 0 !important;}\
+        scrollbar[orient="vertical"] {padding-left: 0 !important;}\
+        scrollbar[orient="horizontal"] {padding-top: 0 !important;}\
       }\
     ');
   }
@@ -434,7 +436,7 @@
     ' + cssRule + ' {\
       html {height: 100% !important;}\
       #page-header {-moz-user-select: none !important; position: fixed !important; top: 0 !important; width: 100% !important; z-index: 2147483646 !important;}\
-      #page-header > .headerbar {border-radius: 0 0 8px 8px !important; margin: 0 2px !important; padding: 0 !important;}\
+      #page-header > .headerbar {border-radius: 0 0 8px 8px !important; margin: 0 !important; padding: 0 !important;}\
       #page-header > .headerbar a, #hidestatsLabel, #hidefooterLabel {font-style: italic !important; font-weight: bold !important;}\
       #site-description ul.linklist li {margin: 0 5px 0 0 !important;}\
       #site-description > p {margin: 0 !important; padding: 0 !important;}\
@@ -668,16 +670,19 @@
       li.row:hover {background-color: #191919 !important; border-color: #444 !important;}\
       li.row:hover .list-inner, li.row:hover .list-inner .forumtitle {color: #FFF !important;}\
       #page-body .forumbg2 {padding: 0 !important;}\
-      .stat-block.online-list {margin-bottom: 5px !important; padding: 0 !important; width: 800px !important;}\
+      .stat-block.online-list {background: #42474F !important; margin: 10px 0 5px 0 !important; padding: 0 !important; width: 812px !important;}\
       .stat-block.online-list > h3 {border: none !important; margin: -5px 0 0 0 !important;padding: 5px 6px !important; text-decoration: none !important;}\
       .stat-block.online-list > h3 > a:after {content: " ?" !important;}\
-      #nav-footer {background: #42474F !important; margin: 0 !important; padding: 0 4px !important; width: 800px !important;}\
-      #utc:before {content: "\u2022" !important; font-family: monospace !important; font-size: 24px !important; margin-left: 4px !important; position: relative !important; top: 3px !important;}\
+      #nav-footer {background: #42474F !important; margin: 0 !important; padding: 0 8px 0 4px !important; width: 800px !important;}\
+      #utc:before {content: "\u2022" !important; font-family: monospace !important; font-size: 24px !important; position: relative !important; top: 3px !important;}\
       #viewfolder > DIV:first-child > DIV > FIELDSET > DIV > a, .jumpbox-return {font-size: ' + fontSize + ' !important; font-weight: bold !important; margin: 0px 0 3px 0 !important; padding: 3px 6px 3px 4px !important;}\
       a.top:hover i {color: #FFF !important;}\
       a.top:hover, .viewHideBtn:hover, .action-bar > a.button:hover, #ucp .panel a.mark:hover {color: #FFF !important;}\
       .stat-block.online-list .username-coloured {color: tan !important;}\
       .row .username-coloured, .stat-block.online-list a {color: yellow !important;}\
+      .content SPAN {color: tan !important; text-decoration: none !important; text-shadow: 1px 1px 2px #000 !important;}\
+      .author .username-coloured, .author .username, .notice a.username-coloured {color: #FF0 !important;}\
+      .signature {color: #F00 !important; filter: invert(80%) !important; text-shadow: 1px 1px 2px #FFF !important;}\
       }\
     ');
   }
