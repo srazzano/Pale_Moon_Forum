@@ -531,7 +531,7 @@
       a.top {font-weight: bold !important; padding: 5px !important; text-decoration: none !important;}\
     }\
   ');
-  
+
   if (!head.innerHTML.match('pycode')) GM_addStyle('\
     ' + cssRule + ' {\
       html, body {background: ' + bodyBG + ' !important;}\
@@ -683,5 +683,5 @@
       .signature {color: #F00 !important; filter: invert(80%) !important; text-shadow: 1px 1px 2px #FFF !important;}\
     }\
   ');
-  
+
 })();
