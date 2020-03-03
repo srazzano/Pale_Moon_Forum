@@ -19,9 +19,6 @@
 
   'use strict';
 
-  var head = $q('HEAD');
-  //if (head.innerHTML.match('pycode')) return;
-
   const timerInterval = 10000,
         cssRule = '/* AGENT_SHEET */ @-moz-document domain("forum.palemoon.org")',
         customCheckbox = true,
@@ -69,7 +66,8 @@
         DayNo = '"",1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,27,28,29,30,31',
         DayOrd = '"",1st,2nd,3rd,4th,5th,6th,7th,8th,9th,10th,11th,12th,13th,14th,15th,16th,17th,18th,19th,20th,21st,22nd,23rd,24th,25th,26th,27th,28th,29th,30th,31st';
 
-  var timer_Interval,
+  var head = $q('HEAD'),
+      timer_Interval,
       ActionBar = $('.action-bar', $('#page-body'), 1),
       Link0 = $c('a', {id: 'aLink0', textContent: linkNewTab.toUpperCase()}, [{type: 'click', fn: function() {window.open(Url1, '_blank')}}]),
       Label0 = $n('text', {textContent: textBracket}),
@@ -537,159 +535,159 @@
     GM_addStyle('\
       ' + cssRule + ' {\
 /* BODY */\
-      html, body {background: ' + bodyBG + ' !important;}\
+        html, body {background: ' + bodyBG + ' !important;}\
 /* PAGE-HEADER */\
-      #page-header > .headerbar {background: ' + headerBG + ' !important; border: 1px solid #001752 !important; height: 83px !important;}\
-      #site-description h1, #site-description p, #site-description span, #site-description a, #site-description i, #site-description span.username, #stats-footer > label, ul#nav-main span {color: ' + headerText + ' !important;}\
-      .header, .header a {color: ' + textColor + ' !important; text-shadow: 1px 1px 2px #000 !important;}\
-      .header:hover, .header:hover a {color: ' + textHoverColor + ' !important;}\
-      #wrap {background: ' + bodyBG + ' !important;}\
-      .insertBtn {background: url(https://raw.githubusercontent.com/srazzano/Images/master/insert.png) no-repeat center, linear-gradient(#FFFFFF, #E9E9E9) !important; border-right: 1px solid #C7C3BF !important; border-radius: 4px 0 0 4px !important; box-shadow: 0 0 0 1px #FFF inset !important; height: 24px !important;}\
-      .insertBtn:hover {background: url(https://raw.githubusercontent.com/srazzano/Images/master/insert.png) no-repeat center, linear-gradient(#E9E9E9, #FFFFFF) !important;}\
-      .clearBtn {background: url(https://raw.githubusercontent.com/srazzano/Images/master/clear.png) no-repeat center, linear-gradient(#FFFFFF, #E9E9E9) !important; border-right: 1px solid #C7C3BF !important; border-radius: 0 !important; box-shadow: 0 0 0 1px #FFF inset !important; height: 24px !important;}\
-      .clearBtn:hover {background: url(https://raw.githubusercontent.com/srazzano/Images/master/clear.png) no-repeat center, linear-gradient(#E9E9E9, #FFFFFF) !important;}\
-      #page-body .insertBtn {border: 1px solid #C7C3BF !important; height: 26px !important;}\
-      #page-body .clearBtn {border: 1px solid #C7C3BF !important; border-left: none !important; border-right: none !important; height: 26px !important;}\
-      #search-box {border: 1px solid #001752 !important; box-shadow: none !important; width: 298px !important;}\
-      #keywords, #add_keywords {border-radius: 0 !important; width: 181px !important;}\
-      #search_keywords, #add_keywords {border-radius: 0 !important; color: #000 !important; height: 26px !important; width: 181px !important;}\
-      #nav-main a, #nav-main span, #viewfolder .mark {color: ' + textColor + ' !important; text-shadow: 1px 1px 2px #000 !important;}\
-      #nav-main .dropdown *, #notification_list *, #nav-main #quick-links a, .header .list-inner.with-mark, .header .mark {color: #000 !important; text-shadow: none !important;}\
-      #nav-breadcrumbs a {color: ' + textColor + ' !important;}\
-      #hidefooterLabel, #hidestatsLabel {color: ' + textColor + ' !important; text-shadow: 1px 1px 2px #000 !important;}\
-      .icon.fa-bars.fa-fw {text-shadow: 1px 1px 2px #000 !important;}\
-      #site-description {text-shadow: 1px 1px 2px #000 !important;}\
-      #username_logged_in .username {color: ' + textColor + ' !important; text-shadow: 1px 1px 2px #000 !important;}\
-      #username_logged_in a span {color: #000 !important; text-shadow: none !important;}\
-      #page-header .dropdown li#separator {border-bottom: 1px solid #000 !important;}\
+        #page-header > .headerbar {background: ' + headerBG + ' !important; border: 1px solid #001752 !important; height: 83px !important;}\
+        #site-description h1, #site-description p, #site-description span, #site-description a, #site-description i, #site-description span.username, #stats-footer > label, ul#nav-main span {color: ' + headerText + ' !important;}\
+        .header, .header a {color: ' + textColor + ' !important; text-shadow: 1px 1px 2px #000 !important;}\
+        .header:hover, .header:hover a {color: ' + textHoverColor + ' !important;}\
+        #wrap {background: ' + bodyBG + ' !important;}\
+        .insertBtn {background: url(https://raw.githubusercontent.com/srazzano/Images/master/insert.png) no-repeat center, linear-gradient(#FFFFFF, #E9E9E9) !important; border-right: 1px solid #C7C3BF !important; border-radius: 4px 0 0 4px !important; box-shadow: 0 0 0 1px #FFF inset !important; height: 24px !important;}\
+        .insertBtn:hover {background: url(https://raw.githubusercontent.com/srazzano/Images/master/insert.png) no-repeat center, linear-gradient(#E9E9E9, #FFFFFF) !important;}\
+        .clearBtn {background: url(https://raw.githubusercontent.com/srazzano/Images/master/clear.png) no-repeat center, linear-gradient(#FFFFFF, #E9E9E9) !important; border-right: 1px solid #C7C3BF !important; border-radius: 0 !important; box-shadow: 0 0 0 1px #FFF inset !important; height: 24px !important;}\
+        .clearBtn:hover {background: url(https://raw.githubusercontent.com/srazzano/Images/master/clear.png) no-repeat center, linear-gradient(#E9E9E9, #FFFFFF) !important;}\
+        #page-body .insertBtn {border: 1px solid #C7C3BF !important; height: 26px !important;}\
+        #page-body .clearBtn {border: 1px solid #C7C3BF !important; border-left: none !important; border-right: none !important; height: 26px !important;}\
+        #search-box {border: 1px solid #001752 !important; box-shadow: none !important; width: 298px !important;}\
+        #keywords, #add_keywords {border-radius: 0 !important; width: 181px !important;}\
+        #search_keywords, #add_keywords {border-radius: 0 !important; color: #000 !important; height: 26px !important; width: 181px !important;}\
+        #nav-main a, #nav-main span, #viewfolder .mark {color: ' + textColor + ' !important; text-shadow: 1px 1px 2px #000 !important;}\
+        #nav-main .dropdown *, #notification_list *, #nav-main #quick-links a, .header .list-inner.with-mark, .header .mark {color: #000 !important; text-shadow: none !important;}\
+        #nav-breadcrumbs a {color: ' + textColor + ' !important;}\
+        #hidefooterLabel, #hidestatsLabel {color: ' + textColor + ' !important; text-shadow: 1px 1px 2px #000 !important;}\
+        .icon.fa-bars.fa-fw {text-shadow: 1px 1px 2px #000 !important;}\
+        #site-description {text-shadow: 1px 1px 2px #000 !important;}\
+        #username_logged_in .username {color: ' + textColor + ' !important; text-shadow: 1px 1px 2px #000 !important;}\
+        #username_logged_in a span {color: #000 !important; text-shadow: none !important;}\
+        #page-header .dropdown li#separator {border-bottom: 1px solid #000 !important;}\
 /* PAGE-BODY */\
-      #page-body {margin: 76px 2px 0 2px !important;}\
+        #page-body {margin: 76px 2px 0 2px !important;}\
 /* ACTION-BAR */\
-      .icon.fa-file-o.fa-fw.icon-red {color: ' + textColor + ' !important;}\
-      .mark-read.rightside {background: ' + boardBG + ' !important; border: 1px solid #001752 !important; border-radius: 4px !important; box-shadow: inset 0 0 1px #FFF !important; color: ' + textColor + ' !important; float: right !important; font-size: ' + fontSize + ' !important; height: 20px !important; margin: 0 !important; padding: 4px 6px 0 6px !important; text-decoration: none !important; text-shadow: 1px 1px 2px #000 !important; }\
-      .mark-read.rightside:hover {background: ' + boardHoverBG + ' !important; color: ' + textColor + ' !important;}\
-      .button.button-search icon.fa-search.fa-fw, .button.button-search icon.fa-cog.fa-fw {color: #606060 !important;}\
-      .action-bar {-moz-user-select: none !important; margin: 0 0 5px 0 !important;}\
-      .action-bar > a.button > i {color: #FFF !important;}\
-      #page-header .button.button-search {border: none !important; border-left: 1px solid #C7C3BF !important; padding: 2px 5px 4px 5px !important;}\
-      #page-header .button.button-search-end {border: none !important; border-left: 1px solid #C7C3BF !important; height: 20px !important; width: 23px !important;}\
-      .action-bar .button-search-end {border: 1px solid #C7C3BF !important; margin-left: -1px !important;}\
-      a.top, .viewHideBtn, .action-bar > a.button, #ucp .panel a.mark {-moz-appearance: none !important; background: ' + boardBG + ' !important; border: 1px solid #001752 !important; border-radius: 4px !important; box-shadow: inset 0 0 1px #FFF !important; color: ' + textColor + ' !important; cursor: pointer !important; font-size: ' + fontSize + ' !important; margin: 0 5px 0 0 !important; padding: 0 6px !important; text-shadow: 1px 1px 2px #000 !important;}\
-      .viewHideBtn {height: 26px !important;}\
-      .mark, .pagination > a, .advanced-search-link {background: ' + boardBG + ' !important; border: 1px solid #001752 !important; border-radius: 4px !important; box-shadow: inset 0 0 1px #FFF !important; color: ' + textColor + ' !important; font-size: ' + fontSize + ' !important; font-weight: bold !important; padding: 4px 6px !important; text-shadow: 1px 1px 2px #000 !important;}\
-      .mark-read.rightside:after, .mark[data-ajax]:after, .pagination > a:after {color: ' + textColor + ' !important; content: "\u2714" !important; margin-left: 6px !important;}\
-      .button.button-secondary:not([class*="bbcode-"]) {-moz-appearance: none !important; background: ' + boardBG + ' !important; border: 1px solid #001752 !important; border-radius: 4px !important; box-shadow: inset 0 0 1px #FFF !important; color: ' + textColor + ' !important; padding: 3px 6px !important; text-shadow: 1px 1px 2px #000 !important;}\
-      .button.button-secondary .fa-fw {color: ' + textColor + ' !important;}\
-      .button.button-secondary:not([class*="bbcode-"]):hover {background: ' + boardHoverBG + ' !important;}\
-      .pagination li.active span, .pagination li a:hover, .pagination li a:hover .icon, .pagination .dropdown-visible a.dropdown-trigger, .nojs .pagination .dropdown-container:hover a.dropdown-trigger {background: ' + boardBG + ' !important; border-color: #001752 !important; border-radius: 4px !important; box-shadow: inset 0 0 1px #FFF !important; color: ' + textColor + ' !important;}\
-      .pagination li.active span {background: ' + boardHoverBG + ' !important; cursor: default !important;}\
-      .pagination li a:hover {background: ' + boardBG + ' !important; color: ' + textColor + ' !important;}\
-      .mark:hover, .pagination > a:hover, .advanced-search-link:hover {background: ' + boardHoverBG + ' !important;}\
+        .icon.fa-file-o.fa-fw.icon-red {color: ' + textColor + ' !important;}\
+        .mark-read.rightside {background: ' + boardBG + ' !important; border: 1px solid #001752 !important; border-radius: 4px !important; box-shadow: inset 0 0 1px #FFF !important; color: ' + textColor + ' !important; float: right !important; font-size: ' + fontSize + ' !important; height: 20px !important; margin: 0 !important; padding: 4px 6px 0 6px !important; text-decoration: none !important; text-shadow: 1px 1px 2px #000 !important; }\
+        .mark-read.rightside:hover {background: ' + boardHoverBG + ' !important; color: ' + textColor + ' !important;}\
+        .button.button-search icon.fa-search.fa-fw, .button.button-search icon.fa-cog.fa-fw {color: #606060 !important;}\
+        .action-bar {-moz-user-select: none !important; margin: 0 0 5px 0 !important;}\
+        .action-bar > a.button > i {color: #FFF !important;}\
+        #page-header .button.button-search {border: none !important; border-left: 1px solid #C7C3BF !important; padding: 2px 5px 4px 5px !important;}\
+        #page-header .button.button-search-end {border: none !important; border-left: 1px solid #C7C3BF !important; height: 20px !important; width: 23px !important;}\
+        .action-bar .button-search-end {border: 1px solid #C7C3BF !important; margin-left: -1px !important;}\
+        a.top, .viewHideBtn, .action-bar > a.button, #ucp .panel a.mark {-moz-appearance: none !important; background: ' + boardBG + ' !important; border: 1px solid #001752 !important; border-radius: 4px !important; box-shadow: inset 0 0 1px #FFF !important; color: ' + textColor + ' !important; cursor: pointer !important; font-size: ' + fontSize + ' !important; margin: 0 5px 0 0 !important; padding: 0 6px !important; text-shadow: 1px 1px 2px #000 !important;}\
+        .viewHideBtn {height: 26px !important;}\
+        .mark, .pagination > a, .advanced-search-link {background: ' + boardBG + ' !important; border: 1px solid #001752 !important; border-radius: 4px !important; box-shadow: inset 0 0 1px #FFF !important; color: ' + textColor + ' !important; font-size: ' + fontSize + ' !important; font-weight: bold !important; padding: 4px 6px !important; text-shadow: 1px 1px 2px #000 !important;}\
+        .mark-read.rightside:after, .mark[data-ajax]:after, .pagination > a:after {color: ' + textColor + ' !important; content: "\u2714" !important; margin-left: 6px !important;}\
+        .button.button-secondary:not([class*="bbcode-"]) {-moz-appearance: none !important; background: ' + boardBG + ' !important; border: 1px solid #001752 !important; border-radius: 4px !important; box-shadow: inset 0 0 1px #FFF !important; color: ' + textColor + ' !important; padding: 3px 6px !important; text-shadow: 1px 1px 2px #000 !important;}\
+        .button.button-secondary .fa-fw {color: ' + textColor + ' !important;}\
+        .button.button-secondary:not([class*="bbcode-"]):hover {background: ' + boardHoverBG + ' !important;}\
+        .pagination li.active span, .pagination li a:hover, .pagination li a:hover .icon, .pagination .dropdown-visible a.dropdown-trigger, .nojs .pagination .dropdown-container:hover a.dropdown-trigger {background: ' + boardBG + ' !important; border-color: #001752 !important; border-radius: 4px !important; box-shadow: inset 0 0 1px #FFF !important; color: ' + textColor + ' !important;}\
+        .pagination li.active span {background: ' + boardHoverBG + ' !important; cursor: default !important;}\
+        .pagination li a:hover {background: ' + boardBG + ' !important; color: ' + textColor + ' !important;}\
+        .mark:hover, .pagination > a:hover, .advanced-search-link:hover {background: ' + boardHoverBG + ' !important;}\
 /* BOARDS */\
-      .forabg, .forumbg {background: ' + boardHoverBG + ' !important; border: 1px solid #001752 !important; border-radius: 6px 6px 12px 12px !important; box-shadow: inset 0 0 1px #FFF !important; margin: 0 0 5px 0 !important; padding: 4px 4px 3px 4px !important; position: relative !important;}\
-      .forabg:hover .header a, .forumbg:hover .header a {color: ' + textHoverColor + ' !important;}\
-      .forabg[opened="false"], .forumbg[opened="false"] {background: ' + boardBG + ' !important; border-radius: 4px !important; height: 17px !important; width: 310px !important;}\
-      .forabg[opened="false"]:hover, .forumbg[opened="false"]:hover {background: ' + boardHoverBG + ' !important;}\
-      .forabg[opened="true"], .forumbg[opened="true"] {background: ' + boardHoverBG + ' !important;}\
-      .forumbg.forumbg-table {border: 2px solid #001752 !important; box-shadow: none !important;}\
-      #team > TBODY tr:last-child {border-radius: 0 0 9px 9px !important;}\
-      .forabg li:last-child, .forumbg.announcement ul > li:last-child, .topiclist.topics li:last-of-type {border-radius: 0 0 9px 9px !important;}\
-      li.header dt, li.header dd {color: ' + textColor + ' !important;}\
-      li.header dt:hover, li.header dd:hover {color: ' + textHoverColor + ' !important;}\
-      #page-body > div:nth-child(5) > div > ul:last-child > li:last-child {border-radius: 0 0 9px 9px !important;}\
-      #page-body > div:nth-child(6) > div > ul:last-child > li:last-child {border-radius: 0 0 9px 9px !important;}\
-      body.section-index #page-body > div:nth-child(4):hover > div > ul:first-child > li > dl > dt > div {color: ' + textHoverColor + ' !important; cursor: default !important;}\
-      body.section-viewforum #page-body > div:nth-child(4):hover > div > UL:first-child > li > dl > dt > div {color: ' + textHoverColor + ' !important; cursor: default !important;}\
-      body.section-viewforum #page-body > div:nth-child(5):hover > div > UL:first-child > li > dl > dt > div {color: ' + textHoverColor + ' !important; cursor: default !important;}\
-      body.section-viewforum #page-body > div:nth-child(6):hover > div > UL:first-child > li > dl > dt > div {color: ' + textHoverColor + ' !important; cursor: default !important;}\
-      .row-item.forum_unread .list-inner {color: #000 !important;}\
-      .row:hover {background-color: ' + rowHover + ' !important;}\
-      .forumbg li[locked] {background: ' + lockedBG + ' !important;}\
-      .forumbg li[locked]:hover {background: ' + lockedHoverBG + ' !important;}\
+        .forabg, .forumbg {background: ' + boardHoverBG + ' !important; border: 1px solid #001752 !important; border-radius: 6px 6px 12px 12px !important; box-shadow: inset 0 0 1px #FFF !important; margin: 0 0 5px 0 !important; padding: 4px 4px 3px 4px !important; position: relative !important;}\
+        .forabg:hover .header a, .forumbg:hover .header a {color: ' + textHoverColor + ' !important;}\
+        .forabg[opened="false"], .forumbg[opened="false"] {background: ' + boardBG + ' !important; border-radius: 4px !important; height: 17px !important; width: 310px !important;}\
+        .forabg[opened="false"]:hover, .forumbg[opened="false"]:hover {background: ' + boardHoverBG + ' !important;}\
+        .forabg[opened="true"], .forumbg[opened="true"] {background: ' + boardHoverBG + ' !important;}\
+        .forumbg.forumbg-table {border: 2px solid #001752 !important; box-shadow: none !important;}\
+        #team > TBODY tr:last-child {border-radius: 0 0 9px 9px !important;}\
+        .forabg li:last-child, .forumbg.announcement ul > li:last-child, .topiclist.topics li:last-of-type {border-radius: 0 0 9px 9px !important;}\
+        li.header dt, li.header dd {color: ' + textColor + ' !important;}\
+        li.header dt:hover, li.header dd:hover {color: ' + textHoverColor + ' !important;}\
+        #page-body > div:nth-child(5) > div > ul:last-child > li:last-child {border-radius: 0 0 9px 9px !important;}\
+        #page-body > div:nth-child(6) > div > ul:last-child > li:last-child {border-radius: 0 0 9px 9px !important;}\
+        body.section-index #page-body > div:nth-child(4):hover > div > ul:first-child > li > dl > dt > div {color: ' + textHoverColor + ' !important; cursor: default !important;}\
+        body.section-viewforum #page-body > div:nth-child(4):hover > div > UL:first-child > li > dl > dt > div {color: ' + textHoverColor + ' !important; cursor: default !important;}\
+        body.section-viewforum #page-body > div:nth-child(5):hover > div > UL:first-child > li > dl > dt > div {color: ' + textHoverColor + ' !important; cursor: default !important;}\
+        body.section-viewforum #page-body > div:nth-child(6):hover > div > UL:first-child > li > dl > dt > div {color: ' + textHoverColor + ' !important; cursor: default !important;}\
+        .row-item.forum_unread .list-inner {color: #000 !important;}\
+        .row:hover {background-color: ' + rowHover + ' !important;}\
+        .forumbg li[locked] {background: ' + lockedBG + ' !important;}\
+        .forumbg li[locked]:hover {background: ' + lockedHoverBG + ' !important;}\
 /* PAGE-FOOTER */\
-      .stat-block.online-list {border: 5px solid #001752 !important; border-radius: 6px 6px 12px 12px !important; margin-bottom: 5px !important; padding: 0 !important; width: 800px !important;}\
-      .stat-block.online-list > h3 {background: ' + boardHoverBG + ' !important; border: none !important; margin: -5px 0 0 0 !important;padding: 5px 6px !important; text-decoration: none !important; text-shadow: 1px 1px 2px #000 !important;}\
-      .stat-block.online-list > h3 > a {color: ' + textColor + ' !important; display: block !important;}\
-      #page-body > DIV:last-child > DIV > P > STRONG * {color: #000  !important;}\
-      #page-body .stat-block.online-list:hover {background: ' + rowHover + ' !important;}\
-      #nav-footer {background: ' + boardHoverBG + ' !important; border: 1px solid #001752 !important; border-radius: 4px !important; box-shadow: inset 0 0 1px #FFF !important; color: ' + textColor + ' !important; margin: 0 !important; padding: 0 4px !important; text-shadow: 1px 1px 2px #000 !important; width: 800px !important;}\
-      #nav-footer > li {height: 24px !important; padding: 0 !important; margin-top: -1px !important;}\
-      #utc:before {color: ' + textColor + ' !important; content: "\u2022" !important; font-family: monospace !important; font-size: 24px !important; margin-left: 4px !important; position: relative !important; top: 3px !important;}\
-      #utc {cursor: default !important; margin: 0 4px 1px 0 !important; position: relative !important; top: 0 !important;}\
-      #nav-footer a, #nav-footer span, #nav-footer i {color: ' + textColor + ' !important;}\
-      #viewfolder > DIV:first-child > DIV > FIELDSET > DIV > a, .jumpbox-return {background: ' + boardBG + ' !important; border: 1px solid #001752 !important; border-radius: 4px !important; box-shadow: inset 0 0 1px #FFF !important; color: ' + textColor + ' !important; font-size: ' + fontSize + ' !important; font-weight: bold !important; margin: 0px 0 3px 0 !important; padding: 3px 6px 3px 4px !important; text-shadow: 1px 1px 2px #000 !important;}\
-      .jumpbox-return * {color: ' + textColor + ' !important;}\
-      .jumpbox-return:hover, .advanced-search-link:hover, #viewfolder > DIV:first-child > DIV > FIELDSET > DIV > a:hover {background: ' + boardHoverBG + ' !important;}\
-      body.section-posting #nav-footer > LI:nth-child(3) {margin-top: 1px !important;}\
-      #viewfolder .header dd.mark {background: none !important; border: none !important; color: #000 !important; text-shadow: none !important; }\
-      #ucp .topiclist > .header > dl a, #ucp .row-item, #ucp .mark, #ucp span {background: none !important; border: none !important; color: #000 !important; cursor: default !important; text-decoration: none !important; text-shadow: none !important;}\
-      .row-item.pm_read .mark {background: none !important; border: none !important;}\
-      a.top i {color:#FFF !important;}\
-      a.top:hover, .viewHideBtn:hover, .action-bar > a.button:hover, #ucp .panel a.mark:hover {background: ' + boardHoverBG + ' !important; color: ' + textHoverColor + ' !important;}\
-      #quick-links .dropdown .pointer, #username_logged_in .dropdown .pointer {border-color: #001752 transparent !important;}\
-      #quick-links .dropdown .pointer-inner, #username_logged_in .dropdown .pointer-inner {border-color: #001752 transparent !important; bottom: -9px !important;}\
-      #quick-links .dropdown-extended .pointer-inner, #username_logged_in .dropdown-extended .pointer-inner {border-color: #001752 transparent !important;}\
-      #quick-links .dropdown .dropdown-contents, #username_logged_in .dropdown .dropdown-contents {background: #001752 !important; border-color: #000 !important; margin-top: -1px !important;}\
-      #nav-main #quick-links .dropdown .dropdown-contents i, #nav-main #username_logged_in .dropdown .dropdown-contents i {color: #CCC !important;}\
-      #nav-main #quick-links .dropdown .dropdown-contents span, #nav-main #username_logged_in .dropdown .dropdown-contents span {color: #CCC !important; text-shadow: 1px 1px 2px #000 !important;}\
-      #nav-main #quick-links .dropdown .dropdown-contents li#separator, #nav-main #username_logged_in .dropdown .dropdown-contents li#separator {border-color: #CCC !important;}\
-      #nav-main #quick-links .dropdown .dropdown-contents li:hover i, #nav-main #username_logged_in .dropdown .dropdown-contents li:hover i {color: #FFF !important;}\
-      #nav-main #quick-links .dropdown .dropdown-contents li:hover span, #nav-main #username_logged_in .dropdown .dropdown-contents li:hover span {color: #FFF !important; text-decoration: underline !important;}\
-      #username_logged_in .dropdown .separator {display: none !important;}\
-      #username_logged_in .dropdown li {border: none !important;}\
+        .stat-block.online-list {border: 5px solid #001752 !important; border-radius: 6px 6px 12px 12px !important; margin-bottom: 5px !important; padding: 0 !important; width: 800px !important;}\
+        .stat-block.online-list > h3 {background: ' + boardHoverBG + ' !important; border: none !important; margin: -5px 0 0 0 !important;padding: 5px 6px !important; text-decoration: none !important; text-shadow: 1px 1px 2px #000 !important;}\
+        .stat-block.online-list > h3 > a {color: ' + textColor + ' !important; display: block !important;}\
+        #page-body > DIV:last-child > DIV > P > STRONG * {color: #000  !important;}\
+        #page-body .stat-block.online-list:hover {background: ' + rowHover + ' !important;}\
+        #nav-footer {background: ' + boardHoverBG + ' !important; border: 1px solid #001752 !important; border-radius: 4px !important; box-shadow: inset 0 0 1px #FFF !important; color: ' + textColor + ' !important; margin: 0 !important; padding: 0 4px !important; text-shadow: 1px 1px 2px #000 !important; width: 800px !important;}\
+        #nav-footer > li {height: 24px !important; padding: 0 !important; margin-top: -1px !important;}\
+        #utc:before {color: ' + textColor + ' !important; content: "\u2022" !important; font-family: monospace !important; font-size: 24px !important; margin-left: 4px !important; position: relative !important; top: 3px !important;}\
+        #utc {cursor: default !important; margin: 0 4px 1px 0 !important; position: relative !important; top: 0 !important;}\
+        #nav-footer a, #nav-footer span, #nav-footer i {color: ' + textColor + ' !important;}\
+        #viewfolder > DIV:first-child > DIV > FIELDSET > DIV > a, .jumpbox-return {background: ' + boardBG + ' !important; border: 1px solid #001752 !important; border-radius: 4px !important; box-shadow: inset 0 0 1px #FFF !important; color: ' + textColor + ' !important; font-size: ' + fontSize + ' !important; font-weight: bold !important; margin: 0px 0 3px 0 !important; padding: 3px 6px 3px 4px !important; text-shadow: 1px 1px 2px #000 !important;}\
+        .jumpbox-return * {color: ' + textColor + ' !important;}\
+        .jumpbox-return:hover, .advanced-search-link:hover, #viewfolder > DIV:first-child > DIV > FIELDSET > DIV > a:hover {background: ' + boardHoverBG + ' !important;}\
+        body.section-posting #nav-footer > LI:nth-child(3) {margin-top: 1px !important;}\
+        #viewfolder .header dd.mark {background: none !important; border: none !important; color: #000 !important; text-shadow: none !important; }\
+        #ucp .topiclist > .header > dl a, #ucp .row-item, #ucp .mark, #ucp span {background: none !important; border: none !important; color: #000 !important; cursor: default !important; text-decoration: none !important; text-shadow: none !important;}\
+        .row-item.pm_read .mark {background: none !important; border: none !important;}\
+        a.top i {color:#FFF !important;}\
+        a.top:hover, .viewHideBtn:hover, .action-bar > a.button:hover, #ucp .panel a.mark:hover {background: ' + boardHoverBG + ' !important; color: ' + textHoverColor + ' !important;}\
+        #quick-links .dropdown .pointer, #username_logged_in .dropdown .pointer {border-color: #001752 transparent !important;}\
+        #quick-links .dropdown .pointer-inner, #username_logged_in .dropdown .pointer-inner {border-color: #001752 transparent !important; bottom: -9px !important;}\
+        #quick-links .dropdown-extended .pointer-inner, #username_logged_in .dropdown-extended .pointer-inner {border-color: #001752 transparent !important;}\
+        #quick-links .dropdown .dropdown-contents, #username_logged_in .dropdown .dropdown-contents {background: #001752 !important; border-color: #000 !important; margin-top: -1px !important;}\
+        #nav-main #quick-links .dropdown .dropdown-contents i, #nav-main #username_logged_in .dropdown .dropdown-contents i {color: #CCC !important;}\
+        #nav-main #quick-links .dropdown .dropdown-contents span, #nav-main #username_logged_in .dropdown .dropdown-contents span {color: #CCC !important; text-shadow: 1px 1px 2px #000 !important;}\
+        #nav-main #quick-links .dropdown .dropdown-contents li#separator, #nav-main #username_logged_in .dropdown .dropdown-contents li#separator {border-color: #CCC !important;}\
+        #nav-main #quick-links .dropdown .dropdown-contents li:hover i, #nav-main #username_logged_in .dropdown .dropdown-contents li:hover i {color: #FFF !important;}\
+        #nav-main #quick-links .dropdown .dropdown-contents li:hover span, #nav-main #username_logged_in .dropdown .dropdown-contents li:hover span {color: #FFF !important; text-decoration: underline !important;}\
+        #username_logged_in .dropdown .separator {display: none !important;}\
+        #username_logged_in .dropdown li {border: none !important;}\
       }\
     ');
   } else {
     GM_addStyle('\
       ' + cssRule + ' {\
-      #page-header a, #page-header label {color: #CCC !important;}\
-      #page-header a:hover, #page-header label:hover {color: #FFF !important;}\
-      #page-header > .headerbar {background: #42474F !important; border: 1px solid #000 !important; height: 88px !important;}\
-      .insertBtn {background: #4E545C url(https://raw.githubusercontent.com/srazzano/Images/master/insert.png) no-repeat center !important; border: 1px solid #000 !important; height: 26px !important;}\
-      .insertBtn:hover {background: #565D67 url(https://raw.githubusercontent.com/srazzano/Images/master/insert.png) no-repeat center !important;}\
-      .clearBtn {background: #4E545C url(https://raw.githubusercontent.com/srazzano/Images/master/clear.png) no-repeat center !important; border-top: 1px solid #000 !important; border-bottom: 1px solid #000 !important; height: 26px !important;}\
-      .clearBtn:hover {background: #565D67 url(https://raw.githubusercontent.com/srazzano/Images/master/clear.png) no-repeat center !important;}\
-      .button.button-search {border: none !important; border-top: 1px solid #000 !important; border-bottom: 1px solid #000 !important;}\
-      .button.button-search-end {border: 1px solid #000 !important; border-radius: 0 !important;}\
-      #search-box {width: 301px !important;}\
-      #keywords, #search_keywords, #add_keywords {border: 1px solid #000 !important; border-radius: 0 !important; height: 26px !important; width: 181px !important;}\
-      #hidefooter:hover + #hidefooterLabel, #hidefooterLabel:hover, #hidestats:hover + #hidestatsLabel, #hidestatsLabel:hover {color: #FFF !important;}\
-      #quick-links .dropdown-contents {min-height: 320px !important; width: 180px !important;}\
-      #page-body {margin: 80px 2px 0 2px !important;}\
-      .mark-read.rightside {float: right !important; font-size: ' + fontSize + ' !important; height: 20px !important; margin: 0 !important; padding: 4px 6px 0 6px !important; text-decoration: none !important;}\
-      .action-bar {-moz-user-select: none !important; margin: 5px 0 !important;}\
-      #page-header .button.button-search {padding: 2px 5px 4px 5px !important;}\
-      #page-header .button.button-search-end {height: 20px !important; width: 23px !important;}\
-      .action-bar .button-search-end {margin-left: -1px !important;}\
-      a.top, .viewHideBtn, .action-bar > a.button, #ucp .panel a.mark {cursor: pointer !important; font-size: ' + fontSize + ' !important; margin: 0 5px 0 0 !important; padding: 0 6px !important; text-shadow: 1px 1px 2px #000 !important;}\
-      .viewHideBtn {background-color: #4E545C !important; border-color: #202225 !important; color: #CCC !important; height: 26px !important;}\
-      .mark, .pagination > a, .advanced-search-link {font-size: ' + fontSize + ' !important; font-weight: bold !important; padding: 4px 6px !important;}\
-      .mark-read.rightside:after, .mark[data-ajax]:after, .pagination > a:after {content: "\u2714" !important; margin-left: 6px !important;}\
-      .button.button-secondary:not([class*="bbcode-"]) {padding: 3px 6px !important;}\
-      .pagination li.active span {cursor: default !important;}\
-      .forabg, .forumbg {margin: 0 0 5px 0 !important; padding: 4px 4px 3px 4px !important; position: relative !important;}\
-      .header {background: #111 !important;}\
-      li.header dt, li.header dd {color: #CCC !important;}\
-      .forabg[opened="false"], .forumbg[opened="false"] {height: 17px !important; width: 310px !important;}\
-      body.section-index #page-body > div:nth-child(4):hover > div > ul:first-child > li > dl > dt > div {cursor: default !important;}\
-      body.section-viewforum #page-body > div:nth-child(4):hover > div > UL:first-child > li > dl > dt > div {cursor: default !important;}\
-      body.section-viewforum #page-body > div:nth-child(5):hover > div > UL:first-child > li > dl > dt > div {cursor: default !important;}\
-      body.section-viewforum #page-body > div:nth-child(6):hover > div > UL:first-child > li > dl > dt > div {cursor: default !important;}\
-      li.row:hover {background-color: #191919 !important; border-color: #444 !important;}\
-      li.row:hover .list-inner, li.row:hover .list-inner .forumtitle {color: #FFF !important;}\
-      #page-body .forumbg2 {padding: 0 !important;}\
-      .stat-block.online-list {background: #42474F !important; margin: 10px 0 5px 0 !important; padding: 0 !important; width: 812px !important;}\
-      .stat-block.online-list > h3 {border: none !important; margin: -5px 0 0 0 !important;padding: 5px 6px !important; text-decoration: none !important;}\
-      #nav-footer {background: #42474F !important; margin: 0 !important; padding: 0 8px 0 4px !important; width: 800px !important;}\
-      #utc:before {content: "\u2022" !important; font-family: monospace !important; font-size: 24px !important; position: relative !important; top: 3px !important;}\
-      #viewfolder > DIV:first-child > DIV > FIELDSET > DIV > a, .jumpbox-return {font-size: ' + fontSize + ' !important; font-weight: bold !important; margin: 0px 0 3px 0 !important; padding: 3px 6px 3px 4px !important;}\
-      a.top:hover i {color: #FFF !important;}\
-      a.top:hover, .viewHideBtn:hover, .action-bar > a.button:hover, #ucp .panel a.mark:hover {color: #FFF !important;}\
-      .stat-block.online-list .username-coloured {color: tan !important;}\
-      .row .username-coloured, .row .username, .stat-block.online-list a {color: #FF0 !important;}\
-      .content SPAN {color: tan !important; text-decoration: none !important; text-shadow: 1px 1px 2px #000 !important;}\
-      .author .username-coloured, .author .username, .notice a.username-coloured {color: #FF0 !important;}\
-      .signature {color: #F00 !important; filter: invert(80%) !important; text-shadow: 1px 1px 2px #FFF !important;}\
+        #page-header a, #page-header label {color: #CCC !important;}\
+        #page-header a:hover, #page-header label:hover {color: #FFF !important;}\
+        #page-header > .headerbar {background: #42474F !important; border: 1px solid #000 !important; height: 88px !important;}\
+        .insertBtn {background: #4E545C url(https://raw.githubusercontent.com/srazzano/Images/master/insert.png) no-repeat center !important; border: 1px solid #000 !important; height: 26px !important;}\
+        .insertBtn:hover {background: #565D67 url(https://raw.githubusercontent.com/srazzano/Images/master/insert.png) no-repeat center !important;}\
+        .clearBtn {background: #4E545C url(https://raw.githubusercontent.com/srazzano/Images/master/clear.png) no-repeat center !important; border-top: 1px solid #000 !important; border-bottom: 1px solid #000 !important; height: 26px !important;}\
+        .clearBtn:hover {background: #565D67 url(https://raw.githubusercontent.com/srazzano/Images/master/clear.png) no-repeat center !important;}\
+        .button.button-search {border: none !important; border-top: 1px solid #000 !important; border-bottom: 1px solid #000 !important;}\
+        .button.button-search-end {border: 1px solid #000 !important; border-radius: 0 !important;}\
+        #search-box {width: 301px !important;}\
+        #keywords, #search_keywords, #add_keywords {border: 1px solid #000 !important; border-radius: 0 !important; height: 26px !important; width: 181px !important;}\
+        #hidefooter:hover + #hidefooterLabel, #hidefooterLabel:hover, #hidestats:hover + #hidestatsLabel, #hidestatsLabel:hover {color: #FFF !important;}\
+        #quick-links .dropdown-contents {min-height: 320px !important; width: 180px !important;}\
+        #page-body {margin: 80px 2px 0 2px !important;}\
+        .mark-read.rightside {float: right !important; font-size: ' + fontSize + ' !important; height: 20px !important; margin: 0 !important; padding: 4px 6px 0 6px !important; text-decoration: none !important;}\
+        .action-bar {-moz-user-select: none !important; margin: 5px 0 !important;}\
+        #page-header .button.button-search {padding: 2px 5px 4px 5px !important;}\
+        #page-header .button.button-search-end {height: 20px !important; width: 23px !important;}\
+        .action-bar .button-search-end {margin-left: -1px !important;}\
+        a.top, .viewHideBtn, .action-bar > a.button, #ucp .panel a.mark {cursor: pointer !important; font-size: ' + fontSize + ' !important; margin: 0 5px 0 0 !important; padding: 0 6px !important; text-shadow: 1px 1px 2px #000 !important;}\
+        .viewHideBtn {background-color: #4E545C !important; border-color: #202225 !important; color: #CCC !important; height: 26px !important;}\
+        .mark, .pagination > a, .advanced-search-link {font-size: ' + fontSize + ' !important; font-weight: bold !important; padding: 4px 6px !important;}\
+        .mark-read.rightside:after, .mark[data-ajax]:after, .pagination > a:after {content: "\u2714" !important; margin-left: 6px !important;}\
+        .button.button-secondary:not([class*="bbcode-"]) {padding: 3px 6px !important;}\
+        .pagination li.active span {cursor: default !important;}\
+        .forabg, .forumbg {margin: 0 0 5px 0 !important; padding: 4px 4px 3px 4px !important; position: relative !important;}\
+        .header {background: #111 !important;}\
+        li.header dt, li.header dd {color: #CCC !important;}\
+        .forabg[opened="false"], .forumbg[opened="false"] {height: 17px !important; width: 310px !important;}\
+        body.section-index #page-body > div:nth-child(4):hover > div > ul:first-child > li > dl > dt > div {cursor: default !important;}\
+        body.section-viewforum #page-body > div:nth-child(4):hover > div > UL:first-child > li > dl > dt > div {cursor: default !important;}\
+        body.section-viewforum #page-body > div:nth-child(5):hover > div > UL:first-child > li > dl > dt > div {cursor: default !important;}\
+        body.section-viewforum #page-body > div:nth-child(6):hover > div > UL:first-child > li > dl > dt > div {cursor: default !important;}\
+        li.row:hover {background-color: #191919 !important; border-color: #444 !important;}\
+        li.row:hover .list-inner, li.row:hover .list-inner .forumtitle {color: #FFF !important;}\
+        #page-body .forumbg2 {padding: 0 !important;}\
+        .stat-block.online-list {background: #42474F !important; margin: 10px 0 5px 0 !important; padding: 0 !important; width: 812px !important;}\
+        .stat-block.online-list > h3 {border: none !important; margin: -5px 0 0 0 !important;padding: 5px 6px !important; text-decoration: none !important;}\
+        #nav-footer {background: #42474F !important; margin: 0 !important; padding: 0 8px 0 4px !important; width: 800px !important;}\
+        #utc:before {content: "\u2022" !important; font-family: monospace !important; font-size: 24px !important; position: relative !important; top: 3px !important;}\
+        #viewfolder > DIV:first-child > DIV > FIELDSET > DIV > a, .jumpbox-return {font-size: ' + fontSize + ' !important; font-weight: bold !important; margin: 0px 0 3px 0 !important; padding: 3px 6px 3px 4px !important;}\
+        a.top:hover i {color: #FFF !important;}\
+        a.top:hover, .viewHideBtn:hover, .action-bar > a.button:hover, #ucp .panel a.mark:hover {color: #FFF !important;}\
+        .stat-block.online-list .username-coloured {color: tan !important;}\
+        .row .username-coloured, .row .username, .stat-block.online-list a {color: #FF0 !important;}\
+        .content SPAN {color: tan !important; text-decoration: none !important; text-shadow: 1px 1px 2px #000 !important;}\
+        .author .username-coloured, .author .username, .notice a.username-coloured {color: #FF0 !important;}\
+        .signature {color: #F00 !important; filter: invert(80%) !important; text-shadow: 1px 1px 2px #FFF !important;}\
       }\
     ');
   }
