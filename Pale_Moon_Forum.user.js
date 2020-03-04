@@ -39,6 +39,8 @@
         scrollbarSlider = '#001752',
         scrollbarThumb = 'linear-gradient(to right, #5BA4ED, #314A85)',
         scrollbarThumbHover = 'linear-gradient(to right, #B2D2F3, #6181C5)',
+        imgInsert = 'data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAA0AAAANCAYAAABy6+R8AAAA0UlEQVR42oXSSw6CMBAG4L8Qg8aFj4WsPYAxbowbE4/gRvEYHsVj6GnwCBpXLNipyKPg2CIoljoJ6TSdb6YBGFSx22di3W6Y6pjVIcu2EXqeEtYiDJYw+BGpf/qBWiSCnwHf/YKsuH813kgBJZougIT2MT0R9UhM4N6nnCpiDlxjoHcpoETzNRBSwQNyFTn7yAM5cdwC3EM+abairgYdZrIoIhDkecjQToHbCAKUk1TRcWDS9RoW9RqWQPv2ml1HpFXwF6mA/jtNHCXQo1fU/HtPjiJoRY1mecIAAAAASUVORK5CYII=',
+        imgClear = 'data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAACiklEQVR42p3Ta0iTURgH8P9ene/cdLp3OcVrS6eUZrlAhlaWiFam+cGwSIpKpQ9dFUHpJhnd5oYmWFRShAkSIVQgFRkklZk6WmKZZnjZHO/cLed0TV3vFCRJw3o+HHjgnB/P85xzWPiPSLh6V+HunNa+LslTsP71cNyZ6qcqXky6xNDZ11tRJPknIPVW877m9u66KT6FDezR+x2Xjx9YFpBy823VgC1wz9dTYSJXzqpUY5O1Lb/lbP6dvwJblS+VGn/ZyXGSy9JoBgEnD+dzhCgLAKQVz56oirdlLgkkyxtLe0MzL60LINA/BvgRQNcEYNDrAaMOwQa1eViRK1gSWNVgnhLwfdw69HZEUyR0diDUE9DYGGQc8O1rchjKd3gsCsQrGx+v3pKVcS9uLk97AbSYgAnbGLy43rBaJxH26YZ2oLIw6A8guar+aAsvqdpfFIiNQUBUIGZ7dkWZDmhSAW2qDkgtr2o7rxXnLQBkNY0Ph0J2Zge4u6Of6ddkMjMLcypEjL3BJOoT5vZxjsidklF1eNejuu+slJLTHmMcqnIwMv0QxzeK9HACIw4gmun3C4OscHOVDgwbaUDXA3gJQDUUfDS2v1s/e6WyE4U5Wm7I9SEqXuSc5gPTFgRFJEJDd0MqXgM2G3hvckDMZcP4E7DQg4j7VqtUKS4UzQLzT3T/we20bVJOr90d7aCZsiPSACEzhB8agCcEJs0gqTDY7TSkH+SlndUVVxYA8zdwuEBsGreWm6mVGXphPB89rUDSMaDvDSAKB0gg9nNtufp2zblFgd9is7dQkEgI/bKJGJnEQXpyZjy9iRnSh4icGrm4HGDBJ7JoVYmuQY+wQ8lUU2vu84LkB7G7sohfcl/v4JWUJyYAAAAASUVORK5CYII=',
         bullet = '\u2022',
         textPaleMoon = 'Pale Moon ',
         linkAddonsSite = 'add-ons site',
@@ -66,7 +68,7 @@
         DayNo = '"",1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,27,28,29,30,31',
         DayOrd = '"",1st,2nd,3rd,4th,5th,6th,7th,8th,9th,10th,11th,12th,13th,14th,15th,16th,17th,18th,19th,20th,21st,22nd,23rd,24th,25th,26th,27th,28th,29th,30th,31st';
 
-  var timer_Interval,
+  var timer,
       head = $q('HEAD'),
       ActionBar = $('.action-bar', $('#page-body'), 1),
       Link0 = $c('a', {id: 'aLink0', textContent: linkNewTab.toUpperCase()}, [{type: 'click', fn: function() {window.open(Url1, '_blank')}}]),
@@ -173,29 +175,13 @@
     return ww + '\u2022\u2004' + mm + dd + yyyy + '\u2004\u2022\u2005' + hr12 + min + ampm;
   }
 
-  function CollapseExpand(e) {
+  function CollapseExpandBoards(e) {
     var bool = GM_getValue(e.id) !== false ? false : true,
         elm = e.parentNode,
         sty = bool ? 'block' : 'none';
     GM_setValue(e.id, bool); 
     elm.setAttribute('opened', bool);
     elm.childNodes[2].lastElementChild.style.display = sty;
-  }
-
-  function HideFooter(e) {
-    var bool = GM_getValue(e.id) !== false ? false : true;
-    GM_setValue(e.id, bool);
-    $('#hidefooter').checked = bool;
-    if (bool) $('#page-footer').removeAttribute('hide-footer');
-    else $('#page-footer').setAttribute('hide-footer', true);
-  }
-
-  function HideStats(e) {
-    var bool = GM_getValue(e.id) !== false ? false : true;
-    GM_setValue(e.id, bool);
-    $('#hidestats').checked = bool;
-    if (bool) $('#page-body').removeAttribute('hide-stats');
-    else $('#page-body').setAttribute('hide-stats', true);
   }
 
   function ViewHideBoards(bool) {
@@ -206,6 +192,22 @@
           elm[i].parentNode.style.display = 'block';
           elm[i].parentNode.childNodes[2].lastElementChild.style.display = 'none';
   } } } }
+
+  function ViewHideFooter(e) {
+    var bool = GM_getValue(e.id) !== false ? false : true;
+    GM_setValue(e.id, bool);
+    $('#hidefooter').checked = bool;
+    if (bool) $('#page-footer').removeAttribute('hide-footer');
+    else $('#page-footer').setAttribute('hide-footer', true);
+  }
+
+  function ViewHideStats(e) {
+    var bool = GM_getValue(e.id) !== false ? false : true;
+    GM_setValue(e.id, bool);
+    $('#hidestats').checked = bool;
+    if (bool) $('#page-body').removeAttribute('hide-stats');
+    else $('#page-body').setAttribute('hide-stats', true);
+  }
 
   if (!GM_getValue('hidestats')) GM_setValue('hidestats', false);
   if (!GM_getValue('hidefooter')) GM_setValue('hidefooter', false);
@@ -239,25 +241,24 @@
   } catch(ex) {}
 
   var dt = $c('span', {id: 'date-time'}),
-      sd = $q('#site-description > H1');
+      sd = $q('#site-description > H1'),
+      nm = $('#nav-main'),
+      spn = $c('span', {id: 'stats-footer'}),
+      ckBox1 = $c('input', {id: 'hidestats', className: 'headerCB checkbox', type: 'checkbox'}, [{type: 'click', fn: function() {ViewHideStats(this)}}]),
+      hsl = $c('label', {id: 'hidestatsLabel', textContent: hideStats}, [{type: 'click', fn: function() {ViewHideStats(this.previousSibling)}}]),
+      ckBox2 = $c('input', {id: 'hidefooter', className: 'headerCB checkbox', type: 'checkbox'}, [{type: 'click', fn: function() {ViewHideFooter(this)}}]),
+      hfl = $c('label', {id: 'hidefooterLabel', textContent: hideFooter}, [{type: 'click', fn: function() {ViewHideFooter(this.previousSibling)}}]),
+      bool1 = GM_getValue('hidestats'),
+      bool2 = GM_getValue('hidefooter');
   sd.appendChild(dt);
   dt.textContent = aDateTime();
   dt.title = dateTimeTip;
   dt.addEventListener('mouseover', function() {dt.textContent = aDateTime()}, false);
-
-  var nav = $('#nav-main'),
-      spn = $c('span', {id: 'stats-footer'}),
-      ckBox1 = $c('input', {id: 'hidestats', className: 'headerCB checkbox', type: 'checkbox'}, [{type: 'click', fn: function() {HideStats(this)}}]),
-      hidestatsLabel = $c('label', {id: 'hidestatsLabel', textContent: hideStats}, [{type: 'click', fn: function() {HideStats(this.previousSibling)}}]),
-      ckBox2 = $c('input', {id: 'hidefooter', className: 'headerCB checkbox', type: 'checkbox'}, [{type: 'click', fn: function() {HideFooter(this)}}]),
-      hidefooterLabel = $c('label', {id: 'hidefooterLabel', textContent: hideFooter}, [{type: 'click', fn: function() {HideFooter(this.previousSibling)}}]),
-      bool1 = GM_getValue('hidestats'),
-      bool2 = GM_getValue('hidefooter');
   spn.appendChild(ckBox1);
-  spn.appendChild(hidestatsLabel);
+  spn.appendChild(hsl);
   spn.appendChild(ckBox2);
-  spn.appendChild(hidefooterLabel);
-  nav.insertBefore(spn, nav.firstChild);
+  spn.appendChild(hfl);
+  nm.insertBefore(spn, nm.firstChild);
   $('#hidestats').checked = bool1;
   $('#hidefooter').checked = bool2;
   if (bool1) $('#page-body').removeAttribute('hide-stats');
@@ -297,7 +298,7 @@
     ActionBar.insertBefore(hBoards, ActionBar.firstElementChild);
     ActionBar.insertBefore(vBoards, ActionBar.firstElementChild);
     for (var i = 0, item = $('.forabg'); i < item.length; i++) {
-      var ckBox3 = $c('input', {id: 'Board'+(i+1), className: 'boardCB checkbox', type: 'checkbox'}, [{type: 'click', fn: function() {CollapseExpand(this)}}]),
+      var ckBox3 = $c('input', {id: 'Board'+(i+1), className: 'boardCB checkbox', type: 'checkbox'}, [{type: 'click', fn: function() {CollapseExpandBoards(this)}}]),
           bool3 = GM_getValue('Board' + (i+1)),
           sty3 = bool3 ? 'block' : 'none';
       item[i].insertBefore(ckBox3, item[i].firstChild);
@@ -310,7 +311,7 @@
   if (pmforum) {
     try {
       var announ = $q('.forumbg.announcement'),
-          ckBox4 = $c('input', {id: 'Board10', className: 'boardCB checkbox', type: 'checkbox'}, [{type: 'click', fn: function() {CollapseExpand(this)}}]),
+          ckBox4 = $c('input', {id: 'Board10', className: 'boardCB checkbox', type: 'checkbox'}, [{type: 'click', fn: function() {CollapseExpandBoards(this)}}]),
           bool4 = GM_getValue('Board10'),
           sty4 = bool4 ? 'block' : 'none';
       if (announ) {
@@ -347,8 +348,8 @@
     if (stat2) stat1.appendChild(stat2);
   } catch(ex) {}
 
-  addEventListener('load', function() {timer_Interval = setInterval(function() {dt.textContent = aDateTime()}, timerInterval)}, false);
-  addEventListener('unload', function() {clearInterval(timer_Interval)}, false);
+  addEventListener('load', function() {timer = setInterval(function() {dt.textContent = aDateTime()}, timerInterval)}, false);
+  addEventListener('unload', function() {clearInterval(timer)}, false);
 
   try {
     if (IconNotification.textContent != '0') GM_addStyle('\
@@ -463,7 +464,7 @@
       #aSep {margin: 0 6px !important;}\
       .insclrBtn {-moz-appearance: none !important; filter: grayscale(1) !important; float: left !important; width: 29px !important;}\
       .insclrBtn:hover { filter: none !important;}\
-      #search-box {float: right !important; margin: -58px 3px 0 0 !important;}\
+      #search-box {border: none !important; float: right !important; margin: -58px 3px 0 0 !important;}\
       .search-box {width: 301px !important;}\
       .search-header {margin-top: 30px !important;}\
       .search-box button.search-icon, .search-box a.button {padding: 3px 4px 1px 2px !important;}\
@@ -540,13 +541,13 @@
       .header, .header a {color: ' + textColor + ' !important; text-shadow: 1px 1px 2px #000 !important;}\
       .header:hover, .header:hover a {color: ' + textHoverColor + ' !important;}\
       #wrap {background: ' + bodyBG + ' !important;}\
-      .insertBtn {background: url(https://raw.githubusercontent.com/srazzano/Images/master/insert.png) no-repeat center, linear-gradient(#FFFFFF, #E9E9E9) !important; border-right: 1px solid #C7C3BF !important; border-radius: 4px 0 0 4px !important; box-shadow: 0 0 0 1px #FFF inset !important; height: 24px !important;}\
-      .insertBtn:hover {background: url(https://raw.githubusercontent.com/srazzano/Images/master/insert.png) no-repeat center, linear-gradient(#E9E9E9, #FFFFFF) !important;}\
-      .clearBtn {background: url(https://raw.githubusercontent.com/srazzano/Images/master/clear.png) no-repeat center, linear-gradient(#FFFFFF, #E9E9E9) !important; border-right: 1px solid #C7C3BF !important; border-radius: 0 !important; box-shadow: 0 0 0 1px #FFF inset !important; height: 24px !important;}\
-      .clearBtn:hover {background: url(https://raw.githubusercontent.com/srazzano/Images/master/clear.png) no-repeat center, linear-gradient(#E9E9E9, #FFFFFF) !important;}\
+      .insertBtn {background: url(' + imgInsert + ') no-repeat center, linear-gradient(#FFFFFF, #E9E9E9) !important; border-right: 1px solid #C7C3BF !important; border-radius: 4px 0 0 4px !important; box-shadow: 0 0 0 1px #FFF inset !important; height: 24px !important;}\
+      .insertBtn:hover {background: url(' + imgInsert + ') no-repeat center, linear-gradient(#E9E9E9, #FFFFFF) !important;}\
+      .clearBtn {background: url(' + imgClear + ') no-repeat center, linear-gradient(#FFFFFF, #E9E9E9) !important; border-right: 1px solid #C7C3BF !important; border-radius: 0 !important; box-shadow: 0 0 0 1px #FFF inset !important; height: 24px !important;}\
+      .clearBtn:hover {background: url(' + imgClear + ') no-repeat center, linear-gradient(#E9E9E9, #FFFFFF) !important;}\
       #page-body .insertBtn {border: 1px solid #C7C3BF !important; height: 26px !important;}\
       #page-body .clearBtn {border: 1px solid #C7C3BF !important; border-left: none !important; border-right: none !important; height: 26px !important;}\
-      #search-box {border: 1px solid #001752 !important; box-shadow: none !important; width: 298px !important;}\
+      #search-box {width: 298px !important;}\
       #keywords, #add_keywords {border-radius: 0 !important; width: 181px !important;}\
       #search_keywords, #add_keywords {border-radius: 0 !important; color: #000 !important; height: 26px !important; width: 181px !important;}\
       #nav-main a, #nav-main span, #viewfolder .mark {color: ' + textColor + ' !important; text-shadow: 1px 1px 2px #000 !important;}\
@@ -568,13 +569,14 @@
       #page-header .button.button-search {border: none !important; border-left: 1px solid #C7C3BF !important; padding: 2px 5px 4px 5px !important;}\
       #page-header .button.button-search-end {border: none !important; border-left: 1px solid #C7C3BF !important; height: 20px !important; width: 23px !important;}\
       .action-bar .button-search-end {border: 1px solid #C7C3BF !important; margin-left: -1px !important;}\
-      a.top, .viewHideBtn, .action-bar > a.button, #ucp .panel a.mark {-moz-appearance: none !important; background: ' + boardBG + ' !important; border: 1px solid #001752 !important; border-radius: 4px !important; box-shadow: inset 0 0 1px #FFF !important; color: ' + textColor + ' !important; cursor: pointer !important; font-size: ' + fontSize + ' !important; margin: 0 5px 0 0 !important; padding: 0 6px !important; text-shadow: 1px 1px 2px #000 !important;}\
+      input.button1, input.button2, a.top, .viewHideBtn, .action-bar > a.button, #ucp .panel a.mark {-moz-appearance: none !important; background: ' + boardBG + ' !important; border: 1px solid #001752 !important; border-radius: 4px !important; box-shadow: inset 0 0 1px #FFF !important; color: ' + textColor + ' !important; cursor: pointer !important; font-size: ' + fontSize + ' !important; margin: 0 5px 0 0 !important; padding: 0 6px !important; text-shadow: 1px 1px 2px #000 !important;}\
+      input.button1, input.button2 {padding: 4px 6px !important;}\
       .viewHideBtn {height: 26px !important;}\
       .mark, .pagination > a, .advanced-search-link {background: ' + boardBG + ' !important; border: 1px solid #001752 !important; border-radius: 4px !important; box-shadow: inset 0 0 1px #FFF !important; color: ' + textColor + ' !important; font-size: ' + fontSize + ' !important; font-weight: bold !important; padding: 4px 6px !important; text-shadow: 1px 1px 2px #000 !important;}\
       .mark-read.rightside:after, .mark[data-ajax]:after, .pagination > a:after {color: ' + textColor + ' !important; content: "\u2714" !important; margin-left: 6px !important;}\
       .button.button-secondary:not([class*="bbcode-"]) {-moz-appearance: none !important; background: ' + boardBG + ' !important; border: 1px solid #001752 !important; border-radius: 4px !important; box-shadow: inset 0 0 1px #FFF !important; color: ' + textColor + ' !important; padding: 3px 6px !important; text-shadow: 1px 1px 2px #000 !important;}\
       .button.button-secondary .fa-fw {color: ' + textColor + ' !important;}\
-      .button.button-secondary:not([class*="bbcode-"]):hover {background: ' + boardHoverBG + ' !important;}\
+      input.button1:hover, input.button2:hover, .button.button-secondary:not([class*="bbcode-"]):hover {background: ' + boardHoverBG + ' !important;}\
       .pagination li.active span, .pagination li a:hover, .pagination li a:hover .icon, .pagination .dropdown-visible a.dropdown-trigger, .nojs .pagination .dropdown-container:hover a.dropdown-trigger {background: ' + boardBG + ' !important; border-color: #001752 !important; border-radius: 4px !important; box-shadow: inset 0 0 1px #FFF !important; color: ' + textColor + ' !important;}\
       .pagination li.active span {background: ' + boardHoverBG + ' !important; cursor: default !important;}\
       .pagination li a:hover {background: ' + boardBG + ' !important; color: ' + textColor + ' !important;}\
@@ -636,10 +638,10 @@
       #page-header a, #page-header label {color: #CCC !important;}\
       #page-header a:hover, #page-header label:hover {color: #FFF !important;}\
       #page-header > .headerbar {background: #42474F !important; border: 1px solid #000 !important; height: 88px !important;}\
-      .insertBtn {background: #4E545C url(https://raw.githubusercontent.com/srazzano/Images/master/insert.png) no-repeat center !important; border: 1px solid #000 !important; height: 26px !important;}\
-      .insertBtn:hover {background: #565D67 url(https://raw.githubusercontent.com/srazzano/Images/master/insert.png) no-repeat center !important;}\
-      .clearBtn {background: #4E545C url(https://raw.githubusercontent.com/srazzano/Images/master/clear.png) no-repeat center !important; border-top: 1px solid #000 !important; border-bottom: 1px solid #000 !important; height: 26px !important;}\
-      .clearBtn:hover {background: #565D67 url(https://raw.githubusercontent.com/srazzano/Images/master/clear.png) no-repeat center !important;}\
+      .insertBtn {background: #4E545C url(' + imgInsert + ') no-repeat center !important;}\
+      .insertBtn:hover {background: #565D67 url(' + imgInsert + ') no-repeat center !important;}\
+      .clearBtn {background: #4E545C url(' + imgClear + ') no-repeat center !important; border-top: 1px solid #000 !important; border-bottom: 1px solid #000 !important; height: 26px !important;}\
+      .clearBtn:hover {background: #565D67 url(' + imgClear + ') no-repeat center !important;}\
       .button.button-search {border: none !important; border-top: 1px solid #000 !important; border-bottom: 1px solid #000 !important;}\
       .button.button-search-end {border: 1px solid #000 !important; border-radius: 0 !important;}\
       #search-box {width: 301px !important;}\
