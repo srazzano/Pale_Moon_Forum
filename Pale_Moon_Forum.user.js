@@ -404,7 +404,7 @@
 
   if (customScrollbar) {
     if (!head.innerHTML.match('pycode')) GM_addStyle('\
-      ' + cssRule + ' {\
+      ' + cssRuleA + ' {\
         scrollbar {-moz-appearance: none !important;background: ' + boardHoverBG + ' !important;}\
         scrollbar > slider {-moz-appearance: none !important; background: ' + scrollbarSlider + ' !important; border-width: 0 !important; border-radius: 8px !important; box-shadow: none !important;}\
         scrollbar > slider > thumb {-moz-appearance: none !important; background: ' + scrollbarThumb + ' !important; border-width: 0 !important; border-radius: 10px !important; box-shadow: inset 0 0 2px #FFF !important;}\
@@ -419,7 +419,7 @@
       }\
     ');
     else GM_addStyle('\
-      ' + cssRule + ' {\
+      ' + cssRuleA + ' {\
         scrollbar {-moz-appearance: none !important; background: #000 !important;}\
         scrollbar > slider {-moz-appearance: none !important; background: rgba(0, 0, 0, .3) !important; border-width: 0 !important; border-radius: 8px !important; box-shadow: inset 0 0 1px 1px rgba(0, 0, 0, .3), inset 3px 3px 3px 3px rgba(0, 0, 0, .3), inset -3px -3px 6px 3px hsla(0, 0%, 70%, 0.70) !important;}\
         scrollbar > slider > thumb {-moz-appearance: none !important; background-color: rgba(0, 0, 0, .8) !important; border-width: 0 !important; border-radius: 10px !important; box-shadow: inset 0 0 1px 1px rgba(0, 0, 0, .3), inset -3px -3px 3px 3px rgba(0, 0, 0, .3), inset 5px 5px 5px 5px hsla(0, 0%, 90%, 0.80) !important;}\
