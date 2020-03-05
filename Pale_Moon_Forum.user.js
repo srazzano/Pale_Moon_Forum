@@ -401,37 +401,38 @@
     }\
   ');
 
-  if (customScrollbar && !head.innerHTML.match('pycode')) GM_addStyle('\
-    ' + cssRule + ' {\
-      scrollbar {-moz-appearance: none !important;background: ' + boardHoverBG + ' !important;}\
-      scrollbar > slider {-moz-appearance: none !important; background: ' + scrollbarSlider + ' !important; border-width: 0 !important; border-radius: 8px !important; box-shadow: none !important;}\
-      scrollbar > slider > thumb {-moz-appearance: none !important; background: ' + scrollbarThumb + ' !important; border-width: 0 !important; border-radius: 10px !important; box-shadow: inset 0 0 2px #FFF !important;}\
-      scrollbar[orient="vertical"] > slider > thumb {min-height: 35px !important;}\
-      scrollbar[orient="horizontal"] > slider > thumb {min-width: 35px !important;}\
-      scrollbar > slider > thumb:hover, scrollbar > slider > thumb:active {background: ' + scrollbarThumbHover + ' ! important;}\
-      scrollbar > scrollbarbutton {-moz-appearance: none !important; background: none !important; border: none !important;}\
-      scrollbar[orient="vertical"] > scrollbarbutton {min-height: 0 !important;}\
-      scrollbar[orient="horizontal"] > scrollbarbutton {min-width: 0 !important;}\
-      scrollbar[orient="vertical"] {padding-left: 0 !important;}\
-      scrollbar[orient="horizontal"] {padding-top: 0 !important;}\
-    }\
-  ');
-
-  if (customScrollbar && head.innerHTML.match('pycode')) GM_addStyle('\
-    ' + cssRule + ' {\
-      scrollbar {-moz-appearance: none !important; background: #000 !important;}\
-      scrollbar > slider {-moz-appearance: none !important; background: rgba(0, 0, 0, .3) !important; border-width: 0 !important; border-radius: 8px !important; box-shadow: inset 0 0 1px 1px rgba(0, 0, 0, .3), inset 3px 3px 3px 3px rgba(0, 0, 0, .3), inset -3px -3px 6px 3px hsla(0, 0%, 70%, 0.70) !important;}\
-      scrollbar > slider > thumb {-moz-appearance: none !important; background-color: rgba(0, 0, 0, .8) !important; border-width: 0 !important; border-radius: 10px !important; box-shadow: inset 0 0 1px 1px rgba(0, 0, 0, .3), inset -3px -3px 3px 3px rgba(0, 0, 0, .3), inset 5px 5px 5px 5px hsla(0, 0%, 90%, 0.80) !important;}\
-      scrollbar[orient="vertical"] > slider > thumb {min-height: 35px !important;}\
-      scrollbar[orient="horizontal"] > slider > thumb {min-width: 35px !important;}\
-      scrollbar > slider > thumb:hover, scrollbar > slider > thumb:active {box-shadow: inset 0 0 1px 0 rgba(255, 255, 255, .2), inset 0 0 2px 2px rgba(0, 0, 0, .2), inset -3px -3px 3px 3px rgba(0, 0, 0, .5), inset 5px 5px 6px 6px hsla(0, 0%, 100%, 0.90) !important;}\
-      scrollbar > scrollbarbutton {-moz-appearance: none !important; background: none !important; border: none !important;}\
-      scrollbar[orient="vertical"] > scrollbarbutton {min-height: 0 !important;}\
-      scrollbar[orient="horizontal"] > scrollbarbutton {min-width: 0 !important;}\
-      scrollbar[orient="vertical"] {padding-left: 0 !important;}\
-      scrollbar[orient="horizontal"] {padding-top: 0 !important;}\
-    }\
-  ');
+  if (customScrollbar) {
+    if (!head.innerHTML.match('pycode')) GM_addStyle('\
+      ' + cssRule + ' {\
+        scrollbar {-moz-appearance: none !important;background: ' + boardHoverBG + ' !important;}\
+        scrollbar > slider {-moz-appearance: none !important; background: ' + scrollbarSlider + ' !important; border-width: 0 !important; border-radius: 8px !important; box-shadow: none !important;}\
+        scrollbar > slider > thumb {-moz-appearance: none !important; background: ' + scrollbarThumb + ' !important; border-width: 0 !important; border-radius: 10px !important; box-shadow: inset 0 0 2px #FFF !important;}\
+        scrollbar[orient="vertical"] > slider > thumb {min-height: 35px !important;}\
+        scrollbar[orient="horizontal"] > slider > thumb {min-width: 35px !important;}\
+        scrollbar > slider > thumb:hover, scrollbar > slider > thumb:active {background: ' + scrollbarThumbHover + ' ! important;}\
+        scrollbar > scrollbarbutton {-moz-appearance: none !important; background: none !important; border: none !important;}\
+        scrollbar[orient="vertical"] > scrollbarbutton {min-height: 0 !important;}\
+        scrollbar[orient="horizontal"] > scrollbarbutton {min-width: 0 !important;}\
+        scrollbar[orient="vertical"] {padding-left: 0 !important;}\
+        scrollbar[orient="horizontal"] {padding-top: 0 !important;}\
+      }\
+    ');
+    else GM_addStyle('\
+      ' + cssRule + ' {\
+        scrollbar {-moz-appearance: none !important; background: #000 !important;}\
+        scrollbar > slider {-moz-appearance: none !important; background: rgba(0, 0, 0, .3) !important; border-width: 0 !important; border-radius: 8px !important; box-shadow: inset 0 0 1px 1px rgba(0, 0, 0, .3), inset 3px 3px 3px 3px rgba(0, 0, 0, .3), inset -3px -3px 6px 3px hsla(0, 0%, 70%, 0.70) !important;}\
+        scrollbar > slider > thumb {-moz-appearance: none !important; background-color: rgba(0, 0, 0, .8) !important; border-width: 0 !important; border-radius: 10px !important; box-shadow: inset 0 0 1px 1px rgba(0, 0, 0, .3), inset -3px -3px 3px 3px rgba(0, 0, 0, .3), inset 5px 5px 5px 5px hsla(0, 0%, 90%, 0.80) !important;}\
+        scrollbar[orient="vertical"] > slider > thumb {min-height: 35px !important;}\
+        scrollbar[orient="horizontal"] > slider > thumb {min-width: 35px !important;}\
+        scrollbar > slider > thumb:hover, scrollbar > slider > thumb:active {box-shadow: inset 0 0 1px 0 rgba(255, 255, 255, .2), inset 0 0 2px 2px rgba(0, 0, 0, .2), inset -3px -3px 3px 3px rgba(0, 0, 0, .5), inset 5px 5px 6px 6px hsla(0, 0%, 100%, 0.90) !important;}\
+        scrollbar > scrollbarbutton {-moz-appearance: none !important; background: none !important; border: none !important;}\
+        scrollbar[orient="vertical"] > scrollbarbutton {min-height: 0 !important;}\
+        scrollbar[orient="horizontal"] > scrollbarbutton {min-width: 0 !important;}\
+        scrollbar[orient="vertical"] {padding-left: 0 !important;}\
+        scrollbar[orient="horizontal"] {padding-top: 0 !important;}\
+      }\
+    ');
+  }
 
   GM_addStyle('\
     ' + cssRule + ' {\
