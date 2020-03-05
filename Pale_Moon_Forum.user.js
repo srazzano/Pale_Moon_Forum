@@ -20,7 +20,8 @@
   'use strict';
 
   const timerInterval = 10000,
-        cssRule = '/* AGENT_SHEET */ @-moz-document domain("forum.palemoon.org")',
+        cssRule = '@-moz-document domain("forum.palemoon.org")',
+        cssRuleA = ' /* AGENT_SHEET */ @-moz-document domain("forum.palemoon.org")',
         customCheckbox = true,
         customScrollbar = true,
         bodyBG = '#F0F0F0',
@@ -391,7 +392,7 @@
   } catch(ex) {}
 
   if (customCheckbox) GM_addStyle('\
-    ' + cssRule + ' {\
+    ' + cssRuleA + ' {\
       input.checkbox {-moz-appearance: none !important; border: 1px solid #FFF !important; border-radius: 3px !important; box-shadow: inset 0 0 2px #000 !important; height: 18px !important; width: 18px !important;}\
     }\
   ');
