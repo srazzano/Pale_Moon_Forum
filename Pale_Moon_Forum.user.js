@@ -20,8 +20,8 @@
   'use strict';
 
   const timerInterval = 10000,
-        cssRule = '@-moz-document domain("forum.palemoon.org")',
-        cssRuleA = '/* AGENT_SHEET */ @-moz-document domain("forum.palemoon.org")',
+        category = '/* AGENT_SHEET */',
+        domain = '@-moz-document domain("forum.palemoon.org")',
         customCheckbox = true,
         customScrollbar = true,
         bodyBG = '#F0F0F0',
@@ -349,7 +349,7 @@
 
   try {
     if (IconNotification.textContent != '0') GM_addStyle('\
-      ' + cssRule + ' {\
+      ' + domain + ' {\
         #notification_list_button {\
           -moz-appearance: none !important;\
           background: linear-gradient(#314984, #61B0FC) !important;\
@@ -367,7 +367,7 @@
     ');
 
     if (IconPM.textContent != '0') GM_addStyle('\
-      ' + cssRule + ' {\
+      ' + domain + ' {\
         .icon-pm > a {\
           -moz-appearance: none !important;\
           background: linear-gradient(#006300, #00CC00) !important;\
@@ -386,18 +386,18 @@
   } catch(ex) {}
 
   if (customCheckbox) GM_addStyle('\
-    ' + cssRuleA + ' {\
+    ' + category + domain + ' {\
       input.checkbox {-moz-appearance: none !important; border: 1px solid #FFF !important; border-radius: 3px !important; box-shadow: inset 0 0 2px #000 !important; height: 18px !important; width: 18px !important;}\
     }\
   ');
   else GM_addStyle('\
-    ' + cssRule + ' {\
+    ' + domain + ' {\
       input.checkbox {position: relative !important; top: 3px !important;}\
     }\
   ');
 
   if (customScrollbar) GM_addStyle('\
-    ' + cssRuleA + ' {\
+    ' + category + domain + ' {\
       scrollbar {-moz-appearance: none !important; background: #000 !important;}\
       scrollbar > slider {-moz-appearance: none !important; background: rgba(0, 0, 0, .3) !important; border-width: 0 !important; border-radius: 8px !important; box-shadow: inset 0 0 1px 1px rgba(0, 0, 0, .3), inset 3px 3px 3px 3px rgba(0, 0, 0, .3), inset -3px -3px 6px 3px hsla(0, 0%, 70%, 0.70) !important;}\
       scrollbar > slider > thumb {-moz-appearance: none !important; background-color: rgba(0, 0, 0, .8) !important; border-width: 0 !important; border-radius: 10px !important; box-shadow: inset 0 0 1px 1px rgba(0, 0, 0, .3), inset -3px -3px 3px 3px rgba(0, 0, 0, .3), inset 5px 5px 5px 5px hsla(0, 0%, 90%, 0.80) !important;}\
@@ -414,7 +414,7 @@
   ');
 
   GM_addStyle('\
-    ' + cssRule + ' {\
+    ' + domain + ' {\
       html {height: 100% !important;}\
       #page-header {-moz-user-select: none !important; position: fixed !important; top: 0 !important; width: 100% !important; z-index: 2147483646 !important;}\
       #page-header > .headerbar {border-radius: 0 0 8px 8px !important; margin: 0 !important; padding: 0 !important;}\
@@ -515,7 +515,7 @@
   ');
 
   if (!head.innerHTML.match('pycode')) GM_addStyle('\
-    ' + cssRule + ' {\
+    ' + domain + ' {\
       html, body {background: ' + bodyBG + ' !important;}\
       #page-header > .headerbar {background: ' + headerBG + ' !important; border: 1px solid #001752 !important; height: 83px !important;}\
       #site-description h1, #site-description p, #site-description span, #site-description a, #site-description i, #site-description span.username, #stats-footer > label, ul#nav-main span {color: ' + headerText + ' !important;}\
@@ -615,7 +615,7 @@
     }\
   ');
   else GM_addStyle('\
-    ' + cssRule + ' {\
+    ' + domain + ' {\
       #page-header a, #page-header label {color: #CCC !important;}\
       #page-header a:hover, #page-header label:hover {color: #FFF !important;}\
       #page-header > .headerbar {background: #42474F !important; border: 1px solid #000 !important; height: 88px !important;}\
