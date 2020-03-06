@@ -617,7 +617,7 @@
       #page-header a, #page-header label {color: #CCC !important;}\
       #page-header a:hover, #page-header label:hover {color: #FFF !important;}\
       #page-header > .headerbar {background: #42474F !important; border: 1px solid #000 !important; height: 88px !important;}\
-      .insertBtn {background: #4E545C url(' + imgInsert + ') no-repeat center !important;}\
+      .insertBtn {background: #4E545C url(' + imgInsert + ') no-repeat center !important; border: 1px solid #000 !important; height: 26px !important;}\
       .insertBtn:hover {background: #565D67 url(' + imgInsert + ') no-repeat center !important;}\
       .clearBtn {background: #4E545C url(' + imgClear + ') no-repeat center !important; border-top: 1px solid #000 !important; border-bottom: 1px solid #000 !important; height: 26px !important;}\
       .clearBtn:hover {background: #565D67 url(' + imgClear + ') no-repeat center !important;}\
