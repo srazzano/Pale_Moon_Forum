@@ -650,9 +650,12 @@
       li.row:hover {background-color: #191919 !important; border-color: #444 !important;}\
       li.row:hover .list-inner, li.row:hover .list-inner .forumtitle {color: #FFF !important;}\
       #page-body .forumbg2 {padding: 0 !important;}\
-      .stat-block.online-list {background: #42474F !important; margin: 10px 0 5px 0 !important; padding: 0 !important; width: 812px !important;}\
+      .stat-block.online-list {background: #202225 !important; margin: 10px 0 5px 0 !important; padding: 0 !important; width: 812px !important;}\
       .stat-block.online-list > h3 {border: none !important; margin: -5px 0 0 0 !important;padding: 5px 6px !important; text-decoration: none !important;}\
-      #nav-footer {background: #42474F !important; margin: 0 !important; padding: 0 8px 0 4px !important; width: 800px !important;}\
+      .stat-block.online-list:hover {background: #191919 !important;}\
+      .stat-block.online-list:hover p {color: #FFF !important;}\
+      #nav-footer {background: #202225 !important; margin: 0 !important; padding: 0 8px 0 4px !important; width: 800px !important;}\
+      #nav-footer:hover {background: #191919 !important;}\
       #utc:before {content: "\u2022" !important; font-family: monospace !important; font-size: 24px !important; position: relative !important; top: 3px !important;}\
       #viewfolder > DIV:first-child > DIV > FIELDSET > DIV > a, .jumpbox-return {font-size: ' + fontSize + ' !important; font-weight: bold !important; margin: 0px 0 3px 0 !important; padding: 3px 6px 3px 4px !important;}\
       a.top:hover i {color: #FFF !important;}\
