@@ -306,7 +306,7 @@
   } }
 
   if (pmforum) try {
-    var announ = $q('.forumbg.announcement'),
+    var announ = $q('.forumbg.announcement, .forumbg2.announcement'),
         ckBox4 = $c('input', {id: 'Board10', className: 'boardCB checkbox', type: 'checkbox'}, [{type: 'click', fn: function() {CollapseExpandBoards(this)}}]),
         bool4 = GM_getValue('Board10'),
         sty4 = bool4 ? 'block' : 'none';
@@ -640,7 +640,7 @@
       .button.button-secondary:not([class*="bbcode-"]) {padding: 3px 6px !important;}\
       .pagination li.active span {cursor: default !important;}\
       .forabg, .forumbg {margin: 0 0 5px 0 !important; padding: 4px 4px 3px 4px !important; position: relative !important;}\
-      .header {background: #111 !important;}\
+      .header {background: linear-gradient(#111, #333, #111) !important;}\
       li.header dt, li.header dd {color: #CCC !important;}\
       .forabg[opened="false"], .forumbg[opened="false"] {height: 17px !important; width: 310px !important;}\
       body.section-index #page-body > div:nth-child(4):hover > div > ul:first-child > li > dl > dt > div {cursor: default !important;}\
