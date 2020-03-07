@@ -509,6 +509,7 @@
       .action-bar.actions-jump {margin-bottom: 2px !important;}\
       #jumpbox span {margin: -3px 0 0 0 !important; text-decoration: none !important;}\
       .section-viewforum .jumpbox-return {margin-top: -2px !important;}\
+      #page-body .jumpbox-return {padding: 3px 6px 4px 4px !important;}\
       a.top {font-weight: bold !important; padding: 5px !important; text-decoration: none !important;}\
     }\
   ');
@@ -662,7 +663,7 @@
       #nav-footer {background: #202225 !important; margin: 0 !important; padding: 0 8px 0 4px !important; width: 800px !important;}\
       #nav-footer:hover {background: #191919 !important;}\
       #utc:before {content: "\u2022" !important; font-family: monospace !important; font-size: 24px !important; position: relative !important; top: 3px !important;}\
-      #viewfolder > DIV:first-child > DIV > FIELDSET > DIV > a, .jumpbox-return {font-size: ' + fontSize + ' !important; font-weight: bold !important; margin: 0px 0 3px 0 !important; padding: 3px 6px 3px 4px !important;}\
+      #viewfolder > DIV:first-child > DIV > FIELDSET > DIV > a, .jumpbox-return {font-size: ' + fontSize + ' !important; font-weight: bold !important; margin: 0px 0 3px 0 !important; padding: 3px 6px 4px 4px !important;}\
       .mark, .mark-read, .jumpbox-return {background: #565D67 !important; text-shadow: 1px 1px 2px #000 !important;}\
       .mark:hover, .mark-read:hover, .jumpbox-return:hover {background: #4E545C !important;}\
       a.top {padding: 4px !important;}\
