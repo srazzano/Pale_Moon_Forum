@@ -643,10 +643,14 @@
       .header {background: linear-gradient(#111, #333, #111) !important;}\
       li.header dt, li.header dd {color: #CCC !important;}\
       .forabg[opened="false"], .forumbg[opened="false"] {height: 17px !important; width: 310px !important;}\
+      .forumbg2.announcement[opened="false"] {width: 380px !important;}\
+      .forumbg2.announcement[opened="false"] .list-inner {display: inline-block !important;}\
+      .forumbg2.announcement[opened="false"] dd {display: none !important;}\
       body.section-index #page-body > div:nth-child(4):hover > div > ul:first-child > li > dl > dt > div {cursor: default !important;}\
       body.section-viewforum #page-body > div:nth-child(4):hover > div > UL:first-child > li > dl > dt > div {cursor: default !important;}\
       body.section-viewforum #page-body > div:nth-child(5):hover > div > UL:first-child > li > dl > dt > div {cursor: default !important;}\
       body.section-viewforum #page-body > div:nth-child(6):hover > div > UL:first-child > li > dl > dt > div {cursor: default !important;}\
+      #site-description, .row-item, .pagination {text-shadow: 1px 1px 2px #000 !important;}\
       li.row:hover {background-color: #191919 !important; border-color: #444 !important;}\
       li.row:hover .list-inner, li.row:hover .list-inner .forumtitle {color: #FFF !important;}\
       #page-body .forumbg2 {padding: 0 !important;}\
@@ -658,6 +662,8 @@
       #nav-footer:hover {background: #191919 !important;}\
       #utc:before {content: "\u2022" !important; font-family: monospace !important; font-size: 24px !important; position: relative !important; top: 3px !important;}\
       #viewfolder > DIV:first-child > DIV > FIELDSET > DIV > a, .jumpbox-return {font-size: ' + fontSize + ' !important; font-weight: bold !important; margin: 0px 0 3px 0 !important; padding: 3px 6px 3px 4px !important;}\
+      .mark, .mark-read, .jumpbox-return {background: #565D67 !important; text-shadow: 1px 1px 2px #000 !important;}\
+      .mark:hover, .mark-read:hover, .jumpbox-return:hover {background: #4E545C !important;}\
       a.top:hover i {color: #FFF !important;}\
       a.top:hover, .viewHideBtn:hover, .action-bar > a.button:hover, #ucp .panel a.mark:hover {color: #FFF !important;}\
       .stat-block.online-list .username-coloured {color: tan !important;}\
