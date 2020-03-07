@@ -415,7 +415,7 @@
     ' + mozDocument + ' {\
       html {height: 100% !important;}\
       #page-header {-moz-user-select: none !important; position: fixed !important; top: 0 !important; width: 100% !important; z-index: 2147483646 !important;}\
-      #page-header > .headerbar {border-radius: 0 0 8px 8px !important; margin: 0 !important; padding: 0 !important;}\
+      #page-header > .headerbar {border-radius: 0 !important; margin: 0 !important; padding: 0 !important;}\
       #page-header > .headerbar a, #hidestatsLabel, #hidefooterLabel {font-style: italic !important; font-weight: bold !important;}\
       #site-description ul.linklist li {margin: 0 5px 0 0 !important;}\
       #site-description > p {margin: 0 !important; padding: 0 !important;}\
@@ -472,6 +472,7 @@
       .action-bar > a.button > span, .action-bar > a.button > i {position: relative !important; top: 3px !important;}\
       .action-bar.bar-top button.button.button-search {height: 26px !important;}\
       .action-bar.bar-top a.button.button-search-end {padding: 3px 4px !important;}\
+      .mark-read.rightside:before, .mark[data-ajax]:before, .pagination > a:before {content: "\u2714" !important; margin-right: 6px !important;}\
       .mark-read.rightside {padding: 4px 6px 0 6px !important;}\
       .pagination > a {padding: 5px 6px !important; margin-bottom: 2px !important;}\
       .pagination > a.mark, .pagination > a.mark-read, .action-bar.bar-bottom .pagination a[data-ajax] {height: 21px !important; padding: 3px 6px 0 6px !important;}\
@@ -552,7 +553,7 @@
       input.button1, input.button2 {padding: 4px 6px !important;}\
       .viewHideBtn {height: 26px !important;}\
       .mark, .pagination > a, .advanced-search-link {background: ' + boardBG + ' !important; border: 1px solid #001752 !important; border-radius: 4px !important; box-shadow: inset 0 0 1px #FFF !important; color: ' + textColor + ' !important; font-size: ' + fontSize + ' !important; font-weight: bold !important; padding: 4px 6px !important; text-shadow: 1px 1px 2px #000 !important;}\
-      .mark-read.rightside:after, .mark[data-ajax]:after, .pagination > a:after {color: ' + textColor + ' !important; content: "\u2714" !important; margin-left: 6px !important;}\
+      .mark-read.rightside:before, .mark[data-ajax]:before, .pagination > a:before {color: ' + textColor + ' !important;}\
       .button.button-secondary:not([class*="bbcode-"]) {-moz-appearance: none !important; background: ' + boardBG + ' !important; border: 1px solid #001752 !important; border-radius: 4px !important; box-shadow: inset 0 0 1px #FFF !important; color: ' + textColor + ' !important; padding: 3px 6px !important; text-shadow: 1px 1px 2px #000 !important;}\
       .button.button-secondary .fa-fw {color: ' + textColor + ' !important;}\
       input.button1:hover, input.button2:hover, .button.button-secondary:not([class*="bbcode-"]):hover {background: ' + boardHoverBG + ' !important;}\
@@ -597,6 +598,7 @@
       #viewfolder .header dd.mark {background: none !important; border: none !important; color: #000 !important; text-shadow: none !important; }\
       #ucp .topiclist > .header > dl a, #ucp .row-item, #ucp .mark, #ucp span {background: none !important; border: none !important; color: #000 !important; cursor: default !important; text-decoration: none !important; text-shadow: none !important;}\
       .row-item.pm_read .mark {background: none !important; border: none !important;}\
+      a.top {padding: 4px !important;}\
       a.top i {color:#FFF !important;}\
       a.top:hover, .viewHideBtn:hover, .action-bar > a.button:hover, #ucp .panel a.mark:hover {background: ' + boardHoverBG + ' !important; color: ' + textHoverColor + ' !important;}\
       #quick-links .dropdown .pointer, #username_logged_in .dropdown .pointer {border-color: #001752 transparent !important;}\
@@ -636,7 +638,6 @@
       a.top, .viewHideBtn, .action-bar > a.button, #ucp .panel a.mark {cursor: pointer !important; font-size: ' + fontSize + ' !important; margin: 0 5px 0 0 !important; padding: 0 6px !important; text-shadow: 1px 1px 2px #000 !important;}\
       .viewHideBtn {background-color: #4E545C !important; border-color: #202225 !important; color: #CCC !important; height: 26px !important;}\
       .mark, .pagination > a, .advanced-search-link {font-size: ' + fontSize + ' !important; font-weight: bold !important; padding: 4px 6px !important;}\
-      .mark-read.rightside:after, .mark[data-ajax]:after, .pagination > a:after {content: "\u2714" !important; margin-left: 6px !important;}\
       .button.button-secondary:not([class*="bbcode-"]) {padding: 3px 6px !important;}\
       .pagination li.active span {cursor: default !important;}\
       .forabg, .forumbg {margin: 0 0 5px 0 !important; padding: 4px 4px 3px 4px !important; position: relative !important;}\
@@ -664,6 +665,7 @@
       #viewfolder > DIV:first-child > DIV > FIELDSET > DIV > a, .jumpbox-return {font-size: ' + fontSize + ' !important; font-weight: bold !important; margin: 0px 0 3px 0 !important; padding: 3px 6px 3px 4px !important;}\
       .mark, .mark-read, .jumpbox-return {background: #565D67 !important; text-shadow: 1px 1px 2px #000 !important;}\
       .mark:hover, .mark-read:hover, .jumpbox-return:hover {background: #4E545C !important;}\
+      a.top {padding: 4px !important;}\
       a.top:hover i {color: #FFF !important;}\
       a.top:hover, .viewHideBtn:hover, .action-bar > a.button:hover, #ucp .panel a.mark:hover {color: #FFF !important;}\
       .stat-block.online-list .username-coloured {color: tan !important;}\
