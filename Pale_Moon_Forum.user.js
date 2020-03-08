@@ -332,6 +332,7 @@
         clr = $c('button', {id: 'clearBtn2', className: 'clearBtn insclrBtn', title: clearField}, [{type: 'click', fn: function() {pmsearch ? $('#add_keywords').value = '' : $('#search_keywords').value = ''}}]);
     srch.insertBefore(clr, srch.firstChild);
     srch.insertBefore(inst, srch.firstChild);
+    var buf = $q('.postbody', true);
   } catch(ex) {}
 
   try {
@@ -443,8 +444,9 @@
       #aSep {margin: 0 6px !important;}\
       .insclrBtn {-moz-appearance: none !important; filter: grayscale(1) !important; float: left !important; width: 29px !important;}\
       .insclrBtn:hover { filter: none !important;}\
-      #search-box {border: none !important; float: right !important; margin: -58px 3px 0 0 !important;}\
-      .search-box {width: 301px !important;}\
+      #search-box {border: none !important; float: right !important; margin: -58px 0 0 0 !important;}\
+      .search-box {width: 308px !important;}\
+      .search-box i {font-size: 16px !important;}\
       .search-header {margin-top: 30px !important;}\
       .search-box button.search-icon, .search-box a.button {padding: 3px 4px 1px 2px !important;}\
       .advanced-search-link { margin: 7px 0 0 0 !important;}\
@@ -528,7 +530,6 @@
       .clearBtn:hover {background: url(' + imgClear + ') no-repeat center, linear-gradient(#E9E9E9, #FFFFFF) !important;}\
       #page-body .insertBtn {border: 1px solid #C7C3BF !important; height: 26px !important;}\
       #page-body .clearBtn {border: 1px solid #C7C3BF !important; border-left: none !important; border-right: none !important; height: 26px !important;}\
-      #search-box {width: 298px !important;}\
       #keywords, #add_keywords {border-radius: 0 !important; width: 181px !important;}\
       #search_keywords, #add_keywords {border-radius: 0 !important; color: #000 !important; height: 26px !important; width: 181px !important;}\
       #nav-main a, #nav-main span, #viewfolder .mark {color: ' + textColor + ' !important; text-shadow: 1px 1px 2px #000 !important;}\
@@ -582,7 +583,7 @@
       .row:hover {background-color: ' + rowHover + ' !important;}\
       .forumbg li[locked] {background: ' + lockedBG + ' !important;}\
       .forumbg li[locked]:hover {background: ' + lockedHoverBG + ' !important;}\
-      .stat-block.online-list {border: 5px solid #001752 !important; border-radius: 6px 6px 12px 12px !important; margin-bottom: 5px !important; padding: 0 !important; width: 800px !important;}\
+      .stat-block.online-list {background: #F0F4F9 !important; border: 5px solid #001752 !important; border-radius: 6px 6px 12px 12px !important; margin-bottom: 5px !important; padding: 0 !important; width: 800px !important;}\
       .stat-block.online-list > h3 {background: ' + boardHoverBG + ' !important; border: none !important; margin: -5px 0 0 0 !important;padding: 5px 6px !important; text-decoration: none !important; text-shadow: 1px 1px 2px #000 !important;}\
       .stat-block.online-list > h3 > a {color: ' + textColor + ' !important; display: block !important;}\
       #page-body > DIV:last-child > DIV > P > STRONG * {color: #000  !important;}\
@@ -626,7 +627,6 @@
       .clearBtn:hover {background: #565D67 url(' + imgClear + ') no-repeat center !important;}\
       .button.button-search {border: none !important; border-top: 1px solid #000 !important; border-bottom: 1px solid #000 !important;}\
       .button.button-search-end {border: 1px solid #000 !important; border-radius: 0 !important;}\
-      #search-box {width: 301px !important;}\
       #keywords, #search_keywords, #add_keywords {border: 1px solid #000 !important; border-radius: 0 !important; height: 26px !important; width: 181px !important;}\
       #hidefooter:hover + #hidefooterLabel, #hidefooterLabel:hover, #hidestats:hover + #hidestatsLabel, #hidestatsLabel:hover {color: #FFF !important;}\
       #quick-links .dropdown-contents {min-height: 320px !important; width: 180px !important;}\
