@@ -67,6 +67,7 @@
 
   var timer,
       head = $q('HEAD'),
+      body = $q('BODY'),
       ActionBar = $('.action-bar', $('#page-body'), 1),
       Link0 = $c('a', {id: 'aLink0', textContent: linkNewTab.toUpperCase()}, [{type: 'click', fn: function() {window.open(Url1, '_blank')}}]),
       Label0 = $n('text', {textContent: textBracket}),
@@ -218,6 +219,9 @@
   if (!GM_getValue('Board8')) GM_setValue('Board8', false);
   if (!GM_getValue('Board9')) GM_setValue('Board9', false);
   if (!GM_getValue('Board10')) GM_setValue('Board10', false);
+
+  if (head.innerHTML.match('pycode')) body.setAttribute('class', 'pycode ' + body.getAttribute('class'));
+  else body.setAttribute('class', 'prosilver ' + body.getAttribute('class'));
 
   try {
     SiteDescriptionP.innerHTML = SiteDescriptionP.innerHTML.replace('Visit the', '').replace('Discussion forum for the Pale Moon web browser', '').replace(/\(or\s+in/, '(in').replace(/\sa\s/g, ' ');
@@ -444,7 +448,7 @@
       #aSep {margin: 0 6px !important;}\
       .insclrBtn {-moz-appearance: none !important; filter: grayscale(1) !important; float: left !important; width: 29px !important;}\
       .insclrBtn:hover { filter: none !important;}\
-      #search-box {border: none !important; float: right !important; margin: -58px 0 0 0 !important;}\
+      #search-box {border: none !important; float: right !important; margin: -58px -2px 0 0 !important;}\
       .search-box {width: 308px !important;}\
       .search-box i {font-size: 16px !important;}\
       .search-header {margin-top: 30px !important;}\
@@ -516,7 +520,7 @@
     }\
   ');
 
-  if (!head.innerHTML.match('pycode')) GM_addStyle('\
+  if ($q('BODY.prosilver')) GM_addStyle('\
     ' + mozDocument + ' {\
       html, body {background: ' + bodyBG + ' !important;}\
       #page-header > .headerbar {background: ' + headerBG + ' !important; border: 1px solid #001752 !important; height: 83px !important;}\
