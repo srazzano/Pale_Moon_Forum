@@ -21,6 +21,7 @@
 
   const sheetType = '/* AGENT_SHEET */',
         mozDocument = '@-moz-document domain(forum.palemoon.org)',
+        sheetDomain = sheetType + mozDocument,
         timerInterval = 10000,
         customCheckbox = true,
         customScrollbar = true,
@@ -322,7 +323,7 @@
       announ.childNodes[2].lastElementChild.style.display = sty4;
     }
   } catch(ex) {}
-  
+
   try {
     var lock = $q('.forumbg dt', true);
     for (var i = 0; i < lock.length; i++) {
@@ -390,7 +391,7 @@
   } catch(ex) {}
 
   if (customCheckbox) GM_addStyle('\
-    ' + sheetType + mozDocument + ' {\
+    ' + sheetDomain + ' {\
       input.checkbox {-moz-appearance: none !important; border: 1px solid #FFF !important; border-radius: 3px !important; box-shadow: inset 0 0 2px #000 !important; height: 18px !important; width: 18px !important;}\
     }\
   ');
@@ -401,7 +402,7 @@
   ');
 
   if (customScrollbar) GM_addStyle('\
-    ' + sheetType + mozDocument + ' {\
+    ' + sheetDomain + ' {\
       scrollbar {-moz-appearance: none !important; background: #000 !important;}\
       scrollbar > slider {-moz-appearance: none !important; background: rgba(0, 0, 0, .3) !important; border-width: 0 !important; border-radius: 8px !important; box-shadow: inset 0 0 1px 1px rgba(0, 0, 0, .3), inset 3px 3px 3px 3px rgba(0, 0, 0, .3), inset -3px -3px 6px 3px hsla(0, 0%, 70%, 0.70) !important;}\
       scrollbar > slider > thumb {-moz-appearance: none !important; background-color: rgba(0, 0, 0, .8) !important; border-width: 0 !important; border-radius: 10px !important; box-shadow: inset 0 0 1px 1px rgba(0, 0, 0, .3), inset -3px -3px 3px 3px rgba(0, 0, 0, .3), inset 5px 5px 5px 5px hsla(0, 0%, 90%, 0.80) !important;}\
