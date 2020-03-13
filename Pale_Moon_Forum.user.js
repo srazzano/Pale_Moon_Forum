@@ -31,9 +31,9 @@
         headerText = '#FFFFFF',
         boardBG = 'linear-gradient(#4D85CA, #314A85)',
         boardHoverBG = '#001752',
+        rowHover = '#FFFFFF',
         lockedBG = '#EED9D9',
         lockedHoverBG = '#FFEAEA',
-        rowHover = '#FFFFFF',
         textColor = '#FFFFFF',
         textHoverColor = '#FFFFFF',
         imgInsert = 'data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAY0lEQVR42mNkwAcy1/0H09ODGHEpYSRogEEgA8OF9TgNIc4AEMBhCPEG4DCENAOwGMIIDyhcAN0ANEMYsdpCDIAaQr4BUEMG0AAUL1AUiPgAUdFIigEUJSSKkjJFmQkE8GRnACyoSj2cch09AAAAAElFTkSuQmCC',
@@ -401,7 +401,24 @@
     }\
   ');
 
-  if (customScrollbar) GM_addStyle('\
+  if (customScrollbar && $q('BODY.prosilver')) GM_addStyle('\
+    ' + sheetDomain + ' {\
+      scrollbar {-moz-appearance: none !important; background: #001752 !important;}\
+      scrollbar > slider {-moz-appearance: none !important; background: #001752 !important; border-width: 0 !important; border-radius: 8px !important; box-shadow: inset 0 0 1px 1px rgba(0, 0, 0, .3), inset 3px 3px 3px 3px rgba(0, 0, 0, .3), inset -3px -3px 6px 3px hsla(0, 0%, 70%, 0.70) !important;}\
+      scrollbar > slider > thumb {-moz-appearance: none !important; background: #4D85CA !important; border-width: 0 !important; border-radius: 10px !important; box-shadow: inset 0 0 1px 1px rgba(0, 0, 0, .3), inset -3px -3px 3px 3px rgba(0, 0, 0, .3), inset 5px 5px 5px 5px hsla(0, 0%, 90%, 0.80) !important;}\
+      scrollbar[orient="vertical"] > slider > thumb {min-height: 35px !important;}\
+      scrollbar[orient="horizontal"] > slider > thumb {min-width: 35px !important;}\
+      scrollbar > slider > thumb:hover, scrollbar > slider > thumb:active {box-shadow: inset 0 0 1px 0 rgba(255, 255, 255, .5), inset 0 0 2px 2px rgba(0, 0, 0, .5), inset -3px -3px 3px 3px rgba(0, 0, 0, .5), inset 5px 5px 6px 6px hsla(0, 0%, 100%, 0.90) !important;}\
+      scrollbar > scrollbarbutton {-moz-appearance: none !important; background: none !important; border: none !important;}\
+      scrollbar[orient="vertical"] > scrollbarbutton {min-height: 0 !important;}\
+      scrollbar[orient="horizontal"] > scrollbarbutton {min-width: 0 !important;}\
+      scrollbar[orient="vertical"] {padding-left: 0 !important;}\
+      scrollbar[orient="horizontal"] {padding-top: 0 !important;}\
+      scrollbar-corner {display: none !important;}\
+    }\
+  ');
+
+  if (customScrollbar && $q('BODY.pycode')) GM_addStyle('\
     ' + sheetDomain + ' {\
       scrollbar {-moz-appearance: none !important; background: #000 !important;}\
       scrollbar > slider {-moz-appearance: none !important; background: rgba(0, 0, 0, .3) !important; border-width: 0 !important; border-radius: 8px !important; box-shadow: inset 0 0 1px 1px rgba(0, 0, 0, .3), inset 3px 3px 3px 3px rgba(0, 0, 0, .3), inset -3px -3px 6px 3px hsla(0, 0%, 70%, 0.70) !important;}\
