@@ -207,7 +207,8 @@
       pmforum = url.match('https://forum.palemoon.org/viewforum'),
       pmtopic = url.match('https://forum.palemoon.org/viewtopic'),
       pmsearch = url.match('https://forum.palemoon.org/search'),
-      pmucp = url.match('https://forum.palemoon.org/ucp');
+      pmucp = url.match('https://forum.palemoon.org/ucp'),
+      pmapp = url.match('https://forum.palemoon.org/app');
 
   if (!GM_getValue('hidestats')) GM_setValue('hidestats', false);
   if (!GM_getValue('hidefooter')) GM_setValue('hidefooter', false);
@@ -401,24 +402,7 @@
     }\
   ');
 
-  if (customScrollbar && $q('BODY.prosilver')) GM_addStyle('\
-    ' + sheetDomain + ' {\
-      scrollbar {-moz-appearance: none !important; background: #001752 !important;}\
-      scrollbar > slider {-moz-appearance: none !important; background: #001752 !important; border-width: 0 !important; border-radius: 8px !important; box-shadow: inset 0 0 1px 1px rgba(0, 0, 0, .3), inset 3px 3px 3px 3px rgba(0, 0, 0, .3), inset -3px -3px 6px 3px hsla(0, 0%, 70%, 0.70) !important;}\
-      scrollbar > slider > thumb {-moz-appearance: none !important; background: #4D85CA !important; border-width: 0 !important; border-radius: 10px !important; box-shadow: inset 0 0 1px 1px rgba(0, 0, 0, .3), inset -3px -3px 3px 3px rgba(0, 0, 0, .3), inset 5px 5px 5px 5px hsla(0, 0%, 90%, 0.80) !important;}\
-      scrollbar[orient="vertical"] > slider > thumb {min-height: 35px !important;}\
-      scrollbar[orient="horizontal"] > slider > thumb {min-width: 35px !important;}\
-      scrollbar > slider > thumb:hover, scrollbar > slider > thumb:active {box-shadow: inset 0 0 1px 0 rgba(255, 255, 255, .5), inset 0 0 2px 2px rgba(0, 0, 0, .5), inset -3px -3px 3px 3px rgba(0, 0, 0, .5), inset 5px 5px 6px 6px hsla(0, 0%, 100%, 0.90) !important;}\
-      scrollbar > scrollbarbutton {-moz-appearance: none !important; background: none !important; border: none !important;}\
-      scrollbar[orient="vertical"] > scrollbarbutton {min-height: 0 !important;}\
-      scrollbar[orient="horizontal"] > scrollbarbutton {min-width: 0 !important;}\
-      scrollbar[orient="vertical"] {padding-left: 0 !important;}\
-      scrollbar[orient="horizontal"] {padding-top: 0 !important;}\
-      scrollbar-corner {display: none !important;}\
-    }\
-  ');
-
-  if (customScrollbar && $q('BODY.pycode')) GM_addStyle('\
+  if (customScrollbar) GM_addStyle('\
     ' + sheetDomain + ' {\
       scrollbar {-moz-appearance: none !important; background: #000 !important;}\
       scrollbar > slider {-moz-appearance: none !important; background: rgba(0, 0, 0, .3) !important; border-width: 0 !important; border-radius: 8px !important; box-shadow: inset 0 0 1px 1px rgba(0, 0, 0, .3), inset 3px 3px 3px 3px rgba(0, 0, 0, .3), inset -3px -3px 6px 3px hsla(0, 0%, 70%, 0.70) !important;}\
@@ -447,7 +431,7 @@
       #site-description {margin: 0 !important; padding: 0 !important; width: 100% !important;}\
       #site-description br, #page-body h2, .rules, .copyright {display: none !important;}\
       .advanced-search-link span#aBull {display: none !important;}\
-      body.section-viewforum #page-body > div:nth-child(2) > P {display: none !important;}\
+      #page-body > DIV:nth-child(3), #phpbb_announcement, body.section-viewforum #page-body > div:nth-child(2) > P {display: none !important;}\
       body.section-viewtopic #page-body > P {display: none !important;}\
       .rightside.responsive-search {display: none !important;}\
       #page-body > p {display: none !important;}\
@@ -536,6 +520,9 @@
       .section-viewforum .jumpbox-return {margin-top: -2px !important;}\
       #page-body .jumpbox-return {padding: 3px 6px 4px 4px !important;}\
       a.top {font-weight: bold !important; padding: 5px !important; text-decoration: none !important;}\
+      #viewfolder > DIV:first-child > DIV > FIELDSET > DIV:last-child {margin-top: 5px !important;}\
+      BODY[class*="section-app/rules"] #phpbb_announcement, BODY[class*="section-app/rules"] #page-body > DIV:last-child, BODY[class*="section-app/rules"] #page-footer {display: -moz-box !important;}\
+      #nav-footer #utc {position: relative !important; top: -2px !important;}\
     }\
   ');
 
