@@ -432,6 +432,7 @@
       #site-description br, #page-body h2, .rules, .copyright {display: none !important;}\
       .advanced-search-link span#aBull {display: none !important;}\
       #page-body > DIV:nth-child(3), #phpbb_announcement, body.section-viewforum #page-body > div:nth-child(2) > P {display: none !important;}\
+      body.section-index #page-body > DIV:nth-child(3) {display: -moz-box !important;}\
       body.section-viewtopic #page-body > P {display: none !important;}\
       .rightside.responsive-search {display: none !important;}\
       #page-body > p {display: none !important;}\
@@ -593,6 +594,7 @@
       .row:hover {background-color: ' + rowHover + ' !important;}\
       .forumbg li[locked] {background: ' + lockedBG + ' !important;}\
       .forumbg li[locked]:hover {background: ' + lockedHoverBG + ' !important;}\
+      .stat-block.online-list {color: #000 !important;}\
       .stat-block.online-list {background: #F0F4F9 !important; border: 5px solid #001752 !important; border-radius: 6px 6px 12px 12px !important; margin-bottom: 5px !important; padding: 0 !important; width: 800px !important;}\
       .stat-block.online-list > h3 {background: ' + boardHoverBG + ' !important; border: none !important; margin: -5px 0 0 0 !important;padding: 5px 6px !important; text-decoration: none !important; text-shadow: 1px 1px 2px #000 !important;}\
       .stat-block.online-list > h3 > a {color: ' + textColor + ' !important; display: block !important;}\
